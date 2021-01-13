@@ -20,4 +20,7 @@
 #include <limits>
 #include <sstream>
 #include <stack>
+#include <stdint.h>
+// custom
+#include "core/Types.hpp"
 #endif
