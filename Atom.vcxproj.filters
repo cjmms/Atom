@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="builds">
+      <UniqueIdentifier>{E831F9F4-D4D3-23CB-BD8E-371FA9CFAA1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows">
+      <UniqueIdentifier>{42DCB565-2EAA-A96B-173E-1A9203AB85D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin">
+      <UniqueIdentifier>{EAA109CA-D685-CA1F-3FE6-C4722BE9B4A1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64">
+      <UniqueIdentifier>{D402A27C-4092-6367-498E-447FB59C9E73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom">
+      <UniqueIdentifier>{D407314E-C01A-31A7-6904-0E9455F6CDF4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int">
+      <UniqueIdentifier>{42019718-2EFB-BF6A-1768-567B030126D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Debug-windows-x86_64">
+      <UniqueIdentifier>{2C693A00-98CE-CD86-21A7-6F5F8D0BC3F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Debug-windows-x86_64\Atom">
+      <UniqueIdentifier>{2C253F8C-18CE-A6BB-4164-C23A2D6CC1FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog">
+      <UniqueIdentifier>{F0D9C23A-DC99-53DF-45B7-3BEA319666F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3C8C880B-A895-887C-3111-9F7C9D19947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLEW">
+      <UniqueIdentifier>{DA4C30A2-C619-8BAD-EF32-7955DB5EC03B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLEW\include">
+      <UniqueIdentifier>{4DAE41F0-39A7-6042-62D9-45C74E31404E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLEW\include\GL">
+      <UniqueIdentifier>{8FF835F4-FB59-1302-84C7-59B4F0274AC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLEW\lib">
+      <UniqueIdentifier>{00C9FAA8-EC2B-8A4D-95B1-C20381F355D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLFW">
+      <UniqueIdentifier>{FB4C30A2-E719-8BAD-1033-7955FC5EC03B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLFW\include">
+      <UniqueIdentifier>{6E3F4CF4-5A38-6B46-836A-50CB6FC24A52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLFW\include\GLFW">
+      <UniqueIdentifier>{6DCFDD7C-D93B-9977-A22F-31D50E5BBBDF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\GLFW\lib-vc2019">
+      <UniqueIdentifier>{33D2962D-9F33-743B-28A1-BAED9401ABFA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm">
+      <UniqueIdentifier>{8BD44779-F7B3-C614-00CC-51EB6C2A2D76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm">
+      <UniqueIdentifier>{5AAC00CB-C661-79C0-4F56-7397BB0A70C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm\detail">
+      <UniqueIdentifier>{DCFAC5C7-C8DE-861D-313F-81701D42719F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm\ext">
+      <UniqueIdentifier>{BACCEE79-2658-5C3E-2F69-DF329B73B83E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm\gtc">
+      <UniqueIdentifier>{A7D4EE79-1360-5C3E-1C71-DF32887BB83E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm\gtx">
+      <UniqueIdentifier>{BCD4EE79-2860-5C3E-3171-DF329D7BB83E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\glm\glm\simd">
+      <UniqueIdentifier>{F6D0CFB7-E2C9-EE09-0BFC-D38EF753CE15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Atom\lib\GLEW\include\GL\eglew.h">
+      <Filter>lib\GLEW\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\GLEW\include\GL\glew.h">
+      <Filter>lib\GLEW\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\GLEW\include\GL\glxew.h">
+      <Filter>lib\GLEW\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\GLEW\include\GL\wglew.h">
+      <Filter>lib\GLEW\include\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\GLFW\include\GLFW\glfw3.h">
+      <Filter>lib\GLFW\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\GLFW\include\GLFW\glfw3native.h">
+      <Filter>lib\GLFW\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\common.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_features.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_fixes.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_noise.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_swizzle.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_swizzle_func.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\_vectorize.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\compute_common.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\compute_vector_relational.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_common.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_common_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_exponential.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_exponential_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_geometric.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_geometric_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_integer.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_integer_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_matrix.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_matrix_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_packing.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_packing_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_trigonometric.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_trigonometric_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_vector_relational.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\func_vector_relational_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\qualifier.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\setup.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_float.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_half.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_half.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x2.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x2.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x3.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x3.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x4.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat2x4.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x2.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x2.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x3.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x3.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x4.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat3x4.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x2.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x2.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x3.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x3.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x4.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x4.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_mat4x4_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_quat.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_quat.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_quat_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec1.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec1.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec2.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec2.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec3.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec3.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec4.hpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec4.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\detail\type_vec4_simd.inl">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\exponential.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_clip_space.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_clip_space.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_common.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_common.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double2x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double3x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_double4x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float2x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float3x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_float4x4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int2x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int3x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_int4x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_projection.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_projection.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_relational.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_relational.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_transform.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_transform.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint2x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint3x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\matrix_uint4x4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_common.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_common.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_common_simd.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_double.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_double_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_exponential.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_exponential.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_float.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_float_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_geometric.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_geometric.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_relational.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_relational.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_transform.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_transform.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_trigonometric.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\quaternion_trigonometric.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_common.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_common.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_constants.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_constants.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_int_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_integer.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_integer.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_packing.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_packing.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_relational.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_relational.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_uint_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_ulp.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\scalar_ulp.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool1.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool1_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_bool4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_common.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_common.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double1.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double1_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_double4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float1.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float1_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float2_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float3_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_float4_precision.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int1.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int1_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_int4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_integer.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_integer.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_packing.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_packing.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_relational.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_relational.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint1.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint1_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint2.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint2_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint3.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint3_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint4.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_uint4_sized.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_ulp.hpp">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\ext\vector_ulp.inl">
+      <Filter>lib\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\fwd.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\geometric.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\glm.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\bitfield.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\bitfield.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\color_space.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\color_space.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\constants.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\constants.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\epsilon.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\epsilon.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\integer.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\integer.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_access.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_access.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_integer.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_inverse.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_inverse.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_transform.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\matrix_transform.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\noise.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\noise.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\packing.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\packing.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\quaternion.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\quaternion.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\quaternion_simd.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\random.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\random.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\reciprocal.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\reciprocal.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\round.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\round.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\type_aligned.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\type_precision.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\type_precision.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\type_ptr.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\type_ptr.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\ulp.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\ulp.inl">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtc\vec1.hpp">
+      <Filter>lib\glm\glm\gtc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\associated_min_max.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\associated_min_max.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\bit.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\bit.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\closest_point.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\closest_point.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_encoding.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_encoding.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_space.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_space.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_space_YCoCg.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\color_space_YCoCg.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\common.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\common.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\compatibility.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\compatibility.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\component_wise.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\component_wise.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\dual_quaternion.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\dual_quaternion.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\easing.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\easing.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\euler_angles.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\euler_angles.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\extend.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\extend.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\extended_min_max.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\extended_min_max.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\exterior_product.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\exterior_product.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_exponential.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_exponential.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_square_root.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_square_root.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_trigonometry.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\fast_trigonometry.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\float_notmalize.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\functions.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\functions.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\gradient_paint.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\gradient_paint.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\handed_coordinate_space.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\handed_coordinate_space.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\hash.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\hash.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\integer.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\integer.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\intersect.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\intersect.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\io.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\io.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\log_base.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\log_base.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_cross_product.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_cross_product.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_decompose.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_decompose.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_factorisation.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_factorisation.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_interpolation.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_interpolation.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_major_storage.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_major_storage.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_operation.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_operation.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_query.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_query.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_transform_2d.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\matrix_transform_2d.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\mixed_product.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\mixed_product.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\norm.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\norm.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\normal.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\normal.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\normalize_dot.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\normalize_dot.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\number_precision.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\number_precision.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\optimum_pow.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\optimum_pow.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\orthonormalize.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\orthonormalize.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\perpendicular.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\perpendicular.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\polar_coordinates.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\polar_coordinates.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\projection.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\projection.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\quaternion.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\quaternion.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\range.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\raw_data.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\raw_data.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\rotate_normalized_axis.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\rotate_normalized_axis.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\rotate_vector.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\rotate_vector.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\scalar_multiplication.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\scalar_relational.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\scalar_relational.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\spline.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\spline.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\std_based_type.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\std_based_type.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\string_cast.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\string_cast.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\texture.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\texture.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\transform.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\transform.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\transform2.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\transform2.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\type_aligned.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\type_aligned.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\type_trait.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\type_trait.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\vec_swizzle.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\vector_angle.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\vector_angle.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\vector_query.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\vector_query.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\wrap.hpp">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\gtx\wrap.inl">
+      <Filter>lib\glm\glm\gtx</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\integer.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat2x2.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat2x3.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat2x4.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat3x2.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat3x3.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat3x4.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat4x2.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat4x3.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\mat4x4.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\matrix.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\packing.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\common.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\exponential.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\geometric.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\integer.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\matrix.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\neon.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\packing.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\platform.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\trigonometric.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\simd\vector_relational.h">
+      <Filter>lib\glm\glm\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\trigonometric.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\vec2.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\vec3.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\vec4.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp">
+      <Filter>lib\glm\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\Pch.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
+      <Filter>lib\glm\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\Application.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\Pch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Pch.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.idb">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\lib\GLEW\lib\glew32s.lib">
+      <Filter>lib\GLEW\lib</Filter>
+    </None>
+    <None Include="Atom\lib\GLFW\lib-vc2019\glfw3.lib">
+      <Filter>lib\GLFW\lib-vc2019</Filter>
+    </None>
+    <None Include="Atom\lib\glm\glm\CMakeLists.txt">
+      <Filter>lib\glm\glm</Filter>
+    </None>
+  </ItemGroup>
+</Project>
