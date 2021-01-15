@@ -2,15 +2,22 @@
 
 Renderer::Renderer()
 {
+	// init shaders
 	basic = new Shader("res/test.shader");
+
+	// setup shapes
+	RecSetup();
+}
+
+Renderer::~Renderer()
+{
+	delete basic;
 }
 
 
-
-void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
+void Renderer::RecSetup()
 {
-	basic->Bind();
-	unsigned int VBO, VAO, EBO;
+	unsigned int VBO, EBO;
 
 	float vertices[] = {
 		0.5f,  0.5f, 0.0f,  // top right
@@ -25,8 +32,8 @@ void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
 	};
 
 	// VAO
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
+	glGenVertexArrays(1, &Rec_VAO);
+	glBindVertexArray(Rec_VAO);
 
 	// VBO
 	glGenBuffers(1, &VBO);
@@ -40,14 +47,18 @@ void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+}
 
 
+void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
+{
 	basic->setVec2("pos", pos);
 	basic->setVec2("scale", scale);
+	basic->setVec3("color", color);
 
-	glBindVertexArray(VAO);
+	basic->Bind();
+	glBindVertexArray(Rec_VAO);
 
 	// The last arg is 0 since we do provide an EBO
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
 }

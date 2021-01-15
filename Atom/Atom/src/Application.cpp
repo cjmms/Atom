@@ -35,10 +35,12 @@ int main(void)
 
     Renderer renderer;
 
-    glm::vec2 pos(0.0, 0.0);
+    glm::vec2 pos(0.2, 0.0);
     glm::vec2 scale(0.6, 0.3);
     glm::vec3 color(0.2, 0.4, 0.8);
 
+    renderer.EnableFrameWireMode();
+    renderer.DisableFrameWireMode();
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {

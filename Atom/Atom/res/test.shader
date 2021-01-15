@@ -7,9 +7,13 @@ uniform vec2 pos;
 
 void main()
 {
+	// make sure the left top vertex is at origin
 	vec2 position = vec2( abs(aPos.x), -abs(aPos.y)) + aPos.xy;
+
+	// scale
 	position = scale * position;
 
+	// translate
 	position = pos + position;
 
 	gl_Position = vec4(position, 0.0, 1.0);
@@ -19,8 +23,9 @@ void main()
 #version 430 core
 out vec4 FragColor;
 
+uniform vec3 color;
 
 void main()
 {
-	FragColor = vec4(1.0, 0.4, 0.6, 1.0f);
+	FragColor = vec4(color, 1.0f);
 }
