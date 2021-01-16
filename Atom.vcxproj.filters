@@ -1356,6 +1356,7 @@
     <ClInclude Include="Atom\src\Pch.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">

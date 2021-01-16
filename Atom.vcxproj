@@ -520,6 +520,7 @@
     <ClInclude Include="Atom\lib\glm\glm\vec3.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vec4.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
   </ItemGroup>
   <ItemGroup>
