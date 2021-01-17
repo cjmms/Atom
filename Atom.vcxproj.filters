@@ -76,8 +76,41 @@
     <Filter Include="lib\glm\glm\simd">
       <UniqueIdentifier>{F6D0CFB7-E2C9-EE09-0BFC-D38EF753CE15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\nlohmann">
+      <UniqueIdentifier>{C6EB97A9-B24E-274E-5BD4-5F044716F3D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog">
+      <UniqueIdentifier>{F4C0B658-E078-F8A5-4980-D10135579396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include">
+      <UniqueIdentifier>{679C9F04-5380-605A-BCE0-5AADA8E34ADC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog">
+      <UniqueIdentifier>{BF924A1E-2B55-7EA8-7405-0D35E0065786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog\cfg">
+      <UniqueIdentifier>{BE52DF92-2A6B-C6BC-F317-56565FEF5A56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog\details">
+      <UniqueIdentifier>{34D26D0F-A040-C38E-E929-7E8E55D7B82A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog\fmt">
+      <UniqueIdentifier>{7560DF92-E178-C6BC-AA25-565616FD5A56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog\fmt\bundled">
+      <UniqueIdentifier>{6224EBD9-CEE8-E9C9-974E-1A9403D285FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\spdlog\include\spdlog\sinks">
+      <UniqueIdentifier>{765322C9-E236-3109-EB39-5F45579CF759}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{C55F2ECF-B12C-89DA-DA45-7782C671BE68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{6DAA42B6-D914-F72C-2253-A8D28EFCD481}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1353,9 +1386,295 @@
     <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp">
       <Filter>lib\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\lib\nlohmann\json.hpp">
+      <Filter>lib\nlohmann</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\async.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\async_logger-inl.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\async_logger.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\cfg\argv.h">
+      <Filter>lib\spdlog\include\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\cfg\env.h">
+      <Filter>lib\spdlog\include\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\cfg\helpers-inl.h">
+      <Filter>lib\spdlog\include\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\cfg\helpers.h">
+      <Filter>lib\spdlog\include\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\common-inl.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\common.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\backtracer-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\backtracer.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\circular_q.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\console_globals.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\file_helper-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\file_helper.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\fmt_helper.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\log_msg-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\log_msg.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\log_msg_buffer-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\log_msg_buffer.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\mpmc_blocking_q.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\null_mutex.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\os-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\os.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\periodic_worker-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\periodic_worker.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\registry-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\registry.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\synchronous_factory.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\tcp_client-windows.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\tcp_client.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\thread_pool-inl.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\thread_pool.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\details\windows_include.h">
+      <Filter>lib\spdlog\include\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bin_to_hex.h">
+      <Filter>lib\spdlog\include\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\chrono.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\color.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\compile.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\core.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\format-inl.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\format.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\locale.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\os.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\ostream.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\posix.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\printf.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\ranges.h">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\chrono.h">
+      <Filter>lib\spdlog\include\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\fmt.h">
+      <Filter>lib\spdlog\include\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fmt\ostr.h">
+      <Filter>lib\spdlog\include\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\formatter.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\fwd.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\logger-inl.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\logger.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\pattern_formatter-inl.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\pattern_formatter.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\android_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\ansicolor_sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\ansicolor_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\base_sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\base_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\basic_file_sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\basic_file_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\daily_file_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\dist_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\dup_filter_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\msvc_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\null_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\ostream_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\ringbuffer_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\rotating_file_sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\rotating_file_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\stdout_color_sinks-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\stdout_color_sinks.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\stdout_sinks-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\stdout_sinks.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\syslog_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\systemd_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\tcp_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\win_eventlog_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\wincolor_sink-inl.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\sinks\wincolor_sink.h">
+      <Filter>lib\spdlog\include\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\spdlog-inl.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\spdlog.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\stopwatch.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h">
+      <Filter>lib\spdlog\include\spdlog</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\Pch.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\core\Event.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\EventManager.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\Types.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\utils\Log.hpp">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\utils\Serde.hpp">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1366,6 +1685,9 @@
     </ClCompile>
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\utils\Log.cpp">
+      <Filter>src\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1431,6 +1753,18 @@
     </None>
     <None Include="Atom\lib\glm\glm\CMakeLists.txt">
       <Filter>lib\glm\glm</Filter>
+    </None>
+    <None Include="Atom\lib\nlohmann\LICENSE.MIT.txt">
+      <Filter>lib\nlohmann</Filter>
+    </None>
+    <None Include="Atom\lib\spdlog\LICENSE">
+      <Filter>lib\spdlog</Filter>
+    </None>
+    <None Include="Atom\lib\spdlog\VERSION">
+      <Filter>lib\spdlog</Filter>
+    </None>
+    <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst">
+      <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
     </None>
   </ItemGroup>
 </Project>

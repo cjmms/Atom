@@ -1,6 +1,14 @@
+/*
+* @file		Event.hpp
+* @author	Abhikalp Unakal
+* @brief	Base class an Event
+* @date		2021-01-12
+*/
+
 #ifndef EVENT_HPP
 #define EVENT_HPP
-#include "Pch.hpp"
+#include <Pch.hpp>
+#include "Types.hpp"
 
 class Event {
 public:
