@@ -1,4 +1,7 @@
--- premake5_config.lua
+-- @file		premake5_config.lua
+-- @author		Abhikalp Unakal
+-- @brief		Premake Build System - Lua script to generate build projects
+-- @date		2021-01-16
 
 basepath = "./"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -39,7 +42,9 @@ project "Atom"
 			-- GLFW
 			basepath.."%{prj.name}/lib/GLFW/include",
 			-- glm
-			basepath.."%{prj.name}/lib/glm"
+			basepath.."%{prj.name}/lib/glm",
+			-- spdlog
+			basepath.."%{prj.name}/lib/spdlog/include"
 		}
 		libdirs {
 			-- GLEW

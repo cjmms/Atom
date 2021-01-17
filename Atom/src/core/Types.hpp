@@ -1,10 +1,33 @@
+/*
+* @file		Types.hpp
+* @author	Abhikalp Unakal
+* @brief	All Custom Data Types and defines
+* @date		2021-01-16
+*/
+
 #ifndef TYPES_HPP
 #define TYPES_HPP
 
-#include "Pch.hpp"
+#include <Pch.hpp>
 
+// DEFINES
+#define APPNAME "Atom"
+
+
+// USING
 using string = std::string;
+using ordered_json = nlohmann::ordered_json;
+using json = nlohmann::json;
 
+// ECS
+using ResourceID = std::uint32_t;
+using EntityID = std::uint32_t;
+const EntityID MAX_ENTITIES = 10000;
+using ComponentID = std::uint8_t;
+const ComponentID MAX_COMPONENTS = 32;
+using Archetype = std::bitset<MAX_COMPONENTS>;
+
+// EVENTS
 enum EventID {
 	// WINDOW
 	E_WINDOW_QUIT,

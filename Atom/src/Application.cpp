@@ -1,9 +1,20 @@
+/*
+* @file		Application.cpp
+* @author	Team Atom
+* @brief	main bootstrapper
+* @date		2021-01-12
+*/
+
 #include <Pch.hpp>
 #include <cstdlib>
 #include <clocale>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
+
+#include "core/Types.hpp"
+#include "utils/Log.hpp"
+#include "components/RenderBoxComponent.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -45,12 +56,72 @@ void setConsoleTitle(const char* title) {
 }
 #endif
 
+float random() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
+    return (float)dis(gen);
+}
 
+void serdeDemo() {
+
+    // simple serde demo
+    ATOM_INFO("Simple Serde Demo...");
+    // saving to file
+    RenderBoxComponent rbc01{ glm::vec3{0.0f,1.0f,1.0f} };
+    ordered_json j01;
+    to_json(j01, rbc01);
+    save("out01.json", j01);
+
+    // loading from file
+    RenderBoxComponent rbc02;
+    ordered_json j02;
+    load("out01.json", j02);
+    from_json(j02, rbc02);
+
+    // log both values
+    ATOM_TRACE("RenderBoxComponent 1...");
+    std::cout << std::setw(4) << j01 << std::endl;
+    ATOM_TRACE("RenderBoxComponent 2...");
+    std::cout << std::setw(4) << j02 << std::endl;
+
+    // advanced serde demo
+    ATOM_INFO("Advanced Serde Demo...");
+    // saving
+    ordered_json j03 = json::array();
+    for (int i = 0; i < 10;++i) {
+        ordered_json j04;
+        RenderBoxComponent rbc03{ glm::vec3{random(),random(),random()} };
+        to_json(j04, rbc03);
+        j03.push_back(j04);
+    }
+    save("out02.json", j03);
+
+    //loading
+    unsigned int count = 0;
+    ordered_json j05 = json::array();
+    std::vector<RenderBoxComponent> rbc04;
+    load("out02.json", j05);
+    for (auto& j06 : j05) {
+        RenderBoxComponent rbc05;
+        from_json(j06, rbc05);
+        ATOM_TRACE("RenderBoxComponent {}", count++);
+        std::cout << std::setw(4) << j06 << std::endl;
+        rbc04.push_back(rbc05);
+    }
+    ATOM_TRACE("Vector size : {}", rbc04.size());
+    ATOM_INFO("Done...")
+}
 
 int main(void)
 {
+    // allocating and setting up console
+    // initializing logging 
     console();
-    setConsoleTitle("Atom");
+    setConsoleTitle(APPNAME);
+    Log::init();
+
+    serdeDemo();
 
     GLFWwindow* window;
 
@@ -58,7 +129,7 @@ int main(void)
     if (!glfwInit()) return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Atom", NULL, NULL);
+    window = glfwCreateWindow(640, 480, APPNAME, NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -71,7 +142,6 @@ int main(void)
     // Test glm has been setup properly
     glm::vec3(1.0f);
 
-    /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
