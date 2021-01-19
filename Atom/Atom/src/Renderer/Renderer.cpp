@@ -3,7 +3,7 @@
 Renderer::Renderer()
 {
 	// init shaders
-	basic = new Shader("res/test.shader");
+	RecShader = new Shader("res/Rectangle.shader");
 
 	// setup shapes
 	RecSetup();
@@ -11,7 +11,7 @@ Renderer::Renderer()
 
 Renderer::~Renderer()
 {
-	delete basic;
+	delete RecShader;
 }
 
 
@@ -32,8 +32,8 @@ void Renderer::RecSetup()
 	};
 
 	// VAO
-	glGenVertexArrays(1, &Rec_VAO);
-	glBindVertexArray(Rec_VAO);
+	glGenVertexArrays(1, &RecVAO);
+	glBindVertexArray(RecVAO);
 
 	// VBO
 	glGenBuffers(1, &VBO);
@@ -52,12 +52,12 @@ void Renderer::RecSetup()
 
 void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
 {
-	basic->setVec2("pos", pos);
-	basic->setVec2("scale", scale);
-	basic->setVec3("color", color);
+	RecShader->SetVec2("pos", pos);
+	RecShader->SetVec2("scale", scale);
+	RecShader->SetVec3("color", color);
 
-	basic->Bind();
-	glBindVertexArray(Rec_VAO);
+	RecShader->Bind();
+	glBindVertexArray(RecVAO);
 
 	// The last arg is 0 since we do provide an EBO
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

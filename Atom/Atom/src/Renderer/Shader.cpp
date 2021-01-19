@@ -7,8 +7,8 @@
 Shader::Shader(const std::string& path)
     :rendererID(0), shaderFilePath(path), textureUnit(0)
 {
-    ShaderProgramSource source = parseShader(shaderFilePath);
-    rendererID = createShader(source.VertexSource,
+    ShaderProgramSource source = ParseShader(shaderFilePath);
+    rendererID = CreateShader(source.VertexSource,
         source.FragmentSource,
         source.GeometrySource);
 }
@@ -20,7 +20,7 @@ Shader::~Shader()
 
 
 
-ShaderProgramSource Shader::parseShader(const std::string& path)
+ShaderProgramSource Shader::ParseShader(const std::string& path)
 {
     enum class ShaderMode {
         NONE = -1, VERTEX_MODE = 0, FRAGMENT_MODE = 1, GEOMETRY_MODE = 2
@@ -55,7 +55,7 @@ ShaderProgramSource Shader::parseShader(const std::string& path)
 }
 
 
-unsigned int Shader::createShader(const std::string& vertexShader,
+unsigned int Shader::CreateShader(const std::string& vertexShader,
     const std::string& fragmentShader,
     const std::string& geometryShader)
 {
@@ -63,15 +63,15 @@ unsigned int Shader::createShader(const std::string& vertexShader,
 
 
     unsigned int shaderProgram = glCreateProgram();
-    unsigned int vertexShaderID = compileShader(GL_VERTEX_SHADER, vertexShader);
-    unsigned int fragmentShaderID = compileShader(GL_FRAGMENT_SHADER, fragmentShader);
+    unsigned int vertexShaderID = CompileShader(GL_VERTEX_SHADER, vertexShader);
+    unsigned int fragmentShaderID = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
     unsigned int geometryShaderID;
 
     glAttachShader(shaderProgram, vertexShaderID);
     glAttachShader(shaderProgram, fragmentShaderID);
 
     if (hasGeometryShader) {
-        geometryShaderID = compileShader(GL_GEOMETRY_SHADER, geometryShader);
+        geometryShaderID = CompileShader(GL_GEOMETRY_SHADER, geometryShader);
         glAttachShader(shaderProgram, geometryShaderID);
     }
 
@@ -89,18 +89,18 @@ unsigned int Shader::createShader(const std::string& vertexShader,
     return shaderProgram;
 }
 
-unsigned int Shader::compileShader(unsigned int type, const std::string& shaderSource)
+unsigned int Shader::CompileShader(unsigned int type, const std::string& shaderSource)
 {
     unsigned int id = glCreateShader(type);
     const char* source = shaderSource.c_str();
 
     glShaderSource(id, 1, &source, NULL);
     glCompileShader(id);
-    shaderErrorInfo(id, type);
+    ShaderErrorInfo(id, type);
     return id;
 }
 
-void Shader::shaderErrorInfo(unsigned int shader, unsigned int type)
+void Shader::ShaderErrorInfo(unsigned int shader, unsigned int type)
 {
     GLint success;
     char infoLog[512];
@@ -123,105 +123,105 @@ void Shader::Bind()
     glUseProgram(rendererID);
 }
 
-void Shader::unBind()
+void Shader::UnBind()
 {
     glUseProgram(0);
 }
 
 
-int Shader::getUniformLocation(const char* name)
+int Shader::GetUniformLocation(const char* name)
 {
     return glGetUniformLocation(rendererID, name);
 }
 
-unsigned int Shader::getRendererID()
+unsigned int Shader::GetRendererID()
 {
     return rendererID;
 }
 
 
-void Shader::setMat4(const char* name, glm::mat4 matrix)
+void Shader::SetMat4(const char* name, glm::mat4 matrix)
 {
     this->Bind();
-    unsigned int location = getUniformLocation(name);
+    unsigned int location = GetUniformLocation(name);
     glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
-    this->unBind();
+    this->UnBind();
 }
 
 
-void Shader::setMat4(const std::string& name, glm::mat4 matrix)
+void Shader::SetMat4(const std::string& name, glm::mat4 matrix)
 {
-    setMat4(name.c_str(), matrix);
+    SetMat4(name.c_str(), matrix);
 }
 
 
 
-void Shader::setVec3(const char* name, glm::vec3 vec)
+void Shader::SetVec3(const char* name, glm::vec3 vec)
 {
     this->Bind();
-    unsigned int location = getUniformLocation(name);
+    unsigned int location = GetUniformLocation(name);
     glUniform3fv(location, 1, glm::value_ptr(vec));
-    this->unBind();
+    this->UnBind();
 }
 
 
-void Shader::setVec3(const std::string& name, glm::vec3 vec)
+void Shader::SetVec3(const std::string& name, glm::vec3 vec)
 {
-    setVec3(name.c_str(), vec);
+    SetVec3(name.c_str(), vec);
 }
 
 
 
-void Shader::setVec2(const char* name, glm::vec2 vec)
+void Shader::SetVec2(const char* name, glm::vec2 vec)
 {
     this->Bind();
-    unsigned int location = getUniformLocation(name);
+    unsigned int location = GetUniformLocation(name);
     glUniform2fv(location, 1, glm::value_ptr(vec));
-    this->unBind();
+    this->UnBind();
 }
 
 
-void Shader::setVec2(const std::string& name, glm::vec2 vec)
+void Shader::SetVec2(const std::string& name, glm::vec2 vec)
 {
-    setVec2(name.c_str(), vec);
+    SetVec2(name.c_str(), vec);
 }
 
 
 
-void Shader::setFloat(const char* name, float value)
+void Shader::SetFloat(const char* name, float value)
 {
     this->Bind();
-    unsigned int location = getUniformLocation(name);
+    unsigned int location = GetUniformLocation(name);
     glUniform1f(location, value);
-    this->unBind();
+    this->UnBind();
 }
 
 
 
-void Shader::setFloat(const std::string& name, float value)
+void Shader::SetFloat(const std::string& name, float value)
 {
-    setFloat(name.c_str(), value);
+    SetFloat(name.c_str(), value);
 }
 
 
 
-void Shader::setInt(const char* name, int value) 
+void Shader::SetInt(const char* name, int value) 
 {
     this->Bind();
-    unsigned int location = getUniformLocation(name);
+    unsigned int location = GetUniformLocation(name);
     glUniform1i(location, value);
-    this->unBind();
+    this->UnBind();
 }
 
 
 
-void Shader::setInt(const std::string& name, int value)
+void Shader::SetInt(const std::string& name, int value)
 {
-    setInt(name.c_str(), value);
+    SetInt(name.c_str(), value);
 }
 
 
-void Shader::setTexture(const char* name, unsigned int texture)
+void Shader::SetTexture(const char* name, unsigned int texture)
 {
     
     auto it = std::find(textures.begin(), textures.end(), name);
@@ -232,23 +232,23 @@ void Shader::setTexture(const char* name, unsigned int texture)
         // calculating the index
         int index = it - textures.begin();
         
-        this->setInt(name, index);
+        this->SetInt(name, index);
 
         this->Bind();
         glActiveTexture(GL_TEXTURE0 + index);
         glBindTexture(GL_TEXTURE_2D, texture);
-        this->unBind();
+        this->UnBind();
     }
     else {
         // If the element is not
         // present in the vector
 
-        this->setInt(name, textureUnit);
+        this->SetInt(name, textureUnit);
 
         this->Bind();
         glActiveTexture(GL_TEXTURE0 + textureUnit);
         glBindTexture(GL_TEXTURE_2D, texture);
-        this->unBind();
+        this->UnBind();
 
         textureUnit++;
         textures.push_back(name);
@@ -256,7 +256,7 @@ void Shader::setTexture(const char* name, unsigned int texture)
 }
 
 
-void Shader::setTexture(const std::string& name, unsigned int texture, int index)
+void Shader::SetTexture(const std::string& name, unsigned int texture, int index)
 {
-    setTexture(name.c_str(), texture, index);
+    SetTexture(name.c_str(), texture, index);
 }

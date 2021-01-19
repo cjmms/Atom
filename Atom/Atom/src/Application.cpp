@@ -32,7 +32,9 @@ int main(void)
         return false;
     }
 
-
+    //--------------------------------
+    // Renderer Testing code
+    
     Renderer renderer;
 
     glm::vec2 pos(0.2, 0.0);
@@ -40,16 +42,21 @@ int main(void)
     glm::vec3 color(0.2, 0.4, 0.8);
 
     renderer.EnableFrameWireMode();
-    renderer.DisableFrameWireMode();
+    //renderer.DisableFrameWireMode();
+    
+    //---------------------------------
+
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
         
-
+        //-------------------------------------
+        // Renderer Testing code
         renderer.DrawRec(pos, scale, color);
-
+        //-------------------------------------
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
