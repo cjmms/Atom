@@ -110,7 +110,11 @@ void serdeDemo() {
         rbc04.push_back(rbc05);
     }
     ATOM_TRACE("Vector size : {}", rbc04.size());
-    ATOM_INFO("Done...")
+    ATOM_INFO("Done...");
+
+    // removing the temp files
+    remove("out01.json");
+    remove("out02.json");
 }
 
 int main(void)
