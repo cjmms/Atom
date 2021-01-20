@@ -7,7 +7,7 @@
 Renderer::Renderer()
 {
 	// init shaders
-	RecShader = new Shader("res/Rectangle.shader");
+	RecShader = new Shader("Atom/res/Rectangle.shader");
 
 	// setup shapes
 	RecSetup();
