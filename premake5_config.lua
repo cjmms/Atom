@@ -30,6 +30,10 @@ project "Atom"
 	if os.host() == "windows" then
 		kind ("ConsoleApp")
 	
+		defines {
+			"GLEW_STATIC"
+		}
+
 		includedirs {
 			-- include basepath
 			basepath.."%{prj.name}",
