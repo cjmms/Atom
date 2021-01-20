@@ -58,7 +58,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -77,7 +77,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -520,21 +520,21 @@
     <ClInclude Include="Atom\lib\glm\glm\vec3.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vec4.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="Atom\src\core\Renderer.hpp" />
+    <ClInclude Include="Atom\src\core\Shader.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\core\Event.hpp" />
     <ClInclude Include="Atom\src\core\EventManager.hpp" />
-    <ClInclude Include="Atom\src\core\Renderer.hpp" />
-    <ClInclude Include="Atom\src\core\Shader.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\core\Renderer.cpp" />
+    <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Atom\src\core\Renderer.cpp" />
-    <ClCompile Include="Atom\src\core\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo" />

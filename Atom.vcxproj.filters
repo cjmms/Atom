@@ -1452,15 +1452,11 @@
     <ClInclude Include="Atom\src\core\EventManager.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\core\Renderer.hpp">
-      <Filter>src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="Atom\src\core\Shader.hpp">
-      <Filter>src\core</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\core\Types.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\core\Shader.hpp" />
+    <ClInclude Include="Atom\src\core\Renderer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1472,12 +1468,8 @@
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\core\Renderer.cpp">
-      <Filter>src\core</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\core\Shader.cpp">
-      <Filter>src\core</Filter>
-    </ClCompile>
+    <ClCompile Include="Atom\src\core\Renderer.cpp" />
+    <ClCompile Include="Atom\src\core\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

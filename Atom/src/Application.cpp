@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
+#define GLEW_STATIC
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -67,6 +68,11 @@ int main(void)
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
+
+    if (glewInit() != GLEW_OK) {
+        std::cout << "GLEW init error" << std::endl;
+        return false;
+    }
     
     // Test glm has been setup properly
     glm::vec3(1.0f);
