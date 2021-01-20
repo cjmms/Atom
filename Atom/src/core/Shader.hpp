@@ -1,10 +1,10 @@
 #pragma once
+#include "Pch.hpp"
+
 #include <string>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <glm/glm.hpp>
 #include <vector>
 
 
@@ -34,7 +34,7 @@ public:
 	void UnBind();
 	int GetUniformLocation(const char* name);
 	unsigned int GetRendererID();
-	
+
 	void SetMat4(const char* name, glm::mat4 matrix);
 	void SetMat4(const std::string& name, glm::mat4 matrix);
 	void SetVec3(const char* name, glm::vec3 vec);

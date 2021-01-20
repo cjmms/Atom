@@ -1,8 +1,8 @@
 #pragma once
 
+#include "Pch.hpp"
 
-
-#include "Shader.h"
+#include "Shader.hpp"
 
 class Renderer
 {

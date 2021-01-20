@@ -1,4 +1,8 @@
-#include "Shader.h"
+#include "Pch.hpp"
+#include "Shader.hpp"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -205,7 +209,7 @@ void Shader::SetFloat(const std::string& name, float value)
 
 
 
-void Shader::SetInt(const char* name, int value) 
+void Shader::SetInt(const char* name, int value)
 {
     this->Bind();
     unsigned int location = GetUniformLocation(name);
@@ -223,7 +227,7 @@ void Shader::SetInt(const std::string& name, int value)
 
 void Shader::SetTexture(const char* name, unsigned int texture)
 {
-    
+
     auto it = std::find(textures.begin(), textures.end(), name);
 
     // If element was found
@@ -231,7 +235,7 @@ void Shader::SetTexture(const char* name, unsigned int texture)
     {
         // calculating the index
         int index = it - textures.begin();
-        
+
         this->SetInt(name, index);
 
         this->Bind();
