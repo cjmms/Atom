@@ -1,9 +1,17 @@
+/*
+* @file		EventManager.hpp
+* @author	Abhikalp Unakal
+* @brief	Class for Event Management Rountines
+* @date		2021-01-12
+*/
+
 #ifndef EVENTMANAGER_HPP
 #define EVENTMANAGER_HPP
 
-#include "Pch.hpp"
-#include "core/Event.hpp"
-
+#include <Pch.hpp>
+#include "Types.hpp"
+#include "Event.hpp"
+ 
 
 class EventManager
 {
