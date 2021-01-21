@@ -1,11 +1,37 @@
 #pragma once
 #include <list>
+#include <string>
+#include <lib\glm\glm\ext\matrix_float4x4.hpp>
 
-class GameObject;
+//class GameObject;
 class Shape;
 class Contact;
 class Body;
 class Transform;
+
+class Transform// : public Component
+{
+public:
+	Transform();
+	~Transform();
+
+	void Update();
+	float* GetTransform();
+	//virtual void Serialize(std::ifstream& InputStream);
+
+public:
+	float positionX, positionY, positionZ;
+	float scaleX, scaleY;
+	float angle;
+
+private:
+	glm::mat4 Rotate(const int i, const float theta);
+	glm::mat4 Scale(const float x, const float y, const float z);
+	glm::mat4 Translate(const float x, const float y, const float z);
+private:
+	glm::mat4 transformationMatrix;
+
+};
 
 //todo dependencies(Shape, Contact) are temporary placed here. Re-organize classes later 
 class Shape
@@ -24,7 +50,30 @@ public:
 	Body* body;
 	Transform* transform;
 	ShapeType type;
-	int vertexNum;
+};
+
+class Body
+{
+public:
+	Body();
+	~Body();
+
+	void Update();
+	//virtual void Serialize();
+	void Integrate(float Gravity, float DeltaTime);
+
+public:
+	float positionX, positionY;
+	float prevPositionX, prevPositionY;
+	float velocityX, velocityY;
+	float accelerationX, accelerationY;	//a = F / m
+	float totalForceX, totalForceY;
+	float mass, invMass;
+
+	Shape* shape;
+private:
+private:
+
 };
 
 class ShapeAABB : public Shape
