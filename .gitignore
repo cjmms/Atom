@@ -37,12 +37,12 @@
 
 # MacOs crap
 .DS_Store
-**.xcworkspace
-**.xcodeproj
+*.xcworkspace
+*.xcodeproj
 
 # Windows crap
-**.sln
-**.vcxproj
-**.vcxproj.filters
-**.vcxproj.user
-.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+**/.vs/
