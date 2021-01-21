@@ -17,6 +17,7 @@
 #include "core/Types.hpp"
 #include "utils/Log.hpp"
 #include "components/RenderBoxComponent.hpp"
+#include "core/FrameRateController.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -157,8 +158,12 @@ int main(void)
     // Test glm has been setup properly
     glm::vec3(1.0f);
 
+    FrameRateController* frameRateController = new FrameRateController(30);
+	
     while (!glfwWindowShouldClose(window))
     {
+        frameRateController->FrameStart();
+
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -169,6 +174,8 @@ int main(void)
 
         /* Poll for and process events */
         glfwPollEvents();
+    	
+        frameRateController->FrameEnd();
     }
 
     glfwTerminate();

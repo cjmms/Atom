@@ -1704,9 +1704,11 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\core\PhysicsManager.hpp">
-      <Filter>src\core</Filter>
-    </ClInclude>
+    <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
+    <ClInclude Include="Atom\src\components\Transform.hpp" />
+    <ClInclude Include="Atom\src\components\Shape.hpp" />
+    <ClInclude Include="Atom\src\components\Body.hpp" />
+    <ClInclude Include="Atom\src\core\FrameRateController.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1727,6 +1729,11 @@
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
+    <ClCompile Include="Atom\src\components\Transform.cpp" />
+    <ClCompile Include="Atom\src\components\Shape.cpp" />
+    <ClCompile Include="Atom\src\components\Body.cpp" />
+    <ClCompile Include="Atom\src\core\FrameRateController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
