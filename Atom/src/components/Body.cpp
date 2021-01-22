@@ -2,16 +2,15 @@
 #include "Body.hpp"
 #include "Transform.hpp"
 //#include "../GameObject.h"
-#include "Shape.hpp"
 
 Body::Body(Transform* transform) //: Component(TYPE_BODY)
 {
-	float mPositionX, mPositionY = 0.0f;
-	float mPrevPositionX, mPrevPositionY = 0.0f;
-	float mVelocityX, mVelocityY = 0.0f;
-	float mAccX, mAccY = 0.0f;
-	float mTotalForceX, mTotalForceY = 0.0f;
-	float mMass, mInvMass = 1.0f;
+	positionX = 0.0f, positionY = 0.0f;
+	prevPositionX = 0.0f, prevPositionY = 0.0f;
+	velocityX = 0.0f, velocityY = 0.0f;
+	accelerationX = 0.0f, accelerationY = 0.0f;
+	totalForceX = 0.0f, totalForceY = 0.0f;
+	mass = 1.0f, invMass = 1.0f;
 
 	shape = nullptr;
 
@@ -29,7 +28,7 @@ void Body::Update()
 
 }
 
-void Body::Integrate(float Gravity, float DeltaTime) 
+void Body::Integrate(bool Gravity, float DeltaTime) 
 {
 
 	if (transform != nullptr)
@@ -44,14 +43,16 @@ void Body::Integrate(float Gravity, float DeltaTime)
 	//Compute acceleration
 	//mTotalForceY += Gravity;
 	accelerationX = totalForceX * mass;
-	accelerationY = totalForceY * mass;
+	accelerationY = Gravity ? (totalForceY - 9.81) * mass : 0;
 
 	//Integrate velocity
 	velocityX = accelerationX * DeltaTime + velocityX;
-	velocityY = accelerationY * DeltaTime + velocityY;
+	velocityY = Gravity ? accelerationY * DeltaTime + velocityY : 0;
 
 	if (transform != nullptr)
 	{
+		positionX = positionX + velocityX * DeltaTime;
+		positionY = positionY + velocityY * DeltaTime;
 		transform->positionX = positionX;
 		transform->positionY = positionY;
 	}

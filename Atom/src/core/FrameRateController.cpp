@@ -1,15 +1,4 @@
-/*
-Copyright (C) 2020 DigiPen Institute of Technology.
-Reproduction or disclosure of this file or its contents without the prior written consent of DigiPen Institute of Technology is prohibited.
-File Name: FrameRateController.cpp
-Purpose: control the frame rate of the game
-Language: VC++
-Platform: Microsoft Visual Studio Community 2019 Version 16.6.1, Microsoft .NET Framework Version 4.8.03752, Windows 10
-Project: CS529_FinalProject
-Author: Gerald Lee, gerald.lee, 60000220
-Creation date: 20202-10-11
-*/
-
+#include <Pch.hpp>
 #include "FrameRateController.hpp"
 #include <climits>
 
@@ -24,7 +13,7 @@ FrameRateController::FrameRateController(unsigned int maxFrameRate)
 	tickEnd = 0;
 	frameTime = 0;
 	maxFrameRate = maxFrameRate;
-	ticksPerFrame = 1 / maxFrameRate;
+	ticksPerFrame = 1.0 / maxFrameRate;
 }
 
 FrameRateController::~FrameRateController()

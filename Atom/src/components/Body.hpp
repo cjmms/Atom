@@ -3,8 +3,8 @@
 
 //#include "Component.h"
 //#include "glew.h"
+#include "Shape.hpp"
 
-class Shape;
 class Transform;
 
 class Body// : public Component
@@ -14,8 +14,7 @@ public:
 	~Body();
 
 	void Update();
-	virtual void Serialize(std::ifstream& InputStream);
-	void Integrate(float Gravity, float DeltaTime);
+	void Integrate(bool Gravity, float DeltaTime);
 
 public:
 	float positionX, positionY;
@@ -26,6 +25,7 @@ public:
 	float mass, invMass;
 
 	Shape* shape;
+	Shape::ShapeType shapeType;
 private:
 private:
 	Transform* transform;

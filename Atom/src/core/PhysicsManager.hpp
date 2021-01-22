@@ -29,7 +29,7 @@ class PhysicsManager
 public:
 	PhysicsManager();
 	~PhysicsManager();
-	void Update(float FrameTime);
+	void Update(float FrameTime, Body* b1, Body* b2);
 
 	void Reset();
 	bool CollisionDetection(
