@@ -18,6 +18,18 @@
 #include "utils/Log.hpp"
 #include "components/RenderBoxComponent.hpp"
 
+//Event
+#include "core/Event.hpp"
+#include "core/EventManager.hpp"
+
+//Input
+#include "core/InputManager.hpp"
+#include "components/Controller.hpp"
+
+//Global Variable
+EventManager gpEventManager;
+InputCallBack gpInputManager;
+
 #ifdef _WIN64
 #include "Windows.h"
 FILE _iob[] = {
@@ -63,6 +75,48 @@ float random() {
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
     return (float)dis(gen);
+}
+
+//Controller Portion
+
+void onEvent01(Event& e) {
+    if (e.getType() == EventID::E_WINDOW_KEY_TRIGGERED) {
+        ATOM_INFO("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_TRIGGERED_KEYCODE));
+    }
+}
+
+void onEvent02(Event& e) {
+    if (e.getType() == EventID::E_WINDOW_KEY_PRESSED) {
+        ATOM_TRACE("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE));
+    }
+}
+
+void onEvent03(Event& e) {
+    if (e.getType() == EventID::E_WINDOW_KEY_RELEASED) {
+        ATOM_WARN("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_RELEASED_KEYCODE));
+    }
+}
+
+void controllerReact()
+{
+    //React to listner with Key and Event ID
+    //Triggered
+    gpEventManager.addListener(EventID::E_WINDOW_KEY_TRIGGERED, onEvent01);
+        /*[](Event &e) {
+        std::cout << "The following key is Triggered : {}", e.getParam<int>(EventID::P_WINDOW_KEY_TRIGGERED_KEYCODE);
+        });*/
+
+    //Triggered
+    gpEventManager.addListener(EventID::E_WINDOW_KEY_PRESSED, onEvent02);
+        /*[](Event &e) {
+        std::cout << "The following key is Triggered : {}", e.getParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE);
+        });*/
+
+    //Triggered
+    gpEventManager.addListener(EventID::E_WINDOW_KEY_RELEASED, onEvent03);
+        /*[](Event &e) {
+        std::cout << "The following key is Triggered : {}", e.getParam<int>(EventID::P_WINDOW_KEY_RELEASED_KEYCODE);
+        });*/
 }
 
 void serdeDemo() {
@@ -123,9 +177,11 @@ int main(void)
     setConsoleTitle(APPNAME);
     Log::init();
 
+    controllerReact();
     serdeDemo();
 
     GLFWwindow* window;
+
 
     /* Initialize the library */
     if (!glfwInit()) return -1;
@@ -137,6 +193,9 @@ int main(void)
         glfwTerminate();
         return -1;
     }
+
+    gpInputManager.init(window);
+
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
