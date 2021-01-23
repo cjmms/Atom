@@ -1704,6 +1704,15 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
+    <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
+    <ClInclude Include="Atom\src\core\EntityManager.hpp" />
+    <ClInclude Include="Atom\src\core\System.hpp" />
+    <ClInclude Include="Atom\src\core\SystemManager.hpp" />
+    <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
+    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1724,6 +1733,7 @@
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
