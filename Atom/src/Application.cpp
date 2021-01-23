@@ -151,7 +151,7 @@ int main(void)
     }
     
     Renderer renderer;
-    FrameRateController frameRateController(60);
+    FrameRateController frameRateController(120);
     PhysicsManager physicsManager;
 
     glm::vec2 pos(0.0, 0.0);
@@ -167,12 +167,12 @@ int main(void)
     b1->shape = shape1;
     b1->Integrate(0, 0);
 	
-    glm::vec2 pos2(0.0, 0.5);
-    glm::vec2 scale2(0.1, 0.1);
+    glm::vec2 pos2(0.0, 0.3);
+    glm::vec2 scale2(0.2, 0.2);
     glm::vec3 color2(1, 1, 1);
     Transform* t2 = new Transform();
     t2->positionX = 0.0;
-    t2->positionY = 0.5;
+    t2->positionY = 0.3;
     t2->scaleX = 0.1;
     t2->scaleY = 0.1;
     Body* b2 = new Body(t2);
@@ -184,7 +184,9 @@ int main(void)
     // Test glm has been setup properly
     glm::vec3(1.0f);
 
-	
+    b2->velocityY = 3;
+    //b2->velocityX = -0.5;
+
     while (!glfwWindowShouldClose(window))
     {
         frameRateController.FrameStart();
@@ -202,6 +204,7 @@ int main(void)
         scale2.x = t2->scaleX;
         scale2.y = t2->scaleY;
 
+    	
         renderer.DrawRec(pos, scale, color);
         renderer.DrawRec(pos2, scale2, color2);
         /* Swap front and back buffers */

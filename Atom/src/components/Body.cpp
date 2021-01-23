@@ -28,7 +28,7 @@ void Body::Update()
 
 }
 
-void Body::Integrate(bool Gravity, float DeltaTime) 
+void Body::Integrate(bool grounded, float DeltaTime)
 {
 
 	if (transform != nullptr)
@@ -43,12 +43,14 @@ void Body::Integrate(bool Gravity, float DeltaTime)
 	//Compute acceleration
 	//mTotalForceY += Gravity;
 	accelerationX = totalForceX * mass;
-	accelerationY = Gravity ? (totalForceY - 9.81) * mass : 0;
-
+	accelerationY = (totalForceY - 9.81) * mass;
+	accelerationY = grounded && accelerationY < 0 ? 0 : accelerationY;
+	
 	//Integrate velocity
 	velocityX = accelerationX * DeltaTime + velocityX;
-	velocityY = Gravity ? accelerationY * DeltaTime + velocityY : 0;
-
+	velocityY = accelerationY * DeltaTime + velocityY;
+	velocityY = grounded && velocityY < 0 ? 0 : velocityY;
+	
 	if (transform != nullptr)
 	{
 		positionX = positionX + velocityX * DeltaTime;

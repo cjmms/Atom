@@ -67,9 +67,8 @@ void PhysicsManager::Update(float FrameTime, Body* b1, Body* b2)
 		b2->shape, b2->positionX, b2->positionY
 	);
 
-	b1->Integrate(0, FrameTime);
-	float gravity = collision ? 0.0 : 9.81;
-	b2->Integrate(gravity, FrameTime);
+	b1->Integrate(true, FrameTime);
+	b2->Integrate(collision, FrameTime);
 
 	//for (auto gameObject : GameObjects)
 	//{

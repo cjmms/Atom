@@ -14,7 +14,7 @@ public:
 	~Body();
 
 	void Update();
-	void Integrate(bool Gravity, float DeltaTime);
+	void Integrate(bool grounded, float DeltaTime);
 
 public:
 	float positionX, positionY;

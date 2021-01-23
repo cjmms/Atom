@@ -40,5 +40,5 @@ void FrameRateController::FrameEnd()
 
 double FrameRateController::GetFrameTime()
 {
-	return frameTime;
+	return frameTime > ticksPerFrame ? ticksPerFrame : frameTime;
 }
