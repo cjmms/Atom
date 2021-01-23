@@ -17,6 +17,12 @@
 #include "core/Types.hpp"
 #include "utils/Log.hpp"
 #include "components/RenderBoxComponent.hpp"
+#include "components/RectangleComponent.hpp"
+#include "core/EventManager.hpp"
+
+
+RectangleComponent rc01, rc02;
+RectangleComponent rc03, rc04;
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -119,13 +125,58 @@ void serdeDemo() {
     remove("out02.json");
 }
 
+void onEvent01(Event& e) {
+    if (e.getType() == EventID::E_WINDOW_KEY_PRESSED) {
+        ATOM_INFO("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE));
+    }
+}
+
+void serdeRectangles() {
+    //serialize 2 rectangles
+
+    //saving 
+    //rc01.color = { glm::vec3{random(),random(),random()} };
+    //rc01.position = { glm::vec2{-0.5,0.5} };
+    //rc01.scale = { glm::vec2{0.1,0.1} };
+
+    //rc02.color = { glm::vec3{random(),random(),random()} };
+    //rc02.position = { glm::vec2{-0.5,-0.5} };
+    //rc02.scale = { glm::vec2{0.1,0.1} };
+
+    ////saving
+    ordered_json j07 = {};
+    //to_json(j07["rc01"], rc01);
+
+    //to_json(j07["rc02"], rc02);
+    //save("rectangles.json", j07);
+
+    //loading
+    ordered_json j08;
+    load("rectangles.json", j08);
+
+
+    from_json(j08["rc01"], rc03);
+    from_json(j08["rc02"], rc04);
+
+
+}
+
+
 int main(void)
 {
+    EventManager em;
+    em.addListener(EventID::E_WINDOW_KEY_PRESSED, onEvent01);
+
     // allocating and setting up console
     // initializing logging 
     console();
     setConsoleTitle(APPNAME);
     Log::init();
+
+
+    Event e(EventID::E_WINDOW_KEY_PRESSED);
+    e.setParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE, 7);
+    em.sendEvent(e);
 
     serdeDemo();
 
@@ -157,9 +208,10 @@ int main(void)
     glm::vec2 scale(1.0, 1.0);
     glm::vec3 color(0.2, 0.4, 0.8);
 
-    //renderer.EnableFrameWireMode();
+    // renderer.EnableFrameWireMode();
     // Test glm has been setup properly
     glm::vec3(1.0f);
+    serdeRectangles();
 
     while (!glfwWindowShouldClose(window))
     {
@@ -167,7 +219,10 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT);
 
 
-        renderer.DrawRec(pos, scale, color);
+        renderer.DrawRec(rc03.position, rc03.scale, rc03.color);
+        renderer.DrawRec(rc04.position, rc04.scale, rc04.color);
+
+        //renderer.DrawRec(pos, scale, color);
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
