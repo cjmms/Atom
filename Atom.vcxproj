@@ -610,6 +610,8 @@
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\stopwatch.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
+    <ClInclude Include="Atom\src\components\Controller.hpp" />
+    <ClInclude Include="Atom\src\core\InputManager.hpp" />
     <ClInclude Include="Atom\src\components\Body.hpp" />
     <ClInclude Include="Atom\src\components\Shape.hpp" />
     <ClInclude Include="Atom\src\components\Transform.hpp" />
@@ -628,6 +630,7 @@
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\components\Body.cpp" />
     <ClCompile Include="Atom\src\components\Shape.cpp" />
     <ClCompile Include="Atom\src\components\Transform.cpp" />
