@@ -34,6 +34,11 @@
 EventManager gpEventManager;
 InputCallBack gpInputManager;
 
+//Temporary
+bool Check1 = FALSE;
+bool Check2 = FALSE;
+bool Check3 = FALSE;
+
 #ifdef _WIN64
 #include "Windows.h"
 FILE _iob[] = {
@@ -86,18 +91,42 @@ float random() {
 void onEvent01(Event& e) {
     if (e.getType() == EventID::E_WINDOW_KEY_TRIGGERED) {
         ATOM_INFO("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_TRIGGERED_KEYCODE));
+        if (e.getParam<int>(P_WINDOW_KEY_TRIGGERED_KEYCODE) == GLFW_KEY_UP)
+        {
+             Check1 = TRUE;
+        }
     }
 }
 
 void onEvent02(Event& e) {
     if (e.getType() == EventID::E_WINDOW_KEY_PRESSED) {
         ATOM_TRACE("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE));
+        if (e.getParam<int>(P_WINDOW_KEY_PRESSED_KEYCODE) == GLFW_KEY_RIGHT)
+        {
+            Check2 = TRUE;
+        }
+        if (e.getParam<int>(P_WINDOW_KEY_PRESSED_KEYCODE) == GLFW_KEY_LEFT)
+        {
+            Check3 = TRUE;
+        }
     }
 }
 
 void onEvent03(Event& e) {
     if (e.getType() == EventID::E_WINDOW_KEY_RELEASED) {
         ATOM_WARN("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_RELEASED_KEYCODE));
+        if (e.getParam<int>(P_WINDOW_KEY_RELEASED_KEYCODE) == GLFW_KEY_UP)
+        {
+            Check1 = FALSE;
+        }
+        if (e.getParam<int>(P_WINDOW_KEY_RELEASED_KEYCODE) == GLFW_KEY_RIGHT)
+        {
+            Check2 = FALSE;
+        }
+        if (e.getParam<int>(P_WINDOW_KEY_RELEASED_KEYCODE) == GLFW_KEY_LEFT)
+        {
+            Check3 = FALSE;
+        }
     }
 }
 
@@ -122,6 +151,12 @@ void controllerReact()
         std::cout << "The following key is Triggered : {}", e.getParam<int>(EventID::P_WINDOW_KEY_RELEASED_KEYCODE);
         });*/
 }
+
+/*
+* Prototype - Listner for controller generated events, (TEMPORARY)
+*/
+
+
 
 void serdeDemo() {
 
@@ -243,13 +278,29 @@ int main(void)
     // Test glm has been setup properly
     glm::vec3(1.0f);
 
-    b2->velocityY = 3;
+    //b2->velocityY = 3;
     //b2->velocityX = -0.5;
 
     while (!glfwWindowShouldClose(window))
     {
         frameRateController.FrameStart();
 
+        if (Check1)
+        {
+            b2->velocityY = 3;
+        }
+
+        if (Check2)
+        {
+            b2->velocityX = 1.0;
+        }
+        
+
+        if (Check3)
+        {
+            b2->velocityX = -1.0;
+        }
+        
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
