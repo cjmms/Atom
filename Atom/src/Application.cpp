@@ -14,9 +14,13 @@
 #include "src/core/Renderer.hpp"
 //#define GLEW_STATIC
 
+#include "components/Body.hpp"
 #include "core/Types.hpp"
 #include "utils/Log.hpp"
 #include "components/RenderBoxComponent.hpp"
+#include "components/Transform.hpp"
+#include "core/FrameRateController.hpp"
+#include "core/PhysicsManager.hpp"
 
 //Event
 #include "core/Event.hpp"
@@ -206,28 +210,72 @@ int main(void)
     }
     
     Renderer renderer;
+    FrameRateController frameRateController(120);
+    PhysicsManager physicsManager;
 
-    //glm::vec2 pos(0.0, 0.0);
     glm::vec2 pos(0.0, 0.0);
     glm::vec2 scale(1.0, 1.0);
     glm::vec3 color(0.2, 0.4, 0.8);
+    Transform* t1 = new Transform();
+    t1->positionX = 0.0;
+    t1->positionY = 0.0;
+    t1->scaleX = 1.0;
+    t1->scaleY = 1.0;
+    Body* b1 = new Body(t1);
+    Shape* shape1 = new ShapeAABB(b1, t1);
+    b1->shape = shape1;
+    b1->Integrate(0, 0);
+	
+    glm::vec2 pos2(0.0, 0.3);
+    glm::vec2 scale2(0.2, 0.2);
+    glm::vec3 color2(1, 1, 1);
+    Transform* t2 = new Transform();
+    t2->positionX = 0.0;
+    t2->positionY = 0.3;
+    t2->scaleX = 0.1;
+    t2->scaleY = 0.1;
+    Body* b2 = new Body(t2);
+    Shape* shape2 = new ShapeAABB(b2, t2);
+    b2->shape = shape2;
+    b2->Integrate(0, 0);
 
     //renderer.EnableFrameWireMode();
     // Test glm has been setup properly
     glm::vec3(1.0f);
 
+    b2->velocityY = 3;
+    //b2->velocityX = -0.5;
+
     while (!glfwWindowShouldClose(window))
     {
+        frameRateController.FrameStart();
+
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
+        pos.x = t1->positionX;
+        pos.y = t1->positionY;
+        pos2.x = t2->positionX;
+        pos2.y = t2->positionY;
+    	
+        scale.x = t1->scaleX;
+        scale.y = t1->scaleY;
+        scale2.x = t2->scaleX;
+        scale2.y = t2->scaleY;
 
+    	
         renderer.DrawRec(pos, scale, color);
+        renderer.DrawRec(pos2, scale2, color2);
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
         /* Poll for and process events */
         glfwPollEvents();
+
+        auto frameTime = frameRateController.GetFrameTime();
+        physicsManager.Update(frameTime, b1, b2);
+    	
+        frameRateController.FrameEnd();
     }
 
     glfwTerminate();
