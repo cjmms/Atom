@@ -13,7 +13,6 @@
 // DEFINES
 #define APPNAME "Atom"
 
-
 // USING
 using string = std::string;
 using ordered_json = nlohmann::ordered_json;
