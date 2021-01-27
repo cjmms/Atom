@@ -1,6 +1,6 @@
 /*
 * @file		Application.cpp
-* @author	Team Atom
+* @author	Abhikalp Unakal
 * @brief	main bootstrapper
 * @date		2021-01-12
 */
@@ -8,25 +8,17 @@
 #include <Pch.hpp>
 #include <cstdlib>
 #include <clocale>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include "src/core/Renderer.hpp"
-//#define GLEW_STATIC
 
-#include "components/Body.hpp"
 #include "core/Types.hpp"
 #include "utils/Log.hpp"
-#include "components/RenderBoxComponent.hpp"
-#include "components/RectangleComponent.hpp"
-#include "core/EventManager.hpp"
-#include "components/Transform.hpp"
-#include "core/FrameRateController.hpp"
-#include "core/PhysicsManager.hpp"
+#include "core/AtomEngine.hpp"
 
+// THE ENGINE
+AtomEngine ae;
 
-RectangleComponent rc01, rc02;
-RectangleComponent rc03, rc04;
+// all compoennts 
+#include "components/AllComponents.hpp"
+#include "systems/RectangleRenderSystem.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -39,6 +31,7 @@ extern "C" FILE * __cdecl __iob_func(void) {
     return _iob;
 }
 #pragma comment(lib, "legacy_stdio_definitions.lib")
+#endif
 
 //allocating console
 void console() {
@@ -51,13 +44,14 @@ void console() {
         freopen_s(&file, "CONOUT$", "wt", stderr);
         freopen_s(&file, "CONOUT$", "wt", stdin);
 
-        SetConsoleTitle(L"[Lime]");
+        SetConsoleTitle(L"[ATOM]");
     }
 #endif
 }
 
 // max 80 to prevent using new and having memory leaks 
 void setConsoleTitle(const char* title) {
+#ifdef _WIN64
     std::setlocale(LC_ALL, "en_US.utf8");
     std::wcout.imbue(std::locale("en_US.utf8"));
     wchar_t wstr[80];
@@ -65,8 +59,18 @@ void setConsoleTitle(const char* title) {
     size_t wsize;
     mbstowcs_s(&wsize, wstr, strlen(title) + 1, title, strlen(title));
     SetConsoleTitle(wstr);
-}
 #endif
+}
+
+void fpsCounter() {
+    char title[MAX_TITLE_LEN];
+    snprintf(title, MAX_TITLE_LEN, "[ATOM] FPS: %f", ae.mChrononManager->getFPS());
+#ifdef _WIN64
+    setConsoleTitle(title);
+#else
+    std::cout << "[ATOM] FPS: " << ae.mChrononManager->getFPS() << std::endl;
+#endif
+}
 
 float random() {
     std::random_device rd;
@@ -75,206 +79,70 @@ float random() {
     return (float)dis(gen);
 }
 
-void serdeDemo() {
 
-    // simple serde demo
-    ATOM_INFO("Simple Serde Demo...");
-    // saving to file
-    RenderBoxComponent rbc01{ glm::vec3{0.0f,1.0f,1.0f} };
-    ordered_json j01;
-    to_json(j01, rbc01);
-    save("out01.json", j01);
+EntityID makeSingleRectangle() {
+    RectangleComponent rc01{
+        glm::vec3{random(),random(),random()},
+        glm::vec2{random(),random()},
+        glm::vec2{(random() * 2.0f) - 1.0f,(random() * 2.0f) - 1.0f},
+        false
+    };
 
-    // loading from file
-    RenderBoxComponent rbc02;
-    ordered_json j02;
-    load("out01.json", j02);
-    from_json(j02, rbc02);
+    EntityID rectangle = ae.createEntity();
+    ae.addComponent(rectangle, RectangleComponent{
+        rc01.color,
+        rc01.scale,
+        rc01.position,
+        rc01.wireframe
+    });
 
-    // log both values
-    ATOM_TRACE("RenderBoxComponent 1...");
-    std::cout << std::setw(4) << j01 << std::endl;
-    ATOM_TRACE("RenderBoxComponent 2...");
-    std::cout << std::setw(4) << j02 << std::endl;
-
-    // advanced serde demo
-    ATOM_INFO("Advanced Serde Demo...");
-    // saving
-    ordered_json j03 = json::array();
-    for (int i = 0; i < 10;++i) {
-        ordered_json j04;
-        RenderBoxComponent rbc03{ glm::vec3{random(),random(),random()} };
-        to_json(j04, rbc03);
-        j03.push_back(j04);
-    }
-    save("out02.json", j03);
-
-    //loading
-    unsigned int count = 0;
-    ordered_json j05 = json::array();
-    std::vector<RenderBoxComponent> rbc04;
-    load("out02.json", j05);
-    for (auto& j06 : j05) {
-        RenderBoxComponent rbc05;
-        from_json(j06, rbc05);
-        ATOM_TRACE("RenderBoxComponent {}", count++);
-        std::cout << std::setw(4) << j06 << std::endl;
-        rbc04.push_back(rbc05);
-    }
-    ATOM_TRACE("Vector size : {}", rbc04.size());
-    ATOM_INFO("Done...");
-
-    // removing the temp files
-    remove("out01.json");
-    remove("out02.json");
-}
-
-void onEvent01(Event& e) {
-    if (e.getType() == EventID::E_WINDOW_KEY_PRESSED) {
-        ATOM_INFO("KEYCODE : {}", e.getParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE));
-    }
-}
-
-void serdeRectangles() {
-    //serialize 2 rectangles
-
-    //saving 
-    //rc01.color = { glm::vec3{random(),random(),random()} };
-    //rc01.position = { glm::vec2{-0.5,0.5} };
-    //rc01.scale = { glm::vec2{0.1,0.1} };
-
-    //rc02.color = { glm::vec3{random(),random(),random()} };
-    //rc02.position = { glm::vec2{-0.5,-0.5} };
-    //rc02.scale = { glm::vec2{0.1,0.1} };
-
-    ////saving
-    ordered_json j07 = {};
-    //to_json(j07["rc01"], rc01);
-
-    //to_json(j07["rc02"], rc02);
-    //save("rectangles.json", j07);
-
-    //loading
-    ordered_json j08;
-    load("rectangles.json", j08);
-
-
-    from_json(j08["rc01"], rc03);
-    from_json(j08["rc02"], rc04);
-
-
+    return rectangle;
+    
 }
 
 
-int main(void)
-{
-    EventManager em;
-    em.addListener(EventID::E_WINDOW_KEY_PRESSED, onEvent01);
-
-    // allocating and setting up console
-    // initializing logging 
-    console();
-    setConsoleTitle(APPNAME);
-    Log::init();
+void glfwpoll() {
+    glfwPollEvents();
+    if (ae.mGraphicsManager->shouldWindowClose()) {
+        ae.mIsRunning = false;
+    }
+}
 
 
-    Event e(EventID::E_WINDOW_KEY_PRESSED);
-    e.setParam<int>(EventID::P_WINDOW_KEY_PRESSED_KEYCODE, 7);
-    em.sendEvent(e);
 
-    serdeDemo();
+int main(int argc, char** argv){
 
-    GLFWwindow* window;
+    console();      // setup the console 
+    Log::init();    // setup logging
+    
+    ae.init();          // initialize engine
+    ae.setMaxFPS(120);  // set the fps
 
-    /* Initialize the library */
-    if (!glfwInit()) return -1;
+    ae.printGraphicsInfo(); // print OpenGL info
+    
+    // register all components 
+    ae.registerComponent<RectangleComponent>();
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, APPNAME, NULL, NULL);
-    if (!window)
+    // register all systems
+    ae.registerSystem<RectangleRenderSystem>();
+
+    // set archetypes
     {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-
-    if (glewInit() != GLEW_OK) {
-        std::cout << "GLEW init error" << std::endl;
-        return false;
+        Archetype atype;        // this is a bitset denoting the system archetye
+        atype.set(ae.getComponentType<RectangleComponent>());
+        ae.setSystemArchetype<RectangleRenderSystem>(atype);
     }
     
-    Renderer renderer;
-    FrameRateController frameRateController(120);
-    PhysicsManager physicsManager;
+    // need to initialize systems again because systems got updated above
+    ae.initSystem();
 
-    glm::vec2 pos(0.0, 0.0);
-    glm::vec2 scale(1.0, 1.0);
-    glm::vec3 color(0.2, 0.4, 0.8);
-    Transform* t1 = new Transform();
-    t1->positionX = 0.0;
-    t1->positionY = 0.0;
-    t1->scaleX = 1.0;
-    t1->scaleY = 1.0;
-    Body* b1 = new Body(t1);
-    Shape* shape1 = new ShapeAABB(b1, t1);
-    b1->shape = shape1;
-    b1->Integrate(0, 0);
-	
-    glm::vec2 pos2(0.0, 0.3);
-    glm::vec2 scale2(0.2, 0.2);
-    glm::vec3 color2(1, 1, 1);
-    Transform* t2 = new Transform();
-    t2->positionX = 0.0;
-    t2->positionY = 0.3;
-    t2->scaleX = 0.1;
-    t2->scaleY = 0.1;
-    Body* b2 = new Body(t2);
-    Shape* shape2 = new ShapeAABB(b2, t2);
-    b2->shape = shape2;
-    b2->Integrate(0, 0);
-
-    // renderer.EnableFrameWireMode();
-    // Test glm has been setup properly
-    glm::vec3(1.0f);
-    serdeRectangles();
-
-    b2->velocityY = 3;
-    //b2->velocityX = -0.5;
-
-    while (!glfwWindowShouldClose(window))
-    {
-        frameRateController.FrameStart();
-
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        pos.x = t1->positionX;
-        pos.y = t1->positionY;
-        pos2.x = t2->positionX;
-        pos2.y = t2->positionY;
-    	
-        scale.x = t1->scaleX;
-        scale.y = t1->scaleY;
-        scale2.x = t2->scaleX;
-        scale2.y = t2->scaleY;
-
-    	
-        renderer.DrawRec(pos, scale, color);
-        renderer.DrawRec(pos2, scale2, color2);
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
-
-        auto frameTime = frameRateController.GetFrameTime();
-        physicsManager.Update(frameTime, b1, b2);
-    	
-        frameRateController.FrameEnd();
+    // game loop
+    while (ae.mIsRunning) {
+        glfwpoll();
+        ae.update();
+        makeSingleRectangle();
+        fpsCounter();
     }
 
-    glfwTerminate();
     return 0;
 }

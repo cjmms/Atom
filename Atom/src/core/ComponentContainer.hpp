@@ -10,6 +10,7 @@
 
 #include "Pch.hpp"
 #include "Types.hpp"
+#include "utils/Log.hpp"
 
 class IComponentContainer {
 public:

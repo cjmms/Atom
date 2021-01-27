@@ -1,3 +1,10 @@
+/*
+* @file		ResourceLoader.hpp
+* @author	Abhikalp Unakal
+* @brief	PLatform specific resource loader methods 
+* @date		2021-01-06
+*/
+
 #ifndef RESOURCELOADER_HPP
 #define RESOURCELOADER_HPP
 #include "Pch.hpp"

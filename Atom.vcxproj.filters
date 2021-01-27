@@ -130,6 +130,12 @@
     <Filter Include="src\core">
       <UniqueIdentifier>{C55F2ECF-B12C-89DA-DA45-7782C671BE68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\platform">
+      <UniqueIdentifier>{41663D6D-2DC9-CC11-D64E-05C8C2909894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\platform\windows">
+      <UniqueIdentifier>{9B5931A8-87E8-BA71-3007-CF6C1C75CB17}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\utils">
       <UniqueIdentifier>{6DAA42B6-D914-F72C-2253-A8D28EFCD481}</UniqueIdentifier>
     </Filter>
@@ -1680,8 +1686,35 @@
     <ClInclude Include="Atom\src\Pch.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\Body.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\components\RectangleComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp">
       <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\components\Shape.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\components\Transform.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\AtomEngine.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\ChrononManager.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\ComponentContainer.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\ComponentManager.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\EntityManager.hpp">
+      <Filter>src\core</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\Event.hpp">
       <Filter>src\core</Filter>
@@ -1689,14 +1722,26 @@
     <ClInclude Include="Atom\src\core\EventManager.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\core\Renderer.hpp">
+    <ClInclude Include="Atom\src\core\PhysicsManager.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\ResourceManager.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\Shader.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\core\System.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\SystemManager.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\core\Types.hpp">
       <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp">
+      <Filter>src\platform\windows</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\utils\Log.hpp">
       <Filter>src\utils</Filter>
@@ -1704,20 +1749,12 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
-    <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
-    <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
-    <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
-    <ClInclude Include="Atom\src\core\EntityManager.hpp" />
-    <ClInclude Include="Atom\src\core\System.hpp" />
-    <ClInclude Include="Atom\src\core\SystemManager.hpp" />
-    <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
-    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp" />
-    <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
-    <ClInclude Include="Atom\src\components\Transform.hpp" />
-    <ClInclude Include="Atom\src\components\Shape.hpp" />
-    <ClInclude Include="Atom\src\components\Body.hpp" />
-    <ClInclude Include="Atom\src\core\FrameRateController.hpp" />
+    <ClInclude Include="Atom\src\components\AllComponents.hpp" />
+    <ClInclude Include="Atom\src\core\GraphicsManager.hpp" />
+    <ClInclude Include="Atom\src\platform\windows\Graphics.hpp" />
+    <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1729,26 +1766,33 @@
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\core\Renderer.cpp">
+    <ClCompile Include="Atom\src\components\Body.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\components\Shape.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\components\Transform.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\core\PhysicsManager.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\Shader.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp">
+      <Filter>src\platform\windows</Filter>
+    </ClCompile>
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
-    <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
-    <ClCompile Include="Atom\src\components\Transform.cpp" />
-    <ClCompile Include="Atom\src\components\Shape.cpp" />
-    <ClCompile Include="Atom\src\components\Body.cpp" />
-    <ClCompile Include="Atom\src\core\FrameRateController.cpp" />
+    <ClCompile Include="Atom\src\platform\windows\Graphics.cpp" />
+    <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
-    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
@@ -1770,24 +1814,6 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140-cvtres.read.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140-cvtres.write.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140-rc.read.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140-rc.write.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140.read.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.21140.write.1.tlog">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
-    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
@@ -1800,16 +1826,37 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Body.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\FrameRateController.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\InputManager.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Pch.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\PhysicsManager.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Renderer.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ResourceLoader.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Shader.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Shape.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Transform.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj">
@@ -1877,6 +1924,12 @@
     </None>
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\vc142.pdb">
       <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb">
       <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>

@@ -14,13 +14,13 @@
 #define REGISTER_STRING(x) {x,#x},
 
 // read file and write into json
-void load(string filepath, ordered_json& j) {
+inline void load(string filepath, ordered_json& j) {
 	std::ifstream in(filepath);
 	in >> j;
 }
 
 // read json and write to file
-void save(string filepath, const ordered_json& j) {
+inline void save(string filepath, const ordered_json& j) {
 	std::ofstream out(filepath);
 	out << std::setw(4) << j;
 }

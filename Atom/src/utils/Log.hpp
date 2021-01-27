@@ -32,7 +32,6 @@ private:
 	#define ATOM_WARN(...)	Log::getLogger()->warn(__VA_ARGS__);
 	#define ATOM_INFO(...)	Log::getLogger()->info(__VA_ARGS__);
 	#define ATOM_TRACE(...)	Log::getLogger()->trace(__VA_ARGS__);
-	#define ATOM_FATAL(...)	Log::getLogger()->fatal(__VA_ARGS__);
 #endif
 
 

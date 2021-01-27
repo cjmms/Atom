@@ -11,7 +11,11 @@
 #include <Pch.hpp>
 
 // DEFINES
-#define APPNAME "Atom"
+#define APPNAME "[ATOM]"
+#define MAX_TITLE_LEN 80
+#define FPS 60
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
 
 // USING
 using string = std::string;

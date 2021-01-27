@@ -1,26 +1,19 @@
 #include "Pch.hpp"
-#include "Renderer.hpp"
+#include "RectangleRenderSystem.hpp"
+#include "utils/Log.hpp"
+#include "core/AtomEngine.hpp"
+#include "core/Types.hpp"
+#include "components/RectangleComponent.hpp"
 
+// this is needed in all systems as the engine is in the Application.cpp translation unit 
+extern AtomEngine ae;
 
-
-
-Renderer::Renderer()
-{
+void RectangleRenderSystem::init() {
 	// init shaders
-	RecShader = new Shader("Atom/res/Rectangle.shader");
+	RecShader = std::make_unique<Shader> ("Atom/res/Rectangle.shader");
 
 	// setup shapes
-	RecSetup();
-}
-
-Renderer::~Renderer()
-{
-	delete RecShader;
-}
-
-
-void Renderer::RecSetup()
-{
+	// set up VAP, VBO, EBO
 	unsigned int VBO, EBO;
 
 	float vertices[] = {
@@ -54,8 +47,31 @@ void Renderer::RecSetup()
 }
 
 
-void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
+void RectangleRenderSystem::update() {
+	for (auto& entity : mEntities) {
+		if (ae.hasComponent<RectangleComponent>(entity)) {
+			auto& rc = ae.getComponent<RectangleComponent>(entity);
+			draw(rc.position, rc.scale, rc.color, rc.wireframe);
+		}
+	}
+}
+
+
+void RectangleRenderSystem::onEvent(Event& e) {
+
+}
+
+
+void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe) const
 {
+
+	if (wireframe) {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	}
+	else {
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+
 	RecShader->SetVec2("pos", pos);
 	RecShader->SetVec2("scale", scale);
 	RecShader->SetVec3("color", color);
@@ -65,4 +81,5 @@ void Renderer::DrawRec(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) const
 
 	// The last arg is 0 since we do provide an EBO
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 }
