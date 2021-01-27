@@ -618,6 +618,11 @@
     <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
     <ClInclude Include="Atom\src\core\System.hpp" />
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
+    <ClInclude Include="Atom\src\components\Body.hpp" />
+    <ClInclude Include="Atom\src\components\Shape.hpp" />
+    <ClInclude Include="Atom\src\components\Transform.hpp" />
+    <ClInclude Include="Atom\src\core\FrameRateController.hpp" />
+    <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp" />
     <ClInclude Include="Atom\src\core\Event.hpp" />
@@ -632,6 +637,11 @@
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\components\Body.cpp" />
+    <ClCompile Include="Atom\src\components\Shape.cpp" />
+    <ClCompile Include="Atom\src\components\Transform.cpp" />
+    <ClCompile Include="Atom\src\core\FrameRateController.cpp" />
+    <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
