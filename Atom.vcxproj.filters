@@ -1704,6 +1704,15 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
+    <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
+    <ClInclude Include="Atom\src\core\EntityManager.hpp" />
+    <ClInclude Include="Atom\src\core\System.hpp" />
+    <ClInclude Include="Atom\src\core\SystemManager.hpp" />
+    <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
+    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
     <ClInclude Include="Atom\src\components\Transform.hpp" />
     <ClInclude Include="Atom\src\components\Shape.hpp" />
@@ -1729,6 +1738,7 @@
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
     <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
     <ClCompile Include="Atom\src\components\Transform.cpp" />
     <ClCompile Include="Atom\src\components\Shape.cpp" />

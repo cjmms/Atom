@@ -610,6 +610,14 @@
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\stopwatch.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
+    <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
+    <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
+    <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
+    <ClInclude Include="Atom\src\core\EntityManager.hpp" />
+    <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
+    <ClInclude Include="Atom\src\core\System.hpp" />
+    <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\components\Body.hpp" />
     <ClInclude Include="Atom\src\components\Shape.hpp" />
     <ClInclude Include="Atom\src\components\Transform.hpp" />
@@ -622,6 +630,7 @@
     <ClInclude Include="Atom\src\core\Renderer.hpp" />
     <ClInclude Include="Atom\src\core\Shader.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
+    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\Serde.hpp" />
   </ItemGroup>
@@ -638,6 +647,7 @@
     </ClCompile>
     <ClCompile Include="Atom\src\core\Renderer.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
+    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
