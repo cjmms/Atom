@@ -1698,9 +1698,6 @@
     <ClInclude Include="Atom\src\components\Shape.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\Transform.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\core\AtomEngine.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
@@ -1755,6 +1752,9 @@
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
+    <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
+    <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1770,9 +1770,6 @@
       <Filter>src\components</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\components\Shape.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\components\Transform.cpp">
       <Filter>src\components</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\PhysicsManager.cpp">
@@ -1791,6 +1788,7 @@
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">

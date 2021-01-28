@@ -81,23 +81,23 @@ float random() {
 
 
 EntityID makeSingleRectangle() {
-    RectangleComponent rc01{
-        glm::vec3{random(),random(),random()},
-        glm::vec2{random(),random()},
-        glm::vec2{(random() * 2.0f) - 1.0f,(random() * 2.0f) - 1.0f},
-        false
-    };
 
     EntityID rectangle = ae.createEntity();
+
     ae.addComponent(rectangle, RectangleComponent{
-        rc01.color,
-        rc01.scale,
-        rc01.position,
-        rc01.wireframe
+        glm::vec3{random(),random(),random()},
+        false
+    });
+
+    ae.addComponent(rectangle, TransformComponent{
+        glm::vec3{(random() * 2.0f) - 1.0f,(random() * 2.0f) - 1.0f, 0.0f}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{random(),random(),1.0f},  // scale 
+        glm::mat4(1.0f)
     });
 
     return rectangle;
-    
+
 }
 
 
@@ -122,6 +122,7 @@ int main(int argc, char** argv){
     
     // register all components 
     ae.registerComponent<RectangleComponent>();
+    ae.registerComponent<TransformComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
@@ -130,6 +131,7 @@ int main(int argc, char** argv){
     {
         Archetype atype;        // this is a bitset denoting the system archetye
         atype.set(ae.getComponentType<RectangleComponent>());
+        atype.set(ae.getComponentType<TransformComponent>());
         ae.setSystemArchetype<RectangleRenderSystem>(atype);
     }
     

@@ -5,6 +5,6 @@
 #include "components/RectangleComponent.hpp"
 #include "components/RenderBoxComponent.hpp"
 #include "components/Shape.hpp"
-#include "components/Transform.hpp"
+#include "components/TransformComponent.hpp"
 
 #endif 

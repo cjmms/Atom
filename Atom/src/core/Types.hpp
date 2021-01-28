@@ -10,6 +10,10 @@
 
 #include <Pch.hpp>
 
+// CONSTANTS 
+#define PI 3.14159f
+
+
 // DEFINES
 #define APPNAME "[ATOM]"
 #define MAX_TITLE_LEN 80

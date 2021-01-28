@@ -3,7 +3,8 @@
 #include "utils/Log.hpp"
 #include "core/AtomEngine.hpp"
 #include "core/Types.hpp"
-#include "components/RectangleComponent.hpp"
+
+#include "components/AllComponents.hpp"
 
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
@@ -51,7 +52,11 @@ void RectangleRenderSystem::update() {
 	for (auto& entity : mEntities) {
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);
-			draw(rc.position, rc.scale, rc.color, rc.wireframe);
+			if (ae.hasComponent<TransformComponent>(entity)) {
+				auto& t = ae.getComponent<TransformComponent>(entity);
+				glm::vec3 topleft = t.position - t.scale / 2.0f;
+				draw(glm::vec2{topleft.x,topleft.y}, t.scale, rc.color, rc.wireframe);
+			}
 		}
 	}
 }
