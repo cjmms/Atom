@@ -1,10 +1,17 @@
+/*
+* @file		System.hpp
+* @author	Abhikalp Unakal
+* @brief	System base class 
+* @date		2021-01-27
+*/
+
+
 #ifndef SYSTEM_HPP
 #define SYSTEM_HPP
 
 #include "Pch.hpp"
 #include "core/Types.hpp"
-//forward declare 
-class Event;
+#include "core/Event.hpp"
 
 class System {
 public:

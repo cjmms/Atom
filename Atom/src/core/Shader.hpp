@@ -1,12 +1,16 @@
+/*
+* @file		Shader.hpp
+* @author	Xingyu Wang
+* @brief	Shader class
+* @date		2021-01-06
+*/
+
 #pragma once
 #include "Pch.hpp"
-
-#include <string>
+#include "core/Types.hpp"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
-#include <vector>
-
 
 struct ShaderProgramSource
 {

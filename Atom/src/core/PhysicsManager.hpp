@@ -1,3 +1,10 @@
+/*
+* @file		PhysicsManager.hpp
+* @author	Gerald Lee
+* @brief	Physics Manager + collision 
+* @date		2021-01-26
+*/
+
 #pragma once
 #include <list>
 #include <string>

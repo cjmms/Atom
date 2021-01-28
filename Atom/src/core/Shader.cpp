@@ -1,11 +1,7 @@
 #include "Pch.hpp"
 #include "Shader.hpp"
-
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-#include <iostream>
-#include <fstream>
-#include <sstream>
 
 
 Shader::Shader(const std::string& path)

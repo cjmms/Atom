@@ -1,16 +1,16 @@
 /*
 * @file		SystemManager.hpp
 * @author	Abhikalp Unakal
-* @brief	SystemManager - class to deal with system administration register, entityDestroyed, archetype changes dispatch events 
+* @brief	Class for System administration tasks 
 * @date		2021-01-22
 */
+
 
 #ifndef SYSTEMMANAGER_HPP
 #define SYSTEMANAGER_HPP
 
 #include "Pch.hpp"
 #include "core/System.hpp"
-#include "core/Types.hpp"
 
 class SystemManager {
 public:
@@ -19,7 +19,8 @@ public:
 		const char* typeName = typeid(T).name();
 		assert(mSystems.find(typeName) == mSystems.end() && "Registering system more than once.");
 		auto system = std::make_shared<T>();
-		mSystems.insert({ typeName, system });
+		//mSystems.insert({ typeName, system });
+		mSystems[typeName] = system;
 		return system;
 	}
 
