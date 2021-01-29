@@ -19,6 +19,8 @@ AtomEngine ae;
 // all compoennts 
 #include "components/AllComponents.hpp"
 #include "systems/RectangleRenderSystem.hpp"
+#include "systems/TransformSystem.hpp"
+#include "systems/PhysicsSystem.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -123,16 +125,30 @@ int main(int argc, char** argv){
     // register all components 
     ae.registerComponent<RectangleComponent>();
     ae.registerComponent<TransformComponent>();
+    ae.registerComponent<PhysicsBodyComponent>();
+    ae.registerComponent<ShapeComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
+    ae.registerSystem<TransformSystem>();
+    ae.registerSystem<PhysicsSystem>();
 
     // set archetypes
     {
-        Archetype atype;        // this is a bitset denoting the system archetye
-        atype.set(ae.getComponentType<RectangleComponent>());
-        atype.set(ae.getComponentType<TransformComponent>());
-        ae.setSystemArchetype<RectangleRenderSystem>(atype);
+        Archetype typeRectangleRender;        // this is a bitset denoting the system archetye
+        typeRectangleRender.set(ae.getComponentType<RectangleComponent>());
+        typeRectangleRender.set(ae.getComponentType<TransformComponent>());
+        ae.setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
+
+        Archetype typeTransform;
+        typeTransform.set(ae.getComponentType<TransformComponent>());
+        ae.setSystemArchetype<TransformSystem>(typeTransform);
+
+        Archetype typePhysics;
+        typePhysics.set(ae.getComponentType<TransformComponent>());
+        typePhysics.set(ae.getComponentType<PhysicsBodyComponent>());
+        typePhysics.set(ae.getComponentType<ShapeComponent>());
+        ae.setSystemArchetype<PhysicsSystem>(typePhysics);
     }
     
     // need to initialize systems again because systems got updated above

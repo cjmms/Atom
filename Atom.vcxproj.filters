@@ -1686,16 +1686,10 @@
     <ClInclude Include="Atom\src\Pch.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\Body.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="Atom\src\components\Shape.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\AtomEngine.hpp">
@@ -1717,9 +1711,6 @@
       <Filter>src\core</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\EventManager.hpp">
-      <Filter>src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="Atom\src\core\PhysicsManager.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\ResourceManager.hpp">
@@ -1755,6 +1746,15 @@
     <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ShapeComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\components\PhysicsBodyComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1765,15 +1765,6 @@
     </ClCompile>
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\components\Body.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\components\Shape.cpp">
-      <Filter>src\components</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\core\PhysicsManager.cpp">
-      <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\Shader.cpp">
       <Filter>src\core</Filter>
@@ -1789,6 +1780,15 @@
       <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
+    <ClCompile Include="Atom\src\components\ShapeComponent.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\components\PhysicsBodyComponent.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">
