@@ -12,15 +12,7 @@
 #include "core/Types.hpp"
 #include "core/Event.hpp"
 
-// if windows
-#ifdef _WIN64
-#include "platform/windows/ResourceLoader.hpp"
-#endif
 
-// if macos
-#ifdef __APPLE__
-#include "platform/macos/ResourceLoader.hpp"
-#endif
 
 
 class ResourceManager {

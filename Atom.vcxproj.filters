@@ -1737,9 +1737,6 @@
     <ClInclude Include="Atom\src\core\Types.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp">
-      <Filter>src\platform\windows</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\utils\Log.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
@@ -1748,7 +1745,6 @@
     </ClInclude>
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
     <ClInclude Include="Atom\src\core\GraphicsManager.hpp" />
-    <ClInclude Include="Atom\src\platform\windows\Graphics.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
@@ -1778,17 +1774,14 @@
     <ClCompile Include="Atom\src\core\Shader.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp">
-      <Filter>src\platform\windows</Filter>
-    </ClCompile>
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\platform\windows\Graphics.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
+    <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">

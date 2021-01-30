@@ -632,8 +632,6 @@
     <ClInclude Include="Atom\src\core\System.hpp" />
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
-    <ClInclude Include="Atom\src\platform\windows\Graphics.hpp" />
-    <ClInclude Include="Atom\src\platform\windows\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
@@ -642,6 +640,7 @@
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -650,8 +649,6 @@
     <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
-    <ClCompile Include="Atom\src\platform\windows\Graphics.cpp" />
-    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
     <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
   </ItemGroup>
