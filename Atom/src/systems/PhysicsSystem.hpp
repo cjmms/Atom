@@ -33,6 +33,12 @@ private:
 private:
 };
 
+
+bool CheckCollisionAABBAABB(
+	ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
+	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2,
+	std::list<Contact*>& contacts);
+
 class PhysicsSystem : public System
 {
 public:
@@ -65,12 +71,7 @@ public:
 private:
 
 private:
-	void integratePhysicsBody(PhysicsBodyComponent body, TransformComponent transform, double frameTime);
+	void updatePhysicsBody(PhysicsBodyComponent& body, TransformComponent& transform, double frameTime);
 
-
-	bool CheckCollisionAABBAABB(
-		ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
-		ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2,
-		std::list<Contact*>& contacts);
 	
 };

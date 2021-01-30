@@ -15,11 +15,6 @@ public:
 		Num
 	};
 
-	//ShapeComponent(ShapeComponent::ShapeType);
-	//virtual ~ShapeComponent();
-
-	//virtual bool PointCollisionDetection(float PointX, float PointY) = 0;
-
 	ShapeType shapeType;
 	
 };
@@ -34,17 +29,3 @@ inline void from_json(const ordered_json& j, ShapeComponent& x) {
 	from_json(j["shapeType"], type);
 	x.shapeType = (ShapeComponent::ShapeType)type;
 }
-
-// AABBShapeComponent -> RectangleComponent
-//
-//class AABBShapeComponent : public ShapeComponent
-//{
-//public:
-//	AABBShapeComponent();
-//	~AABBShapeComponent() {};
-//	bool PointCollisionDetection(float pointX, float pointY);
-//public:
-//private:
-//private:
-//	float left, right, top, bottom;
-//};

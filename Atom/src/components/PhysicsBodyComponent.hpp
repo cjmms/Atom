@@ -21,13 +21,20 @@ public:
 	float totalForceX = 0.0f, totalForceY = 0.0f;
 	float mass = 1.0f, invMass = 1.0f;
 
-	bool grounded;
+	bool grounded = false;
+	bool staticBody = true;
+
+public:
+	PhysicsBodyComponent() {};
+	PhysicsBodyComponent(float mass, bool staticBody) : mass(mass), staticBody(staticBody) {};
 };
 
 inline void to_json(ordered_json& j, const PhysicsBodyComponent& x) {
 	to_json(j["mass"], x.mass);
+	to_json(j["staticBody"], x.staticBody);
 }
 
 inline void from_json(const ordered_json& j, PhysicsBodyComponent& x) {
 	from_json(j["mass"], x.mass);
+	from_json(j["staticBody"], x.staticBody);
 }

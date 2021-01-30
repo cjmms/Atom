@@ -19,7 +19,6 @@ AtomEngine ae;
 // all compoennts 
 #include "components/AllComponents.hpp"
 #include "systems/RectangleRenderSystem.hpp"
-#include "systems/TransformSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 
 #ifdef _WIN64
@@ -99,9 +98,41 @@ EntityID makeSingleRectangle() {
     });
 
     return rectangle;
-
 }
 
+void demoSetup()
+{
+    EntityID rectangle = ae.createEntity();
+
+    ae.addComponent(rectangle, RectangleComponent{
+        glm::vec3{1,1,1},
+        false
+        });
+    ae.addComponent(rectangle, TransformComponent{
+        glm::vec3{0, 0, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{1,1,1.0f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(rectangle, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(rectangle, PhysicsBodyComponent(1, true));
+
+    EntityID rectangle2 = ae.createEntity();
+
+    ae.addComponent(rectangle2, RectangleComponent{
+        glm::vec3{0.5f,0.5f,0.5f},
+        false
+        });
+
+    ae.addComponent(rectangle2, TransformComponent{
+        glm::vec3{0, 0, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{0.1f,0.1f,0.1f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(rectangle2, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(rectangle2, PhysicsBodyComponent(1, false));
+}
 
 void glfwpoll() {
     glfwPollEvents();
@@ -130,7 +161,6 @@ int main(int argc, char** argv){
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
-    ae.registerSystem<TransformSystem>();
     ae.registerSystem<PhysicsSystem>();
 
     // set archetypes
@@ -139,10 +169,6 @@ int main(int argc, char** argv){
         typeRectangleRender.set(ae.getComponentType<RectangleComponent>());
         typeRectangleRender.set(ae.getComponentType<TransformComponent>());
         ae.setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
-
-        Archetype typeTransform;
-        typeTransform.set(ae.getComponentType<TransformComponent>());
-        ae.setSystemArchetype<TransformSystem>(typeTransform);
 
         Archetype typePhysics;
         typePhysics.set(ae.getComponentType<TransformComponent>());
@@ -154,11 +180,12 @@ int main(int argc, char** argv){
     // need to initialize systems again because systems got updated above
     ae.initSystem();
 
+    demoSetup();
+	
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
         ae.update();
-        makeSingleRectangle();
         fpsCounter();
     }
 

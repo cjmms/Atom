@@ -1,3 +1,9 @@
+/*
+* @file		PhysicsBodyComponent.hpp
+* @author	Gerald Lee
+* @brief	PhysicsBodyComponent
+* @date		2021-01-29
+*/
 #include <Pch.hpp>
 #include "PhysicsSystem.hpp"
 #include "utils/Log.hpp"
@@ -5,42 +11,27 @@
 #include "core/Types.hpp"
 #include "components/AllComponents.hpp"
 
-extern AtomEngine engine;
+extern AtomEngine ae;
 
-bool CheckCollisionAABBAABB(
-	ShapeComponent* AABBShape1, float pos1X, float pos1Y,
-	ShapeComponent* AABBShape2, float pos2X, float pos2Y,
-	std::list<Contact*>& contacts)
+bool CheckCollisionAABBAABB(ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
+	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, std::list<Contact*>& contacts)
 {
-	//float left1, right1, top1, bottom1;
-	//float left2, right2, top2, bottom2;
+	float left1, right1, top1, bottom1;
+	float left2, right2, top2, bottom2;
 
-	//AABBShapeComponent* pAABB1 = (AABBShapeComponent*)AABBShape1;
-	//AABBShapeComponent* pAABB2 = (AABBShapeComponent*)AABBShape2;
+	left1 = transform1.position.x - transform1.scale.x / 2;
+	right1 = transform1.position.x + transform1.scale.x / 2;
+	top1 = transform1.position.y + transform1.scale.y / 2;
+	bottom1 = transform1.position.y - transform1.scale.y / 2;
 
-	//left1 = pos1X + pAABB1->left;
-	//right1 = pos1X + pAABB1->right;
-	//top1 = pos1Y + pAABB1->top;
-	//bottom1 = pos1Y - pAABB1->bottom;
+	left2 = transform2.position.x - transform2.scale.x / 2;
+	right2 = transform2.position.x + transform2.scale.x / 2;
+	top2 = transform2.position.y + transform2.scale.y / 2;
+	bottom2 = transform2.position.y - transform2.scale.y / 2;
 
-	//left2 = pos2X + pAABB2->left;
-	//right2 = pos2X + pAABB2->right;
-	//top2 = pos2Y + pAABB2->top;
-	//bottom2 = pos2Y - pAABB2->bottom;
-	//
-	///*left1 = pos1X + pAABB1->left;
-	//right1 = pos1X + pAABB1->right;
-	//top1 = pos1Y + pAABB1->top;
-	//bottom1 = pos1Y + pAABB1->bottom;
-
-	//left2 = pos2X + pAABB2->left;
-	//right2 = pos2X + pAABB2->right;
-	//top2 = pos2Y + pAABB2->top;
-	//bottom2 = pos2Y + pAABB2->bottom;*/
-
-	//if (left1 > right2 || left2 > right1
-	//	|| top1 < bottom2 || top2 < bottom1)
-	//	return false;
+	if (left1 > right2 || left2 > right1
+		|| top1 < bottom2 || top2 < bottom1)
+		return false;
 
 	//Contact* pNewContact = new Contact();
 	//pNewContact->bodies[0] = AABBShape1->body;
@@ -60,21 +51,21 @@ void PhysicsSystem::update()
 	//reset prev contacts;
 	Reset();
 
-	double frameTime = engine.getUptime();
+	double frameTime = ae.getUptime() / 1000;
 
 	for (auto& itr = mEntities.begin(); itr != mEntities.end(); itr++) {
 		EntityID entity1 = *itr;
 
 		//component check
-		if (!engine.hasComponent<ShapeComponent>(entity1))
+		if (!ae.hasComponent<ShapeComponent>(entity1))
 			continue;
-		auto& shape1 = engine.getComponent<ShapeComponent>(entity1);
-		if (!engine.hasComponent<TransformComponent>(entity1))
+		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
+		if (!ae.hasComponent<TransformComponent>(entity1))
 			continue;
-		auto& transform1 = engine.getComponent<TransformComponent>(entity1);
-		if (!engine.hasComponent<PhysicsBodyComponent>(entity1))
+		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
+		if (!ae.hasComponent<PhysicsBodyComponent>(entity1))
 			continue;
-		auto& body1 = engine.getComponent<PhysicsBodyComponent>(entity1);
+		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
 
 		//nested loop without repeat(starts from itr + 1)
 		for (auto& itr2 = std::next(itr); itr2 != mEntities.end(); itr2++) {
@@ -83,20 +74,22 @@ void PhysicsSystem::update()
 				continue;
 			
 			//component check
-			if (!engine.hasComponent<ShapeComponent>(entity2))
+			if (!ae.hasComponent<ShapeComponent>(entity2))
 				continue;
-			auto& shape2 = engine.getComponent<ShapeComponent>(entity2);
-			if (!engine.hasComponent<TransformComponent>(entity2))
+			auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
+			if (!ae.hasComponent<TransformComponent>(entity2))
 				continue;
-			auto& transform2 = engine.getComponent<TransformComponent>(entity2);
-			if (!engine.hasComponent<PhysicsBodyComponent>(entity2))
+			auto& transform2 = ae.getComponent<TransformComponent>(entity2);
+			if (!ae.hasComponent<PhysicsBodyComponent>(entity2))
 				continue;
-			auto& body2 = engine.getComponent<PhysicsBodyComponent>(entity2);
+			auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
 
+			//collision detection based on shapes
 			bool collision = CollisionDetection(shape1, transform1, shape2, transform2);
 
-			integratePhysicsBody(body1, transform1, frameTime);
-			integratePhysicsBody(body2, transform2, frameTime);
+			//update physics bodies
+			updatePhysicsBody(body1, transform1, frameTime);
+			updatePhysicsBody(body2, transform2, frameTime);
 		}
 	}
 	
@@ -110,6 +103,10 @@ void PhysicsSystem::update()
 	//	//pContact->mBodies[0]->mpOwner->HandleEvent(&collideEvent);
 	//	//pContact->mBodies[1]->mpOwner->HandleEvent(&collideEvent);
 	//}
+}
+
+void PhysicsSystem::onEvent(Event& e)
+{
 }
 
 void PhysicsSystem::Reset()
@@ -130,11 +127,14 @@ bool PhysicsSystem::CollisionDetection(
 		contacts);
 }
 
-void PhysicsSystem::integratePhysicsBody(
-	PhysicsBodyComponent body, 
-	TransformComponent transform, 
+void PhysicsSystem::updatePhysicsBody(
+	PhysicsBodyComponent& body, 
+	TransformComponent& transform, 
 	double frameTime)
 {
+	if (body.staticBody)
+		return;
+	
 	body.positionX = transform.position.x;
 	body.positionY = transform.position.y;
 
@@ -142,10 +142,8 @@ void PhysicsSystem::integratePhysicsBody(
 	body.prevPositionY = body.positionY;
 
 	//compute acceleration
-	body.totalForceY += GRAVITY;
-
 	body.accelerationX = body.totalForceX * body.mass;
-	body.accelerationY = (body.totalForceY - 9.81) * body.mass;
+	body.accelerationY = (body.totalForceY - GRAVITY) * body.mass;
 	body.accelerationY = body.grounded && body.accelerationY < 0 ? 0 : body.accelerationY;
 
 	//Integrate velocity
@@ -159,10 +157,4 @@ void PhysicsSystem::integratePhysicsBody(
 	//update transform
 	transform.position.x = body.positionX;
 	transform.position.y = body.positionY;
-}
-
-bool PhysicsSystem::CheckCollisionAABBAABB(ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
-	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, std::list<Contact*>& contacts)
-{
-	
 }
