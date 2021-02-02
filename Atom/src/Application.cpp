@@ -86,7 +86,8 @@ EntityID makeSingleRectangle() {
 
     ae.addComponent(rectangle, RectangleComponent{
         glm::vec3{random(),random(),random()},
-        false
+        false, 
+        "Atom/res/img.jpg"
     });
 
     ae.addComponent(rectangle, TransformComponent{
