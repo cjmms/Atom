@@ -34,9 +34,9 @@ private:
 };
 
 
-bool CheckCollisionAABBAABB(
-	ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
-	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2,
+bool CheckCollisionAABBAABB(double frameTime,
+	ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
+	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, PhysicsBodyComponent& body2,
 	std::list<Contact*>& contacts);
 
 class PhysicsSystem : public System
@@ -51,10 +51,8 @@ public:
 	void Reset();
 
 	bool CollisionDetection(
-		const ShapeComponent& shape1, 
-		const TransformComponent& transform1, 
-		const ShapeComponent& shape2, 
-		const TransformComponent& transform2
+		const ShapeComponent& shape1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
+		const ShapeComponent& shape2, const TransformComponent& transform2, PhysicsBodyComponent& body2
 	);
 
 public:
@@ -62,16 +60,17 @@ public:
 
 	//2D array of function pointers, used to store the collision functions
 	bool (*CollisionFunctions[ShapeComponent::ShapeType::Num][ShapeComponent::ShapeType::Num])(
-		ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1,
-		ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2,
+		double frameTime,
+		ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
+		ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, PhysicsBodyComponent& body2,
 		std::list<Contact*>& contacts
 		);
 
 
 private:
-
-private:
 	void updatePhysicsBody(PhysicsBodyComponent& body, TransformComponent& transform, double frameTime);
 
+private:
+	double frameTime;
 	
 };

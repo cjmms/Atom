@@ -8,7 +8,7 @@ uniform vec2 pos;
 void main()
 {
 	// make sure the left top vertex is at origin
-	vec2 position = vec2( abs(aPos.x), -abs(aPos.y)) + aPos.xy;
+	vec2 position = aPos.xy;
 
 	// scale
 	position = scale * position;

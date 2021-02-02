@@ -55,7 +55,7 @@ void RectangleRenderSystem::update() {
 			if (ae.hasComponent<TransformComponent>(entity)) {
 				auto& t = ae.getComponent<TransformComponent>(entity);
 				glm::vec3 topleft = t.position - t.scale / 2.0f;
-				draw(glm::vec2{topleft.x,topleft.y}, t.scale, rc.color, rc.wireframe);
+				draw(glm::vec2{t.position.x,t.position.y}, t.scale, rc.color, rc.wireframe);
 			}
 		}
 	}
