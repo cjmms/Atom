@@ -35,3 +35,7 @@
 //	tilemap.rows = rows;
 //	tilemap.cols = cols;
 //}
+void loadResource(unsigned int& id, string filename) {
+
+}
+
