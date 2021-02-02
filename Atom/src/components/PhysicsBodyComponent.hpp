@@ -14,7 +14,7 @@
 class PhysicsBodyComponent
 {
 public:
-	float positionX = 0.0f, positionY = 0.0f;
+	//float positionX = 0.0f, positionY = 0.0f;
 	float prevPositionX = 0.0f, prevPositionY = 0.0f;
 	float velocityX = 0.0f, velocityY = 0.0f;
 	float accelerationX = 0.0f, accelerationY = 0.0f;	//a = F / m

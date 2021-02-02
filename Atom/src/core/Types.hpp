@@ -13,7 +13,7 @@
 // CONSTANTS 
 #define PI 3.14159f
 #define GRAVITY 9.81f
-
+#define EPSILON 0.00001
 
 // DEFINES
 #define APPNAME "[ATOM]"

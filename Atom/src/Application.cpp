@@ -164,20 +164,20 @@ void demoSetup()
     ae.addComponent(rectangle4, PhysicsBodyComponent(1, true));
 
 
-   //EntityID rectangle5 = ae.createEntity();
-   //
-   //ae.addComponent(rectangle5, RectangleComponent{
-   //    glm::vec3{1,1,1},   //colors
-   //    false
-   //    });
-   //ae.addComponent(rectangle5, TransformComponent{
-   //    glm::vec3{0, 2, 0}, // position
-   //    glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //    glm::vec3{0.8f,0.8f,0.8f},  // scale 
-   //    glm::mat4(1.0f)
-   //    });
-   //ae.addComponent(rectangle5, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   //ae.addComponent(rectangle5, PhysicsBodyComponent(1, true));
+   EntityID rectangle5 = ae.createEntity();
+   
+   ae.addComponent(rectangle5, RectangleComponent{
+       glm::vec3{1,1,1},   //colors
+       false
+       });
+   ae.addComponent(rectangle5, TransformComponent{
+       glm::vec3{0, 1, 0}, // position
+       glm::vec3{0.0f,0.0f,0.0f}, // rotation
+       glm::vec3{0.8f,0.8f,0.8f},  // scale 
+       glm::mat4(1.0f)
+       });
+   ae.addComponent(rectangle5, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+   ae.addComponent(rectangle5, PhysicsBodyComponent(1, true));
 
 }
 

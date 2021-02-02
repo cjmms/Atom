@@ -51,8 +51,8 @@ public:
 	void Reset();
 
 	bool CollisionDetection(
-		const ShapeComponent& shape1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
-		const ShapeComponent& shape2, const TransformComponent& transform2, PhysicsBodyComponent& body2
+		const ShapeComponent& shape1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+		const ShapeComponent& shape2, TransformComponent& transform2, PhysicsBodyComponent& body2
 	);
 
 public:
@@ -61,15 +61,15 @@ public:
 	//2D array of function pointers, used to store the collision functions
 	bool (*CollisionFunctions[ShapeComponent::ShapeType::Num][ShapeComponent::ShapeType::Num])(
 		double frameTime,
-		ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
-		ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, PhysicsBodyComponent& body2,
+		ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+		ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
 		std::list<Contact*>& contacts
 		);
 
 
 private:
+	bool hasRequiredComponents(EntityID entity);
 	void updatePhysicsBody(PhysicsBodyComponent& body, TransformComponent& transform, double frameTime);
-
 private:
 	double frameTime;
 	
