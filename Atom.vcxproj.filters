@@ -1755,6 +1755,9 @@
     <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
+    <ClInclude Include="Atom\src\core\InputManager.hpp" />
+    <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
+    <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1789,6 +1792,8 @@
       <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
+    <ClCompile Include="Atom\src\core\InputManager.cpp" />
+    <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">

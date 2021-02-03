@@ -611,8 +611,10 @@
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
+    <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
     <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
     <ClInclude Include="Atom\src\core\GraphicsManager.hpp" />
+    <ClInclude Include="Atom\src\core\InputManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\Body.hpp" />
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
@@ -626,6 +628,7 @@
     <ClInclude Include="Atom\src\core\Event.hpp" />
     <ClInclude Include="Atom\src\core\EventManager.hpp" />
     <ClInclude Include="Atom\src\core\PhysicsManager.hpp" />
+    <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
     <ClInclude Include="Atom\src\core\Shader.hpp" />
@@ -642,12 +645,14 @@
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Atom\src\components\Body.cpp" />
     <ClCompile Include="Atom\src\components\Shape.cpp" />
     <ClCompile Include="Atom\src\core\PhysicsManager.cpp" />
+    <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\platform\windows\Graphics.cpp" />
