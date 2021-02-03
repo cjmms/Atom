@@ -746,7 +746,6 @@
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Body.obj" />
-    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Graphics.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\GraphicsManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Log.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Pch.obj" />

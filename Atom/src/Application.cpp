@@ -20,7 +20,7 @@ AtomEngine ae;
 #include "components/AllComponents.hpp"
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
-//#include "systems/ControllerSystem.hpp"
+#include "systems/ControllerSystem.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -212,7 +212,7 @@ int main(int argc, char** argv){
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
-    //ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<ControllerSystem>();
 	
 
     // set archetypes

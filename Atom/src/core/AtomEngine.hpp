@@ -31,7 +31,7 @@ public:
 		mSystemManager = std::make_unique<SystemManager>();
 		mEventManager = std::make_unique<EventManager>();
 		mResourceManager = std::make_unique<ResourceManager>();
-		//mInputManager = std::make_unique<InputManager>();
+		mInputManager = std::make_unique<InputManager>();
 
 		dt = 0.0;
 
@@ -39,7 +39,7 @@ public:
 		mGraphicsManager->init();
 		mResourceManager->init();
 		mSystemManager->init();
-		//mInputManager->init();
+		mInputManager->init();
 
 		mIsRunning = true;
 	}
@@ -50,7 +50,7 @@ public:
 		mSystemManager->update();
 		mGraphicsManager->update();
 		mResourceManager->update();
-		//mInputManager->update();
+		mInputManager->update();
 
 		endFrame();
 	}
@@ -195,7 +195,7 @@ public:
 	std::unique_ptr<EventManager> mEventManager;
 	std::unique_ptr<GraphicsManager> mGraphicsManager;
 	std::unique_ptr<ResourceManager> mResourceManager;
-	//std::unique_ptr<InputManager> mInputManager;
+	std::unique_ptr<InputManager> mInputManager;
 };
 
 

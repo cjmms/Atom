@@ -1859,7 +1859,6 @@
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
@@ -2116,9 +2115,6 @@
       <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Body.obj">
-      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Graphics.obj">
       <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\GraphicsManager.obj">
