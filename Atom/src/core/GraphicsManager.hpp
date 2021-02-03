@@ -1,57 +1,36 @@
-/*
-* @file		GraphicsManager.hpp
-* @author	Abhikalp Unakal
-* @brief	High level graphics initialization api 
-* @date		2021-01-26
-*/
-
-#ifndef GRAPHICSMANAGER_HPP
-#define GRAPHICSMANAGER_HPP
+#pragma once
 #include "Pch.hpp"
 #include "core/Event.hpp"
-#include "core/Types.hpp"
-
-// if windows
-#ifdef _WIN64
-#include "platform/windows/Graphics.hpp"
-#endif
-
-// if macos
-#ifdef __APPLE__
-#include "platform/macos/Graphics.hpp"
-#endif
-
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 class GraphicsManager {
 public:
-	void init() {
-		gfx.init();
-	}
-	void update() {
-		gfx.update();
-	}
-	void onEvent(Event& e) {
-		gfx.onEvent(e);
-	}
-	void resize(unsigned int w, unsigned int h) {
-		gfx.resize(w, h);
-	}
-	string getWindowTitle() {
-		return gfx.getWindowTitle();
-	}
-	void setWindowTitle(string s) {
-		gfx.setWindowTitle(s);
-	}
-	void printInfo() {
-		gfx.printInfo();
-	}
-	bool shouldWindowClose() {
-		return gfx.shouldWindowClose();
-	}
+	void init();
 
-	//private:
-public:
-	Graphics gfx;
+	// swap framebuffer, clean framebuffer
+	void update();
+
+	void onEvent(Event& e);
+
+	void resize(unsigned int w, unsigned int h);
+
+	inline string getWindowTitle() const { return title; }
+
+	inline void setWindowTitle(string s) { glfwSetWindowTitle(mWindow, title.c_str()); }
+
+	void printInfo() const;
+
+	inline bool shouldWindowClose() { return glfwWindowShouldClose(mWindow); }
+
+	inline GLFWwindow* getWindow() { return mWindow; }
+
+
+private:
+	GLFWwindow* mWindow = NULL;
+
+	string title;
+	unsigned int width;
+	unsigned int height;
 };
 
-#endif GRAPHICSMANAGER_HPP

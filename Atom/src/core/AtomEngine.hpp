@@ -18,6 +18,7 @@
 #include "core/SystemManager.hpp"
 #include "core/GraphicsManager.hpp"
 #include "core/InputManager.hpp"
+#include "core/ResourceManager.hpp"
 #include "core/Types.hpp"
 
 class AtomEngine {
@@ -29,12 +30,15 @@ public:
 		mGraphicsManager = std::make_unique<GraphicsManager>();
 		mSystemManager = std::make_unique<SystemManager>();
 		mEventManager = std::make_unique<EventManager>();
+		mResourceManager = std::make_unique<ResourceManager>();
 
 		dt = 0.0;
 
 		mChrononManager->setMaxFPS(FPS);
 		mGraphicsManager->init();
+		mResourceManager->init();
 		mSystemManager->init();
+
 
 		mIsRunning = true;
 	}
@@ -44,12 +48,14 @@ public:
 		mEventManager->update();
 		mSystemManager->update();
 		mGraphicsManager->update();
+		mResourceManager->update();
 
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
 		mGraphicsManager->onEvent(e);
+		mResourceManager->onEvent(e);
 		mSystemManager->onEvent(e);
 	}
 
@@ -186,6 +192,7 @@ public:
 	std::unique_ptr<SystemManager> mSystemManager;
 	std::unique_ptr<EventManager> mEventManager;
 	std::unique_ptr<GraphicsManager> mGraphicsManager;
+	std::unique_ptr<ResourceManager> mResourceManager;
 };
 
 
