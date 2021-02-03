@@ -6,5 +6,6 @@
 #include "components/RenderBoxComponent.hpp"
 #include "components/Shape.hpp"
 #include "components/TransformComponent.hpp"
+#include "components/ControllerComponent.hpp"
 
 #endif 

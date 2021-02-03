@@ -17,6 +17,7 @@
 #include "core/System.hpp"
 #include "core/SystemManager.hpp"
 #include "core/GraphicsManager.hpp"
+#include "core/InputManager.hpp"
 #include "core/ResourceManager.hpp"
 #include "core/Types.hpp"
 
