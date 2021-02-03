@@ -640,7 +640,6 @@
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
-    <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
@@ -655,12 +654,10 @@
     </ClCompile>
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
-    <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
-    <ClCompile Include="Atom\src\platform\windows\Graphics.cpp" />
-    <ClCompile Include="Atom\src\platform\windows\ResourceLoader.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
   </ItemGroup>
@@ -759,7 +756,6 @@
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ResourceLoader.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shader.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shape.obj" />
-    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\TransformSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\glm.obj" />
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\vc142.pdb" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb" />

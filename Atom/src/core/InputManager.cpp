@@ -80,7 +80,7 @@ bool InputManager::isKeyTriggered(unsigned int keycode)
 {
 	if ((short)mCurrentKeyState[keycode] >= 128 && (short)mPrevKeyState[keycode] < 128)
 	{
-		ATOM_INFO("{} is triggered and value: {}", keycode, (short)currentKeyState[keycode]);
+		ATOM_INFO("{} is triggered and value: {}", keycode, (short)mCurrentKeyState[keycode]);
 		return TRUE;
 	}
 
@@ -92,7 +92,7 @@ bool InputManager::isKeyPressed(unsigned int keycode)
 {
 	if ((short)mCurrentKeyState[keycode] >= 128 && (short)mPrevKeyState[keycode] >= 128)
 	{
-		ATOM_TRACE("{} is pressed and value: {}", keycode, (short)currentKeyState[keycode]);
+		ATOM_TRACE("{} is pressed and value: {}", keycode, (short)mCurrentKeyState[keycode]);
 		return TRUE;
 	}
 
@@ -104,7 +104,7 @@ bool InputManager::isKeyReleased(unsigned int keycode)
 {
 	if ((short)mCurrentKeyState[keycode] < 128 && (short)mPrevKeyState[keycode] >= 128)
 	{
-		ATOM_INFO("{} is relesed and value: {}", keycode, (short)currentKeyState[keycode]);
+		ATOM_INFO("{} is relesed and value: {}", keycode, (short)mCurrentKeyState[keycode]);
 		return TRUE;
 	}
 

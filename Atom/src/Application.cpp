@@ -20,6 +20,7 @@ AtomEngine ae;
 #include "components/AllComponents.hpp"
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
+//#include "systems/ControllerSystem.hpp"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -206,10 +207,13 @@ int main(int argc, char** argv){
     ae.registerComponent<TransformComponent>();
     ae.registerComponent<PhysicsBodyComponent>();
     ae.registerComponent<ShapeComponent>();
+    //ae.registerComponent<ControllerComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
+    //ae.registerSystem<ControllerSystem>();
+	
 
     // set archetypes
     {
@@ -223,6 +227,10 @@ int main(int argc, char** argv){
         typePhysics.set(ae.getComponentType<PhysicsBodyComponent>());
         typePhysics.set(ae.getComponentType<ShapeComponent>());
         ae.setSystemArchetype<PhysicsSystem>(typePhysics);
+
+        //Archetype typeController;
+        //typeController.set(ae.getComponentType<ControllerComponent>());
+        //ae.setSystemArchetype<ControllerSystem>(typeController);
     }
     
     // need to initialize systems again because systems got updated above

@@ -1809,9 +1809,6 @@
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\systems\TransformSystem.hpp">
-      <Filter>src\systems</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\utils\Log.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
@@ -1838,6 +1835,10 @@
     <ClInclude Include="Atom\src\core\InputManager.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
+    <ClInclude Include="Atom\src\components\AllComponents.hpp" />
+    <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
+    <ClInclude Include="Atom\src\core\GraphicsManager.hpp" />
+    <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1849,30 +1850,22 @@
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\core\PhysicsManager.cpp">
-      <Filter>src\core</Filter>
-    </ClCompile>
     <ClCompile Include="Atom\src\core\Shader.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\systems\TransformSystem.cpp">
-      <Filter>src\systems</Filter>
-    </ClCompile>
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
-      <Filter>src\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp">
-      <Filter>src\core</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
+    <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
+    <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">
@@ -2153,9 +2146,6 @@
       <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shape.obj">
-      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\TransformSystem.obj">
       <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\glm.obj">

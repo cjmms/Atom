@@ -14,8 +14,8 @@
 extern AtomEngine ae;
 
 bool CheckCollisionAABBAABB(double frameTime,
-	ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1, 
-	ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2, 
+	ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+	ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
 	std::list<Contact*>& contacts)
 {
 	float left1, right1, top1, bottom1;
@@ -45,9 +45,9 @@ bool CheckCollisionAABBAABB(double frameTime,
 		//time to collide along asix
 		float distX, distY;
 		float timeX, timeY;
-		
-		if(body1.prevPositionX + halfWidth1 > transform2.position.x - halfWidth2
-		&& body1.prevPositionX - halfWidth1 < transform2.position.x + halfWidth2)
+
+		if (body1.prevPositionX + halfWidth1 > transform2.position.x - halfWidth2
+			&& body1.prevPositionX - halfWidth1 < transform2.position.x + halfWidth2)
 		{
 			//vertical collision only
 			// ---
@@ -107,7 +107,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 			distX = (transform1.position.x - transform2.position.x - halfWidth1 - halfWidth2) / 2;
 			timeX = distX / body1.velocityX;
 
-			if(timeX < timeY)
+			if (timeX < timeY)
 			{
 				//horizontal reach faster
 				//vertical collision
@@ -132,7 +132,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 				timeX = distX / body1.velocityX;
 				transform1.position.x = transform1.position.x - timeX * body1.velocityX;
 				transform1.position.y = transform1.position.y - timeX * body2.velocityY;
-				
+
 			}
 		}
 		body1.prevPositionX = transform1.position.x;
@@ -181,13 +181,13 @@ void PhysicsSystem::update()
 
 		//update physics bodies
 		updatePhysicsBody(body1, transform1, frameTime);
-		
+
 		//nested loop
 		for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
 			EntityID entity2 = *itr2;
 			if (entity1 == entity2)
 				continue;
-			
+
 			//component check
 			if (!hasRequiredComponents(entity1))
 				continue;
@@ -199,7 +199,7 @@ void PhysicsSystem::update()
 			bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
 		}
 	}
-	
+
 	////todo if advanced physics, resolve contacts
 	//
 	//for (auto pContact : contacts)
@@ -247,8 +247,8 @@ bool PhysicsSystem::hasRequiredComponents(EntityID entity)
 }
 
 void PhysicsSystem::updatePhysicsBody(
-	PhysicsBodyComponent& body, 
-	TransformComponent& transform, 
+	PhysicsBodyComponent& body,
+	TransformComponent& transform,
 	double frameTime)
 {
 	body.prevPositionX = transform.position.x;
