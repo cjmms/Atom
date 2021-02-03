@@ -12,14 +12,15 @@
 
 // CONSTANTS 
 #define PI 3.14159f
-
+#define GRAVITY 9.81f
+#define EPSILON 0.00001
 
 // DEFINES
 #define APPNAME "[ATOM]"
 #define MAX_TITLE_LEN 80
 #define FPS 60
 #define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_HEIGHT 640
 
 // USING
 using string = std::string;

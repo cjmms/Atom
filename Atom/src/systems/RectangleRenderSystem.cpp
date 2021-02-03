@@ -54,9 +54,9 @@ void RectangleRenderSystem::update() {
 				glm::vec3 topleft = t.position - t.scale / 2.0f;
 
 				if (!rc.texturePath.empty())
-					draw(glm::vec2{ topleft.x,topleft.y }, t.scale, rc.texturePath, rc.wireframe);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, rc.wireframe);
 				else
-					draw(glm::vec2{topleft.x,topleft.y}, t.scale, rc.color, rc.wireframe);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, rc.wireframe);
 			}
 		}
 	}
