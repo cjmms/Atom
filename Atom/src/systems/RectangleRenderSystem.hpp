@@ -24,7 +24,10 @@ public:
 	// other methods in the system
 	// pos is the top left vertex of the rectangle
 	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe=false) const;
-	std::unique_ptr<Shader> RecShader;
+	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe=false) const;
+
+	std::unique_ptr<Shader> ColorRecShader;
+	std::unique_ptr<Shader> TextureRecShader;
 	unsigned int RecVAO;
 };
 

@@ -11,16 +11,9 @@
 #include "Pch.hpp"
 #include "core/Types.hpp"
 #include "core/Event.hpp"
+#include "utils/ResourceLoader.hpp"
 
-// if windows
-#ifdef _WIN64
-#include "platform/windows/ResourceLoader.hpp"
-#endif
 
-// if macos
-#ifdef __APPLE__
-#include "platform/macos/ResourceLoader.hpp"
-#endif
 
 
 class ResourceManager {
