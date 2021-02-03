@@ -76,6 +76,12 @@ void ControllerSystem::update()
 				body.velocityX = 0;
 
 			}
+			if (ae.mInputManager->isKeyReleased(VK_RIGHT))
+			{
+				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
+				body.velocityX = 0;
+
+			}
 		}
 	}	
 	

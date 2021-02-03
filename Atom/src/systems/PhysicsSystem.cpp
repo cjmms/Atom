@@ -46,8 +46,8 @@ bool CheckCollisionAABBAABB(double frameTime,
 		float distX, distY;
 		float timeX, timeY;
 
-		if (body1.prevPositionX + halfWidth1 > transform2.position.x - halfWidth2
-			&& body1.prevPositionX - halfWidth1 < transform2.position.x + halfWidth2)
+		if (body1.prevPositionX + halfWidth1 > transform2.position.x - halfWidth2 + EPSILON
+			&& body1.prevPositionX - halfWidth1 + EPSILON < transform2.position.x + halfWidth2)
 		{
 			//vertical collision only
 			// ---
@@ -72,8 +72,8 @@ bool CheckCollisionAABBAABB(double frameTime,
 			body1.accelerationY = 0;
 			body1.velocityY = 0;
 		}
-		else if (body1.prevPositionY + halfHeight1 > transform2.position.y - halfHeight2
-			&& body1.prevPositionY - halfHeight1 < transform2.position.y + halfHeight2)
+		else if (body1.prevPositionY + halfHeight1 > transform2.position.y - halfHeight2 + EPSILON
+			&& body1.prevPositionY - halfHeight1 + EPSILON < transform2.position.y + halfHeight2)
 		{
 			//horizontal collision only
 			// ---
@@ -163,7 +163,7 @@ void PhysicsSystem::update()
 	//reset prev contacts;
 	Reset();
 
-	frameTime = ae.getUptime() / 1000;
+	frameTime = ae.dt;
 
 	for (auto& itr = mEntities.begin(); itr != mEntities.end(); itr++) {
 		EntityID entity1 = *itr;
