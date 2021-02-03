@@ -9,8 +9,6 @@
 
 extern AtomEngine ae;
 
-extern EventManager gpEventManager;
-
 InputManager::InputManager()
 {
 	memset(mCurrentKeyState, '\0', sizeof(mCurrentKeyState));
@@ -81,6 +79,11 @@ bool InputManager::isKeyTriggered(unsigned int keycode)
 	if ((short)mCurrentKeyState[keycode] >= 128 && (short)mPrevKeyState[keycode] < 128)
 	{
 		ATOM_INFO("{} is triggered and value: {}", keycode, (short)mCurrentKeyState[keycode]);
+
+		/*Event e(EventID::E_WINDOW_KEY_TRIGGERED);
+		e.setParam<int>(P_WINDOW_KEY_TRIGGERED_KEYCODE, keycode);
+		ae.mEventManager->sendEvent(e);*/
+
 		return TRUE;
 	}
 
@@ -93,8 +96,15 @@ bool InputManager::isKeyPressed(unsigned int keycode)
 	if ((short)mCurrentKeyState[keycode] >= 128 && (short)mPrevKeyState[keycode] >= 128)
 	{
 		ATOM_TRACE("{} is pressed and value: {}", keycode, (short)mCurrentKeyState[keycode]);
+
+		/*Event e(EventID::E_WINDOW_KEY_PRESSED);
+		e.setParam<int>(P_WINDOW_KEY_PRESSED_KEYCODE, keycode);
+		ae.mEventManager->sendEvent(e);*/
+
 		return TRUE;
 	}
+
+	
 
 	return FALSE;
 }
@@ -105,6 +115,11 @@ bool InputManager::isKeyReleased(unsigned int keycode)
 	if ((short)mCurrentKeyState[keycode] < 128 && (short)mPrevKeyState[keycode] >= 128)
 	{
 		ATOM_INFO("{} is relesed and value: {}", keycode, (short)mCurrentKeyState[keycode]);
+
+		/*Event e(EventID::E_WINDOW_KEY_RELEASED);
+		e.setParam<int>(P_WINDOW_KEY_RELEASED_KEYCODE, keycode);
+		ae.mEventManager->sendEvent(e);*/
+
 		return TRUE;
 	}
 

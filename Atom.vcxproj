@@ -657,27 +657,8 @@
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atom\.vs\Atom\v16\.suo" />
-    <None Include="Atom\.vs\Atom\v16\Browse.VC.db" />
-    <None Include="Atom\.vs\Atom\v16\ipch\AutoPCH\ae292d5f646dc3f4\APPLICATION.ipch" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Application.obj" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.Build.CppClean.log" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.log" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\Atom.lastbuildstate" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.command.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.read.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.write.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.command.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.read.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.write.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.idb" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.pdb" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.exe" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.ilk" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.pdb" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate" />
@@ -687,8 +668,7 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\InputManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj" />

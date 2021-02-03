@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include=".vs">
-      <UniqueIdentifier>{3C86870B-A88F-877C-310B-9E7C9D13937C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include=".vs\Atom">
-      <UniqueIdentifier>{3CEC987A-28B9-F385-51D2-E12D3DFE2814}</UniqueIdentifier>
-    </Filter>
-    <Filter Include=".vs\Atom\v16">
-      <UniqueIdentifier>{886C88B9-74CF-175E-1D55-50140997E3E0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include=".vs\Atom\v16\ipch">
-      <UniqueIdentifier>{9B7E771C-0795-75B2-500C-01D4BC61463A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include=".vs\Atom\v16\ipch\AutoPCH">
-      <UniqueIdentifier>{3E536A6F-AA15-9EF9-F3C5-2C865FC776D7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include=".vs\Atom\v16\ipch\AutoPCH\ae292d5f646dc3f4">
-      <UniqueIdentifier>{232B986C-0F93-5E3A-78FE-725064857526}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin">
-      <UniqueIdentifier>{BE61880B-2A6B-887C-B3E6-9E7C1FEF937C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin\Debug-x64">
-      <UniqueIdentifier>{632F15A6-CFEF-90DC-982A-DA5904AAD5B8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin\Debug-x64\Atom">
-      <UniqueIdentifier>{C3651148-AF49-D29D-18AA-CCF004ADBC1F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin-int">
-      <UniqueIdentifier>{168B5978-826A-D813-8B82-63EAF7E03E75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin-int\Debug-x64">
-      <UniqueIdentifier>{BBE60BBD-27FD-0953-7074-9574DCC9DADA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin-int\Debug-x64\Atom">
-      <UniqueIdentifier>{1B7418D6-076E-4128-F0DA-D738DC73A794}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bin-int\Debug-x64\Atom\Atom.tlog">
-      <UniqueIdentifier>{9FDFA228-8B30-8E6A-B494-7C2CA04421D4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="builds">
       <UniqueIdentifier>{E831F9F4-D4D3-23CB-BD8E-371FA9CFAA1B}</UniqueIdentifier>
     </Filter>
@@ -1831,67 +1792,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atom\.vs\Atom\v16\.suo">
-      <Filter>.vs\Atom\v16</Filter>
-    </None>
-    <None Include="Atom\.vs\Atom\v16\Browse.VC.db">
-      <Filter>.vs\Atom\v16</Filter>
-    </None>
-    <None Include="Atom\.vs\Atom\v16\ipch\AutoPCH\ae292d5f646dc3f4\APPLICATION.ipch">
-      <Filter>.vs\Atom\v16\ipch\AutoPCH\ae292d5f646dc3f4</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Application.obj">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.Build.CppClean.log">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.log">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\Atom.lastbuildstate">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.command.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.read.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.write.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.command.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.read.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.write.1.tlog">
-      <Filter>bin-int\Debug-x64\Atom\Atom.tlog</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.vcxproj.FileListAbsolute.txt">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.idb">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.pdb">
-      <Filter>bin-int\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.exe">
-      <Filter>bin\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.ilk">
-      <Filter>bin\Debug-x64\Atom</Filter>
-    </None>
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.pdb">
-      <Filter>bin\Debug-x64\Atom</Filter>
-    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log">
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log">
@@ -1921,11 +1825,8 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
-    </None>
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj">
-      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>

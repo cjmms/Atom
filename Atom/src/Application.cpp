@@ -149,6 +149,7 @@ void demoSetup()
         });
     ae.addComponent(rectangle3, ShapeComponent{ ShapeComponent::ShapeType::AABB });
     ae.addComponent(rectangle3, PhysicsBodyComponent(1, false));
+    ae.addComponent(rectangle3, ControllerComponent());
 
     EntityID rectangle4 = ae.createEntity();
 
@@ -198,7 +199,7 @@ int main(int argc, char** argv){
     Log::init();    // setup logging
     
     ae.init();          // initialize engine
-    ae.setMaxFPS(120);  // set the fps
+    ae.setMaxFPS(60);  // set the fps
 
     ae.printGraphicsInfo(); // print OpenGL info
     
@@ -207,7 +208,7 @@ int main(int argc, char** argv){
     ae.registerComponent<TransformComponent>();
     ae.registerComponent<PhysicsBodyComponent>();
     ae.registerComponent<ShapeComponent>();
-    //ae.registerComponent<ControllerComponent>();
+    ae.registerComponent<ControllerComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
@@ -228,9 +229,10 @@ int main(int argc, char** argv){
         typePhysics.set(ae.getComponentType<ShapeComponent>());
         ae.setSystemArchetype<PhysicsSystem>(typePhysics);
 
-        //Archetype typeController;
-        //typeController.set(ae.getComponentType<ControllerComponent>());
-        //ae.setSystemArchetype<ControllerSystem>(typeController);
+        Archetype typeController;
+        typeController.set(ae.getComponentType<ControllerComponent>());
+        typeController.set(ae.getComponentType<PhysicsBodyComponent>());
+        ae.setSystemArchetype<ControllerSystem>(typeController);
     }
     
     // need to initialize systems again because systems got updated above
