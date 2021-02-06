@@ -27,9 +27,14 @@ public:
 	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe=false) const;
 	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe=false) const;
 
+	// if pos is (1, 0), then center of camera will be (1, 0) 
+	inline void setCameraPos(glm::vec2 pos) { CameraPos = pos; };
+
+private:
 	std::unique_ptr<Shader> ColorRecShader;
 	std::unique_ptr<Shader> TextureRecShader;
 	unsigned int RecVAO;
 	std::string BackgroundAddress;
+	glm::vec2 CameraPos;
 };
 

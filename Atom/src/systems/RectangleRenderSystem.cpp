@@ -11,11 +11,14 @@
 extern AtomEngine ae;
 
 
+
 void RectangleRenderSystem::init() {
 	// Background image
 	// This is not the "Correct way" to implement
 	// But it works for Engine Demo with minimal extra code
 	setBackground("Atom/res/Background.jpg");
+
+	CameraPos = glm::vec2(0.0f);
 
 	// init shaders
 	ColorRecShader = std::make_unique<Shader> ("Atom/res/ColorRec.shader");
@@ -91,6 +94,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);
 
+	ColorRecShader->SetVec2("cameraPos", CameraPos);
+
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
 
@@ -111,6 +116,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
 	
+	TextureRecShader->SetVec2("cameraPos", CameraPos);
+
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);
 	TextureRecShader->SetTexture("tex", textureID);
