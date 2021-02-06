@@ -70,6 +70,7 @@ public:
 private:
 	bool hasRequiredComponents(EntityID entity);
 	void updatePhysicsBody(PhysicsBodyComponent& body, TransformComponent& transform, double frameTime);
+	void updatePreviousPosition(TransformComponent& transform, PhysicsBodyComponent& body);
 private:
 	double frameTime;
 	

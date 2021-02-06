@@ -3,6 +3,7 @@
 * @author	Gerald Lee
 * @brief	PhysicsBodyComponent
 * @date		2021-01-29
+* @bug		upside-down, squeezing, 
 */
 #include <Pch.hpp>
 #include "PhysicsSystem.hpp"
@@ -35,19 +36,18 @@ bool CheckCollisionAABBAABB(double frameTime,
 	top2 = transform2.position.y + halfHeight2;
 	bottom2 = transform2.position.y - halfHeight2;
 
-	if (left1 + EPSILON > right2 || left2 + EPSILON > right1
-		|| top1 < bottom2 + EPSILON || top2 < bottom1 + EPSILON)
+	if (left1 > right2 || left2 > right1
+		|| top1 < bottom2 || top2 < bottom1)
 		return false;
 
 	//if collided -> case: dyn-static or dyn-dyn
-	if (body2.staticBody)
+	//if (body2.staticBody)
 	{
 		//time to collide along asix
 		float distX, distY;
 		float timeX, timeY;
 
-		if (body1.prevPositionX + halfWidth1 > transform2.position.x - halfWidth2 + EPSILON
-			&& body1.prevPositionX - halfWidth1 + EPSILON < transform2.position.x + halfWidth2)
+		if (abs(body1.prevPositionX - body2.prevPositionX) + EPSILON < (body1.prevScaleX + body2.prevScaleX)/2.0)
 		{
 			//vertical collision only
 			// ---
@@ -57,14 +57,14 @@ bool CheckCollisionAABBAABB(double frameTime,
 			//  | |
 			//  ---
 
-			//if (body1.velocityY > 0)
-			//	transform1.position.y = transform2.position.y - halfHeight1 - halfHeight2;
-			//else
-			//	transform1.position.y = transform2.position.y + halfHeight1 + halfHeight2;
-
 			distY = abs(transform1.position.y - transform2.position.y) - halfHeight1 - halfHeight2;
-			timeY = distY / body1.velocityY;
-			transform1.position.y = transform1.position.y + timeY * abs(body1.velocityY);
+			timeY = body1.velocityY == 0 ? 0 : distY / body1.velocityY;
+			//transform1.position.y = transform1.position.y + timeX * abs(body1.velocityX);
+			if (transform1.position.y > transform2.position.y)
+				transform1.position.y = transform2.position.y + halfWidth1 + halfWidth2;
+			else
+				transform1.position.y = transform2.position.y - halfWidth1 - halfWidth2;
+
 			transform1.position.x = transform1.position.x + timeY * abs(body2.velocityX);
 
 			//assume sticky collision
@@ -82,9 +82,13 @@ bool CheckCollisionAABBAABB(double frameTime,
 			//      ---
 
 			distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
-			timeX = distX / body1.velocityX;
-			transform1.position.x = transform1.position.x + timeX * abs(body1.velocityX);
+			timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
 			transform1.position.y = transform1.position.y + timeX * abs(body2.velocityY);
+			//transform1.position.x = transform1.position.x + timeX * abs(body1.velocityX);
+			if (transform1.position.x > transform2.position.x)
+				transform1.position.x = transform2.position.x + halfHeight1 + halfHeight2;
+			else
+				transform1.position.x = transform2.position.x - halfHeight1 - halfHeight2;
 
 			//assume sticky collision
 			body1.totalForceX = 0;
@@ -102,10 +106,10 @@ bool CheckCollisionAABBAABB(double frameTime,
 			//     | | 
 			//	   ---
 
-			distY = (transform1.position.y - transform2.position.y - halfHeight1 - halfHeight2) / 2;
-			timeY = distY / body1.velocityY;
-			distX = (transform1.position.x - transform2.position.x - halfWidth1 - halfWidth2) / 2;
-			timeX = distX / body1.velocityX;
+			distY = abs(transform1.position.y - transform2.position.y) - halfHeight1 - halfHeight2;
+			timeY = body1.velocityY == 0 ? 0 : distY / body1.velocityY;
+			distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
+			timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
 
 			if (timeX < timeY)
 			{
@@ -118,9 +122,9 @@ bool CheckCollisionAABBAABB(double frameTime,
 				//   | |
 				//   ---
 
-				transform1.position.y = transform1.position.y - timeY * body1.velocityY;
-				transform1.position.x = transform1.position.x - timeY * body2.velocityX;
-
+				transform1.position.y = transform1.position.y - timeY * abs(body1.velocityY);
+				transform1.position.x = transform1.position.x - timeY * abs(body2.velocityX);
+				
 				//assume sticky collision
 				body1.totalForceY = 0;
 				body1.accelerationY = 0;
@@ -128,21 +132,22 @@ bool CheckCollisionAABBAABB(double frameTime,
 			}
 			else
 			{
-				distX = (transform1.position.x - transform2.position.x - halfWidth1 - halfWidth2) / 2;
-				timeX = distX / body1.velocityX;
-				transform1.position.x = transform1.position.x - timeX * body1.velocityX;
-				transform1.position.y = transform1.position.y - timeX * body2.velocityY;
+				transform1.position.y = transform1.position.y - timeX * abs(body2.velocityY);
+				transform1.position.x = transform1.position.x - timeX * abs(body1.velocityX);
+
+				//assume sticky collision
+				body1.totalForceX = 0;
+				body1.accelerationX = 0;
+				body1.velocityX = 0;
 
 			}
 		}
-		body1.prevPositionX = transform1.position.x;
-		body1.prevPositionX = transform1.position.y;
 	}
-	else
-	{
+	//else
+	//{
 		//todo handle dyn-dyn collision, rebounce, etc
 		//ResolveDynamicCollision();
-	}
+	//}
 
 	//todo send event for phy collision for further gameplay logics (if necessary)
 	//Contact* pNewContact = new Contact();
@@ -174,30 +179,34 @@ void PhysicsSystem::update()
 		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
 		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
 		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
-
+		
 		//skip static body, !assume it is always static
-		if (body1.staticBody)
-			continue;
+		if (!body1.staticBody)
+		{
+			//update physics bodies (f, a, v, p)
+			updatePhysicsBody(body1, transform1, frameTime);
 
-		//update physics bodies
-		updatePhysicsBody(body1, transform1, frameTime);
+			//collision checking loop
+			for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
+				EntityID entity2 = *itr2;
+				if (entity1 == entity2)
+					continue;
 
-		//nested loop
-		for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
-			EntityID entity2 = *itr2;
-			if (entity1 == entity2)
-				continue;
+				//component check
+				if (!hasRequiredComponents(entity1))
+					continue;
+				
+				auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
+				auto& transform2 = ae.getComponent<TransformComponent>(entity2);
+				auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
 
-			//component check
-			if (!hasRequiredComponents(entity1))
-				continue;
-			auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
-			auto& transform2 = ae.getComponent<TransformComponent>(entity2);
-			auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
-
-			//collision detection based on shapes
-			bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+				//collision detection based on shapes
+				bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+			}
 		}
+
+		updatePreviousPosition(transform1, body1);
+		
 	}
 
 	////todo if advanced physics, resolve contacts
@@ -212,16 +221,25 @@ void PhysicsSystem::update()
 	//}
 }
 
+void PhysicsSystem::updatePreviousPosition(TransformComponent& transform, PhysicsBodyComponent& body)
+{
+	body.prevPositionX = transform.position.x;
+	body.prevPositionY = transform.position.y;
+	body.prevScaleX = transform.scale.x;
+	body.prevScaleY = transform.scale.y;
+}
+
 void PhysicsSystem::onEvent(Event& e)
 {
 }
 
 void PhysicsSystem::Reset()
 {
-	for (auto c : contacts)
-		delete c;
-
-	contacts.clear();
+	//todo contact logics
+	//for (auto c : contacts)
+	//	delete c;
+	//
+	//contacts.clear();
 }
 
 bool PhysicsSystem::CollisionDetection(
