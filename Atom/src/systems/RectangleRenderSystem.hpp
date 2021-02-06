@@ -20,6 +20,7 @@ public:
 	void update() override;
 	void onEvent(Event& e) override;
 
+	inline void setBackground(std::string address) { BackgroundAddress = address; }
 
 	// other methods in the system
 	// pos is the top left vertex of the rectangle
@@ -29,5 +30,6 @@ public:
 	std::unique_ptr<Shader> ColorRecShader;
 	std::unique_ptr<Shader> TextureRecShader;
 	unsigned int RecVAO;
+	std::string BackgroundAddress;
 };
 
