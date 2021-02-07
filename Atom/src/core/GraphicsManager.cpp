@@ -4,6 +4,13 @@
 #include "utils/Log.hpp"
 #include "GraphicsManager.hpp"
 
+// callback function for window resizing, hidden from any other files
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
+
 void GraphicsManager::init() {
 	title = APPNAME;
 	width = SCREEN_WIDTH;
@@ -30,6 +37,9 @@ void GraphicsManager::init() {
 	if (glewInit() != GLEW_OK) {
 		ATOM_ERROR("Graphics : GLEW init error");
 	}
+
+	// when window size changes, object scales properly
+	glfwSetFramebufferSizeCallback(mWindow, framebuffer_size_callback);
 }
 
 

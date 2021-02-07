@@ -5,6 +5,8 @@ layout(location = 0) in vec3 aPos;
 uniform vec2 scale;
 uniform vec2 pos;
 
+uniform vec2 cameraPos;
+
 void main()
 {
 	// make sure the left top vertex is at origin
@@ -14,7 +16,7 @@ void main()
 	position = scale * position;
 
 	// translate
-	position = pos + position;
+	position = pos + position - cameraPos;
 
 	gl_Position = vec4(position, 0.0, 1.0);
 }
