@@ -152,9 +152,9 @@ void ControllerSystem::update()
 	}
 
 	{//Mouse
-		std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
 		if (ae.mInputManager->isKeyPressed(VK_LBUTTON))
 		{
+			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
 			ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
 		}
 	}
