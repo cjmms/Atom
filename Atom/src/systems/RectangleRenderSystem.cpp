@@ -18,6 +18,8 @@ void RectangleRenderSystem::init() {
 	// But it works for Engine Demo with minimal extra code
 	setBackground("Atom/res/Background.jpg");
 
+	timer = glfwGetTime();
+
 	CameraPos = glm::vec2(0.0f);
 
 	// init shaders
@@ -57,6 +59,24 @@ void RectangleRenderSystem::update() {
 	// draw Background
 	draw(glm::vec2(-1.0, 1.0), glm::vec2(2.0f), BackgroundAddress);
 
+	float deltaTime = glfwGetTime() - timer;
+
+	if (deltaTime < 0.1f)
+		drawAnimation(glm::vec2(0.0), glm::vec2(1.0f), "knightRun", "png", 0);
+	else if (deltaTime < 0.2f)
+		drawAnimation(glm::vec2(0.0), glm::vec2(1.0f), "knightRun", "png", 1);
+	else if (deltaTime < 0.3f)
+		drawAnimation(glm::vec2(0.0), glm::vec2(1.0f), "knightRun", "png", 2);
+	else if (deltaTime < 0.4f)
+		drawAnimation(glm::vec2(0.0), glm::vec2(1.0f), "knightRun", "png", 3);
+	else
+		drawAnimation(glm::vec2(0.0), glm::vec2(1.0f), "knightRun", "png", 4);
+
+	// set timer back
+	if (deltaTime > 0.5f) timer = glfwGetTime();
+
+
+	/*
 	for (auto& entity : mEntities) {
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);
@@ -72,7 +92,17 @@ void RectangleRenderSystem::update() {
 			}
 		}
 	}
+	*/
 }
+
+
+void RectangleRenderSystem::drawAnimation(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, bool wireframe) const
+{
+	std::string address = "Atom/res/" + name + std::to_string(n) + "." + type;
+	draw(pos, scale, address, wireframe);
+}
+
+
 
 
 void RectangleRenderSystem::onEvent(Event& e) {
