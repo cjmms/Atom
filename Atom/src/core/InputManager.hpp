@@ -12,8 +12,14 @@ public:
 	bool isKeyTriggered(unsigned int keycode);
 	bool isKeyPressed(unsigned int keycode);
 	bool isKeyReleased(unsigned int keycode);
+	std::pair<double, double> getCursorPosChange();
 
 public:
 	unsigned char mCurrentKeyState[256];
 	unsigned char mPrevKeyState[256];
+
+	double mCurrentMouseXPos;
+	double mCurrentMouseYPos;
+	double mPreviousMouseXPos;
+	double mPreviousMouseYPos;
 };
