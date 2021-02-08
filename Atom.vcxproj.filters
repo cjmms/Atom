@@ -1756,6 +1756,7 @@
       <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\components\CharacterComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1791,6 +1792,7 @@
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">

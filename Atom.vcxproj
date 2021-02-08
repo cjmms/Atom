@@ -634,6 +634,7 @@
     <ClInclude Include="Atom\src\core\System.hpp" />
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
+    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
@@ -651,6 +652,7 @@
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
+    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />

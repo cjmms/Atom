@@ -112,7 +112,7 @@ void demoSetup()
     ae.addComponent(floor, TransformComponent{
         glm::vec3{0, -1, 0}, // position
         glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{1,1,1.0f},  // scale 
+        glm::vec3{10,1,1.0f},  // scale 
         glm::mat4(1.0f)
         });
     ae.addComponent(floor, ShapeComponent{ ShapeComponent::ShapeType::AABB });
@@ -132,6 +132,7 @@ void demoSetup()
     ae.addComponent(wall1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
     ae.addComponent(wall1, PhysicsBodyComponent(1, true));
 
+	//large
     EntityID player1 = ae.createEntity();
     ae.addComponent(player1, RectangleComponent{
         glm::vec3{0.5f,0.5f,0.5f},
@@ -140,15 +141,16 @@ void demoSetup()
     ae.addComponent(player1, TransformComponent{
         glm::vec3{0, -0.1, 0}, // position
         glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{0.3f,0.3f,0.0f},  // scale 
+        glm::vec3{0.3f,0.2f,0.0f},  // scale 
         glm::mat4(1.0f)
         });
     ae.addComponent(player1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(player1, PhysicsBodyComponent(1, false));
+    ae.addComponent(player1, PhysicsBodyComponent(2, false));
     auto& controller1 = ControllerComponent();
 	controller1.isActive = true;
     ae.addComponent(player1, controller1);
-    
+
+	//small
     EntityID player2 = ae.createEntity();
     ae.addComponent(player2, RectangleComponent{
         glm::vec3{0.8f,0.8f,0.5f},
@@ -167,19 +169,19 @@ void demoSetup()
     ae.addComponent(player2, controller2);
     
 
-    EntityID leftwall = ae.createEntity();
-    ae.addComponent(leftwall, RectangleComponent{
-        glm::vec3{1,1,1},   //colors
-        false
-        });
-    ae.addComponent(leftwall, TransformComponent{
-        glm::vec3{-1, 0, 0}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{1,1,1.0f},  // scale 
-        glm::mat4(1.0f)
-        });
-    ae.addComponent(leftwall, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(leftwall, PhysicsBodyComponent(1, true));
+    //EntityID leftwall = ae.createEntity();
+    //ae.addComponent(leftwall, RectangleComponent{
+    //    glm::vec3{1,1,1},   //colors
+    //    false
+    //    });
+    //ae.addComponent(leftwall, TransformComponent{
+    //    glm::vec3{-1, 0, 0}, // position
+    //    glm::vec3{0.0f,0.0f,0.0f}, // rotation
+    //    glm::vec3{1,1,1.0f},  // scale 
+    //    glm::mat4(1.0f)
+    //    });
+    //ae.addComponent(leftwall, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    //ae.addComponent(leftwall, PhysicsBodyComponent(1, true));
 
 
    EntityID wallceiling = ae.createEntity();

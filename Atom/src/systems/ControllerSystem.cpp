@@ -66,7 +66,7 @@ void ControllerSystem::update()
 			if (ae.mInputManager->isKeyTriggered(controller.UP))
 			{
 				if(body.velocityY == 0)
-					body.velocityY = 3;
+					body.totalForceY += 180;
 				//ATOM_INFO("VELOCITY : {}", body.velocityX);
 			}
 
