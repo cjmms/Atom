@@ -2,10 +2,13 @@
 #include "ControllerSystem.hpp"
 #include "core/Types.hpp"
 #include "core/AtomEngine.hpp"
+#include "RectangleRenderSystem.hpp"
 #include "utils/Log.hpp"
 #include "components/ControllerComponent.hpp"
 #include "components/PhysicsBodyComponent.hpp"
 #include "components/TransformComponent.hpp"
+
+//Temp
 
 extern AtomEngine ae;
 
@@ -156,6 +159,15 @@ void ControllerSystem::update()
 		{
 			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
 			ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
+
+			glm::vec2 cameraPos = ae.mSystemManager->getSystem<RectangleRenderSystem>()->getCameraPos();
+
+			cameraPos.x -= dPosition.first / 200;
+			cameraPos.y += dPosition.second / 200;
+
+			ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
+
+			ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
 		}
 	}
 }

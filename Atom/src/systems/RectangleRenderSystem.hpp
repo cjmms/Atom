@@ -29,6 +29,7 @@ public:
 
 	// if pos is (1, 0), then center of camera will be (1, 0) 
 	inline void setCameraPos(glm::vec2 pos) { CameraPos = pos; };
+	inline glm::vec2 getCameraPos() { return CameraPos; }
 
 private:
 	std::unique_ptr<Shader> ColorRecShader;
