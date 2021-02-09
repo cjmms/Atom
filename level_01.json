@@ -1,0 +1,198 @@
+{
+    "Entities": [
+        {
+            "EntityID": 0,
+            "TransformComponent": {
+                "position": {
+                    "x": 0.0,
+                    "y": -1.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": 0
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null
+        },
+        {
+            "EntityID": 1,
+            "TransformComponent": {
+                "position": {
+                    "x": 1.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": 0
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null
+        },
+        {
+            "EntityID": 2,
+            "TransformComponent": {
+                "position": {
+                    "x": 0.0,
+                    "y": -0.10000000149011612,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.10000000149011612,
+                    "y": 0.10000000149011612,
+                    "z": 0.10000000149011612
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": 0
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": false
+            },
+            "ControllerComponent": {
+                "UP": 265,
+                "DOWN": 264,
+                "LEFT": 263,
+                "RIGHT": 262,
+                "ACTION01": 90,
+                "ACTION02": 88,
+                "ROTLEFT": 67,
+                "ROTRIGHT": 86
+            }
+        },
+        {
+            "EntityID": 3,
+            "TransformComponent": {
+                "position": {
+                    "x": -1.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": 0
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null
+        },
+        {
+            "EntityID": 4,
+            "TransformComponent": {
+                "position": {
+                    "x": 0.0,
+                    "y": 1.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.800000011920929,
+                    "y": 0.800000011920929,
+                    "z": 0.800000011920929
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": 0
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null
+        }
+    ]
+}

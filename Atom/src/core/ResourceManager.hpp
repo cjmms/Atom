@@ -11,9 +11,7 @@
 #include "Pch.hpp"
 #include "core/Types.hpp"
 #include "core/Event.hpp"
-
-
-
+#include "utils/ResourceLoader.hpp"
 
 class ResourceManager {
 public:
@@ -27,7 +25,7 @@ public:
 
 	}
 	template <typename T>
-	T& get(std::string resloc) {
+	T& load(string resloc) {
 		ResourceID id;
 		if (mResID.count(resloc) > 0) {
 			id = mResID[resloc];
@@ -40,6 +38,20 @@ public:
 		mResPool[mNextRes] = res;
 		++mNextRes;
 		return std::any_cast<T&>(mResPool[mNextRes - 1]);
+	}
+
+
+
+	template <typename T>
+	void unload(string resloc) {
+		if (mResID.count(resloc) > 0) {
+			ResourceID id = mResID[resloc];
+			T& res = mResPool[id];
+			unloadResource(res);
+			mResPool.erase(mResID[resloc]);
+			mResID.erase(resloc);
+		}
+		ATOM_WARN("ResourceManager : unload : No such resource");
 	}
 private:
 	std::unordered_map<std::string, ResourceID> mResID;

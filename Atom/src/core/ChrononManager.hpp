@@ -37,6 +37,7 @@ public:
 				// do nothing waste time in the while(1)
 			}
 			else {
+				//if(elapsed)
 				mEnd = std::chrono::steady_clock::now();
 				mTotalFrames = std::min(LIMITMAXFRAMES, mTotalFrames + 1);
 				return;
@@ -69,7 +70,7 @@ public:
 	double updatedt() {
 		auto resolution = timeres::period::den;
 		auto elapsed = mEnd - mStart;
-		auto ticks = std::max(0LL, elapsed.count());
+		auto ticks = std::min(100000000LL, elapsed.count());
 		return ((double)ticks / resolution);
 	}
 

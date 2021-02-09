@@ -17,7 +17,11 @@
 #include "core/System.hpp"
 #include "core/SystemManager.hpp"
 #include "core/GraphicsManager.hpp"
+#include "core/InputManager.hpp"
+#include "core/AudioManager.hpp"
+#include "core/ResourceManager.hpp"
 #include "core/Types.hpp"
+#include "components/AllComponents.hpp"
 
 class AtomEngine {
 public:
@@ -28,12 +32,17 @@ public:
 		mGraphicsManager = std::make_unique<GraphicsManager>();
 		mSystemManager = std::make_unique<SystemManager>();
 		mEventManager = std::make_unique<EventManager>();
+		mResourceManager = std::make_unique<ResourceManager>();
+		mInputManager = std::make_unique<InputManager>();
+		mAudioManager = std::make_unique<AudioManager>();
 
 		dt = 0.0;
 
 		mChrononManager->setMaxFPS(FPS);
 		mGraphicsManager->init();
+		mResourceManager->init();
 		mSystemManager->init();
+		mInputManager->init();
 
 		mIsRunning = true;
 	}
@@ -43,12 +52,15 @@ public:
 		mEventManager->update();
 		mSystemManager->update();
 		mGraphicsManager->update();
+		mResourceManager->update();
+		mInputManager->update();
 
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
 		mGraphicsManager->onEvent(e);
+		mResourceManager->onEvent(e);
 		mSystemManager->onEvent(e);
 	}
 
@@ -92,7 +104,12 @@ public:
 	// ResourceManager
 	template <typename T>
 	inline T& getOrLoadResource(string resloc) {
-		return mResourceManager->get<T>(resloc);
+		return mResourceManager->load<T>(resloc);
+	}
+
+	template <typename T>
+	inline void unloadReource(string resloc) {
+		return mResourceManager->unload(string res);
 	}
 
 	// Entity
@@ -175,6 +192,81 @@ public:
 
 	}
 
+	// Serde
+	// Write
+	template <typename T>
+	inline void serializeComponent(ordered_json& j, const EntityID& entity) {
+		if (hasComponent<T>(entity)) {
+			const auto& component = getComponent<T>(entity);
+			to_json(j, component);
+		}
+	}
+	inline void serializeEntity(ordered_json& j, const EntityID& entity) {
+		j["EntityID"] = entity;
+		serializeComponent<TransformComponent>(j["TransformComponent"], entity);
+		serializeComponent<RectangleComponent>(j["RectangleComponent"], entity);
+		serializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
+		serializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
+		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+	}
+	// Read
+	template <typename T>
+	inline void deserializeComponent(ordered_json& j, EntityID& entity) {
+		T component;
+		if (!j.is_null()) {
+			from_json(j, component);
+			addComponent(entity, component);
+		}
+	}
+	inline void deserializeEntity(ordered_json& j, EntityID& entity) {
+		entity = createEntity();
+		if (j["EntityID"].is_null() || j["EntityID"] != entity) {
+			j["EntityID"] = entity;
+		}
+		deserializeComponent<TransformComponent>(j["TransformComponent"], entity);
+		deserializeComponent<RectangleComponent>(j["RectangleComponent"], entity);
+		deserializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
+		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
+		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+	}
+
+	// load level
+	inline void load(string filepath) {
+		std::ifstream in(filepath);
+		ordered_json j;
+		in >> j;
+		if (!j["Entities"].is_null()) {
+			for (auto& entityjson : j["Entities"]) {
+				EntityID entid;
+				deserializeEntity(entityjson, entid);
+			}
+		}
+		in.close();
+	}
+	// unload level
+	inline void unload() {
+		std::vector<EntityID> toEject;
+		for (auto& entity : mEntityManager->mAllocdEntities) {
+			toEject.push_back(entity);
+		}
+		for (auto& entity : toEject) {
+			destroyEntity(entity);
+		}
+		mEntityManager->mLivingEntityCount = 0;
+	}
+	// save
+	void save(string filepath) {
+		std::ofstream out(filepath);
+		ordered_json j;
+		j["Entities"] = ordered_json::array();
+		for (auto entity : mEntityManager->mAllocdEntities) {
+			ordered_json json_ent;
+			serializeEntity(json_ent, entity);
+			j["Entities"].push_back(json_ent);
+		}
+		out << std::setw(4) << j;
+	}
+
 public:
 	double dt;
 	bool mIsRunning;
@@ -185,6 +277,9 @@ public:
 	std::unique_ptr<SystemManager> mSystemManager;
 	std::unique_ptr<EventManager> mEventManager;
 	std::unique_ptr<GraphicsManager> mGraphicsManager;
+	std::unique_ptr<ResourceManager> mResourceManager;
+	std::unique_ptr<InputManager> mInputManager;
+	std::unique_ptr<AudioManager> mAudioManager;
 };
 
 

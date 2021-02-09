@@ -12,14 +12,16 @@
 
 // CONSTANTS 
 #define PI 3.14159f
-
+#define GRAVITY 9.81f
+#define EPSILON 0.00001
 
 // DEFINES
 #define APPNAME "[ATOM]"
 #define MAX_TITLE_LEN 80
 #define FPS 60
 #define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_HEIGHT 640
+#define FMODMAXCHANNELS 512
 
 // USING
 using string = std::string;
@@ -33,6 +35,26 @@ const EntityID MAX_ENTITIES = 10000;
 using ComponentID = std::uint8_t;
 const ComponentID MAX_COMPONENTS = 32;
 using Archetype = std::bitset<MAX_COMPONENTS>;
+
+
+// AUDIO
+using ChannelMap = std::map<int, FMOD::Channel*>;
+using ChannelID = unsigned int;
+
+class AudioSample {
+public:
+	FMOD_MODE mode;
+	FMOD_CREATESOUNDEXINFO* exinfo;
+	FMOD::Sound* sound;
+};
+
+class AudioDSPData {
+public:
+	float* buffer;
+	float volumeLinear;
+	int nSamples;
+	int channels;
+};
 
 // EVENTS
 enum EventID {
