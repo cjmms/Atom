@@ -3,9 +3,9 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <GL/glew.h>
+#include "utils/Log.hpp"
 
-
-
+// TEXTURE 
 void loadResource(unsigned int& id, string filename) {
 
     // enable gamma correction
@@ -44,12 +44,19 @@ void loadResource(unsigned int& id, string filename) {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         stbi_image_free(data);
-        std::cout << filename << " loaded successfully." << std::endl;
+        ATOM_INFO(" loaded successfully.")
     }
     else
     {
-        std::cout << "Texture failed to load at path: " << filename << std::endl;
+        ATOM_ERROR("Texture failed to load at path: {}", filename);
         stbi_image_free(data);
     }
 }
+
+
+void unloadResource(unsigned int& id) {
+
+}
+
+
 

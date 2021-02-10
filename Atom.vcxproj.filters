@@ -16,6 +16,12 @@
     <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom">
       <UniqueIdentifier>{D407314E-C01A-31A7-6904-0E9455F6CDF4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64">
+      <UniqueIdentifier>{CEA650A3-3AC1-B344-83E3-C3D8EF3CDB4B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom">
+      <UniqueIdentifier>{0E38A751-FAB5-F7EA-E3AD-B582CFCA3913}</UniqueIdentifier>
+    </Filter>
     <Filter Include="builds\windows\bin-int">
       <UniqueIdentifier>{42019718-2EFB-BF6A-1768-567B030126D7}</UniqueIdentifier>
     </Filter>
@@ -27,6 +33,15 @@
     </Filter>
     <Filter Include="builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog">
       <UniqueIdentifier>{F0D9C23A-DC99-53DF-45B7-3BEA319666F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64">
+      <UniqueIdentifier>{26039C6E-9273-9EE7-5B92-1870C7C1D6E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64\Atom">
+      <UniqueIdentifier>{660BB24B-529F-A7F3-BB63-01A8A716E2E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog">
+      <UniqueIdentifier>{AA508EF2-96BB-4EFE-3FD7-B3632B2112E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="lib">
       <UniqueIdentifier>{3C8C880B-A895-887C-3111-9F7C9D19947C}</UniqueIdentifier>
@@ -55,6 +70,48 @@
     <Filter Include="lib\GLFW\lib-vc2019">
       <UniqueIdentifier>{33D2962D-9F33-743B-28A1-BAED9401ABFA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib\fmod">
+      <UniqueIdentifier>{71DE41A2-5DAB-9CAD-86C4-8A5572F0D13B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api">
+      <UniqueIdentifier>{3A201994-2683-A838-CF08-E1EEBB4A74BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\core">
+      <UniqueIdentifier>{F204A33B-5E1B-A1D1-A792-2CF313E87159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\core\inc">
+      <UniqueIdentifier>{FBC0BBAE-672D-77A9-3021-0F079C4C9911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\core\lib">
+      <UniqueIdentifier>{18CDBBAE-8439-77A9-4D2D-0F07B9589911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\core\lib\x64">
+      <UniqueIdentifier>{8964A813-F526-DC9D-3ED7-6A2AAAD8B47B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\fsbank">
+      <UniqueIdentifier>{DE1CB7B7-4A7E-94C5-D3EB-DA773F4CCB84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\fsbank\inc">
+      <UniqueIdentifier>{E7EEB1C5-5326-FA5C-5C30-5E80C8E62056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\fsbank\lib">
+      <UniqueIdentifier>{04FBB1C5-7032-FA5C-793C-5E80E5F22056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\fsbank\lib\x64">
+      <UniqueIdentifier>{75A89BF4-E1B5-C9DA-6A9C-C5C5D6A89591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\studio">
+      <UniqueIdentifier>{E1BC26D6-4D1E-04E4-D68B-4A9642EC3AA3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\studio\inc">
+      <UniqueIdentifier>{6AD827D3-D60F-706A-DF19-D48D4BD09663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\studio\lib">
+      <UniqueIdentifier>{87E427D3-F31B-706A-FC25-D48D68DC9663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\fmod\api\studio\lib\x64">
+      <UniqueIdentifier>{789B2036-E4A8-4E1C-6D8F-4A07D99B1AD3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="lib\glm">
       <UniqueIdentifier>{8BD44779-F7B3-C614-00CC-51EB6C2A2D76}</UniqueIdentifier>
     </Filter>
@@ -75,6 +132,9 @@
     </Filter>
     <Filter Include="lib\glm\glm\simd">
       <UniqueIdentifier>{F6D0CFB7-E2C9-EE09-0BFC-D38EF753CE15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\imgui">
+      <UniqueIdentifier>{A6D6B3EA-1241-6861-5B7F-1907C72846B6}</UniqueIdentifier>
     </Filter>
     <Filter Include="lib\nlohmann">
       <UniqueIdentifier>{C6EB97A9-B24E-274E-5BD4-5F044716F3D0}</UniqueIdentifier>
@@ -118,6 +178,9 @@
     <Filter Include="src\systems">
       <UniqueIdentifier>{547605C4-C02B-7EB9-4920-7890B5D474BD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\systems\collisions">
+      <UniqueIdentifier>{E2567C04-CE50-A556-B7BD-3B67A3560BC3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\utils">
       <UniqueIdentifier>{6DAA42B6-D914-F72C-2253-A8D28EFCD481}</UniqueIdentifier>
     </Filter>
@@ -140,6 +203,45 @@
     </ClInclude>
     <ClInclude Include="Atom\lib\GLFW\include\GLFW\glfw3native.h">
       <Filter>lib\GLFW\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod.hpp">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_codec.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_common.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_dsp.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_dsp_effects.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_errors.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_output.h">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\fsbank\inc\fsbank.h">
+      <Filter>lib\fmod\api\fsbank\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\fsbank\inc\fsbank_errors.h">
+      <Filter>lib\fmod\api\fsbank\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio.h">
+      <Filter>lib\fmod\api\studio\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio.hpp">
+      <Filter>lib\fmod\api\studio\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio_common.h">
+      <Filter>lib\fmod\api\studio\inc</Filter>
     </ClInclude>
     <ClInclude Include="Atom\lib\glm\glm\common.hpp">
       <Filter>lib\glm\glm</Filter>
@@ -1395,6 +1497,36 @@
     <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp">
       <Filter>lib\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imconfig.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_glfw.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_opengl2.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_opengl3.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_win32.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imgui_internal.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imstb_rectpack.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imstb_textedit.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\lib\imgui\imstb_truetype.h">
+      <Filter>lib\imgui</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\lib\nlohmann\json.hpp">
       <Filter>lib\nlohmann</Filter>
     </ClInclude>
@@ -1674,6 +1806,9 @@
     <ClInclude Include="Atom\src\components\AllComponents.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\CharacterComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
@@ -1683,9 +1818,6 @@
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\components\ShapeComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
@@ -1693,6 +1825,9 @@
       <Filter>src\components</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\AtomEngine.hpp">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\core\AudioManager.hpp">
       <Filter>src\core</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\core\ChrononManager.hpp">
@@ -1743,6 +1878,9 @@
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp">
+      <Filter>src\systems\collisions</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\utils\Log.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
@@ -1755,12 +1893,41 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\CharacterComponent.hpp" />
-    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
+    <ClInclude Include="Atom\src\components\TagComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
       <Filter>lib\glm\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_demo.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_draw.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_glfw.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_opengl2.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_opengl3.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_win32.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_main.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_tables.cpp">
+      <Filter>lib\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\lib\imgui\imgui_widgets.cpp">
+      <Filter>lib\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\Application.cpp">
       <Filter>src</Filter>
@@ -1786,16 +1953,24 @@
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp">
+      <Filter>src\systems\collisions</Filter>
+    </ClCompile>
     <ClCompile Include="Atom\src\utils\Log.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe">
@@ -1831,6 +2006,12 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
@@ -1858,11 +2039,119 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_demo.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_draw.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_glfw.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl2.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl3.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_win32.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_tables.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_widgets.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.idb">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Application.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.exe.recipe">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.log">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.pch">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Body.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ControllerSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Graphics.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\GraphicsManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\InputManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Log.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Pch.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\PhysicsManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\PhysicsSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\RectangleRenderSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ResourceLoader.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shader.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shape.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\TransformSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\glm.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\vc142.pdb">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe">
       <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
@@ -1873,14 +2162,101 @@
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb">
       <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmod.dll">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmodstudio.dll">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fsbank.dll">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\libfsbvorbis64.dll">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\opus.dll">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.exe">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.pdb">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmod.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmodstudio.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fsbank.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\libfsbvorbis64.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\opus.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\lib\GLEW\lib\glew32s.lib">
       <Filter>lib\GLEW\lib</Filter>
     </None>
     <None Include="Atom\lib\GLFW\lib-vc2019\glfw3.lib">
       <Filter>lib\GLFW\lib-vc2019</Filter>
     </None>
+    <None Include="Atom\lib\fmod\api\core\inc\fmod.cs">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\inc\fmod_dsp.cs">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\inc\fmod_errors.cs">
+      <Filter>lib\fmod\api\core\inc</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod.dll">
+      <Filter>lib\fmod\api\core\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL.dll">
+      <Filter>lib\fmod\api\core\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL_vc.lib">
+      <Filter>lib\fmod\api\core\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod_vc.lib">
+      <Filter>lib\fmod\api\core\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank.dll">
+      <Filter>lib\fmod\api\fsbank\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank_vc.lib">
+      <Filter>lib\fmod\api\fsbank\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll">
+      <Filter>lib\fmod\api\fsbank\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\opus.dll">
+      <Filter>lib\fmod\api\fsbank\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\studio\inc\fmod_studio.cs">
+      <Filter>lib\fmod\api\studio\inc</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio.dll">
+      <Filter>lib\fmod\api\studio\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL.dll">
+      <Filter>lib\fmod\api\studio\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL_vc.lib">
+      <Filter>lib\fmod\api\studio\lib\x64</Filter>
+    </None>
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio_vc.lib">
+      <Filter>lib\fmod\api\studio\lib\x64</Filter>
+    </None>
     <None Include="Atom\lib\glm\glm\CMakeLists.txt">
       <Filter>lib\glm\glm</Filter>
+    </None>
+    <None Include="Atom\lib\imgui\LICENSE.txt">
+      <Filter>lib\imgui</Filter>
     </None>
     <None Include="Atom\lib\nlohmann\LICENSE.MIT.txt">
       <Filter>lib\nlohmann</Filter>
@@ -1900,9 +2276,18 @@
     <None Include="Atom\res\TextureRec.shader">
       <Filter>res</Filter>
     </None>
+    <None Include="Atom\res\wariyo_mortals.ogg">
+      <Filter>res</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Atom\res\Background.jpg">
+      <Filter>res</Filter>
+    </Image>
     <Image Include="Atom\res\img.jpg">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="Atom\res\level_01_background.png">
       <Filter>res</Filter>
     </Image>
   </ItemGroup>

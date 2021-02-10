@@ -18,7 +18,7 @@ public:
 	static std::shared_ptr<spdlog::logger>& getLogger() {
 		return mLogger;
 	}
-	static void init(const string& name="Atom", const string& format= "%^[%T] %n: %v%$") {
+	static void init(const string& name=APPNAME, const string& format= "%^[%T] %n: %v%$") {
 		spdlog::set_pattern(format);
 		mLogger = spdlog::stdout_color_mt(name);
 		mLogger->set_level(spdlog::level::trace);
@@ -36,11 +36,10 @@ private:
 
 
 #ifdef SILENT
-	#define LM_ERROR(...)
-	#define LM_WARN(...)
-	#define LM_INFO(...)
-	#define LM_TRACE(...)
-	#define LM_FATAL(...)
+	#define ATOM_ERROR(...)
+	#define ATOM_WARN(...)
+	#define ATOM_INFO(...)
+	#define ATOM_TRACE(...)
 #endif
 
 #endif

@@ -59,7 +59,7 @@
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
@@ -68,9 +68,16 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -78,7 +85,7 @@
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -91,9 +98,16 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Atom\lib\GLEW\include\GL\eglew.h" />
@@ -102,6 +116,19 @@
     <ClInclude Include="Atom\lib\GLEW\include\GL\wglew.h" />
     <ClInclude Include="Atom\lib\GLFW\include\GLFW\glfw3.h" />
     <ClInclude Include="Atom\lib\GLFW\include\GLFW\glfw3native.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod.hpp" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_codec.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_common.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_dsp.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_dsp_effects.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_errors.h" />
+    <ClInclude Include="Atom\lib\fmod\api\core\inc\fmod_output.h" />
+    <ClInclude Include="Atom\lib\fmod\api\fsbank\inc\fsbank.h" />
+    <ClInclude Include="Atom\lib\fmod\api\fsbank\inc\fsbank_errors.h" />
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio.h" />
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio.hpp" />
+    <ClInclude Include="Atom\lib\fmod\api\studio\inc\fmod_studio_common.h" />
     <ClInclude Include="Atom\lib\glm\glm\common.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\detail\_fixes.hpp" />
@@ -520,6 +547,16 @@
     <ClInclude Include="Atom\lib\glm\glm\vec3.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vec4.hpp" />
     <ClInclude Include="Atom\lib\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="Atom\lib\imgui\imconfig.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_opengl2.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="Atom\lib\imgui\imgui_internal.h" />
+    <ClInclude Include="Atom\lib\imgui\imstb_rectpack.h" />
+    <ClInclude Include="Atom\lib\imgui\imstb_textedit.h" />
+    <ClInclude Include="Atom\lib\imgui\imstb_truetype.h" />
     <ClInclude Include="Atom\lib\nlohmann\json.hpp" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\async.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\async_logger-inl.h" />
@@ -611,16 +648,17 @@
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
-    <ClInclude Include="Atom\src\components\CharacterComponent.hpp" />
+    <ClInclude Include="Atom\src\components\TagComponent.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
+    <ClInclude Include="Atom\src\components\CharacterComponent.hpp" />
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
     <ClInclude Include="Atom\src\components\PhysicsBodyComponent.hpp" />
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
-    <ClInclude Include="Atom\src\components\RenderBoxComponent.hpp" />
     <ClInclude Include="Atom\src\components\ShapeComponent.hpp" />
     <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
     <ClInclude Include="Atom\src\core\AtomEngine.hpp" />
+    <ClInclude Include="Atom\src\core\AudioManager.hpp" />
     <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
     <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
     <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
@@ -634,10 +672,10 @@
     <ClInclude Include="Atom\src\core\System.hpp" />
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
-    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
@@ -645,6 +683,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_demo.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_main.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_tables.cpp" />
+    <ClCompile Include="Atom\lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -652,15 +700,17 @@
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
-    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch" />
@@ -672,6 +722,8 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\InputManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj" />
@@ -681,23 +733,91 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ResourceLoader.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Shader.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_demo.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_draw.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_glfw.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl2.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl3.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_win32.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_tables.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_widgets.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.idb" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Application.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.exe.recipe" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.log" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.pch" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Body.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ControllerSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Graphics.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\GraphicsManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\InputManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Log.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Pch.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\PhysicsManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\PhysicsSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\RectangleRenderSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ResourceLoader.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shader.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shape.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\TransformSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\glm.obj" />
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\vc142.pdb" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmod.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmodstudio.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fsbank.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\libfsbvorbis64.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\opus.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.exe" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.pdb" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmod.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmodstudio.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fsbank.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\libfsbvorbis64.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\opus.dll" />
     <None Include="Atom\lib\GLEW\lib\glew32s.lib" />
     <None Include="Atom\lib\GLFW\lib-vc2019\glfw3.lib" />
+    <None Include="Atom\lib\fmod\api\core\inc\fmod.cs" />
+    <None Include="Atom\lib\fmod\api\core\inc\fmod_dsp.cs" />
+    <None Include="Atom\lib\fmod\api\core\inc\fmod_errors.cs" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod_vc.lib" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank_vc.lib" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\opus.dll" />
+    <None Include="Atom\lib\fmod\api\studio\inc\fmod_studio.cs" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio_vc.lib" />
     <None Include="Atom\lib\glm\glm\CMakeLists.txt" />
+    <None Include="Atom\lib\imgui\LICENSE.txt" />
     <None Include="Atom\lib\nlohmann\LICENSE.MIT.txt" />
     <None Include="Atom\lib\spdlog\LICENSE" />
     <None Include="Atom\lib\spdlog\VERSION" />
     <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst" />
     <None Include="Atom\res\ColorRec.shader" />
     <None Include="Atom\res\TextureRec.shader" />
+    <None Include="Atom\res\wariyo_mortals.ogg" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Atom\res\Background.jpg" />
     <Image Include="Atom\res\img.jpg" />
+    <Image Include="Atom\res\level_01_background.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

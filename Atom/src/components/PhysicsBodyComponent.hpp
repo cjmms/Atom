@@ -9,7 +9,7 @@
 #include <string>
 #include <Pch.hpp>
 #include <core/Types.hpp>
-#include "ShapeComponent.hpp"
+#include "utils/Serde.hpp"
 
 class PhysicsBodyComponent
 {

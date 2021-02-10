@@ -48,14 +48,23 @@ project "Atom"
 			-- glm
 			basepath.."%{prj.name}/lib/glm",
 			-- spdlog
-			basepath.."%{prj.name}/lib/spdlog/include"
+			basepath.."%{prj.name}/lib/spdlog/include",
+			-- fmod
+			basepath.."%{prj.name}/lib/fmod/api/core/inc/",
+			basepath.."%{prj.name}/lib/fmod/api/fsbank/inc/",
+			basepath.."%{prj.name}/lib/fmod/api/studio/inc/",
+			-- imgui
+			basepath.."%{prj.name}/lib/imgui/"
 		}
 		libdirs {
 			-- GLEW
             basepath.."%{prj.name}/lib/GLEW/lib",
             -- GLFW
-            basepath.."%{prj.name}/lib/GLFW/lib-vc2019"
-            
+			basepath.."%{prj.name}/lib/GLFW/lib-vc2019",
+			-- fmod
+			basepath.."%{prj.name}/lib/fmod/api/core/lib/x64/",
+			basepath.."%{prj.name}/lib/fmod/api/fsbank/lib/x64/",
+			basepath.."%{prj.name}/lib/fmod/api/studio/lib/x64/"    
 		}
 
 		links {
@@ -64,10 +73,22 @@ project "Atom"
             -- GLEW
             "glew32s.lib",
             -- GLFW
-            "glfw3.lib"
+			"glfw3.lib",
+			-- fmod
+			"fmod_vc.lib",
+			"fmodstudio_vc.lib",
+			"fsbank_vc.lib"
 		}
 		postbuildcommands {
-
+			-- fmod
+				-- core
+				'{COPY} "%{prj.name}\\lib\\fmod\\api\\core\\lib\\x64\\fmod.dll" "%{cfg.buildtarget.directory}"',
+				-- bank
+				'{COPY} "%{prj.name}\\lib\\fmod\\api\\fsbank\\lib\\x64\\fsbank.dll" "%{cfg.buildtarget.directory}"',
+				'{COPY} "%{prj.name}\\lib\\fmod\\api\\fsbank\\lib\\x64\\libfsbvorbis64.dll" "%{cfg.buildtarget.directory}"',
+				'{COPY} "%{prj.name}\\lib\\fmod\\api\\fsbank\\lib\\x64\\opus.dll" "%{cfg.buildtarget.directory}"',
+				-- studio
+				'{COPY} "%{prj.name}\\lib\\fmod\\api\\studio\\lib\\x64\\fmodstudio.dll" "%{cfg.buildtarget.directory}"'
 		}
 
 		buildoptions {

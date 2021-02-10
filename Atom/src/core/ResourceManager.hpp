@@ -13,9 +13,6 @@
 #include "core/Event.hpp"
 #include "utils/ResourceLoader.hpp"
 
-
-
-
 class ResourceManager {
 public:
 	void init() {
@@ -27,8 +24,13 @@ public:
 	void update() {
 
 	}
+
+	bool exists(string resloc) {
+		return (mResID.count(resloc) > 0);
+	}
+
 	template <typename T>
-	T& get(std::string resloc) {
+	T& load(string resloc) {
 		ResourceID id;
 		if (mResID.count(resloc) > 0) {
 			id = mResID[resloc];
@@ -42,10 +44,21 @@ public:
 		++mNextRes;
 		return std::any_cast<T&>(mResPool[mNextRes - 1]);
 	}
+
+	template <typename T>
+	void unload(string resloc) {
+		if (mResID.count(resloc) > 0) {
+			ResourceID id = mResID[resloc];
+			T& res = mResPool[id];
+			unloadResource(res);
+			mResPool.erase(mResID[resloc]);
+			mResID.erase(resloc);
+		}
+		ATOM_WARN("ResourceManager : unload : No such resource");
+	}
 private:
 	std::unordered_map<std::string, ResourceID> mResID;
 	std::unordered_map<ResourceID, std::any> mResPool;
 	ResourceID mNextRes;
-
 };
 #endif // !RESOURCEMANAGER_HPP

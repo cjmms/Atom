@@ -16,7 +16,7 @@ void RectangleRenderSystem::init() {
 	// Background image
 	// This is not the "Correct way" to implement
 	// But it works for Engine Demo with minimal extra code
-	setBackground("Atom/res/Background.jpg");
+	setBackground("Atom/res/level_01_background.png");
 
 	CameraPos = glm::vec2(0.0f);
 

@@ -36,4 +36,8 @@
 // libraries that are already tested and working and wont change much are good candidates
 #include "lib/nlohmann/json.hpp"
 #include "lib/glm/glm/glm.hpp"
+#include "fmod_studio.hpp"
+#include "fmod.hpp"
+#include "fmod_common.h"
+#include "fmod_errors.h"
 #endif
