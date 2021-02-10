@@ -13,6 +13,11 @@ InputManager::InputManager()
 {
 	memset(mCurrentKeyState, '\0', sizeof(mCurrentKeyState));
 	memset(mPrevKeyState, '\0', sizeof(mCurrentKeyState));
+
+	mCurrentMouseXPos = 0.0;
+	mCurrentMouseYPos = 0.0;
+	mPreviousMouseXPos = 0.0;
+	mPreviousMouseYPos = 0.0;
 }
 
 
@@ -23,6 +28,11 @@ void InputManager::init()
 	if (!isLoaded)
 	{
 		ATOM_ERROR("Keyboard State Not Loaded - INIT");
+	}
+
+	glfwGetCursorPos(ae.mGraphicsManager->getWindow(), &mCurrentMouseXPos, &mCurrentMouseYPos);
+	{
+		//ATOM_INFO("Mouse Position loaded");
 	}
 }
 
@@ -70,6 +80,14 @@ void InputManager::update()
 	if (!isLoaded)
 	{
 		ATOM_ERROR("Keyboard State Not Loaded - UPDATE");
+	}
+
+	mPreviousMouseXPos = mCurrentMouseXPos;
+	mPreviousMouseYPos = mCurrentMouseYPos;
+
+	glfwGetCursorPos(ae.mGraphicsManager->getWindow(), &mCurrentMouseXPos, &mCurrentMouseYPos);
+	{
+		//ATOM_INFO("Mouse Position updated")
 	}
 }
 
@@ -124,4 +142,14 @@ bool InputManager::isKeyReleased(unsigned int keycode)
 	}
 
 	return FALSE;
+}
+
+std::pair<double, double> InputManager::getCursorPosChange()
+{
+	std::pair<double, double> dPosition;
+
+	dPosition.first = mCurrentMouseXPos - mPreviousMouseXPos;
+	dPosition.second = mCurrentMouseYPos - mPreviousMouseYPos;
+
+	return dPosition;
 }
