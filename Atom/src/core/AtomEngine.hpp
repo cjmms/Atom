@@ -92,7 +92,7 @@ public:
 
 	// AudioManager
 	inline FMOD::Sound* loadSound(string audioloc,
-		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE,
+		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE | FMOD_3D_INVERSEROLLOFF,
 		FMOD_CREATESOUNDEXINFO* _exinfo = NULL
 	) {
 		return mAudioManager->loadSound(audioloc, _mode, _exinfo);

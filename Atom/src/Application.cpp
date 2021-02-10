@@ -239,17 +239,79 @@ void glfwpoll() {
 
 }
 
-void volumeController(ChannelID channelid) {
-    if (ae.mInputManager->isKeyTriggered(VK_OEM_PLUS)) {
-        float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-        ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP,0.0f,1.0f));
-        ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+string musicTrack = "Atom/res/wariyo_mortals.ogg";
+string sfxTrack = "Atom/res/optimus_speech.ogg";
+ChannelID musicChannelID = -1;
+ChannelID sfxChannelID = -1;
 
+void volumeController(ChannelID channelid) {
+
+    if (channelid == musicChannelID) {
+        // the + key
+        if (ae.mInputManager->isKeyTriggered(VK_OEM_PLUS)) {
+            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP, 0.0f, 1.0f));
+            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+
+        }
+        // the - key
+        if (ae.mInputManager->isKeyTriggered(VK_OEM_MINUS)) {
+            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
+            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+        }
     }
-    if (ae.mInputManager->isKeyTriggered(VK_OEM_MINUS)) {
-        float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-        ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
-        ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+    if (channelid == sfxChannelID) {
+        // the [ key
+        if (ae.mInputManager->isKeyTriggered(VK_OEM_6)) {
+            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP, 0.0f, 1.0f));
+            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+
+        }
+        // the ] key
+        if (ae.mInputManager->isKeyTriggered(VK_OEM_4)) {
+            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
+            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+        }
+    }
+}
+
+FMOD_VECTOR camera_position{0.0f,0.0f,0.0f};
+FMOD_VECTOR camera_fwd{0.0f,0.0f,1.0f};
+FMOD_VECTOR camera_up{0.0f,1.0f,0.0f};
+float camera_step = 0.1f;
+
+#define ATOM_KEY_J 0x4A
+#define ATOM_KEY_L 0x4C
+#define ATOM_KEY_I 0x49
+#define ATOM_KEY_K 0x4B
+
+void listener3DController() {
+    // the + key
+    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_L)) {
+        // move listener right
+        camera_position.x += camera_step;
+        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+    }
+    // the - key
+    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_J)) {
+        // move listener left
+        camera_position.x -= camera_step;
+        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+    }
+    // the + key
+    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_I)) {
+        // move listener right
+        camera_position.y += camera_step;
+        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+    }
+    // the - key
+    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_K)) {
+        // move listener left
+        camera_position.y -= camera_step;
+        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
     }
 }
 
@@ -299,19 +361,24 @@ int main(int argc, char** argv){
     
     // need to initialize systems again because systems got updated above
     ae.initSystem();
-    string musicTrack = "Atom/res/wariyo_mortals.ogg";
-    ae.loadSound(musicTrack);
 
-    ChannelID musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.1f);
+
+    ae.loadSound(musicTrack);
+    ae.loadSound(sfxTrack);
+    
     initSpectrum();
     demoSetup();
 
-	
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
+
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
         ae.update();
         volumeController(musicChannelID);
+        volumeController(sfxChannelID);
+        listener3DController();
         audioReact();
         //makeSingleRectangle();
         fpsCounter();
