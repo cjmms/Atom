@@ -226,6 +226,7 @@ public:
 	}
 	inline void serializeEntity(ordered_json& j, const EntityID& entity) {
 		j["EntityID"] = entity;
+		serializeComponent<TagComponent>(j["TagComponent"], entity);
 		serializeComponent<TransformComponent>(j["TransformComponent"], entity);
 		serializeComponent<RectangleComponent>(j["RectangleComponent"], entity);
 		serializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
@@ -246,6 +247,7 @@ public:
 		if (j["EntityID"].is_null() || j["EntityID"] != entity) {
 			j["EntityID"] = entity;
 		}
+		deserializeComponent<TagComponent>(j["TagComponent"], entity);
 		deserializeComponent<TransformComponent>(j["TransformComponent"], entity);
 		deserializeComponent<RectangleComponent>(j["RectangleComponent"], entity);
 		deserializeComponent<ShapeComponent>(j["ShapeComponent"], entity);

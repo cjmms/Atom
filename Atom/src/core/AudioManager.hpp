@@ -1,3 +1,10 @@
+/*
+* @file		AudioManager.cpp
+* @author	Abhikalp Unakal
+* @brief	Audio Manager to deal with low level channels, samples and DSP's
+* @date		2021-02-10
+*/
+
 #ifndef AUDIOMANAGER_HPP
 #define AUDIOMANAGER_HPP
 
