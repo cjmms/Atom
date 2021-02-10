@@ -172,25 +172,21 @@ float camera_step = 0.1f;
 #define ATOM_KEY_K 0x4B
 
 void listener3DController() {
-    // the + key
     if (ae.mInputManager->isKeyTriggered(ATOM_KEY_L)) {
         // move listener right
         camera_position.x += camera_step;
         ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
     }
-    // the - key
     if (ae.mInputManager->isKeyTriggered(ATOM_KEY_J)) {
         // move listener left
         camera_position.x -= camera_step;
         ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
     }
-    // the + key
     if (ae.mInputManager->isKeyTriggered(ATOM_KEY_I)) {
         // move listener right
         camera_position.y += camera_step;
         ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
     }
-    // the - key
     if (ae.mInputManager->isKeyTriggered(ATOM_KEY_K)) {
         // move listener left
         camera_position.y -= camera_step;
