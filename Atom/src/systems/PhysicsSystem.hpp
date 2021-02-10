@@ -9,7 +9,7 @@
 #include <list>
 #include <string>
 #include <lib\glm\glm\ext\matrix_float4x4.hpp>
-#include "../components/ShapeComponent.hpp"
+#include "components/ShapeComponent.hpp"
 #include "components/TransformComponent.hpp"
 #include "core/System.hpp"
 
@@ -32,12 +32,6 @@ public:
 private:
 private:
 };
-
-
-bool CheckCollisionAABBAABB(double frameTime,
-	ShapeComponent::ShapeType shapeType1, const TransformComponent& transform1, PhysicsBodyComponent& body1,
-	ShapeComponent::ShapeType shapeType2, const TransformComponent& transform2, PhysicsBodyComponent& body2,
-	std::list<Contact*>& contacts);
 
 class PhysicsSystem : public System
 {
@@ -70,6 +64,7 @@ public:
 private:
 	bool hasRequiredComponents(EntityID entity);
 	void updatePhysicsBody(PhysicsBodyComponent& body, TransformComponent& transform, double frameTime);
+	void postUpdate(TransformComponent& transform, PhysicsBodyComponent& body);
 private:
 	double frameTime;
 	

@@ -5,6 +5,7 @@
 #include "utils/Log.hpp"
 #include "components/ControllerComponent.hpp"
 #include "components/PhysicsBodyComponent.hpp"
+#include "components/TransformComponent.hpp"
 
 extern AtomEngine ae;
 
@@ -28,63 +29,130 @@ void ControllerSystem::init()
 
 void ControllerSystem::update()
 {
-	for (auto& entity : mEntities) {
+	EntityID activeEntity;
+	EntityID inactiveEntity;
+	
+	for (auto& entity : mEntities) 
+	{
 		if (ae.hasComponent<ControllerComponent>(entity)) 
 		{
-			if (ae.mInputManager->isKeyTriggered(VK_LEFT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = -2;
-				//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			}
-
-			if (ae.mInputManager->isKeyTriggered(VK_RIGHT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = 2;
-				//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			}
-
-			if (ae.mInputManager->isKeyTriggered(VK_UP))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityY = 2;
-				//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			}
+			auto& controller = ae.getComponent<ControllerComponent>(entity);
+			
+			if(controller.isActive)
+				activeEntity = entity;
+			else
+				inactiveEntity = entity;
 		}
 
-		if (ae.hasComponent<ControllerComponent>(entity))
-		{
-			if (ae.mInputManager->isKeyPressed(VK_LEFT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = -2;
-			}
-
-			if (ae.mInputManager->isKeyPressed(VK_RIGHT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = 2;
-			}
-		}
-
-		if (ae.hasComponent<ControllerComponent>(entity))
-		{
-			if (ae.mInputManager->isKeyReleased(VK_LEFT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = 0;
-
-			}
-			if (ae.mInputManager->isKeyReleased(VK_RIGHT))
-			{
-				auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-				body.velocityX = 0;
-
-			}
-		}
 	}	
-	
+		auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+		auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
+
+		{//Triggered
+
+			if (ae.mInputManager->isKeyTriggered(controller.LEFT))
+			{
+				//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+				body.velocityX = -1;
+				//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			}
+
+			if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
+			{
+				body.velocityX = 1;
+				//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			}
+
+			if (ae.mInputManager->isKeyTriggered(controller.UP))
+			{
+				if(body.velocityY == 0)
+					body.totalForceY += 180;
+				//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			}
+
+			if (ae.mInputManager->isKeyTriggered(controller.SWAP_CHARACTER))
+			{
+				ATOM_INFO("SWAP_CHARACTER : {}", activeEntity);
+
+
+				auto& controllerInactive = ae.getComponent<ControllerComponent>(inactiveEntity);
+
+				controller.isActive = FALSE;
+				controllerInactive.isActive = TRUE;
+
+			}
+
+			if (ae.mInputManager->isKeyTriggered(controller.SWAP_POSITION))
+			{
+				ATOM_INFO("SWAP_POSITION : {}", activeEntity);
+
+
+				auto& b1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+				auto& b2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
+				auto& t1 = ae.getComponent<TransformComponent>(activeEntity);
+				auto& t2 = ae.getComponent<TransformComponent>(inactiveEntity);
+				
+				b1.prevPositionX = t2.position.x;
+				b1.prevPositionY = t2.position.y;
+				b2.prevPositionX = t1.position.x;
+				b2.prevPositionY = t1.position.y;
+				
+				b1.prevScaleX = t2.scale.x;
+				b1.prevScaleY = t2.scale.y;
+				b2.prevScaleX = t1.scale.x;
+				b2.prevScaleY = t1.scale.y;
+
+				//s(smaller), g(greater)
+				//g s.y + g.y / 2
+				//s s.y/2
+				
+				//s g.y + s.y/2
+				//g g.y/2
+				
+				glm::vec3 temp1 = t1.position + glm::vec3(0, ((t2.scale.y + t1.scale.y) / 2.0f), 0);
+				glm::vec3 temp2 = t2.position + glm::vec3(0, ((t1.scale.y + t2.scale.y) / 2.0f), 0);
+				
+				t1.position = temp2;
+				t2.position = temp1;
+
+				/*
+
+				t1.position.y = t1.position.y - t1.scale.y / 2 + t2.scale.y / 2 ;
+				t2.position.y = t2.position.y - t2.scale.y / 2 + t1.scale.y / 2;
+
+
+				*/
+				
+			}
+
+		}
+
+		{//Pressed
+
+				if (ae.mInputManager->isKeyPressed(VK_LEFT))
+				{
+					body.velocityX = -1;
+				}
+
+				if (ae.mInputManager->isKeyPressed(VK_RIGHT))
+				{
+					body.velocityX = 1;
+				}
+
+		}
+
+		{//Released
+
+				if (ae.mInputManager->isKeyReleased(VK_LEFT))
+				{
+					body.velocityX = 0;
+				}
+				if (ae.mInputManager->isKeyReleased(VK_RIGHT))
+				{
+					body.velocityX = 0;
+				}
+
+		}
 }
 
 void ControllerSystem::onEvent(Event& e)
@@ -127,4 +195,29 @@ void ControllerSystem::onEvent(Event& e)
 	//		break;
 	//	}
 	//}
+		
 }
+
+
+//if (ae.mInputManager->isKeyTriggered(controller.swap))
+			//swapping entity-> small, entity->larger
+
+			//if (ae.mInputManager->isKeyTriggered(controller.LEFT))
+			//{
+			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
+			//	body.velocityX = -2;
+			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			//}
+
+			//if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
+			//{
+			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
+			//	body.velocityX = 2;
+			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			//}
+
+			//if (ae.mInputManager->isKeyTriggered(controller.UP))
+			//{
+			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
+			//	body.velocityY = 2;
+			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);

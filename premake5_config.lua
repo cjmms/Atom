@@ -52,7 +52,9 @@ project "Atom"
 			-- fmod
 			basepath.."%{prj.name}/lib/fmod/api/core/inc/",
 			basepath.."%{prj.name}/lib/fmod/api/fsbank/inc/",
-			basepath.."%{prj.name}/lib/fmod/api/studio/inc/"
+			basepath.."%{prj.name}/lib/fmod/api/studio/inc/",
+			-- imgui
+			basepath.."%{prj.name}/lib/imgui/"
 		}
 		libdirs {
 			-- GLEW

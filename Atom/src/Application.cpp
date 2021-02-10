@@ -104,88 +104,101 @@ EntityID makeSingleRectangle() {
 
 void demoSetup()
 {
-   // EntityID rectangle = ae.createEntity();
-   // 
-   // ae.addComponent(rectangle, RectangleComponent{
-   //     glm::vec3{1,1,1},   //colors
-   //     false
-   //     });
-   // ae.addComponent(rectangle, TransformComponent{
-   //     glm::vec3{0, -1, 0}, // position
-   //     glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //     glm::vec3{1,1,1.0f},  // scale 
-   //     glm::mat4(1.0f)
-   //     });
-   // ae.addComponent(rectangle, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   // ae.addComponent(rectangle, PhysicsBodyComponent(1, true));
+    EntityID floor = ae.createEntity();
+    ae.addComponent(floor, RectangleComponent{
+        glm::vec3{1,1,1},   //colors
+        false
+        });
+    ae.addComponent(floor, TransformComponent{
+        glm::vec3{0, -1, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{10,1,1.0f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(floor, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(floor, PhysicsBodyComponent(1, true));
 
-   // EntityID rectangle2 = ae.createEntity();
+    EntityID wall1 = ae.createEntity();
+    ae.addComponent(wall1, RectangleComponent{
+        glm::vec3{1,1,1},   //colors
+        false
+        });
+    ae.addComponent(wall1, TransformComponent{
+        glm::vec3{1, -0.5f, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{1,0.7,1.0f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(wall1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(wall1, PhysicsBodyComponent(1, true));
 
-   // ae.addComponent(rectangle2, RectangleComponent{
-   //     glm::vec3{1,1,1},   //colors
-   //     false
-   //     });
-   // ae.addComponent(rectangle2, TransformComponent{
-   //     glm::vec3{1, 0, 0}, // position
-   //     glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //     glm::vec3{1,1,1.0f},  // scale 
-   //     glm::mat4(1.0f)
-   //     });
-   // ae.addComponent(rectangle2, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   // ae.addComponent(rectangle2, PhysicsBodyComponent(1, true));
+    //large
+    EntityID player1 = ae.createEntity();
+    ae.addComponent(player1, RectangleComponent{
+        glm::vec3{0.5f,0.5f,0.5f},
+        false
+        });
+    ae.addComponent(player1, TransformComponent{
+        glm::vec3{0, -0.1, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{0.3f,0.2f,0.0f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(player1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(player1, PhysicsBodyComponent(2, false));
+    auto& controller1 = ControllerComponent();
+    controller1.isActive = true;
+    ae.addComponent(player1, controller1);
 
-   // EntityID rectangle3 = ae.createEntity();
-
-   // ae.addComponent(rectangle3, RectangleComponent{
-   //     glm::vec3{0.5f,0.5f,0.5f},
-   //     false
-   //     });
-
-   // ae.addComponent(rectangle3, TransformComponent{
-   //     glm::vec3{0, -0.1, 0}, // position
-   //     glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //     glm::vec3{0.1f,0.1f,0.1f},  // scale 
-   //     glm::mat4(1.0f)
-   //     });
-   // ae.addComponent(rectangle3, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   // ae.addComponent(rectangle3, PhysicsBodyComponent(1, false));
-   // ae.addComponent(rectangle3, ControllerComponent());
-
-   // EntityID rectangle4 = ae.createEntity();
-
-   // ae.addComponent(rectangle4, RectangleComponent{
-   //     glm::vec3{1,1,1},   //colors
-   //     false
-   //     });
-   // ae.addComponent(rectangle4, TransformComponent{
-   //     glm::vec3{-1, 0, 0}, // position
-   //     glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //     glm::vec3{1,1,1.0f},  // scale 
-   //     glm::mat4(1.0f)
-   //     });
-   // ae.addComponent(rectangle4, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   // ae.addComponent(rectangle4, PhysicsBodyComponent(1, true));
+    //small
+    EntityID player2 = ae.createEntity();
+    ae.addComponent(player2, RectangleComponent{
+        glm::vec3{0.8f,0.9f,0.5f},
+        false
+        });
+    ae.addComponent(player2, TransformComponent{
+        glm::vec3{0, -0.1, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{0.1f,0.1f,0.1f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(player2, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(player2, PhysicsBodyComponent(1, false));
+    auto& controller2 = ControllerComponent();
+    controller2.isActive = false;
+    ae.addComponent(player2, controller2);
 
 
-   //EntityID rectangle5 = ae.createEntity();
-   //
-   //ae.addComponent(rectangle5, RectangleComponent{
-   //    glm::vec3{1,1,1},   //colors
-   //    false
-   //    });
-   //ae.addComponent(rectangle5, TransformComponent{
-   //    glm::vec3{0, 1, 0}, // position
-   //    glm::vec3{0.0f,0.0f,0.0f}, // rotation
-   //    glm::vec3{0.8f,0.8f,0.8f},  // scale 
-   //    glm::mat4(1.0f)
-   //    });
-   //ae.addComponent(rectangle5, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   //ae.addComponent(rectangle5, PhysicsBodyComponent(1, true));
+    EntityID leftwall = ae.createEntity();
+    ae.addComponent(leftwall, RectangleComponent{
+        glm::vec3{1,1,1},   //colors
+        false
+        });
+    ae.addComponent(leftwall, TransformComponent{
+        glm::vec3{-1, -0.3f, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{1,0.7,1.0f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(leftwall, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(leftwall, PhysicsBodyComponent(1, true));
 
-   //ae.save("level_01.json");
-   ae.load("level_01.json");
+
+    EntityID wallceiling = ae.createEntity();
+    ae.addComponent(wallceiling, RectangleComponent{
+        glm::vec3{1,1,1},   //colors
+        false
+        });
+    ae.addComponent(wallceiling, TransformComponent{
+        glm::vec3{0, 1, 0}, // position
+        glm::vec3{0.0f,0.0f,0.0f}, // rotation
+        glm::vec3{0.8f,0.8f,0.8f},  // scale 
+        glm::mat4(1.0f)
+        });
+    ae.addComponent(wallceiling, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+    ae.addComponent(wallceiling, PhysicsBodyComponent(1, true));
+
 }
-
 
 void initSpectrum() {
     for (int i = 0; i < 200; ++i) {
@@ -196,7 +209,7 @@ void initSpectrum() {
             false
             });
         ae.addComponent(rectangle, TransformComponent{
-            glm::vec3{-1.0f + 0.0250 * i, 0, 0}, // position
+            glm::vec3{-1.0f + 0.0250 * i, 0.4f, 0}, // position
             glm::vec3{0.0f,0.0f,0.0f}, // rotation
             glm::vec3{0.005f,0.01f,0.5f},  // scale 
             glm::mat4(1.0f)
@@ -280,6 +293,7 @@ int main(int argc, char** argv){
         Archetype typeController;
         typeController.set(ae.getComponentType<ControllerComponent>());
         typeController.set(ae.getComponentType<PhysicsBodyComponent>());
+        typeController.set(ae.getComponentType<TransformComponent>());
         ae.setSystemArchetype<ControllerSystem>(typeController);
     }
     
@@ -288,10 +302,10 @@ int main(int argc, char** argv){
     string musicTrack = "Atom/res/wariyo_mortals.ogg";
     ae.loadSound(musicTrack);
 
-    ChannelID musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.2f);
-    //demoSetup();
-
+    ChannelID musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.1f);
     initSpectrum();
+    demoSetup();
+
 	
     // game loop
     while (ae.mIsRunning) {
