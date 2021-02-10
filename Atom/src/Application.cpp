@@ -184,16 +184,61 @@ void demoSetup()
 
    //ae.save("level_01.json");
    ae.load("level_01.json");
-
 }
+
+
+void initSpectrum() {
+    for (int i = 0; i < 200; ++i) {
+        EntityID rectangle = ae.createEntity();
+
+        ae.addComponent(rectangle, RectangleComponent{
+            glm::vec3{0.5,1,1},   //colors
+            false
+            });
+        ae.addComponent(rectangle, TransformComponent{
+            glm::vec3{-1.0f + 0.0250 * i, 0, 0}, // position
+            glm::vec3{0.0f,0.0f,0.0f}, // rotation
+            glm::vec3{0.005f,0.01f,0.5f},  // scale 
+            glm::mat4(1.0f)
+            });
+        ae.addComponent(rectangle, ShapeComponent{ ShapeComponent::ShapeType::AABB });
+        ae.addComponent(rectangle, PhysicsBodyComponent(1, true));
+    }
+}
+
+void audioReact() {
+    auto fftbars = ae.mAudioManager->fft();
+    for (int i = 0; i < 100;++i) {
+        TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
+        rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+    }
+}
+
+#define VK_MINUS 0x0C
+#define VK_PLUS 0x0D
+#define DB_STEP 0.02f
 
 void glfwpoll() {
     glfwPollEvents();
     if (ae.mGraphicsManager->shouldWindowClose()) {
         ae.mIsRunning = false;
     }
+
 }
 
+void volumeController(ChannelID channelid) {
+    if (ae.mInputManager->isKeyTriggered(VK_OEM_PLUS)) {
+        float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+        ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP,0.0f,1.0f));
+        ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+
+    }
+    if (ae.mInputManager->isKeyTriggered(VK_OEM_MINUS)) {
+        float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
+        ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
+        ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+    }
+}
 
 
 int main(int argc, char** argv){
@@ -240,13 +285,20 @@ int main(int argc, char** argv){
     
     // need to initialize systems again because systems got updated above
     ae.initSystem();
+    string musicTrack = "Atom/res/wariyo_mortals.ogg";
+    ae.loadSound(musicTrack);
 
-    demoSetup();
+    ChannelID musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.2f);
+    //demoSetup();
+
+    initSpectrum();
 	
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
         ae.update();
+        volumeController(musicChannelID);
+        audioReact();
         //makeSingleRectangle();
         fpsCounter();
     }

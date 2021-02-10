@@ -19,8 +19,8 @@
 #define APPNAME "[ATOM]"
 #define MAX_TITLE_LEN 80
 #define FPS 60
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 640
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 800
 #define FMODMAXCHANNELS 512
 
 // USING
@@ -38,14 +38,15 @@ using Archetype = std::bitset<MAX_COMPONENTS>;
 
 
 // AUDIO
-using ChannelMap = std::map<int, FMOD::Channel*>;
+using ChannelMap = std::map<unsigned int, FMOD::Channel*>;
+using SoundMap = std::map<string, FMOD::Sound*>;
 using ChannelID = unsigned int;
+using SoundID = unsigned int;
 
-class AudioSample {
-public:
-	FMOD_MODE mode;
-	FMOD_CREATESOUNDEXINFO* exinfo;
-	FMOD::Sound* sound;
+enum ChannelGroupTypes {
+	C_SFX,
+	C_MUSIC,
+	C_TOTAL
 };
 
 class AudioDSPData {

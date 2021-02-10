@@ -43,17 +43,19 @@ public:
 		mResourceManager->init();
 		mSystemManager->init();
 		mInputManager->init();
+		mAudioManager->init();
 
 		mIsRunning = true;
 	}
 	inline void update() {
 		startFrame();
 
+		mInputManager->update();
 		mEventManager->update();
 		mSystemManager->update();
 		mGraphicsManager->update();
 		mResourceManager->update();
-		mInputManager->update();
+		mAudioManager->update();
 
 		endFrame();
 	}
@@ -62,6 +64,7 @@ public:
 		mGraphicsManager->onEvent(e);
 		mResourceManager->onEvent(e);
 		mSystemManager->onEvent(e);
+		mAudioManager->onEvent(e);
 	}
 
 
@@ -85,6 +88,22 @@ public:
 	}
 	inline long long getTotalFrames() {
 		return mChrononManager->getTotalFrames();
+	}
+
+	// AudioManager
+	inline FMOD::Sound* loadSound(string audioloc,
+		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE,
+		FMOD_CREATESOUNDEXINFO* _exinfo = NULL
+	) {
+		return mAudioManager->loadSound(audioloc, _mode, _exinfo);
+	}
+
+	inline void unloadSound(string audioloc) {
+		return mAudioManager->unloadSound(audioloc);
+	}
+
+	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f) {
+		return mAudioManager->play(audioloc, cgtype, volumedB);
 	}
 	
 	// GraphicsManager
@@ -110,6 +129,10 @@ public:
 	template <typename T>
 	inline void unloadReource(string resloc) {
 		return mResourceManager->unload(string res);
+	}
+
+	bool resourceExsists(string resloc) {
+		return mResourceManager->exists(resloc);
 	}
 
 	// Entity

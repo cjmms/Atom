@@ -7,7 +7,5 @@
 void loadResource(unsigned int& id, string filename);
 void unloadResource(unsigned int& id);
 
-void loadResource(AudioSample& asd, string filename);
-void unloadResource(AudioSample& asd);
 
 #endif // !RESOURCELOADER_HPP

@@ -4,21 +4,6 @@
 #include "stb_image.h"
 #include <GL/glew.h>
 #include "utils/Log.hpp"
-#include "core/AtomEngine.hpp"
-
-extern AtomEngine ae;
-
-
-// AUDIO
-void loadResource(AudioSample& asd, string filename) {
-    FMOD_ERROR(ae.mAudioManager->mCoreSystem->createSound(filename.c_str(), asd.mode, asd.exinfo, &asd.sound));
-}
-
-void unloadResource(AudioSample& asd) {
-    FMOD_ERROR(asd.sound->release());
-}
-
-
 
 // TEXTURE 
 void loadResource(unsigned int& id, string filename) {
@@ -59,7 +44,7 @@ void loadResource(unsigned int& id, string filename) {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         stbi_image_free(data);
-        ATOM_ERROR(" loaded successfully.")
+        ATOM_INFO(" loaded successfully.")
     }
     else
     {

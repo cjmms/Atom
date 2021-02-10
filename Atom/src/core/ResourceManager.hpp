@@ -24,6 +24,11 @@ public:
 	void update() {
 
 	}
+
+	bool exists(string resloc) {
+		return (mResID.count(resloc) > 0);
+	}
+
 	template <typename T>
 	T& load(string resloc) {
 		ResourceID id;
@@ -40,8 +45,6 @@ public:
 		return std::any_cast<T&>(mResPool[mNextRes - 1]);
 	}
 
-
-
 	template <typename T>
 	void unload(string resloc) {
 		if (mResID.count(resloc) > 0) {
@@ -57,6 +60,5 @@ private:
 	std::unordered_map<std::string, ResourceID> mResID;
 	std::unordered_map<ResourceID, std::any> mResPool;
 	ResourceID mNextRes;
-
 };
 #endif // !RESOURCEMANAGER_HPP

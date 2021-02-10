@@ -2,10 +2,7 @@
 #include <WinUser.h>
 #include <Pch.hpp>
 #include "InputManager.hpp"
-#include "Event.hpp"
-#include "EventManager.hpp"
 #include "AtomEngine.hpp"
-#include <memory.h>
 
 extern AtomEngine ae;
 
