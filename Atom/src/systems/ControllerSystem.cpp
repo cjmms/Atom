@@ -66,12 +66,19 @@ void ControllerSystem::update()
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
-		if (ae.mInputManager->isKeyTriggered(controller.UP))
-		{
-			if(body.velocityY == 0)
-				body.velocityY = 3;
-			//ATOM_INFO("VELOCITY : {}", body.velocityX);
-		}
+			if (ae.mInputManager->isKeyTriggered(controller.UP))
+			{
+				if(body.velocityY == 0)
+					body.totalForceY += 180;
+				//ATOM_INFO("VELOCITY : {}", body.velocityX);
+			}
+
+		//if (ae.mInputManager->isKeyTriggered(controller.UP))
+		//{
+		//	if(body.velocityY == 0)
+		//		body.velocityY = 3;
+		//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
+		//}
 
 		if (ae.mInputManager->isKeyTriggered(controller.SWAP_CHARACTER))
 		{

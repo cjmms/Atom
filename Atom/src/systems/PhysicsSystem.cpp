@@ -3,160 +3,17 @@
 * @author	Gerald Lee
 * @brief	PhysicsBodyComponent
 * @date		2021-01-29
-* @bug		upside-down, squeezing, 
 */
 #include <Pch.hpp>
 #include "PhysicsSystem.hpp"
+
+#include "collisions/AABBCollision.hpp"
 #include "utils/Log.hpp"
 #include "core/AtomEngine.hpp"
 #include "core/Types.hpp"
 #include "components/AllComponents.hpp"
 
 extern AtomEngine ae;
-
-bool CheckCollisionAABBAABB(double frameTime,
-	ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
-	ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
-	std::list<Contact*>& contacts)
-{
-	float left1, right1, top1, bottom1;
-	float left2, right2, top2, bottom2;
-
-	float halfWidth1 = transform1.scale.x / 2;
-	float halfHeight1 = transform1.scale.y / 2;
-	left1 = transform1.position.x - halfWidth1;
-	right1 = transform1.position.x + halfWidth1;
-	top1 = transform1.position.y + halfHeight1;
-	bottom1 = transform1.position.y - halfHeight1;
-
-	float halfWidth2 = transform2.scale.x / 2;
-	float halfHeight2 = transform2.scale.y / 2;
-	left2 = transform2.position.x - halfWidth2;
-	right2 = transform2.position.x + halfWidth2;
-	top2 = transform2.position.y + halfHeight2;
-	bottom2 = transform2.position.y - halfHeight2;
-
-	if (left1 > right2 || left2 > right1
-		|| top1 < bottom2 || top2 < bottom1)
-		return false;
-
-	//if collided -> case: dyn-static or dyn-dyn
-	//if (body2.staticBody)
-	{
-		//time to collide along asix
-		float distX, distY;
-		float timeX, timeY;
-
-		if (abs(body1.prevPositionX - body2.prevPositionX) + EPSILON < (body1.prevScaleX + body2.prevScaleX)/2.0)
-		{
-			//vertical collision only
-			// ---
-			// | |
-			// ---
-			//  ---
-			//  | |
-			//  ---
-
-			distY = abs(transform1.position.y - transform2.position.y) - halfHeight1 - halfHeight2;
-			timeY = body1.velocityY == 0 ? 0 : distY / body1.velocityY;
-			//transform1.position.y = transform1.position.y + timeX * abs(body1.velocityX);
-			if (transform1.position.y > transform2.position.y)
-				transform1.position.y = transform2.position.y + halfWidth1 + halfWidth2;
-			else
-				transform1.position.y = transform2.position.y - halfWidth1 - halfWidth2;
-
-			transform1.position.x = transform1.position.x + timeY * abs(body2.velocityX);
-
-			//assume sticky collision
-			body1.totalForceY = 0;
-			body1.accelerationY = 0;
-			body1.velocityY = 0;
-		}
-		else if (body1.prevPositionY + halfHeight1 > transform2.position.y - halfHeight2 + EPSILON
-			&& body1.prevPositionY - halfHeight1 + EPSILON < transform2.position.y + halfHeight2)
-		{
-			//horizontal collision only
-			// ---
-			// | |  ---
-			// ---	| |
-			//      ---
-
-			distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
-			timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
-			transform1.position.y = transform1.position.y + timeX * abs(body2.velocityY);
-			//transform1.position.x = transform1.position.x + timeX * abs(body1.velocityX);
-			if (transform1.position.x > transform2.position.x)
-				transform1.position.x = transform2.position.x + halfHeight1 + halfHeight2;
-			else
-				transform1.position.x = transform2.position.x - halfHeight1 - halfHeight2;
-
-			//assume sticky collision
-			body1.totalForceX = 0;
-			body1.accelerationX = 0;
-			body1.velocityX = 0;
-
-		}
-		else
-		{
-			//diagonal
-			// ---
-			// | |
-			// ---	
-			//     --- 
-			//     | | 
-			//	   ---
-
-			distY = abs(transform1.position.y - transform2.position.y) - halfHeight1 - halfHeight2;
-			timeY = body1.velocityY == 0 ? 0 : distY / body1.velocityY;
-			distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
-			timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
-
-			if (timeX < timeY)
-			{
-				//horizontal reach faster
-				//vertical collision
-				// ---
-				// | |
-				// ---
-				//   ---
-				//   | |
-				//   ---
-
-				transform1.position.y = transform1.position.y - timeY * abs(body1.velocityY);
-				transform1.position.x = transform1.position.x - timeY * abs(body2.velocityX);
-				
-				//assume sticky collision
-				body1.totalForceY = 0;
-				body1.accelerationY = 0;
-				body1.velocityY = 0;
-			}
-			else
-			{
-				transform1.position.y = transform1.position.y - timeX * abs(body2.velocityY);
-				transform1.position.x = transform1.position.x - timeX * abs(body1.velocityX);
-
-				//assume sticky collision
-				body1.totalForceX = 0;
-				body1.accelerationX = 0;
-				body1.velocityX = 0;
-
-			}
-		}
-	}
-	//else
-	//{
-		//todo handle dyn-dyn collision, rebounce, etc
-		//ResolveDynamicCollision();
-	//}
-
-	//todo send event for phy collision for further gameplay logics (if necessary)
-	//Contact* pNewContact = new Contact();
-	//pNewContact->bodies[0] = AABBShape1->body;
-	//pNewContact->bodies[1] = AABBShape2->body;
-	//contacts.push_back(pNewContact);
-
-	return true;
-}
 
 void PhysicsSystem::init()
 {
@@ -205,7 +62,7 @@ void PhysicsSystem::update()
 			}
 		}
 
-		updatePreviousPosition(transform1, body1);
+		postUpdate(transform1, body1);
 		
 	}
 
@@ -221,7 +78,7 @@ void PhysicsSystem::update()
 	//}
 }
 
-void PhysicsSystem::updatePreviousPosition(TransformComponent& transform, PhysicsBodyComponent& body)
+void PhysicsSystem::postUpdate(TransformComponent& transform, PhysicsBodyComponent& body)
 {
 	body.prevPositionX = transform.position.x;
 	body.prevPositionY = transform.position.y;
@@ -272,6 +129,16 @@ void PhysicsSystem::updatePhysicsBody(
 	body.prevPositionX = transform.position.x;
 	body.prevPositionY = transform.position.y;
 
+	////apply friction if grounded, assume grounded if prev. Vy == 0
+	//if (body.velocityY == 0)
+	//{
+	//	//advance phy: friction
+	//	float frictionCoefficient = 0.5;
+	//	float friction = body.mass * frictionCoefficient;
+	//
+	//	body.totalForceX = -body.velocityX * friction : 0;
+	//}
+
 	//update acceleration
 	body.accelerationX = body.totalForceX / body.mass;
 	body.accelerationY = body.totalForceY / body.mass - GRAVITY;
@@ -279,6 +146,17 @@ void PhysicsSystem::updatePhysicsBody(
 
 	//update velocity
 	body.velocityX = body.accelerationX * frameTime + body.velocityX;
+	//apply friction if grounded, assume grounded if prev. Vy == 0
+	if (body.velocityY == 0)
+	{
+		//advance phy: friction
+		float frictionCoefficient = 0.5;
+		float frictionSpeed = frictionCoefficient * frameTime * GRAVITY;
+		//reduce speed by friction until speed becomes zero
+		int sign = signbit(body.velocityX) ? -1 : 1;
+		body.velocityX = abs(body.velocityX) > frictionSpeed ? body.velocityX - frictionSpeed * sign : 0;
+	}
+	
 	//body.velocityX = -1;	//test
 	//body.velocityY = 1;	//test
 	body.velocityY = body.accelerationY * frameTime + body.velocityY;
@@ -288,4 +166,6 @@ void PhysicsSystem::updatePhysicsBody(
 	transform.position.x = transform.position.x + body.velocityX * frameTime;
 	transform.position.y = transform.position.y + body.velocityY * frameTime;
 
+	body.totalForceY = 0;
+	body.totalForceX = 0;
 }
