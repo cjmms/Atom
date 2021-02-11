@@ -128,6 +128,10 @@ void glfwpoll() {
 
 string musicTrack = "Atom/res/wariyo_mortals.ogg";
 string sfxTrack = "Atom/res/optimus_speech.ogg";
+
+string sfxJump = "Atom/res/EllenFootstepJump.ogg";
+string sfxLand = "Atom/res/EllenFootstepLand.ogg";
+
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
@@ -211,6 +215,8 @@ int main(int argc, char** argv){
 
     ae.loadSound(musicTrack);
     ae.loadSound(sfxTrack);
+    ae.loadSound(sfxJump);
+    ae.loadSound(sfxLand);
     
     ae.load("level_01.json");
 
@@ -244,7 +250,7 @@ int main(int argc, char** argv){
         // render your GUI
         ImGui::Begin("ATOM AUDIO CONTROL PANEL");
         static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.1f; 
+        static float sfxVolumedB = 0.2f; 
         static float listenerXOffset = 0.0f;
         static float listenerYOffset = 0.0f;
         static float listenerOffset[] = { 0.0f,0.0f };

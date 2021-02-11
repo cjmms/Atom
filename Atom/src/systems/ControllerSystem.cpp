@@ -12,6 +12,15 @@
 
 extern AtomEngine ae;
 
+extern ChannelID sfxChannelID;
+
+extern string sfxJump;
+extern string sfxLand;
+
+void playJumpSound(Event& e) {
+	ae.play(sfxJump, ChannelGroupTypes::C_SFX, 0.8f);
+}
+
 void ControllerSystem::init()
 {
 	/*ae.addEventListener(EventID::E_WINDOW_KEY_TRIGGERED, [this](Event& e) 
@@ -68,6 +77,9 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyTriggered(controller.UP))
 			{
+				Event e(EventID::E_WINDOW_KEY_PRESSED);
+
+				playJumpSound(e);
 				if(body.velocityY == 0)
 					body.totalForceY += 180;
 				//ATOM_INFO("VELOCITY : {}", body.velocityX);
