@@ -680,6 +680,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\utils\Serde.hpp" />
+    <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />

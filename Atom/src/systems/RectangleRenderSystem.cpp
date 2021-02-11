@@ -55,7 +55,7 @@ void RectangleRenderSystem::init() {
 void RectangleRenderSystem::update() {
 
 	// draw Background
-	draw(glm::vec2(-1.0, 1.0), glm::vec2(2.0f), BackgroundAddress);
+	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
 	for (auto& entity : mEntities) {
 		if (ae.hasComponent<RectangleComponent>(entity)) {

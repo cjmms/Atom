@@ -162,10 +162,10 @@ void ControllerSystem::update()
 	}
 
 	{//Mouse
-		if (ae.mInputManager->isKeyPressed(VK_LBUTTON))
+		if (ae.mInputManager->isKeyPressed(VK_RBUTTON))
 		{
 			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
-			ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
+			//ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
 
 			glm::vec2 cameraPos = ae.mSystemManager->getSystem<RectangleRenderSystem>()->getCameraPos();
 
@@ -174,7 +174,7 @@ void ControllerSystem::update()
 
 			ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
 
-			ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
+			//ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
 		}
 	}
 }
