@@ -22,6 +22,10 @@ AtomEngine ae;
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #ifdef _WIN64
 #include "Windows.h"
 FILE _iob[] = {
@@ -127,38 +131,13 @@ string sfxTrack = "Atom/res/optimus_speech.ogg";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
-void volumeController(ChannelID channelid) {
 
-    if (channelid == musicChannelID) {
-        // the + key
-        if (ae.mInputManager->isKeyTriggered(VK_OEM_PLUS)) {
-            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP, 0.0f, 1.0f));
-            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
+float getVolumedB(ChannelID channelid) {
+    return ae.mAudioManager->getChannelVolumedB(channelid);
+}
 
-        }
-        // the - key
-        if (ae.mInputManager->isKeyTriggered(VK_OEM_MINUS)) {
-            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
-            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
-        }
-    }
-    if (channelid == sfxChannelID) {
-        // the [ key
-        if (ae.mInputManager->isKeyTriggered(VK_OEM_6)) {
-            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol + DB_STEP, 0.0f, 1.0f));
-            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
-
-        }
-        // the ] key
-        if (ae.mInputManager->isKeyTriggered(VK_OEM_4)) {
-            float currentvol = ae.mAudioManager->getChannelVolumedB(channelid);
-            ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(currentvol - DB_STEP, 0.0f, 1.0f));
-            ATOM_INFO("VOLUME dB : {}", ae.mAudioManager->getChannelVolumedB(channelid));
-        }
-    }
+void setVolume(ChannelID channelid, float volumedB) {
+    ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(volumedB, 0.0f, 1.0f));
 }
 
 FMOD_VECTOR camera_position{0.0f,0.0f,0.0f};
@@ -166,36 +145,15 @@ FMOD_VECTOR camera_fwd{0.0f,0.0f,1.0f};
 FMOD_VECTOR camera_up{0.0f,1.0f,0.0f};
 float camera_step = 0.1f;
 
-#define ATOM_KEY_J 0x4A
-#define ATOM_KEY_L 0x4C
-#define ATOM_KEY_I 0x49
-#define ATOM_KEY_K 0x4B
-
-void listener3DController() {
-    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_L)) {
-        // move listener right
-        camera_position.x += camera_step;
-        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-    }
-    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_J)) {
-        // move listener left
-        camera_position.x -= camera_step;
-        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-    }
-    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_I)) {
-        // move listener right
-        camera_position.y += camera_step;
-        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-    }
-    if (ae.mInputManager->isKeyTriggered(ATOM_KEY_K)) {
-        // move listener left
-        camera_position.y -= camera_step;
-        ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-    }
+void listener3DSetXOffset(float offset) {
+    camera_position.x = 0.0f + offset;
+    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
 }
 
-
-
+void listener3DSetYOffset(float offset) {
+    camera_position.y = 0.0f + offset;
+    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+}
 
 int main(int argc, char** argv){
 
@@ -204,6 +162,13 @@ int main(int argc, char** argv){
     
     ae.init();          // initialize engine
     ae.setMaxFPS(60);  // set the fps
+
+    // IMGUI GL 3.0 + GLSL 130
+    const char* glsl_version = "#version 130";
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
     ae.printGraphicsInfo(); // print OpenGL info
     
@@ -252,13 +217,60 @@ int main(int argc, char** argv){
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
 
+    // Setup Dear ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    // Setup Platform/Renderer bindings
+    ImGui_ImplGlfw_InitForOpenGL(ae.mGraphicsManager->getWindow(), true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+    // Setup Dear ImGui style
+    ImGui::StyleColorsDark();
+
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
+
+        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
         ae.update();
-        volumeController(musicChannelID);
-        volumeController(sfxChannelID);
-        listener3DController();
+
+        // feed inputs to dear imgui, start new frame
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        // render your GUI
+        ImGui::Begin("ATOM AUDIO CONTROL PANEL");
+        static float musicVolumedB = 0.05f;
+        static float sfxVolumedB = 0.1f; 
+        static float listenerXOffset = 0.0f;
+        static float listenerYOffset = 0.0f;
+        static float listenerOffset[] = { 0.0f,0.0f };
+
+        ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+        ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+
+        setVolume(musicChannelID, musicVolumedB);
+        setVolume(sfxChannelID, sfxVolumedB);
+
+        ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+
+        listener3DSetXOffset(listenerOffset[0]);
+        listener3DSetYOffset(listenerOffset[1]);
+
+        ImGui::End();
+
+        // Render dear imgui into screen
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        
+        int display_w, display_h;
+        glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glfwSwapBuffers(ae.mGraphicsManager->getWindow());
+
         audioReact();
         //makeSingleRectangle();
         fpsCounter();

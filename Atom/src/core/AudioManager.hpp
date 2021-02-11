@@ -138,7 +138,7 @@ public:
 
 	inline void setChannelVolumedB(ChannelID channelid, float volumedB) {
 		// if channel exists in our pool
-		assert(mChannelPool.count(channelid) > 0 && "Channel does not exist");
+		//assert(mChannelPool.count(channelid) > 0 && "Channel does not exist");
 		mChannelPool[channelid]->setVolume(volumedB);
 		return;
 	}

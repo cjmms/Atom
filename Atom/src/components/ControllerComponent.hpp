@@ -3,19 +3,18 @@
 //#include "Pch.hpp"
 #include "GLFW/glfw3.h"
 #include "utils/Serde.hpp"
-
-#define VK_Z    0x5A
-#define VK_X    0x58
+#include "core/Types.hpp"
+#include "utils/AtomScancode.hpp"
 
 
 class ControllerComponent {
 public:
-    int UP = VK_UP;
-    int DOWN = VK_DOWN;
-    int LEFT = VK_LEFT;
-    int RIGHT = VK_RIGHT;
-    int SWAP_POSITION = VK_Z;
-    int SWAP_CHARACTER = VK_X;
+    AtomScancode UP;
+    AtomScancode DOWN;
+    AtomScancode LEFT;
+    AtomScancode RIGHT;
+    AtomScancode SWAP_POSITION;
+    AtomScancode SWAP_CHARACTER;
     int ROTLEFT = GLFW_KEY_C;
     int ROTRIGHT = GLFW_KEY_V;
 
