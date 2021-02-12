@@ -27,6 +27,8 @@ public:
 	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe=false) const;
 	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe=false) const;
 
+	void drawEntities(bool debugMode);
+
 	// if pos is (1, 0), then center of camera will be (1, 0) 
 	inline void setCameraPos(glm::vec2 pos) { CameraPos = pos; };
 	inline glm::vec2 getCameraPos() { return CameraPos; }

@@ -38,8 +38,10 @@ in vec2 TextureCoord;
 out vec4 FragColor;
 
 uniform sampler2D tex;
+uniform int wireframe;
 
 void main()
 {
 	FragColor = texture(tex, TextureCoord);
+	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }

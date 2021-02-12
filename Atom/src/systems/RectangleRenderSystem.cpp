@@ -57,21 +57,8 @@ void RectangleRenderSystem::update() {
 	// draw Background
 	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
-	for (auto& entity : mEntities) {
-		if (ae.hasComponent<RectangleComponent>(entity)) {
-			auto& rc = ae.getComponent<RectangleComponent>(entity);
-
-			if (ae.hasComponent<TransformComponent>(entity)) {
-				auto& t = ae.getComponent<TransformComponent>(entity);
-				glm::vec3 topleft = t.position - t.scale / 2.0f;
-
-				if (!rc.texturePath.empty())
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, rc.wireframe);
-				else
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, rc.wireframe);
-			}
-		}
-	}
+	// draw all entities
+	drawEntities(false);
 }
 
 
@@ -89,6 +76,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
+	
+	ColorRecShader->SetInt("wireframe", wireframe);
 
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
@@ -100,6 +89,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	glBindVertexArray(RecVAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+
 }
 
 
@@ -112,10 +102,11 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
+	TextureRecShader->SetInt("wireframe", wireframe);
 
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
-	
+
 	TextureRecShader->SetVec2("cameraPos", CameraPos);
 
 	// load texture
@@ -126,4 +117,25 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	glBindVertexArray(RecVAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+
+void RectangleRenderSystem::drawEntities(bool debugMode)
+{
+	for (auto& entity : mEntities) {
+		if (ae.hasComponent<RectangleComponent>(entity)) {
+			auto& rc = ae.getComponent<RectangleComponent>(entity);
+
+			if (ae.hasComponent<TransformComponent>(entity)) {
+				auto& t = ae.getComponent<TransformComponent>(entity);
+
+				if (!rc.texturePath.empty())
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false);
+				else
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false);
+
+				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true);
+			}
+		}
+	}
 }
