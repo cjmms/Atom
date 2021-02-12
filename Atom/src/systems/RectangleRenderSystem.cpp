@@ -14,8 +14,6 @@ extern AtomEngine ae;
 
 void RectangleRenderSystem::init() {
 	// Background image
-	// This is not the "Correct way" to implement
-	// But it works for Engine Demo with minimal extra code
 	setBackground("Atom/res/level_01_background.png");
 
 	CameraPos = glm::vec2(0.0f);
@@ -58,7 +56,7 @@ void RectangleRenderSystem::update() {
 	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
 	// draw all entities
-	drawEntities(false);
+	drawEntities(true);
 }
 
 
