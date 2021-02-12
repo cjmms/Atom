@@ -16,6 +16,10 @@ void RectangleRenderSystem::init() {
 	// Background image
 	setBackground("Atom/res/level_01_background.png");
 
+	worriorTimer = glfwGetTime();
+	VampireTimer = glfwGetTime();
+	laternTimer = glfwGetTime();
+
 	CameraPos = glm::vec2(0.0f);
 
 	// init shaders
@@ -55,8 +59,46 @@ void RectangleRenderSystem::update() {
 	// draw Background
 	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
+	bool DebugMode = true;
+
 	// draw all entities
-	drawEntities(true);
+	drawEntities(DebugMode);
+
+	// animation demo
+	drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
+
+	drawAnimation(glm::vec2(0.8, -0.8), glm::vec2(0.4f), "Vampire", "png", 4, VampireTimer, DebugMode);
+
+	drawAnimation(glm::vec2(-0.8, -0.8), glm::vec2(0.4f), "latern", "png", 4, laternTimer, DebugMode);
+}
+
+
+
+void RectangleRenderSystem::drawKeyFrame(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, bool wireframe) const
+{
+	std::string address = "Atom/res/Animation/" + name + std::to_string(n) + "." + type;
+	draw(pos, scale, address, false);
+	if (wireframe) draw(pos, scale, address, true);
+}
+
+
+
+void RectangleRenderSystem::drawAnimation(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, float &timer, bool wireframe) const
+{
+	float deltaTime = glfwGetTime() - timer;
+
+	for (int i = 1; i <= n; ++i)
+	{
+		if (deltaTime < 0.1f * i) {
+			drawKeyFrame(pos, scale, name, type, i - 1, wireframe);
+			break;
+		}
+	}
+	if (deltaTime > 0.1f * n)
+	{
+		drawKeyFrame(pos, scale, name, type, n - 1, wireframe);
+		timer = glfwGetTime();
+	}
 }
 
 
