@@ -14,9 +14,11 @@ extern AtomEngine ae;
 
 void RectangleRenderSystem::init() {
 	// Background image
-	// This is not the "Correct way" to implement
-	// But it works for Engine Demo with minimal extra code
 	setBackground("Atom/res/level_01_background.png");
+
+	worriorTimer = glfwGetTime();
+	VampireTimer = glfwGetTime();
+	laternTimer = glfwGetTime();
 
 	CameraPos = glm::vec2(0.0f);
 
@@ -57,20 +59,45 @@ void RectangleRenderSystem::update() {
 	// draw Background
 	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
-	for (auto& entity : mEntities) {
-		if (ae.hasComponent<RectangleComponent>(entity)) {
-			auto& rc = ae.getComponent<RectangleComponent>(entity);
+	bool DebugMode = true;
 
-			if (ae.hasComponent<TransformComponent>(entity)) {
-				auto& t = ae.getComponent<TransformComponent>(entity);
-				glm::vec3 topleft = t.position - t.scale / 2.0f;
+	// draw all entities
+	drawEntities(DebugMode);
 
-				if (!rc.texturePath.empty())
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, rc.wireframe);
-				else
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, rc.wireframe);
-			}
+	// animation demo
+	drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
+
+	drawAnimation(glm::vec2(0.8, -0.8), glm::vec2(0.4f), "Vampire", "png", 4, VampireTimer, DebugMode);
+
+	drawAnimation(glm::vec2(-0.8, -0.8), glm::vec2(0.4f), "latern", "png", 4, laternTimer, DebugMode);
+}
+
+
+
+void RectangleRenderSystem::drawKeyFrame(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, bool wireframe) const
+{
+	std::string address = "Atom/res/Animation/" + name + std::to_string(n) + "." + type;
+	draw(pos, scale, address, false);
+	if (wireframe) draw(pos, scale, address, true);
+}
+
+
+
+void RectangleRenderSystem::drawAnimation(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, float &timer, bool wireframe) const
+{
+	float deltaTime = glfwGetTime() - timer;
+
+	for (int i = 1; i <= n; ++i)
+	{
+		if (deltaTime < 0.1f * i) {
+			drawKeyFrame(pos, scale, name, type, i - 1, wireframe);
+			break;
 		}
+	}
+	if (deltaTime > 0.1f * n)
+	{
+		drawKeyFrame(pos, scale, name, type, n - 1, wireframe);
+		timer = glfwGetTime();
 	}
 }
 
@@ -89,6 +116,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
+	
+	ColorRecShader->SetInt("wireframe", wireframe);
 
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
@@ -100,6 +129,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	glBindVertexArray(RecVAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+
 }
 
 
@@ -112,10 +142,11 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
+	TextureRecShader->SetInt("wireframe", wireframe);
 
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
-	
+
 	TextureRecShader->SetVec2("cameraPos", CameraPos);
 
 	// load texture
@@ -126,4 +157,25 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	glBindVertexArray(RecVAO);
 
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+
+void RectangleRenderSystem::drawEntities(bool debugMode)
+{
+	for (auto& entity : mEntities) {
+		if (ae.hasComponent<RectangleComponent>(entity)) {
+			auto& rc = ae.getComponent<RectangleComponent>(entity);
+
+			if (ae.hasComponent<TransformComponent>(entity)) {
+				auto& t = ae.getComponent<TransformComponent>(entity);
+
+				if (!rc.texturePath.empty())
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false);
+				else
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false);
+
+				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true);
+			}
+		}
+	}
 }
