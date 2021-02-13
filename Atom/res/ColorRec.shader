@@ -9,7 +9,7 @@ uniform vec2 cameraPos;
 
 void main()
 {
-	// make sure the left top vertex is at origin
+	// make sure the center is at origin
 	vec2 position = aPos.xy;
 
 	// scale
@@ -32,8 +32,10 @@ void main()
 out vec4 FragColor;
 
 uniform vec3 color;
+uniform int wireframe;
 
 void main()
 {
 	FragColor = vec4(color, 1.0f);
+	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }

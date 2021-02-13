@@ -3,10 +3,10 @@
 
 #include "components/PhysicsBodyComponent.hpp"
 #include "components/RectangleComponent.hpp"
-#include "components/RenderBoxComponent.hpp"
 #include "components/ShapeComponent.hpp"
 #include "components/TransformComponent.hpp"
 #include "components/ControllerComponent.hpp"
 #include "components/CharacterComponent.hpp"
+#include "components/TagComponent.hpp"
 
 #endif 

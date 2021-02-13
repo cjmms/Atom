@@ -22,6 +22,10 @@ AtomEngine ae;
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #ifdef _WIN64
 #include "Windows.h"
 FILE _iob[] = {
@@ -102,112 +106,54 @@ EntityID makeSingleRectangle() {
     return rectangle;
 }
 
-void demoSetup()
-{
-    EntityID floor = ae.createEntity();
-    ae.addComponent(floor, RectangleComponent{
-        glm::vec3{1,1,1},   //colors
-        false
-        });
-    ae.addComponent(floor, TransformComponent{
-        glm::vec3{0, -1, 0}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{10,1,1.0f},  // scale 
-        glm::mat4(1.0f)
-        });
-    ae.addComponent(floor, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(floor, PhysicsBodyComponent(1, true));
-
-    EntityID wall1 = ae.createEntity();
-    ae.addComponent(wall1, RectangleComponent{
-        glm::vec3{1,1,1},   //colors
-        false
-        });
-    ae.addComponent(wall1, TransformComponent{
-        glm::vec3{1, 0, 0}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{1,1,1.0f},  // scale 
-        glm::mat4(1.0f)
-        });
-    ae.addComponent(wall1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(wall1, PhysicsBodyComponent(1, true));
-
-	//large
-    EntityID player1 = ae.createEntity();
-    ae.addComponent(player1, RectangleComponent{
-        glm::vec3{0.5f,0.5f,0.5f},
-        false
-        });
-    ae.addComponent(player1, TransformComponent{
-        glm::vec3{0, -0.1, 0}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{0.3f,0.2f,0.0f},  // scale 
-        glm::mat4(1.0f)
-        });
-    ae.addComponent(player1, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(player1, PhysicsBodyComponent(2, false));
-    auto& controller1 = ControllerComponent();
-	controller1.isActive = true;
-    ae.addComponent(player1, controller1);
-
-	//small
-    EntityID player2 = ae.createEntity();
-    ae.addComponent(player2, RectangleComponent{
-        glm::vec3{0.8f,0.8f,0.5f},
-        false
-        });
-    ae.addComponent(player2, TransformComponent{
-        glm::vec3{0, -0.1, 0}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{0.1f,0.1f,0.1f},  // scale 
-        glm::mat4(1.0f)
-        });
-    ae.addComponent(player2, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    ae.addComponent(player2, PhysicsBodyComponent(1, false));
-    auto& controller2 = ControllerComponent();
-	controller2.isActive = false;
-    ae.addComponent(player2, controller2);
-    
-
-    //EntityID leftwall = ae.createEntity();
-    //ae.addComponent(leftwall, RectangleComponent{
-    //    glm::vec3{1,1,1},   //colors
-    //    false
-    //    });
-    //ae.addComponent(leftwall, TransformComponent{
-    //    glm::vec3{-1, 0, 0}, // position
-    //    glm::vec3{0.0f,0.0f,0.0f}, // rotation
-    //    glm::vec3{1,1,1.0f},  // scale 
-    //    glm::mat4(1.0f)
-    //    });
-    //ae.addComponent(leftwall, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-    //ae.addComponent(leftwall, PhysicsBodyComponent(1, true));
-
-
-   EntityID wallceiling = ae.createEntity();
-   ae.addComponent(wallceiling, RectangleComponent{
-       glm::vec3{1,1,1},   //colors
-       false
-       });
-   ae.addComponent(wallceiling, TransformComponent{
-       glm::vec3{0, 1, 0}, // position
-       glm::vec3{0.0f,0.0f,0.0f}, // rotation
-       glm::vec3{0.8f,0.8f,0.8f},  // scale 
-       glm::mat4(1.0f)
-       });
-   ae.addComponent(wallceiling, ShapeComponent{ ShapeComponent::ShapeType::AABB });
-   ae.addComponent(wallceiling, PhysicsBodyComponent(1, true));
-
+void audioReact() {
+    auto fftbars = ae.mAudioManager->fft();
+    for (int i = 0; i < 200;++i) {
+        TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
+        rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+    }
 }
+
+#define VK_MINUS 0x0C
+#define VK_PLUS 0x0D
+#define DB_STEP 0.02f
 
 void glfwpoll() {
     glfwPollEvents();
     if (ae.mGraphicsManager->shouldWindowClose()) {
         ae.mIsRunning = false;
     }
+
 }
 
+string musicTrack = "Atom/res/wariyo_mortals.ogg";
+string sfxTrack = "Atom/res/optimus_speech.ogg";
+ChannelID musicChannelID = -1;
+ChannelID sfxChannelID = -1;
 
+
+float getVolumedB(ChannelID channelid) {
+    return ae.mAudioManager->getChannelVolumedB(channelid);
+}
+
+void setVolume(ChannelID channelid, float volumedB) {
+    ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(volumedB, 0.0f, 1.0f));
+}
+
+FMOD_VECTOR camera_position{0.0f,0.0f,0.0f};
+FMOD_VECTOR camera_fwd{0.0f,0.0f,1.0f};
+FMOD_VECTOR camera_up{0.0f,1.0f,0.0f};
+float camera_step = 0.1f;
+
+void listener3DSetXOffset(float offset) {
+    camera_position.x = 0.0f + offset;
+    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+}
+
+void listener3DSetYOffset(float offset) {
+    camera_position.y = 0.0f + offset;
+    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
+}
 
 int main(int argc, char** argv){
 
@@ -217,9 +163,17 @@ int main(int argc, char** argv){
     ae.init();          // initialize engine
     ae.setMaxFPS(60);  // set the fps
 
+    // IMGUI GL 3.0 + GLSL 130
+    const char* glsl_version = "#version 130";
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
+
     ae.printGraphicsInfo(); // print OpenGL info
     
     // register all components 
+    ae.registerComponent<TagComponent>();
     ae.registerComponent<RectangleComponent>();
     ae.registerComponent<TransformComponent>();
     ae.registerComponent<PhysicsBodyComponent>();
@@ -255,14 +209,73 @@ int main(int argc, char** argv){
     // need to initialize systems again because systems got updated above
     ae.initSystem();
 
-    demoSetup();
-	
+    ae.loadSound(musicTrack);
+    ae.loadSound(sfxTrack);
+    
+    ae.load("level_01.json");
+
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
+
+    // Setup Dear ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    // Setup Platform/Renderer bindings
+    ImGui_ImplGlfw_InitForOpenGL(ae.mGraphicsManager->getWindow(), true);
+    ImGui_ImplOpenGL3_Init(glsl_version);
+    // Setup Dear ImGui style
+    ImGui::StyleColorsDark();
+
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
+
+        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
         ae.update();
+
+        // feed inputs to dear imgui, start new frame
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        // render your GUI
+        ImGui::Begin("ATOM AUDIO CONTROL PANEL");
+        static float musicVolumedB = 0.05f;
+        static float sfxVolumedB = 0.1f; 
+        static float listenerXOffset = 0.0f;
+        static float listenerYOffset = 0.0f;
+        static float listenerOffset[] = { 0.0f,0.0f };
+
+        ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+        ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+
+        setVolume(musicChannelID, musicVolumedB);
+        setVolume(sfxChannelID, sfxVolumedB);
+
+        ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+
+        listener3DSetXOffset(listenerOffset[0]);
+        listener3DSetYOffset(listenerOffset[1]);
+
+        ImGui::End();
+
+        // Render dear imgui into screen
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        
+        int display_w, display_h;
+        glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glfwSwapBuffers(ae.mGraphicsManager->getWindow());
+
+        audioReact();
+        //makeSingleRectangle();
         fpsCounter();
     }
 
+    ae.save("level_01.json");
     return 0;
 }

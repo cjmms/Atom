@@ -40,13 +40,21 @@ void GraphicsManager::init() {
 
 	// when window size changes, object scales properly
 	glfwSetFramebufferSizeCallback(mWindow, framebuffer_size_callback);
+
+	glEnable(GL_BLEND);
+	//glEnable(GL_DEPTH_TEST);
+	//glDepthMask(GL_FALSE);
+	//glDepthFunc(GL_LESS);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendEquation(GL_FUNC_ADD);
 }
 
 
 void GraphicsManager::update()
 {
-	glfwSwapBuffers(mWindow);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//glfwSwapBuffers(mWindow);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_DEPTH_BUFFER_BIT);
 }
 
 

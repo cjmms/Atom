@@ -10,6 +10,7 @@
 
 #include <Pch.hpp>
 #include "core/Types.hpp"
+#include "utils/AtomScancode.hpp"
 
 #define REGISTER_STRING(x) {x,#x},
 
@@ -196,5 +197,15 @@ inline void from_json(const ordered_json& j, glm::mat4& x) {
 	}
 }
 
+// ATOMKEYCODES
+NLOHMANN_JSON_SERIALIZE_ENUM(AtomScancode, {
+	REGISTER_STRING(ATOM_SCANCODE_X)
+	REGISTER_STRING(ATOM_SCANCODE_Z)
+	REGISTER_STRING(ATOM_SCANCODE_RIGHT)
+	REGISTER_STRING(ATOM_SCANCODE_LEFT)
+	REGISTER_STRING(ATOM_SCANCODE_DOWN)
+	REGISTER_STRING(ATOM_SCANCODE_UP)
+	REGISTER_STRING(ATOM_NUM_SCANCODES)
+	});
 
 #endif

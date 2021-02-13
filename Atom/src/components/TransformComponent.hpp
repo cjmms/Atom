@@ -17,7 +17,7 @@ public:
 // TRANSFORM COMPONENT SERDE
 inline void to_json(ordered_json& j, const TransformComponent& x) {
     to_json(j["position"], x.position);
-    to_json(j["rotatition"], x.rotation);
+    to_json(j["rotation"], x.rotation);
     to_json(j["scale"], x.scale);
 }
 
