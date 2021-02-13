@@ -156,16 +156,6 @@ void PhysicsSystem::updatePhysicsBody(
 	body.prevPositionX = transform.position.x;
 	body.prevPositionY = transform.position.y;
 
-	////apply friction if grounded, assume grounded if prev. Vy == 0
-	//if (body.velocityY == 0)
-	//{
-	//	//advance phy: friction
-	//	float frictionCoefficient = 0.5;
-	//	float friction = body.mass * frictionCoefficient;
-	//
-	//	body.totalForceX = -body.velocityX * friction : 0;
-	//}
-
 	//update acceleration
 	body.accelerationX = body.totalForceX / body.mass;
 	body.accelerationY = body.totalForceY / body.mass - GRAVITY;
@@ -177,7 +167,7 @@ void PhysicsSystem::updatePhysicsBody(
 	if (body.velocityY == 0)
 	{
 		//advance phy: friction
-		float frictionCoefficient = 0.5;
+		float frictionCoefficient = 0.3;
 		float frictionSpeed = frictionCoefficient * frameTime * GRAVITY;
 		//reduce speed by friction until speed becomes zero
 		int sign = signbit(body.velocityX) ? -1 : 1;

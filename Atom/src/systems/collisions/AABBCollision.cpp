@@ -20,7 +20,7 @@ void verticalCollision(TransformComponent& transform1, PhysicsBodyComponent& bod
 			//left-right-> abs
 			if (abs(body2.velocityX) < abs(body1.velocityX))
 			{
-				//advance phy: carrying an non-static object
+				//advance phy: stacking an non-static object
 				body2.velocityX = body1.velocityX;
 			}
 
@@ -55,7 +55,8 @@ void horizontalCollision(TransformComponent& transform1, PhysicsBodyComponent& b
 	//pushing logic
 	if (!body2.staticBody)
 	{
-		body2.velocityX = body1.velocityX;
+		if(abs(body2.velocityX) < abs(body1.velocityX))
+			body2.velocityX = body1.velocityX;
 	}
 	else
 	{
@@ -87,12 +88,12 @@ bool CheckCollisionAABBAABB(double frameTime,
 	top2 = transform2.position.y + halfHeight2;
 	bottom2 = transform2.position.y - halfHeight2;
 
-	if (left1 > right2 || left2 > right1
-		|| top1 < bottom2 || top2 < bottom1)
+	if (left1 > right2 + EPSILON || left2 > right1 + EPSILON
+		|| top1 + EPSILON < bottom2 || top2 + EPSILON < bottom1)
 		return false;
 
-	//if collided -> case: dyn-static or dyn-dyn
-		//time to collide along asix
+	
+	//time to collide along asix
 	float distX, distY;
 	float timeX, timeY;
 
@@ -149,24 +150,10 @@ bool CheckCollisionAABBAABB(double frameTime,
 			//   ---
 
 			verticalCollision(transform1, body1, transform2, body2, halfHeight1, halfHeight2);
-			//transform1.position.y = transform1.position.y - timeY * abs(body1.velocityY);
-			//transform1.position.x = transform1.position.x - timeY * abs(body2.velocityX);
-			//
-			////assume sticky collision
-			//body1.totalForceY = 0;
-			//body1.accelerationY = 0;
-			//body1.velocityY = 0;
 		}
 		else
 		{
 			horizontalCollision(transform1, body1, transform2, body2, halfWidth1, halfWidth2);
-			//transform1.position.y = transform1.position.y - timeX * abs(body2.velocityY);
-			//transform1.position.x = transform1.position.x - timeX * abs(body1.velocityX);
-			//
-			////assume sticky collision
-			//body1.totalForceX = 0;
-			//body1.accelerationX = 0;
-			//body1.velocityX = 0;
 		}
 	}
 
