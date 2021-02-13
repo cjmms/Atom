@@ -23,6 +23,9 @@ public:
 		mLogger = spdlog::stdout_color_mt(name);
 		mLogger->set_level(spdlog::level::trace);
 	}
+	static void shutdown() {
+		mLogger.reset();
+	}
 private:
 	static std::shared_ptr<spdlog::logger> mLogger;
 };

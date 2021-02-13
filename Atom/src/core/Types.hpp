@@ -31,11 +31,10 @@ using json = nlohmann::json;
 // ECS
 using ResourceID = std::uint32_t;
 using EntityID = std::uint32_t;
-const EntityID MAX_ENTITIES = 10000;
+const EntityID MAX_ENTITIES = 20000;
 using ComponentID = std::uint8_t;
 const ComponentID MAX_COMPONENTS = 32;
 using Archetype = std::bitset<MAX_COMPONENTS>;
-
 
 // AUDIO
 using ChannelMap = std::map<unsigned int, FMOD::Channel*>;
@@ -106,6 +105,11 @@ enum EventID {
 	// FIRE BULLET
 	E_BULLET_FIRED,
 		P_BULLET_FIRED_ORIGIN_ID,
+	// AUDIO EVENTS
+	E_AUDIO_PLAY,
+		P_AUDIO_PLAY_AUDIOLOC,
+		P_AUDIO_PLAY_CHANNELGROUP,
+		P_AUDIO_PLAY_VOLUMEDB,
 	EP_TOTAL
 };
 

@@ -12,22 +12,18 @@
 
 extern AtomEngine ae;
 
+extern ChannelID sfxChannelID;
+
+extern string sfxJump;
+extern string sfxLand;
+
+void playJumpSound(Event& e) {
+
+}
+
 void ControllerSystem::init()
 {
-	/*ae.addEventListener(EventID::E_WINDOW_KEY_TRIGGERED, [this](Event& e) 
-		{
-			this->onEvent(e);
-		});
-
-	ae.addEventListener(EventID::E_WINDOW_KEY_PRESSED, [this](Event& e)
-		{
-			this->onEvent(e);
-		});
-
-	ae.addEventListener(EventID::E_WINDOW_KEY_RELEASED, [this](Event& e)
-		{
-			this->onEvent(e);
-		});*/
+	ae.addEventListener(EventID::E_AUDIO_PLAY, [this](Event& e) {this->onEvent(e);});
 }
 
 void ControllerSystem::update()
@@ -68,6 +64,13 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyTriggered(controller.UP))
 			{
+				// AUDIO EVENT
+				Event e(EventID::E_AUDIO_PLAY);
+				e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+				e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+				e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+				ae.sendEvent(e);
+
 				if(body.velocityY == 0)
 					body.totalForceY += 180;
 				//ATOM_INFO("VELOCITY : {}", body.velocityX);
@@ -181,67 +184,12 @@ void ControllerSystem::update()
 
 void ControllerSystem::onEvent(Event& e)
 {
-	//if (e.getType() == EventID::E_WINDOW_KEY_TRIGGERED)
-	//{
-	//	switch (e.getParam<int>(P_WINDOW_KEY_TRIGGERED_KEYCODE))
-	//	{
-	//	case (VK_UP):
-	//		//Jump
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//}
-
-	//else if (e.getType() == EventID::E_WINDOW_KEY_PRESSED)
-	//{
-	//	switch (e.getParam<int>(P_WINDOW_KEY_PRESSED_KEYCODE))
-	//	{
-	//	case (VK_LEFT):
-	//		//Move left
-	//		break;
-	//	case (VK_RIGHT):
-	//		//Move right
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//}
-
-	//else if (e.getType() == EventID::E_WINDOW_KEY_RELEASED)
-	//{
-	//	switch (e.getParam<int>(P_WINDOW_KEY_RELEASED_KEYCODE))
-	//	{
-	//	case (VK_ESCAPE):
-	//		//Quit
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//}
+	// play audio event
+	if (e.getType() == EventID::E_AUDIO_PLAY) {
+		auto audioloc = e.getParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC);
+		auto chgroup = e.getParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP);
+		auto volumedb = e.getParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB);
+		ae.play(audioloc, chgroup, std::clamp(volumedb,0.0f,1.0f));
+	}
 		
 }
-
-
-//if (ae.mInputManager->isKeyTriggered(controller.swap))
-			//swapping entity-> small, entity->larger
-
-			//if (ae.mInputManager->isKeyTriggered(controller.LEFT))
-			//{
-			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-			//	body.velocityX = -2;
-			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			//}
-
-			//if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
-			//{
-			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-			//	body.velocityX = 2;
-			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			//}
-
-			//if (ae.mInputManager->isKeyTriggered(controller.UP))
-			//{
-			//	auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-			//	body.velocityY = 2;
-			//	//ATOM_INFO("VELOCITY : {}", body.velocityX);

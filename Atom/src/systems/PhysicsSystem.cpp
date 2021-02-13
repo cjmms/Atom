@@ -15,6 +15,21 @@
 
 extern AtomEngine ae;
 
+extern ChannelID sfxChannelID;
+
+extern string sfxJump;
+extern string sfxLand;
+
+bool previouslanded = false;
+bool currentlanded = false;
+
+
+void playLandSound(Event& e) {
+	ae.play(sfxLand, ChannelGroupTypes::C_SFX, 0.8f);
+}
+
+
+
 void PhysicsSystem::init()
 {
 	CollisionFunctions[ShapeComponent::ShapeType::AABB][ShapeComponent::ShapeType::AABB] = CheckCollisionAABBAABB;
@@ -22,6 +37,7 @@ void PhysicsSystem::init()
 
 void PhysicsSystem::update()
 {
+
 	//reset prev contacts;
 	Reset();
 
@@ -33,10 +49,21 @@ void PhysicsSystem::update()
 		//component check
 		if (!hasRequiredComponents(entity1))
 			continue;
+		auto& tag1 = ae.getComponent<TagComponent>(entity1);
 		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
 		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
 		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
 		
+
+		currentlanded = body1.grounded;
+
+		if (!previouslanded && currentlanded && (tag1.tag == "large player" || tag1.tag == "small player")) {
+			Event e(EventID::E_WINDOW_KEY_PRESSED);
+			playLandSound(e);
+		}
+
+		previouslanded = currentlanded;
+
 		//skip static body, !assume it is always static
 		if (!body1.staticBody)
 		{

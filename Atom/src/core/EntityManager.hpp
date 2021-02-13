@@ -21,7 +21,7 @@ public:
 		}
 	}
 	EntityID createEntity() {
-		assert(mLivingEntityCount < MAX_ENTITIES && "Too many entities in existence.");
+		assert(mLivingEntityCount < MAX_ENTITIES && "Entity Limit Exceeded");
 		EntityID id = mAvailableEntities.front();
 		mAllocdEntities.insert(id);
 		mAvailableEntities.pop_front();

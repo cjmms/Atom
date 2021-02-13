@@ -23,6 +23,9 @@ template<typename T>
 class ComponentContainer : public IComponentContainer {
 public:
 	void insert(EntityID entity, T component) {
+		if (mCount == mComponentContainer.size()) {
+			mComponentContainer.resize(mComponentContainer.size() * 2 + 1); // adding 1 to account for 0
+		}
 		assert(mEntityToIndexMap.find(entity) == mEntityToIndexMap.end() && "Component added to same entity more than once.");
 		size_t newIndex = mCount;
 		mEntityToIndexMap[entity] = newIndex;
@@ -63,10 +66,10 @@ public:
 	}
 
 private:
-	std::array<T, MAX_ENTITIES> mComponentContainer{};
+	std::vector<T> mComponentContainer = std::vector<T>();
 	std::unordered_map<EntityID, size_t> mEntityToIndexMap{};
 	std::unordered_map<size_t, EntityID> mIndexToEntityMap{};
-	size_t mCount{};
+	size_t mCount{0};
 };
 
 #endif

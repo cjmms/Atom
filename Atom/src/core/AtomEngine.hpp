@@ -8,7 +8,8 @@
 #ifndef ATOMENGINE_HPP
 #define ATOMENGINE_HPP
 
-// core
+// ------------------------------------INCLUDES---------------------------------------------
+#include "utils/Log.hpp"
 #include "core/ChrononManager.hpp"
 #include "core/Event.hpp"
 #include "core/EventManager.hpp"
@@ -23,9 +24,11 @@
 #include "core/Types.hpp"
 #include "components/AllComponents.hpp"
 
+// ------------------------------------ATOM ENGINE---------------------------------------------
 class AtomEngine {
 public:
 	inline void init() {
+
 		mChrononManager = std::make_unique<ChrononManager>();
 		mEntityManager = std::make_unique<EntityManager>();
 		mComponentManager = std::make_unique<ComponentManager>();
@@ -292,6 +295,19 @@ public:
 		out << std::setw(4) << j;
 	}
 
+	// shutdown
+	void shutdown() {
+		mAudioManager.reset();
+		mInputManager.reset();
+		mResourceManager.reset();
+		mEventManager.reset();
+		mSystemManager.reset();
+		mGraphicsManager.reset();
+		mComponentManager.reset();
+		mEntityManager.reset();
+		mChrononManager.reset();
+	}
+
 public:
 	double dt;
 	bool mIsRunning;
@@ -306,7 +322,5 @@ public:
 	std::unique_ptr<InputManager> mInputManager;
 	std::unique_ptr<AudioManager> mAudioManager;
 };
-
-
 
 #endif // !ATOMENGINE_HPP

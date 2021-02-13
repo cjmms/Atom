@@ -4,14 +4,16 @@
 * @brief	main bootstrapper
 * @date		2021-01-12
 */
-
+#define _CRTDBG_MAP_ALLOC
 #include <Pch.hpp>
+#include <crtdbg.h>
 #include <cstdlib>
 #include <clocale>
 
 #include "core/Types.hpp"
 #include "utils/Log.hpp"
 #include "core/AtomEngine.hpp"
+#include "core/Event.hpp"
 
 // THE ENGINE
 AtomEngine ae;
@@ -55,7 +57,7 @@ void console() {
 #endif
 }
 
-// max 80 to prevent using new and having memory leaks 
+// max 80 limit
 void setConsoleTitle(const char* title) {
 #ifdef _WIN64
     std::setlocale(LC_ALL, "en_US.utf8");
@@ -68,13 +70,15 @@ void setConsoleTitle(const char* title) {
 #endif
 }
 
+
+// performance data
 void fpsCounter() {
     char title[MAX_TITLE_LEN];
-    snprintf(title, MAX_TITLE_LEN, "[ATOM] FPS: %f", ae.mChrononManager->getFPS());
+    snprintf(title, MAX_TITLE_LEN, "[ATOM] FPS: %f", ae.getFPS());
 #ifdef _WIN64
     setConsoleTitle(title);
 #else
-    std::cout << "[ATOM] FPS: " << ae.mChrononManager->getFPS() << std::endl;
+    ATOM_TRACE("[ATOM] FPS: {}", ae.getFPS());
 #endif
 }
 
@@ -114,20 +118,19 @@ void audioReact() {
     }
 }
 
-#define VK_MINUS 0x0C
-#define VK_PLUS 0x0D
-#define DB_STEP 0.02f
-
 void glfwpoll() {
     glfwPollEvents();
     if (ae.mGraphicsManager->shouldWindowClose()) {
         ae.mIsRunning = false;
     }
-
 }
 
 string musicTrack = "Atom/res/wariyo_mortals.ogg";
 string sfxTrack = "Atom/res/optimus_speech.ogg";
+
+string sfxJump = "Atom/res/EllenFootstepJump.ogg";
+string sfxLand = "Atom/res/EllenFootstepLand.ogg";
+
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
@@ -156,19 +159,23 @@ void listener3DSetYOffset(float offset) {
 }
 
 int main(int argc, char** argv){
+    
+    // Setup memory leak dump 
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     console();      // setup the console 
     Log::init();    // setup logging
-    
+
     ae.init();          // initialize engine
     ae.setMaxFPS(60);  // set the fps
 
     // IMGUI GL 3.0 + GLSL 130
     const char* glsl_version = "#version 130";
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
+    //experimental
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
+    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
     ae.printGraphicsInfo(); // print OpenGL info
     
@@ -211,6 +218,8 @@ int main(int argc, char** argv){
 
     ae.loadSound(musicTrack);
     ae.loadSound(sfxTrack);
+    ae.loadSound(sfxJump);
+    ae.loadSound(sfxLand);
     
     ae.load("level_01.json");
 
@@ -244,7 +253,7 @@ int main(int argc, char** argv){
         // render your GUI
         ImGui::Begin("ATOM AUDIO CONTROL PANEL");
         static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.1f; 
+        static float sfxVolumedB = 0.2f; 
         static float listenerXOffset = 0.0f;
         static float listenerYOffset = 0.0f;
         static float listenerOffset[] = { 0.0f,0.0f };
@@ -275,7 +284,17 @@ int main(int argc, char** argv){
         //makeSingleRectangle();
         fpsCounter();
     }
-
+    
+    // Cleanup
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+    
+    // save progress unload memory and shutdown
     ae.save("level_01.json");
+    ae.unload();
+    ae.shutdown();
+    Log::shutdown();
+
     return 0;
 }

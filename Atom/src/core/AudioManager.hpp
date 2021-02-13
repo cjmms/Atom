@@ -107,7 +107,7 @@ public:
 		return currentChannelID;
 	}
 
-	bool isPlaying(ChannelID channelid) {
+	inline bool isPlaying(ChannelID channelid) {
 		bool playing = false;
 		if (mChannelPool.count(channelid) > 0) {
 			mChannelPool[channelid]->isPlaying(&playing);
@@ -116,20 +116,20 @@ public:
 		return playing;
 	}
 
-	void pause(ChannelID channelid) {
+	inline void pause(ChannelID channelid) {
 		bool paused = true;
 		if (mChannelPool.count(channelid) > 0) {
 			mChannelPool[channelid]->setPaused(&paused);
 		}
 	}
 
-	void stop(ChannelID channelid) {
+	inline void stop(ChannelID channelid) {
 		if (mChannelPool.count(channelid) > 0) {
 			mChannelPool[channelid]->stop();
 		}
 	}
 
-	void stopAllChannels() {
+	inline void stopAllChannels() {
 		for (auto& channel : mChannelPool) {
 			channel.second->stop();
 			--mChannelID;
