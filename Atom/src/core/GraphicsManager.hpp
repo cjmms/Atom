@@ -6,6 +6,11 @@
 
 class GraphicsManager {
 public:
+	~GraphicsManager() {
+		glfwDestroyWindow(mWindow);
+		glfwTerminate();
+	}
+
 	void init();
 
 	// swap framebuffer, clean framebuffer

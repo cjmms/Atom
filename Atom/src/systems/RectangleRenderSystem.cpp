@@ -9,10 +9,12 @@
 
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
-
+bool DebugMode;
 
 
 void RectangleRenderSystem::init() {
+	DebugMode = false;
+
 	// Background image
 	setBackground("Atom/res/level_01_background.png");
 
@@ -56,10 +58,13 @@ void RectangleRenderSystem::init() {
 
 void RectangleRenderSystem::update() {
 
+
+	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
+		DebugMode = !DebugMode;
+	}
+
 	// draw Background
 	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
-
-	bool DebugMode = true;
 
 	// draw all entities
 	drawEntities(DebugMode);
