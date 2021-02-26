@@ -243,8 +243,15 @@ int main(int argc, char** argv){
         glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        ae.update();
+        //ae.update();
+        ae.startFrame();
+        ae.mInputManager->update();
+        ae.mEventManager->update();
+        ae.mSystemManager->update();
 
+        // Code Below should be sth like: ae.mUIManager->update() 
+        // Or a UI system that will be updated inside mSystemManager->update()
+        //-----------------------------------------------------------------------------------
         // feed inputs to dear imgui, start new frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
@@ -275,11 +282,23 @@ int main(int argc, char** argv){
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         
+        //-----------------------------------------------------------------------------------------
+
+        /*
+         // move all these to GraphicManager.update()
         int display_w, display_h;
         glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
         glfwSwapBuffers(ae.mGraphicsManager->getWindow());
+        */
 
+        
+        ae.mGraphicsManager->update();
+        ae.mResourceManager->update();
+        ae.mAudioManager->update();
+        ae.endFrame();
+
+        // disabled, becasue when player jumps, it collides with visulizer
         audioReact();
         //makeSingleRectangle();
         fpsCounter();
@@ -291,7 +310,7 @@ int main(int argc, char** argv){
     ImGui::DestroyContext();
     
     // save progress unload memory and shutdown
-    ae.save("level_01.json");
+    //ae.save("level_01.json");
     ae.unload();
     ae.shutdown();
     Log::shutdown();

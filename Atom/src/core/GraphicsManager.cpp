@@ -54,7 +54,11 @@ void GraphicsManager::update()
 {
 	//glfwSwapBuffers(mWindow);
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClear(GL_DEPTH_BUFFER_BIT);
+	//glClear(GL_DEPTH_BUFFER_BIT);
+	int display_w, display_h;
+	glfwGetFramebufferSize(mWindow, &display_w, &display_h);
+	glViewport(0, 0, display_w, display_h);
+	glfwSwapBuffers(mWindow);
 }
 
 
