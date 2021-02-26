@@ -170,7 +170,7 @@ int main(int argc, char** argv){
     ae.setMaxFPS(60);  // set the fps
 
     // IMGUI GL 3.0 + GLSL 130
-    const char* glsl_version = "#version 130";
+    const char* glsl_version = "#version 430";
     //experimental
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
