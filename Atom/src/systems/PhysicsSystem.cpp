@@ -20,10 +20,6 @@ extern ChannelID sfxChannelID;
 extern string sfxJump;
 extern string sfxLand;
 
-bool previouslanded = false;
-bool currentlanded = false;
-
-
 void playLandSound(Event& e) {
 	ae.play(sfxLand, ChannelGroupTypes::C_SFX, 0.8f);
 }
@@ -42,6 +38,8 @@ void PhysicsSystem::update()
 	Reset();
 
 	frameTime = ae.dt;
+	if (frameTime == 0)
+		return;
 
 	for (auto& itr = mEntities.begin(); itr != mEntities.end(); itr++) {
 		EntityID entity1 = *itr;
@@ -49,20 +47,13 @@ void PhysicsSystem::update()
 		//component check
 		if (!hasRequiredComponents(entity1))
 			continue;
-		auto& tag1 = ae.getComponent<TagComponent>(entity1);
+
 		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
 		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
 		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
 		
 
-		currentlanded = body1.grounded;
-
-		if (!previouslanded && currentlanded && (tag1.tag == "large player" || tag1.tag == "small player")) {
-			Event e(EventID::E_WINDOW_KEY_PRESSED);
-			playLandSound(e);
-		}
-
-		previouslanded = currentlanded;
+		bool previousGrounded = body1.grounded;
 
 		//skip static body, !assume it is always static
 		if (!body1.staticBody)
@@ -86,11 +77,34 @@ void PhysicsSystem::update()
 
 				//collision detection based on shapes
 				bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+				
 			}
 		}
 
+		if (!previousGrounded && body1.grounded) {
+			//land event
+
+			//todo change event params(+ character obj) and sendEvent, in audio manager, get comp<character> to determine big/small
+			//reference below
+
+			// AUDIO EVENT
+			//Event e(EventID::E_AUDIO_PLAY);
+			//e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+			//e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+			//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+			//ae.sendEvent(e);
+
+			Event e(EventID::E_WINDOW_KEY_PRESSED);
+			playLandSound(e);
+		}
+		else if (previousGrounded && !body1.grounded) {
+			//jump event
+
+			Event e(EventID::E_WINDOW_KEY_PRESSED);
+			playLandSound(e);
+		}
+
 		postUpdate(transform1, body1);
-		
 	}
 
 	////todo if advanced physics, resolve contacts
@@ -156,9 +170,15 @@ void PhysicsSystem::updatePhysicsBody(
 	body.prevPositionX = transform.position.x;
 	body.prevPositionY = transform.position.y;
 
+	//assume not grounded, set to true when vertical collision happens
+	if (!body.staticBody)
+	{
+		body.grounded = false;
+	}
+
 	//update acceleration
-	body.accelerationX = body.totalForceX / body.mass;
-	body.accelerationY = body.totalForceY / body.mass - GRAVITY;
+	body.accelerationX = body.totalForceX / frameTime / body.mass ;
+	body.accelerationY = body.totalForceY / frameTime / body.mass  - GRAVITY;
 	//body.accelerationY = body.grounded && body.accelerationY < 0 ? 0 : body.accelerationY;
 
 	//update velocity
