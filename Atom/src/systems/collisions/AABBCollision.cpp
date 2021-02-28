@@ -24,8 +24,8 @@ void verticalCollision(TransformComponent& transform1, PhysicsBodyComponent& bod
 				body2.velocityX = body1.velocityX;
 			}
 
-			//upward only-> x abs
-			if (body2.velocityY < body1.velocityY)
+			//upward only-> no need abs
+			if (abs(body2.velocityY) < abs(body1.velocityY))
 			{
 				//by conversation of momentum
 				//m1v1 + m2v2 = v3(m1+m2)
@@ -34,13 +34,24 @@ void verticalCollision(TransformComponent& transform1, PhysicsBodyComponent& bod
 				body2.velocityY = body1.velocityY;
 			}
 		}
+		else
+		{
+			if (body1.velocityY > 0)
+				body1.velocityY = 0;
+		}
 	}
 	else
 	{
+		if (!body2.staticBody)
+		{
+			body1.velocityX = body2.velocityX;
+		}
+
 		//assume sticky collision
 		body1.totalForceY = 0;
 		body1.accelerationY = 0;
 		body1.velocityY = 0;
+		body1.grounded = true;
 	}
 }
 
@@ -55,8 +66,11 @@ void horizontalCollision(TransformComponent& transform1, PhysicsBodyComponent& b
 	//pushing logic
 	if (!body2.staticBody)
 	{
-		if(abs(body2.velocityX) < abs(body1.velocityX))
+		if (abs(body2.velocityX) < abs(body1.velocityX))
+		{
+			body1.velocityX = (body1.mass * body1.velocityX + body2.mass * body2.velocityX) / (body1.mass + body2.mass);
 			body2.velocityX = body1.velocityX;
+		}
 	}
 	else
 	{

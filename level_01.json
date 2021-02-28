@@ -8075,7 +8075,7 @@
         "shapeType": 0
       },
       "PhysicsBodyComponent": {
-        "mass": 20.0,
+        "mass": 2.0,
         "staticBody": false
       },
       "ControllerComponent": {
