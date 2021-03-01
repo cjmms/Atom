@@ -65,14 +65,14 @@ void ControllerSystem::update()
 			if (ae.mInputManager->isKeyTriggered(controller.UP))
 			{
 				// AUDIO EVENT
-				Event e(EventID::E_AUDIO_PLAY);
-				e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
-				e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
-				e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
-				ae.sendEvent(e);
+				//Event e(EventID::E_AUDIO_PLAY);
+				//e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+				//e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+				//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+				//ae.sendEvent(e);
 
 				if(body.velocityY == 0)
-					body.totalForceY += 180;
+					body.totalForceY += 3;
 				//ATOM_INFO("VELOCITY : {}", body.velocityX);
 			}
 
