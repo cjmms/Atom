@@ -6,52 +6,26 @@
 
 void verticalCollision(TransformComponent& transform1, PhysicsBodyComponent& body1, TransformComponent& transform2, PhysicsBodyComponent& body2, float halfHeight1, float halfHeight2)
 {
-	//transform1.position.y = transform1.position.y + timeX * abs(body1.velocityX);
+	//transform1.position.y = transform1.position.y + timeY * abs(body1.velocityY);
 	if (transform1.position.y > transform2.position.y)
 		transform1.position.y = transform2.position.y + halfHeight1 + halfHeight2;
 	else
 		transform1.position.y = transform2.position.y - halfHeight1 - halfHeight2;
 
-	//below
-	if (transform1.position.y < transform2.position.y)
+	//pushing logic
+	if (!body2.staticBody)
 	{
-		if (!body2.staticBody)
+		if (abs(body2.velocityY) < abs(body1.velocityY))
 		{
-			//left-right-> abs
-			if (abs(body2.velocityX) < abs(body1.velocityX))
-			{
-				//advance phy: stacking an non-static object
-				body2.velocityX = body1.velocityX;
-			}
-
-			//upward only-> no need abs
-			if (abs(body2.velocityY) < abs(body1.velocityY))
-			{
-				//by conversation of momentum
-				//m1v1 + m2v2 = v3(m1+m2)
-				//v3 = (m1v1 + m2v2)/(m1+m2)
-				body1.velocityY = (body1.mass * body1.velocityY + body2.mass * body2.velocityY) / (body1.mass + body2.mass);
-				body2.velocityY = body1.velocityY;
-			}
-		}
-		else
-		{
-			if (body1.velocityY > 0)
-				body1.velocityY = 0;
+			body1.velocityY = (body1.mass * body1.velocityY + body2.mass * body2.velocityY) / (body1.mass + body2.mass);
+			body2.velocityY = body1.velocityY;
 		}
 	}
 	else
 	{
-		if (!body2.staticBody)
-		{
-			body1.velocityX = body2.velocityX;
-		}
-
-		//assume sticky collision
 		body1.totalForceY = 0;
 		body1.accelerationY = 0;
 		body1.velocityY = 0;
-		body1.grounded = true;
 	}
 }
 

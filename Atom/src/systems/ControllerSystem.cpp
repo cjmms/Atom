@@ -62,20 +62,23 @@ void ControllerSystem::update()
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
-			if (ae.mInputManager->isKeyTriggered(controller.UP))
-			{
-				// AUDIO EVENT
-				//Event e(EventID::E_AUDIO_PLAY);
-				//e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
-				//e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
-				//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
-				//ae.sendEvent(e);
-
-				if(body.velocityY == 0)
-					body.totalForceY += 3;
-				//ATOM_INFO("VELOCITY : {}", body.velocityX);
-			}
-
+		if (ae.mInputManager->isKeyTriggered(controller.UP))
+		{
+			// AUDIO EVENT
+			//Event e(EventID::E_AUDIO_PLAY);
+			//e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+			//e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+			//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+			//ae.sendEvent(e);
+			body.velocityY = 1;
+			//if(body.velocityY == 0)
+			//	body.totalForceY += 3;
+			//ATOM_INFO("VELOCITY : {}", body.velocityX);
+		}
+		if (ae.mInputManager->isKeyTriggered(controller.DOWN))
+		{
+			body.velocityY = -1;
+		}
 		//if (ae.mInputManager->isKeyTriggered(controller.UP))
 		//{
 		//	if(body.velocityY == 0)
@@ -139,36 +142,71 @@ void ControllerSystem::update()
 
 	{//Pressed
 
-			if (ae.mInputManager->isKeyPressed(controller.LEFT))
-			{
-				body.velocityX = -1;
-			}
+		//todo diagonal walk is faster
 
-			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
-			{
-				body.velocityX = 1;
-			}
+		if (ae.mInputManager->isKeyPressed(controller.LEFT))
+		{
+			body.velocityX = -1;
+		}
+
+		if (ae.mInputManager->isKeyPressed(controller.RIGHT))
+		{
+			body.velocityX = 1;
+		}
+		if (ae.mInputManager->isKeyPressed(controller.UP))
+		{
+			body.velocityY = 1;
+		}
+		if (ae.mInputManager->isKeyPressed(controller.DOWN))
+		{
+			body.velocityY = -1;
+		}
 
 	}
 
 	{//Released
 
-			if (ae.mInputManager->isKeyReleased(controller.LEFT))
-			{
-				body.velocityX = 0;
-			}
-			if (ae.mInputManager->isKeyReleased(controller.RIGHT))
-			{
-				body.velocityX = 0;
-			}
+		if (ae.mInputManager->isKeyReleased(controller.LEFT))
+		{
+			body.velocityX = 0;
+		}
+		if (ae.mInputManager->isKeyReleased(controller.RIGHT))
+		{
+			body.velocityX = 0;
+		}
+		if (ae.mInputManager->isKeyReleased(controller.UP))
+		{
+			body.velocityY = 0;
+		}
+		if (ae.mInputManager->isKeyReleased(controller.DOWN))
+		{
+			body.velocityY = 0;
+		}
 
 	}
+
+	{
+		//direction
+		std::pair<double, double> curPosition = ae.mInputManager->getCursorPos();
+		//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
+		int width, height;
+		ae.mGraphicsManager->getWindowSize(width, height);
+		//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
+		float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
+		float y = (1 - body.prevPositionY) / 2 * height - curPosition.second;
+		//ATOM_INFO("Width: {}, Height: {}", width, height);
+		body.direction = atan2(y, x);
+		//ATOM_INFO("direction: {}", body.direction);
+	}
+
+
 
 	{//Mouse
 		if (ae.mInputManager->isKeyPressed(VK_RBUTTON))
 		{
 			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
-			//ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
+			//body.direction = 
+			ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
 
 			glm::vec2 cameraPos = ae.mSystemManager->getSystem<RectangleRenderSystem>()->getCameraPos();
 

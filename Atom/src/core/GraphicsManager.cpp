@@ -82,3 +82,10 @@ void GraphicsManager::printInfo() const
 	ATOM_INFO("Graphics: Height: {}", height);
 	ATOM_INFO("Graphics: Title: {}", title);
 }
+
+void GraphicsManager::getWindowSize(int& width, int& height)
+{
+	width = this->width;
+	height = this->height;
+}
+

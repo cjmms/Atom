@@ -13,6 +13,7 @@ public:
 	bool isKeyPressed(unsigned int keycode);
 	bool isKeyReleased(unsigned int keycode);
 	std::pair<double, double> getCursorPosChange();
+	std::pair<double, double> getCursorPos();
 
 public:
 	unsigned char mCurrentKeyState[256];
