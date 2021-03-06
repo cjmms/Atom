@@ -23,6 +23,8 @@ AtomEngine ae;
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
+#include "systems/ShootSystem.hpp"
+#include "systems/DamageSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -186,11 +188,16 @@ int main(int argc, char** argv){
     ae.registerComponent<PhysicsBodyComponent>();
     ae.registerComponent<ShapeComponent>();
     ae.registerComponent<ControllerComponent>();
+    ae.registerComponent<HealthComponent>();
+    ae.registerComponent<ShootComponent>();
+    ae.registerComponent<DamageComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<ShootSystem>();
+    ae.registerSystem<DamageSystem>();
 	
 
     // set archetypes
@@ -210,7 +217,19 @@ int main(int argc, char** argv){
         typeController.set(ae.getComponentType<ControllerComponent>());
         typeController.set(ae.getComponentType<PhysicsBodyComponent>());
         typeController.set(ae.getComponentType<TransformComponent>());
+        typeController.set(ae.getComponentType<ShootComponent>());
         ae.setSystemArchetype<ControllerSystem>(typeController);
+
+        Archetype typeShoot;
+        typeShoot.set(ae.getComponentType<ShootComponent>());
+        typeShoot.set(ae.getComponentType<TransformComponent>());
+        ae.setSystemArchetype<ShootSystem>(typeShoot);
+
+        Archetype typeDamage;
+        typeDamage.set(ae.getComponentType<DamageComponent>());
+        ae.setSystemArchetype<DamageSystem>(typeDamage);
+
+
     }
     
     // need to initialize systems again because systems got updated above
@@ -259,8 +278,8 @@ int main(int argc, char** argv){
 
         // render your GUI
         ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-        static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.2f; 
+        static float musicVolumedB = 0.00f;
+        static float sfxVolumedB = 0.0f; 
         static float listenerXOffset = 0.0f;
         static float listenerYOffset = 0.0f;
         static float listenerOffset[] = { 0.0f,0.0f };

@@ -1903,6 +1903,11 @@
       <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
+    <ClInclude Include="Atom\src\components\HealthComponent.hpp" />
+    <ClInclude Include="Atom\src\components\DamageComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1971,6 +1976,8 @@
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

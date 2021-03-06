@@ -8,5 +8,8 @@
 #include "components/ControllerComponent.hpp"
 #include "components/CharacterComponent.hpp"
 #include "components/TagComponent.hpp"
+#include "components/HealthComponent.hpp"
+#include "components/ShootComponent.hpp"
+#include "components/DamageComponent.hpp"
 
 #endif 

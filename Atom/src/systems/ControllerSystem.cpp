@@ -7,6 +7,7 @@
 #include "components/ControllerComponent.hpp"
 #include "components/PhysicsBodyComponent.hpp"
 #include "components/TransformComponent.hpp"
+#include "components/ShootComponent.hpp"
 
 //Temp
 
@@ -185,23 +186,36 @@ void ControllerSystem::update()
 
 	}
 
-	{
-		//direction
-		std::pair<double, double> curPosition = ae.mInputManager->getCursorPos();
-		//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
-		int width, height;
-		ae.mGraphicsManager->getWindowSize(width, height);
-		//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
-		float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
-		float y = (1 - body.prevPositionY) / 2 * height - curPosition.second;
-		//ATOM_INFO("Width: {}, Height: {}", width, height);
-		body.direction = atan2(y, x);
-		//ATOM_INFO("direction: {}", body.direction);
-	}
 
 
 
 	{//Mouse
+		{
+			auto& shoot = ae.getComponent<ShootComponent>(activeEntity);
+			if (ae.mInputManager->isKeyPressed(VK_LBUTTON))
+			{
+				//direction
+				std::pair<double, double> curPosition = ae.mInputManager->getCursorPos();
+				//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
+				int width, height;
+				ae.mGraphicsManager->getWindowSize(width, height);
+				//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
+				float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
+				float y = (1 - body.prevPositionY) / 2 * height - curPosition.second;
+				//ATOM_INFO("Width: {}, Height: {}", width, height);
+
+				shoot.direction = atan2(y, x);
+
+				//ATOM_INFO("direction: {}", body.direction);
+
+				shoot.isShooting = true;
+			}
+			else
+			{
+				shoot.isShooting = false;
+			}
+		}
+
 		if (ae.mInputManager->isKeyPressed(VK_RBUTTON))
 		{
 			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
@@ -217,6 +231,7 @@ void ControllerSystem::update()
 
 			//ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
 		}
+
 	}
 }
 

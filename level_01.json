@@ -8088,6 +8088,9 @@
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": false
+      },
+      "ShootComponent": {
+        "shootInterval": 0.5
       }
     },
     {
@@ -8138,6 +8141,9 @@
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": true
+      },
+      "ShootComponent": {
+        "shootInterval": 0.5
       }
     },
     {

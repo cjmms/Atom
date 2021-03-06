@@ -256,6 +256,7 @@ public:
 		deserializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
 	}
 
 	// load level

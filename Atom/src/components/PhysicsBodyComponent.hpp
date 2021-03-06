@@ -21,14 +21,15 @@ public:
 	float accelerationX = 0.0f, accelerationY = 0.0f;	//a = F / m
 	float totalForceX = 0.0f, totalForceY = 0.0f;
 	float mass = 1.0f, invMass = 1.0f;
-	float direction;	//for aiming, right = 0, ACW
+	//float direction;	//for aiming, right = 0, ACW
 
 	bool grounded = false;
 	bool staticBody = true;
+	bool frictionless = false;
 
 public:
 	PhysicsBodyComponent() {};
-	PhysicsBodyComponent(float mass, bool staticBody) : mass(mass), staticBody(staticBody) {};
+	PhysicsBodyComponent(float mass, bool staticBody, bool frictionless = false) : mass(mass), staticBody(staticBody), frictionless(frictionless) {};
 };
 
 inline void to_json(ordered_json& j, const PhysicsBodyComponent& x) {
