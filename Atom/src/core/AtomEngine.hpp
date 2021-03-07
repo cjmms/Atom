@@ -24,6 +24,7 @@
 #include "core/Types.hpp"
 #include "components/AllComponents.hpp"
 
+
 // ------------------------------------ATOM ENGINE---------------------------------------------
 class AtomEngine {
 public:
@@ -258,11 +259,77 @@ public:
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 	}
 
+	inline float random() {
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
+		return (float)dis(gen);
+	}
+
+	inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
+		EntityID tile = createEntity();
+		RectangleComponent rc;
+
+		addComponent<TagComponent>(tile, TagComponent{
+			"tile"
+			});
+		addComponent<RectangleComponent>(tile, RectangleComponent{
+			color,
+			false,
+			""
+			});
+		addComponent<TransformComponent>(tile, TransformComponent{
+			pos,
+			glm::vec3{0.0f,0.0f,0.0f},
+			scale,
+			glm::mat4(1)
+			});
+		addComponent<ShapeComponent>(tile, ShapeComponent{
+			ShapeType::AABB
+			});
+		addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
+			1.0f,
+			true
+		});
+	}
+
 	// load level
 	inline void load(string filepath) {
 		std::ifstream in(filepath);
 		ordered_json j;
 		in >> j;
+		// tilemap
+		if (!j["Map"].is_null()) {
+			string maploc = j["Map"];
+			int rows=-1, cols=-1, wallid=-1;
+			float tilesize_x = 0.0f;
+			float tilesize_y = 0.0f;
+			std::ifstream inmap(maploc);
+			ordered_json jm;
+			inmap >> jm;
+			rows = jm["grid"].size();
+			cols = jm["grid"][0].size();
+			wallid = jm["wall_id"];
+			
+			// size normalized to [0,800]
+			tilesize_x = (float)jm["tilesize_x"]*2/SCREEN_WIDTH;
+			tilesize_y = (float)jm["tilesize_y"]*2/SCREEN_HEIGHT; 
+			for (int i = 0; i < rows; ++i) {
+				for (int j = 0; j < cols; ++j) {
+					if (jm["grid"][i][j] == wallid) {
+						createTile(
+							glm::vec3{-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+								1.0f - i * tilesize_y - tilesize_y/2.0f,
+								0.0f },
+							glm::vec3{ random(),random(),random() },
+							glm::vec3{tilesize_x,tilesize_y,0.0f}
+						);
+					}
+				}
+			}
+		}
+
+		// entities
 		if (!j["Entities"].is_null()) {
 			for (auto& entityjson : j["Entities"]) {
 				EntityID entid;

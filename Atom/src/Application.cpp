@@ -82,28 +82,21 @@ void fpsCounter() {
 #endif
 }
 
-float random() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
-    return (float)dis(gen);
-}
-
 
 EntityID makeSingleRectangle() {
 
     EntityID rectangle = ae.createEntity();
 
     ae.addComponent(rectangle, RectangleComponent{
-        glm::vec3{random(),random(),random()},
+        glm::vec3{ae.random(),ae.random(),ae.random()},
         false, 
         "Atom/res/img.jpg"
     });
 
     ae.addComponent(rectangle, TransformComponent{
-        glm::vec3{(random() * 2.0f) - 1.0f,(random() * 2.0f) - 1.0f, 0.0f}, // position
+        glm::vec3{(ae.random() * 2.0f) - 1.0f,(ae.random() * 2.0f) - 1.0f, 0.0f}, // position
         glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{random(),random(),1.0f},  // scale 
+        glm::vec3{ae.random(),ae.random(),1.0f},  // scale 
         glm::mat4(1.0f)
     });
 
@@ -112,9 +105,12 @@ EntityID makeSingleRectangle() {
 
 void audioReact() {
     auto fftbars = ae.mAudioManager->fft();
-    for (int i = 0; i < 200;++i) {
-        TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
-        rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+    for (int i = 0; i < ae.mEntityManager->mLivingEntityCount;++i) {
+        TagComponent& tag = ae.getComponent<TagComponent>((EntityID)i);
+        if (tag.tag == "visualizer") {
+            TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
+            rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+        }
     }
 }
 
@@ -158,6 +154,27 @@ void listener3DSetYOffset(float offset) {
     ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
 }
 
+void createScene() {
+    EntityID tile = ae.createEntity();
+    RectangleComponent rc;
+    
+    ae.addComponent<TagComponent>(tile, TagComponent{
+        "tile"
+    });
+    ae.addComponent<RectangleComponent>(tile, RectangleComponent{
+        glm::vec3{0.0f,1.0f,1.0f},
+        false,
+        ""
+    });
+    ae.addComponent<TransformComponent>(tile, TransformComponent{
+        glm::vec3{-0.4f,0.4f,0.0f},
+        glm::vec3{0.0f,0.0f,0.0f},
+        glm::vec3{0.2f,0.2f,0.2f},
+        glm::mat4(1)
+    });
+    
+}
+
 int main(int argc, char** argv){
     
     // Setup memory leak dump 
@@ -171,13 +188,9 @@ int main(int argc, char** argv){
 
     // IMGUI GL 3.0 + GLSL 130
     const char* glsl_version = "#version 430";
-    //experimental
-    //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);  // 3.2+ only
-    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);            // 3.0+ only
 
-    ae.printGraphicsInfo(); // print OpenGL info
+    // print OpenGL info
+    ae.printGraphicsInfo(); 
     
     // register all components 
     ae.registerComponent<TagComponent>();
@@ -195,7 +208,8 @@ int main(int argc, char** argv){
 
     // set archetypes
     {
-        Archetype typeRectangleRender;        // this is a bitset denoting the system archetye
+        // this is a bitset denoting the system archetye
+        Archetype typeRectangleRender;        
         typeRectangleRender.set(ae.getComponentType<RectangleComponent>());
         typeRectangleRender.set(ae.getComponentType<TransformComponent>());
         ae.setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
@@ -221,7 +235,8 @@ int main(int argc, char** argv){
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
     
-    ae.load("level_01.json");
+    //ae.load("level_01.json");
+    ae.load("baduku_01.json");
 
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
@@ -235,6 +250,8 @@ int main(int argc, char** argv){
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
+
+    //createScene();
 
     // game loop
     while (ae.mIsRunning) {
@@ -283,15 +300,6 @@ int main(int argc, char** argv){
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         
         //-----------------------------------------------------------------------------------------
-
-        /*
-         // move all these to GraphicManager.update()
-        int display_w, display_h;
-        glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glfwSwapBuffers(ae.mGraphicsManager->getWindow());
-        */
-
         
         ae.mGraphicsManager->update();
         ae.mResourceManager->update();
@@ -300,7 +308,6 @@ int main(int argc, char** argv){
 
         // disabled, becasue when player jumps, it collides with visulizer
         audioReact();
-        //makeSingleRectangle();
         fpsCounter();
     }
     
@@ -311,6 +318,7 @@ int main(int argc, char** argv){
     
     // save progress unload memory and shutdown
     //ae.save("level_01.json");
+    ae.save("last_checkpoint.json");
     ae.unload();
     ae.shutdown();
     Log::shutdown();

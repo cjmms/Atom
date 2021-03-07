@@ -58,5 +58,28 @@ void unloadResource(unsigned int& id) {
 
 }
 
+void loadResource(Grid& tilemap, string filename) {
+    std::ifstream in(filename);
+    ordered_json j = nlohmann::json::parse(in);
+
+    std::vector<std::vector<Gridnode>> temp;
+    int rows = 0;
+    int cols;
+    for (auto& row : j["data"]) {
+        std::vector<Gridnode> temprow;
+        cols = 0;
+        for (auto& cell : row) {
+            temprow.push_back(Gridnode{ cell });
+            ++cols;
+        }
+        temp.push_back(temprow);
+        ++rows;
+    }
+    tilemap.filename = j["mapname"];
+    tilemap.cells = std::move(temp);
+    tilemap.rows = rows;
+    tilemap.cols = cols;
+}
+
 
 

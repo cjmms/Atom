@@ -28,7 +28,7 @@ void playLandSound(Event& e) {
 
 void PhysicsSystem::init()
 {
-	CollisionFunctions[ShapeComponent::ShapeType::AABB][ShapeComponent::ShapeType::AABB] = CheckCollisionAABBAABB;
+	CollisionFunctions[ShapeType::AABB][ShapeType::AABB] = CheckCollisionAABBAABB;
 }
 
 void PhysicsSystem::update()
