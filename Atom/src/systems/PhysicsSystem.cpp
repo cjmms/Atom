@@ -84,6 +84,7 @@ void PhysicsSystem::update()
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
 					//todo may need contact position and direction in future
+					ae.sendEvent(e);
 				}
 				
 			}
@@ -133,11 +134,6 @@ void PhysicsSystem::postUpdate(TransformComponent& transform, PhysicsBodyCompone
 	body.prevPositionY = transform.position.y;
 	body.prevScaleX = transform.scale.x;
 	body.prevScaleY = transform.scale.y;
-	
-	if (body.velocityX != 0 || body.velocityY != 0)
-	{
-		body.direction = atan2(body.velocityY, body.velocityX);
-	}
 }
 
 void PhysicsSystem::onEvent(Event& e)
@@ -199,6 +195,7 @@ void PhysicsSystem::updatePhysicsBody(
 	body.velocityX = body.accelerationX * frameTime + body.velocityX;
 	//apply friction if grounded, assume grounded if prev. Vy == 0
 	//if (body.velocityY == 0)
+	if(!body.frictionless)
 	{
 		//advance phy: friction
 		float frictionCoefficient = 0.3;

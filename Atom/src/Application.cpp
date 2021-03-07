@@ -10,23 +10,10 @@
 #include <cstdlib>
 #include <clocale>
 
-#include "core/Types.hpp"
-#include "utils/Log.hpp"
 #include "core/AtomEngine.hpp"
-#include "core/Event.hpp"
 
 // THE ENGINE
 AtomEngine ae;
-
-// all compoennts 
-#include "components/AllComponents.hpp"
-#include "systems/RectangleRenderSystem.hpp"
-#include "systems/PhysicsSystem.hpp"
-#include "systems/ControllerSystem.hpp"
-
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -83,43 +70,7 @@ void fpsCounter() {
 }
 
 
-EntityID makeSingleRectangle() {
 
-    EntityID rectangle = ae.createEntity();
-
-    ae.addComponent(rectangle, RectangleComponent{
-        glm::vec3{ae.random(),ae.random(),ae.random()},
-        false, 
-        "Atom/res/img.jpg"
-    });
-
-    ae.addComponent(rectangle, TransformComponent{
-        glm::vec3{(ae.random() * 2.0f) - 1.0f,(ae.random() * 2.0f) - 1.0f, 0.0f}, // position
-        glm::vec3{0.0f,0.0f,0.0f}, // rotation
-        glm::vec3{ae.random(),ae.random(),1.0f},  // scale 
-        glm::mat4(1.0f)
-    });
-
-    return rectangle;
-}
-
-void audioReact() {
-    auto fftbars = ae.mAudioManager->fft();
-    for (int i = 0; i < ae.mEntityManager->mLivingEntityCount;++i) {
-        TagComponent& tag = ae.getComponent<TagComponent>((EntityID)i);
-        if (tag.tag == "visualizer") {
-            TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
-            rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
-        }
-    }
-}
-
-void glfwpoll() {
-    glfwPollEvents();
-    if (ae.mGraphicsManager->shouldWindowClose()) {
-        ae.mIsRunning = false;
-    }
-}
 
 string musicTrack = "Atom/res/wariyo_mortals.ogg";
 string sfxTrack = "Atom/res/optimus_speech.ogg";
@@ -130,49 +81,64 @@ string sfxLand = "Atom/res/EllenFootstepLand.ogg";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
+static float musicVolumedB = 0.00f;
+static float sfxVolumedB = 0.0f;
+static float listenerXOffset = 0.0f;
+static float listenerYOffset = 0.0f;
+static float listenerOffset[] = { 0.0f,0.0f };
 
-float getVolumedB(ChannelID channelid) {
-    return ae.mAudioManager->getChannelVolumedB(channelid);
+static FMOD_VECTOR listener_position{ 0.0f,0.0f,0.0f };
+static FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
+static FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
+static float listener_step = 0.1f;
+
+void uiDraw() {
+    // render your GUI
+    ImGui::Begin("ATOM AUDIO CONTROL PANEL");
+    ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+    ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+    ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+
+    ae.setVolume(musicChannelID, musicVolumedB);
+    ae.setVolume(sfxChannelID, sfxVolumedB);
+    ae.listener3DSetXOffset(listenerOffset[0]);
+    ae.listener3DSetYOffset(listenerOffset[1]);
 }
 
-void setVolume(ChannelID channelid, float volumedB) {
-    ae.mAudioManager->setChannelVolumedB(channelid, std::clamp(volumedB, 0.0f, 1.0f));
+
+void glfwpoll() {
+    glfwPollEvents();
+    if (ae.mGraphicsManager->shouldWindowClose()) {
+        ae.mIsRunning = false;
+    }
 }
 
-FMOD_VECTOR camera_position{0.0f,0.0f,0.0f};
-FMOD_VECTOR camera_fwd{0.0f,0.0f,1.0f};
-FMOD_VECTOR camera_up{0.0f,1.0f,0.0f};
-float camera_step = 0.1f;
+void start() {
+    console();                              // setup the console 
+    Log::init();                            // setup logging
 
-void listener3DSetXOffset(float offset) {
-    camera_position.x = 0.0f + offset;
-    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-}
-
-void listener3DSetYOffset(float offset) {
-    camera_position.y = 0.0f + offset;
-    ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
-}
-
-void createScene() {
-    EntityID tile = ae.createEntity();
-    RectangleComponent rc;
+    ae.init();                              // initialize engine
+    ae.setMaxFPS(60);                       // set the fps
+    ae.printGraphicsInfo();                 // print OpenGL info
+    ae.mUIManager->addUIPainter(uiDraw);    // add ui painter to list
     
-    ae.addComponent<TagComponent>(tile, TagComponent{
-        "tile"
-    });
-    ae.addComponent<RectangleComponent>(tile, RectangleComponent{
-        glm::vec3{0.0f,1.0f,1.0f},
-        false,
-        ""
-    });
-    ae.addComponent<TransformComponent>(tile, TransformComponent{
-        glm::vec3{-0.4f,0.4f,0.0f},
-        glm::vec3{0.0f,0.0f,0.0f},
-        glm::vec3{0.2f,0.2f,0.2f},
-        glm::mat4(1)
-    });
-    
+    ae.loadSound(musicTrack);
+    ae.loadSound(sfxTrack);
+    ae.loadSound(sfxJump);
+    ae.loadSound(sfxLand);
+
+    ae.load("baduku_01.json");
+
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
+}
+
+void shutdown() {
+    // save progress unload memory and shutdown
+    ae.save("last_checkpoint.json");
+    ae.unload();
+    ae.shutdown();
+    Log::shutdown();
 }
 
 int main(int argc, char** argv){
@@ -180,148 +146,15 @@ int main(int argc, char** argv){
     // Setup memory leak dump 
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    console();      // setup the console 
-    Log::init();    // setup logging
-
-    ae.init();          // initialize engine
-    ae.setMaxFPS(60);  // set the fps
-
-    // IMGUI GL 3.0 + GLSL 130
-    const char* glsl_version = "#version 430";
-
-    // print OpenGL info
-    ae.printGraphicsInfo(); 
-    
-    // register all components 
-    ae.registerComponent<TagComponent>();
-    ae.registerComponent<RectangleComponent>();
-    ae.registerComponent<TransformComponent>();
-    ae.registerComponent<PhysicsBodyComponent>();
-    ae.registerComponent<ShapeComponent>();
-    ae.registerComponent<ControllerComponent>();
-
-    // register all systems
-    ae.registerSystem<RectangleRenderSystem>();
-    ae.registerSystem<PhysicsSystem>();
-    ae.registerSystem<ControllerSystem>();
-	
-
-    // set archetypes
-    {
-        // this is a bitset denoting the system archetye
-        Archetype typeRectangleRender;        
-        typeRectangleRender.set(ae.getComponentType<RectangleComponent>());
-        typeRectangleRender.set(ae.getComponentType<TransformComponent>());
-        ae.setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
-
-        Archetype typePhysics;
-        typePhysics.set(ae.getComponentType<TransformComponent>());
-        typePhysics.set(ae.getComponentType<PhysicsBodyComponent>());
-        typePhysics.set(ae.getComponentType<ShapeComponent>());
-        ae.setSystemArchetype<PhysicsSystem>(typePhysics);
-
-        Archetype typeController;
-        typeController.set(ae.getComponentType<ControllerComponent>());
-        typeController.set(ae.getComponentType<PhysicsBodyComponent>());
-        typeController.set(ae.getComponentType<TransformComponent>());
-        ae.setSystemArchetype<ControllerSystem>(typeController);
-    }
-    
-    // need to initialize systems again because systems got updated above
-    ae.initSystem();
-
-    ae.loadSound(musicTrack);
-    ae.loadSound(sfxTrack);
-    ae.loadSound(sfxJump);
-    ae.loadSound(sfxLand);
-    
-    //ae.load("level_01.json");
-    ae.load("baduku_01.json");
-
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
-
-    // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
-    // Setup Platform/Renderer bindings
-    ImGui_ImplGlfw_InitForOpenGL(ae.mGraphicsManager->getWindow(), true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-
-    //createScene();
-
+    start();
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
-
         glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
-
-        //ae.update();
-        ae.startFrame();
-        ae.mInputManager->update();
-        ae.mEventManager->update();
-        ae.mSystemManager->update();
-
-        // Code Below should be sth like: ae.mUIManager->update() 
-        // Or a UI system that will be updated inside mSystemManager->update()
-        //-----------------------------------------------------------------------------------
-        // feed inputs to dear imgui, start new frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        // render your GUI
-        ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-        static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.2f; 
-        static float listenerXOffset = 0.0f;
-        static float listenerYOffset = 0.0f;
-        static float listenerOffset[] = { 0.0f,0.0f };
-
-        ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
-        ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
-
-        setVolume(musicChannelID, musicVolumedB);
-        setVolume(sfxChannelID, sfxVolumedB);
-
-        ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
-
-        listener3DSetXOffset(listenerOffset[0]);
-        listener3DSetYOffset(listenerOffset[1]);
-
-        ImGui::End();
-
-        // Render dear imgui into screen
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        
-        //-----------------------------------------------------------------------------------------
-        
-        ae.mGraphicsManager->update();
-        ae.mResourceManager->update();
-        ae.mAudioManager->update();
-        ae.endFrame();
-
-        // disabled, becasue when player jumps, it collides with visulizer
-        audioReact();
+        ae.update();
         fpsCounter();
     }
-    
-    // Cleanup
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-    
-    // save progress unload memory and shutdown
-    //ae.save("level_01.json");
-    ae.save("last_checkpoint.json");
-    ae.unload();
-    ae.shutdown();
-    Log::shutdown();
-
+    shutdown();
     return 0;
 }

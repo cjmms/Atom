@@ -21,14 +21,28 @@
 #include "core/InputManager.hpp"
 #include "core/AudioManager.hpp"
 #include "core/ResourceManager.hpp"
+#include "core/UIManager.hpp"
 #include "core/Types.hpp"
 #include "components/AllComponents.hpp"
 
+#include "systems/ControllerSystem.hpp"
+#include "systems/DamageSystem.hpp"
+#include "systems/PhysicsSystem.hpp"
+#include "systems/RectangleRenderSystem.hpp"
+#include "systems/ShootSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
+
+extern FMOD_VECTOR listener_position;
+extern FMOD_VECTOR listener_fwd;
+extern FMOD_VECTOR listener_up;
+extern float listener_step;
+
 class AtomEngine {
 public:
 	inline void init() {
+
+
 
 		mChrononManager = std::make_unique<ChrononManager>();
 		mEntityManager = std::make_unique<EntityManager>();
@@ -39,17 +53,77 @@ public:
 		mResourceManager = std::make_unique<ResourceManager>();
 		mInputManager = std::make_unique<InputManager>();
 		mAudioManager = std::make_unique<AudioManager>();
+		mUIManager = std::make_unique<UIManager>();
 
 		dt = 0.0;
 
 		mChrononManager->setMaxFPS(FPS);
 		mGraphicsManager->init();
+		mUIManager->init(mGraphicsManager->getWindow());
 		mResourceManager->init();
 		mSystemManager->init();
 		mInputManager->init();
 		mAudioManager->init();
 
 		mIsRunning = true;
+
+		// TODO : move all this registration and init code into level manager 
+
+		// register all components 
+		registerComponent<TagComponent>();
+		registerComponent<RectangleComponent>();
+		registerComponent<TransformComponent>();
+		registerComponent<PhysicsBodyComponent>();
+		registerComponent<ShapeComponent>();
+		registerComponent<ControllerComponent>();
+		registerComponent<HealthComponent>();
+		registerComponent<ShootComponent>();
+		registerComponent<DamageComponent>();
+
+		// register all systems
+		registerSystem<RectangleRenderSystem>();
+		registerSystem<PhysicsSystem>();
+		registerSystem<ControllerSystem>();
+		registerSystem<ShootSystem>();
+		registerSystem<DamageSystem>();
+
+
+		// set archetypes
+		{
+			// this is a bitset denoting the system archetye
+			Archetype typeRectangleRender;
+			typeRectangleRender.set(getComponentType<RectangleComponent>());
+			typeRectangleRender.set(getComponentType<TransformComponent>());
+			setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
+
+			Archetype typePhysics;
+			typePhysics.set(getComponentType<TransformComponent>());
+			typePhysics.set(getComponentType<PhysicsBodyComponent>());
+			typePhysics.set(getComponentType<ShapeComponent>());
+			setSystemArchetype<PhysicsSystem>(typePhysics);
+
+			Archetype typeController;
+			typeController.set(getComponentType<ControllerComponent>());
+			typeController.set(getComponentType<PhysicsBodyComponent>());
+			typeController.set(getComponentType<TransformComponent>());
+			typeController.set(getComponentType<ShootComponent>());
+			setSystemArchetype<ControllerSystem>(typeController);
+
+			Archetype typeShoot;
+			typeShoot.set(getComponentType<ShootComponent>());
+			typeShoot.set(getComponentType<TransformComponent>());
+			setSystemArchetype<ShootSystem>(typeShoot);
+
+			Archetype typeDamage;
+			typeDamage.set(getComponentType<DamageComponent>());
+			setSystemArchetype<DamageSystem>(typeDamage);
+
+
+		}
+		// reinit systems because archetypes changed 
+		initSystem();
+
+
 	}
 	inline void update() {
 		startFrame();
@@ -57,14 +131,16 @@ public:
 		mInputManager->update();
 		mEventManager->update();
 		mSystemManager->update();
+		mUIManager->update();
 		mGraphicsManager->update();
 		mResourceManager->update();
 		mAudioManager->update();
-
+		
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
+		mUIManager->onEvent(e);
 		mGraphicsManager->onEvent(e);
 		mResourceManager->onEvent(e);
 		mSystemManager->onEvent(e);
@@ -108,6 +184,24 @@ public:
 
 	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f) {
 		return mAudioManager->play(audioloc, cgtype, volumedB);
+	}
+	
+	inline float getVolumedB(ChannelID channelid) {
+		return mAudioManager->getChannelVolumedB(channelid);
+	}
+
+	inline void setVolume(ChannelID channelid, float volumedB) {
+		mAudioManager->setChannelVolumedB(channelid, std::clamp(volumedB, 0.0f, 1.0f));
+	}
+
+	inline void listener3DSetXOffset(float offset) {
+		listener_position.x = 0.0f + offset;
+		mAudioManager->mCoreSystem->set3DListenerAttributes(0, &listener_position, 0, &listener_fwd, &listener_up);
+	}
+
+	inline void listener3DSetYOffset(float offset) {
+		listener_position.y = 0.0f + offset;
+		mAudioManager->mCoreSystem->set3DListenerAttributes(0, &listener_position, 0, &listener_fwd, &listener_up);
 	}
 	
 	// GraphicsManager
@@ -257,6 +351,7 @@ public:
 		deserializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
 	}
 
 	inline float random() {
@@ -369,6 +464,7 @@ public:
 		mResourceManager.reset();
 		mEventManager.reset();
 		mSystemManager.reset();
+		mUIManager.reset();
 		mGraphicsManager.reset();
 		mComponentManager.reset();
 		mEntityManager.reset();
@@ -388,6 +484,7 @@ public:
 	std::unique_ptr<ResourceManager> mResourceManager;
 	std::unique_ptr<InputManager> mInputManager;
 	std::unique_ptr<AudioManager> mAudioManager;
+	std::unique_ptr<UIManager> mUIManager;
 };
 
 #endif // !ATOMENGINE_HPP
