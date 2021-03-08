@@ -126,7 +126,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 		distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
 		timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
 
-		if (timeX < timeY)
+		if (timeX != 0 && timeX < timeY)
 		{
 			//horizontal reach faster
 			//vertical collision

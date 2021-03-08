@@ -1908,7 +1908,8 @@
     <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
-    <ClInclude Include="Atom\src\core\UIManager.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1979,6 +1980,8 @@
     </ClCompile>
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

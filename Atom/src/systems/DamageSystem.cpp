@@ -21,7 +21,9 @@ void DamageSystem::update()
 		{
 			auto& damage = ae.getComponent<DamageComponent>(entity);
 			if (damage.destroy)
+			{
 				destroyList.push_back(entity);
+			}
 		}
 	}
 

@@ -55,7 +55,7 @@ void ShootSystem::update()
 					glm::mat4(1.0f)
 					});
 
-				ae.addComponent(bullet, DamageComponent{5});
+				ae.addComponent(bullet, DamageComponent{50});
 
 			}
 			else

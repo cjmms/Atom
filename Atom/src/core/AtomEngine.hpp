@@ -30,6 +30,8 @@
 #include "systems/PhysicsSystem.hpp"
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/ShootSystem.hpp"
+#include "systems/HealthRenderSystem.hpp"
+#include "systems/HealthSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -86,6 +88,8 @@ public:
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
 		registerSystem<DamageSystem>();
+		registerSystem<HealthSystem>();
+		registerSystem<HealthRenderSystem>();
 
 
 		// set archetypes
@@ -117,6 +121,15 @@ public:
 			Archetype typeDamage;
 			typeDamage.set(getComponentType<DamageComponent>());
 			setSystemArchetype<DamageSystem>(typeDamage);
+
+			Archetype typeHealth;
+			typeHealth.set(getComponentType<HealthComponent>());
+			setSystemArchetype<HealthSystem>(typeHealth);
+
+			Archetype typeHealthRender;
+			typeHealthRender.set(getComponentType<TransformComponent>());
+			typeHealthRender.set(getComponentType<HealthComponent>());
+			setSystemArchetype<HealthRenderSystem>(typeHealthRender);
 
 
 		}
@@ -330,6 +343,8 @@ public:
 		serializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		serializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		serializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		serializeComponent<HealthComponent>(j["HealthComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -352,6 +367,7 @@ public:
 		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
 	}
 
 	inline float random() {

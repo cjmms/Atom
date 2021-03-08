@@ -8090,7 +8090,11 @@
         "isActive": false
       },
       "ShootComponent": {
-        "shootInterval": 0.5
+        "shootInterval": 0.2
+      },
+      "HealthComponent": {
+        "health": 100,
+        "totalHealth": 100
       }
     },
     {
@@ -8143,7 +8147,11 @@
         "isActive": true
       },
       "ShootComponent": {
-        "shootInterval": 0.5
+        "shootInterval": 0.2
+      },
+      "HealthComponent": {
+        "health": 100,
+        "totalHealth": 100
       }
     },
     {
