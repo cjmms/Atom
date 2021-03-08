@@ -170,12 +170,13 @@ void ControllerSystem::update()
 			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
 			//ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
 
-			glm::vec2 cameraPos = ae.mSystemManager->getSystem<RectangleRenderSystem>()->getCameraPos();
+			glm::vec2 cameraPos = ae.mCameraManager->getPosition();
 
 			cameraPos.x -= dPosition.first / 200;
 			cameraPos.y += dPosition.second / 200;
 
-			ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
+			//ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
+			ae.mCameraManager->setPosition(cameraPos);
 
 			//ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
 		}
