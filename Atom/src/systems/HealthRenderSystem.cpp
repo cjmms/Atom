@@ -57,7 +57,7 @@ void HealthRenderSystem::onEvent(Event& e) {
 void HealthRenderSystem::drawEntities()
 {
 	glm::vec3 redColor = glm::vec3(1.0f, 0.0f, 0.0f);
-	glm::vec3 blackColor = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 whiteColor = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	for (auto& entity : mEntities) {
 		if (!ae.hasComponent<HealthComponent>(entity))
@@ -71,7 +71,8 @@ void HealthRenderSystem::drawEntities()
 		glm::vec2 position = glm::vec2(t.position.x + h.offsetX,t.position.y + h.offsetY + t.scale.y/2.0f);
 		glm::vec2 size = glm::vec2(h.width * h.health / h.totalHealth, h.height);
 
-		draw(position, size, redColor);
+		draw(position, glm::vec2{h.width,h.height}, whiteColor);
+		draw(glm::vec2{position.x-(h.width-size.x),position.y}, size, redColor);
 
 	}
 }
