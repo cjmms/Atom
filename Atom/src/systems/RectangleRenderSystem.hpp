@@ -33,15 +33,15 @@ public:
 	void drawAnimation(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, float &timer, bool wireframe=false) const;
 
 	// if pos is (1, 0), then center of camera will be (1, 0) 
-	inline void setCameraPos(glm::vec2 pos) { CameraPos = pos; };
-	inline glm::vec2 getCameraPos() { return CameraPos; }
+	//inline void setCameraPos(glm::vec2 pos) { CameraPos = pos; };
+	//inline glm::vec2 getCameraPos() { return CameraPos; }
 
 private:
 	std::unique_ptr<Shader> ColorRecShader;
 	std::unique_ptr<Shader> TextureRecShader;
 	unsigned int RecVAO;
 	std::string BackgroundAddress;
-	glm::vec2 CameraPos;
+	//glm::vec2 CameraPos;
 
 	float worriorTimer;
 	float VampireTimer;

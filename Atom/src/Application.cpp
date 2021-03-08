@@ -23,6 +23,7 @@ AtomEngine ae;
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
+#include "systems/RenderTextSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -191,6 +192,7 @@ int main(int argc, char** argv){
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<RenderTextSystem>();
 	
 
     // set archetypes
@@ -247,41 +249,44 @@ int main(int argc, char** argv){
         ae.startFrame();
         ae.mInputManager->update();
         ae.mEventManager->update();
-        ae.mSystemManager->update();
+        //ae.mSystemManager->update();
+
+        //Testing for rendering Text
+        ae.mSystemManager->getSystem<RenderTextSystem>()->displayText("This is sample text", 0.0f, 0.0f, 10.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
         // Code Below should be sth like: ae.mUIManager->update() 
         // Or a UI system that will be updated inside mSystemManager->update()
         //-----------------------------------------------------------------------------------
         // feed inputs to dear imgui, start new frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
+        //ImGui_ImplOpenGL3_NewFrame();
+        //ImGui_ImplGlfw_NewFrame();
+        //ImGui::NewFrame();
 
-        // render your GUI
-        ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-        static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.2f; 
-        static float listenerXOffset = 0.0f;
-        static float listenerYOffset = 0.0f;
-        static float listenerOffset[] = { 0.0f,0.0f };
+        //// render your GUI
+        //ImGui::Begin("ATOM AUDIO CONTROL PANEL");
+        //static float musicVolumedB = 0.05f;
+        //static float sfxVolumedB = 0.2f; 
+        //static float listenerXOffset = 0.0f;
+        //static float listenerYOffset = 0.0f;
+        //static float listenerOffset[] = { 0.0f,0.0f };
 
-        ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
-        ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+        //ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+        //ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
 
-        setVolume(musicChannelID, musicVolumedB);
-        setVolume(sfxChannelID, sfxVolumedB);
+        //setVolume(musicChannelID, musicVolumedB);
+        //setVolume(sfxChannelID, sfxVolumedB);
 
-        ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+        //ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
-        listener3DSetXOffset(listenerOffset[0]);
-        listener3DSetYOffset(listenerOffset[1]);
+        //listener3DSetXOffset(listenerOffset[0]);
+        //listener3DSetYOffset(listenerOffset[1]);
 
-        ImGui::End();
+        //ImGui::End();
 
-        // Render dear imgui into screen
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        
+        //// Render dear imgui into screen
+        //ImGui::Render();
+        //ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        //
         //-----------------------------------------------------------------------------------------
 
         /*

@@ -8,5 +8,6 @@
 #include "components/ControllerComponent.hpp"
 #include "components/CharacterComponent.hpp"
 #include "components/TagComponent.hpp"
+#include "components/RenderTextComponent.hpp"
 
 #endif 
