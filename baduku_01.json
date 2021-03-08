@@ -8,7 +8,7 @@
         "TransformComponent": {
           "position": {
             "x": -0.5,
-            "y": -0.3,
+            "y": 0.0,
             "z": 0.0
           },
           "rotation": {
@@ -103,7 +103,7 @@
           "isActive": true
         },
         "ShootComponent": {
-            "shootInterval": 0.2
+            "shootInterval": 0.01
           }
       }
     ]

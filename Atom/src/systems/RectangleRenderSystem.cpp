@@ -69,6 +69,16 @@ void RectangleRenderSystem::update() {
 	// draw all entities
 	drawEntities(DebugMode);
 
+	for (auto& e : mEntities) {
+		TagComponent& tag = ae.getComponent<TagComponent>(e);
+		TransformComponent& t = ae.getComponent<TransformComponent>(e);
+
+		if (tag.tag == "small player") {
+			auto cam = getCameraPos();
+			setCameraPos(glm::vec2{t.position.x,cam.y});
+		}
+	}
+
 	// animation demo
 	//drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
 

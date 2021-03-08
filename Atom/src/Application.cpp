@@ -15,6 +15,11 @@
 // THE ENGINE
 AtomEngine ae;
 
+// use GPU 
+//extern "C" {
+//    _declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
+//}
+
 #ifdef _WIN64
 #include "Windows.h"
 FILE _iob[] = {
@@ -118,7 +123,7 @@ void start() {
     Log::init();                            // setup logging
 
     ae.init();                              // initialize engine
-    ae.setMaxFPS(60);                       // set the fps
+    ae.setMaxFPS(120);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
     ae.mUIManager->addUIPainter(uiDraw);    // add ui painter to list
     
@@ -140,6 +145,7 @@ void shutdown() {
     ae.shutdown();
     Log::shutdown();
 }
+
 
 int main(int argc, char** argv){
     
