@@ -1,7 +1,7 @@
 /*
-* @file		DamageSystem.hpp
+* @file		HealthSystem.hpp
 * @author	Gerald Lee
-* @brief	for handling bullet damage
+* @brief	for destroying objects, firing player game over event
 * @date		2021-03-07
 */
 
@@ -14,7 +14,7 @@
 
 //shoot; involve instantiation of new game object
 
-class DamageSystem : public System {
+class HealthSystem : public System {
 public:
 	void init() override;
 	void update() override;

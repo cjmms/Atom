@@ -677,6 +677,8 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\core\Types.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
@@ -708,6 +710,8 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />

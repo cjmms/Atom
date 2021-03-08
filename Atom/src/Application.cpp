@@ -25,6 +25,8 @@ AtomEngine ae;
 #include "systems/ControllerSystem.hpp"
 #include "systems/ShootSystem.hpp"
 #include "systems/DamageSystem.hpp"
+#include "systems/HealthSystem.hpp"
+#include "systems/HealthRenderSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -198,6 +200,8 @@ int main(int argc, char** argv){
     ae.registerSystem<ControllerSystem>();
     ae.registerSystem<ShootSystem>();
     ae.registerSystem<DamageSystem>();
+    ae.registerSystem<HealthSystem>();
+    ae.registerSystem<HealthRenderSystem>();
 	
 
     // set archetypes
@@ -229,6 +233,14 @@ int main(int argc, char** argv){
         typeDamage.set(ae.getComponentType<DamageComponent>());
         ae.setSystemArchetype<DamageSystem>(typeDamage);
 
+        Archetype typeHealth;
+        typeHealth.set(ae.getComponentType<HealthComponent>());
+        ae.setSystemArchetype<HealthSystem>(typeHealth);
+
+        Archetype typeHealthRender;
+        typeHealthRender.set(ae.getComponentType<TransformComponent>());
+        typeHealthRender.set(ae.getComponentType<HealthComponent>());
+        ae.setSystemArchetype<HealthRenderSystem>(typeHealthRender);
 
     }
     

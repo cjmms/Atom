@@ -29,8 +29,8 @@ void ControllerSystem::init()
 
 void ControllerSystem::update()
 {
-	EntityID activeEntity;
-	EntityID inactiveEntity;
+	EntityID activeEntity = -1;
+	EntityID inactiveEntity = -1;
 	
 	for (auto& entity : mEntities) 
 	{
@@ -45,6 +45,10 @@ void ControllerSystem::update()
 		}
 
 	}	
+
+	if (activeEntity == -1)
+		return;
+
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
 

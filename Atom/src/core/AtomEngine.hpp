@@ -235,6 +235,8 @@ public:
 		serializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		serializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		serializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		serializeComponent<HealthComponent>(j["HealthComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -257,6 +259,7 @@ public:
 		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
 	}
 
 	// load level

@@ -14,15 +14,24 @@ class HealthComponent
 {
 public:
 	int health;
+	int totalHealth;
+
+	//for rendering
+	float offsetX = 0, offsetY = -0.1f;
+	float width = 0.1f, height = 0.01f;
 
 public:
-	HealthComponent() {};
+	HealthComponent() {
+		
+	};
 };
 
 inline void to_json(ordered_json& j, const HealthComponent& x) {
 	to_json(j["health"], x.health);
+	to_json(j["totalHealth"], x.totalHealth);
 }
 
 inline void from_json(const ordered_json& j, HealthComponent& x) {
 	from_json(j["health"], x.health);
+	from_json(j["totalHealth"], x.totalHealth);
 }
