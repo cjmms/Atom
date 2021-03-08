@@ -53,10 +53,10 @@ public:
 	std::list<Contact*> contacts;
 
 	//2D array of function pointers, used to store the collision functions
-	bool (*CollisionFunctions[ShapeComponent::ShapeType::Num][ShapeComponent::ShapeType::Num])(
+	bool (*CollisionFunctions[ShapeType::NUM][ShapeType::NUM])(
 		double frameTime,
-		ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
-		ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
+		ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+		ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
 		std::list<Contact*>& contacts
 		);
 

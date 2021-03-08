@@ -21,6 +21,7 @@ inline int FMOD_ERROR(FMOD_RESULT res) {
 	return 0;
 }
 
+
 class AudioManager {
 public:
 
@@ -187,8 +188,16 @@ public:
 
 };
 
-
-
-
+// HELPERS TO USE LATER - DO NOT DELETE 
+//inline void audioReact() {
+//	auto fftbars = ae.mAudioManager->fft();
+//	for (int i = 0; i < ae.mEntityManager->mLivingEntityCount; ++i) {
+//		TagComponent& tag = ae.getComponent<TagComponent>((EntityID)i);
+//		if (tag.tag == "visualizer") {
+//			TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
+//			rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+//		}
+//	}
+//}
 
 #endif

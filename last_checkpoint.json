@@ -1,0 +1,1294 @@
+{
+    "Entities": [
+        {
+            "EntityID": 0,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.848320722579956,
+                    "y": 0.03905002400279045,
+                    "z": 0.19553379714488983
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 1,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.625,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.09510441869497299,
+                    "y": 0.858416736125946,
+                    "z": 0.6750215888023376
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 2,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.375,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.7312819957733154,
+                    "y": 0.33817175030708313,
+                    "z": 0.22922731935977936
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 3,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.125,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.2672916650772095,
+                    "y": 0.16360419988632202,
+                    "z": 0.7643808722496033
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 4,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.125,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.6097405552864075,
+                    "y": 0.9789025783538818,
+                    "z": 0.7719781994819641
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 5,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.375,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.8625107407569885,
+                    "y": 0.9868077635765076,
+                    "z": 0.9820495247840881
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 6,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.625,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.8274738788604736,
+                    "y": 0.5269577503204346,
+                    "z": 0.8538594245910645
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 7,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": 0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.6508591175079346,
+                    "y": 0.025378908962011337,
+                    "z": 0.12220370024442673
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 8,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": 0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.06102760508656502,
+                    "y": 0.48729050159454346,
+                    "z": 0.9203881621360779
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 9,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": 0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.9562726616859436,
+                    "y": 0.1981154829263687,
+                    "z": 0.9594099521636963
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 10,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": 0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.6123929023742676,
+                    "y": 0.7413560152053833,
+                    "z": 0.6769199371337891
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 11,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": 0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.1666954755783081,
+                    "y": 0.3430938124656677,
+                    "z": 0.07284707576036453
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 12,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": 0.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.12038720399141312,
+                    "y": 0.886182427406311,
+                    "z": 0.2580059766769409
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 13,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": 0.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.19165708124637604,
+                    "y": 0.2605487108230591,
+                    "z": 0.01131256390362978
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 14,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": -0.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.8839279413223267,
+                    "y": 0.36762577295303345,
+                    "z": 0.8470761179924011
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 15,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": -0.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5083683133125305,
+                    "y": 0.47291019558906555,
+                    "z": 0.6971044540405273
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 16,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": -0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.7881537675857544,
+                    "y": 0.35782942175865173,
+                    "z": 0.6456061601638794
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 17,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": -0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.8654494881629944,
+                    "y": 0.12721236050128937,
+                    "z": 0.5062234997749329
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 18,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": -0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.9623047113418579,
+                    "y": 0.3232189416885376,
+                    "z": 0.8947077393531799
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 19,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": -0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.43291133642196655,
+                    "y": 0.9758696556091309,
+                    "z": 0.1777079552412033
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 20,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.875,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.1762961894273758,
+                    "y": 0.6560489535331726,
+                    "z": 0.8948981761932373
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 21,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.625,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.9427549242973328,
+                    "y": 0.5531147718429565,
+                    "z": 0.9329520463943481
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 22,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.375,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5695136189460754,
+                    "y": 0.61968594789505,
+                    "z": 0.9602472186088562
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 23,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.125,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.12058105319738388,
+                    "y": 0.35131579637527466,
+                    "z": 0.9922547340393066
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 24,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.125,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.6928024888038635,
+                    "y": 0.6029912233352661,
+                    "z": 0.6983073353767395
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 25,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.375,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.33256545662879944,
+                    "y": 0.18604087829589844,
+                    "z": 0.8877071142196655
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 26,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.625,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.4742238223552704,
+                    "y": 0.28138870000839233,
+                    "z": 0.9587080478668213
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 27,
+            "TagComponent": {
+                "tag": "tile"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.875,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.025091134011745453,
+                    "y": 0.5568768978118896,
+                    "z": 0.31538209319114685
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": true
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null
+        },
+        {
+            "EntityID": 28,
+            "TagComponent": {
+                "tag": "large player"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.5,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/orange.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 2.0,
+                "staticBody": false
+            },
+            "ControllerComponent": {
+                "UP": "ATOM_SCANCODE_UP",
+                "DOWN": "ATOM_SCANCODE_DOWN",
+                "LEFT": "ATOM_SCANCODE_LEFT",
+                "RIGHT": "ATOM_SCANCODE_RIGHT",
+                "SWAP_POSITION": "ATOM_SCANCODE_Z",
+                "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+                "ROTLEFT": 67,
+                "ROTRIGHT": 86,
+                "isActive": false
+            },
+            "ShootComponent": {
+                "shootInterval": 0.5
+            },
+            "HealthComponent": {
+                "health": 50,
+                "totalHealth": 100
+            }
+        },
+        {
+            "EntityID": 29,
+            "TagComponent": {
+                "tag": "small player"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.5,
+                    "y": -0.30000001192092896,
+                    "z": 1.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.10000000149011612,
+                    "y": 0.10000000149011612,
+                    "z": 0.10000000149011612
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.800000011920929,
+                    "y": 0.8999999761581421,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/yellow.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": false
+            },
+            "ControllerComponent": {
+                "UP": "ATOM_SCANCODE_UP",
+                "DOWN": "ATOM_SCANCODE_DOWN",
+                "LEFT": "ATOM_SCANCODE_LEFT",
+                "RIGHT": "ATOM_SCANCODE_RIGHT",
+                "SWAP_POSITION": "ATOM_SCANCODE_Z",
+                "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+                "ROTLEFT": 67,
+                "ROTRIGHT": 86,
+                "isActive": true
+            },
+            "ShootComponent": {
+                "shootInterval": 0.5
+            },
+            "HealthComponent": {
+                "health": 100,
+                "totalHealth": 100
+            }
+        }
+    ]
+}

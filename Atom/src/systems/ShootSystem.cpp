@@ -40,7 +40,7 @@ void ShootSystem::update()
 					false
 					});
 
-				ae.addComponent(bullet, ShapeComponent{ShapeComponent::AABB});
+				ae.addComponent(bullet, ShapeComponent{ShapeType::AABB});
 
 				auto body = PhysicsBodyComponent(0.01f, false, true);
 				float speed = 1;

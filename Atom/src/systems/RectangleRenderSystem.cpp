@@ -16,7 +16,7 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	setBackground("Atom/res/level_01_background.png");
+	//setBackground("Atom/res/level_01_background.png");
 
 	worriorTimer = glfwGetTime();
 	VampireTimer = glfwGetTime();
@@ -64,10 +64,20 @@ void RectangleRenderSystem::update() {
 	}
 
 	// draw Background
-	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
+	//draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
 	// draw all entities
 	drawEntities(DebugMode);
+
+	//for (auto& e : mEntities) {
+	//	TagComponent& tag = ae.getComponent<TagComponent>(e);
+	//	TransformComponent& t = ae.getComponent<TransformComponent>(e);
+
+	//	if (tag.tag == "small player") {
+	//		auto cam = getCameraPos();
+	//		setCameraPos(glm::vec2{t.position.x,cam.y});
+	//	}
+	//}
 
 	// animation demo
 	//drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
