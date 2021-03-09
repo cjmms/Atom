@@ -40,6 +40,9 @@ extern FMOD_VECTOR listener_fwd;
 extern FMOD_VECTOR listener_up;
 extern float listener_step;
 
+extern ChannelID musicChannelID;
+extern ChannelID sfxChannelID;
+
 class AtomEngine {
 public:
 	inline void init() {
@@ -68,6 +71,7 @@ public:
 		mAudioManager->init();
 
 		mIsRunning = true;
+		mIsPaused = false;
 
 		// TODO : move all this registration and init code into level manager 
 
@@ -141,23 +145,40 @@ public:
 	inline void update() {
 		startFrame();
 
+		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
+			mIsPaused = !mIsPaused;
+		}
+		// input and graphics always updates
 		mInputManager->update();
-		mEventManager->update();
-		mSystemManager->update();
-		mUIManager->update();
 		mGraphicsManager->update();
-		mResourceManager->update();
-		mAudioManager->update();
-		
+
+		if (mIsPaused) {
+			mAudioManager->pause(musicChannelID, true);
+			mAudioManager->pause(sfxChannelID, true);
+			// graphics always updates
+			mUIManager->update();
+
+		}
+		else {
+			mAudioManager->pause(musicChannelID, false);
+			mAudioManager->pause(sfxChannelID, false);
+			mEventManager->update();
+			mSystemManager->update();
+			mResourceManager->update();
+			mAudioManager->update();
+		}
+
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
 		mUIManager->onEvent(e);
-		mGraphicsManager->onEvent(e);
-		mResourceManager->onEvent(e);
-		mSystemManager->onEvent(e);
-		mAudioManager->onEvent(e);
+		if (!mIsPaused) {
+			mGraphicsManager->onEvent(e);
+			mResourceManager->onEvent(e);
+			mSystemManager->onEvent(e);
+			mAudioManager->onEvent(e);
+		}
 	}
 
 
@@ -490,6 +511,7 @@ public:
 public:
 	double dt;
 	bool mIsRunning;
+	bool mIsPaused;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;

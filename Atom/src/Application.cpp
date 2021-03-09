@@ -86,8 +86,8 @@ string sfxLand = "Atom/res/EllenFootstepLand.ogg";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
-static float musicVolumedB = 0.00f;
-static float sfxVolumedB = 0.0f;
+static float musicVolumedB = 0.1f;
+static float sfxVolumedB = 0.1f;
 static float listenerXOffset = 0.0f;
 static float listenerYOffset = 0.0f;
 static float listenerOffset[] = { 0.0f,0.0f };
@@ -98,16 +98,27 @@ static FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
 static float listener_step = 0.1f;
 
 void uiDraw() {
-    // render your GUI
-    ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-    ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+    //ATOM_INFO("Paused : {}", ae.mIsPaused);
+    //if (ae.mIsPaused) {
+        //render your GUI
+        //ATOM_INFO("PAUSED");
+        //ImGui::Begin(
+        //    "ATOM AUDIO CONTROL PANEL",
+        //    0, 
+        //    ImGuiWindowFlags_NoCollapse|
+        //    ImGuiWindowFlags_NoResize
+        //);
+        //ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+        //ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+        //ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
-    ae.setVolume(musicChannelID, musicVolumedB);
-    ae.setVolume(sfxChannelID, sfxVolumedB);
-    ae.listener3DSetXOffset(listenerOffset[0]);
-    ae.listener3DSetYOffset(listenerOffset[1]);
+        //ae.setVolume(musicChannelID, musicVolumedB);
+        //ae.setVolume(sfxChannelID, sfxVolumedB);
+        //ae.listener3DSetXOffset(listenerOffset[0]);
+        //ae.listener3DSetYOffset(listenerOffset[1]);
+
+        //ImGui::End();
+    //}
 }
 
 
@@ -134,7 +145,7 @@ void start() {
 
     ae.load("baduku_01.json");
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.1f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
 }
 
@@ -156,9 +167,44 @@ int main(int argc, char** argv){
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
+
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+        int display_w, display_h;
+        glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+
         glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
+        
         ae.update();
+
+        if (ae.mIsPaused) {
+            //render your GUI
+            ImGui::Begin(
+                "ATOM AUDIO CONTROL PANEL",
+                0,
+                ImGuiWindowFlags_NoCollapse |
+                ImGuiWindowFlags_NoResize
+            );
+            ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+            ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+            ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+
+            ae.setVolume(musicChannelID, musicVolumedB);
+            ae.setVolume(sfxChannelID, sfxVolumedB);
+            ae.listener3DSetXOffset(listenerOffset[0]);
+            ae.listener3DSetYOffset(listenerOffset[1]);
+            ImGui::End();
+
+        }
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        ae.update();
+
+        glfwSwapBuffers(ae.mGraphicsManager->getWindow());
         fpsCounter();
     }
     shutdown();

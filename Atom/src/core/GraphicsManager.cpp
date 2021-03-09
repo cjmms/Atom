@@ -3,6 +3,9 @@
 #include "Pch.hpp"
 #include "utils/Log.hpp"
 #include "GraphicsManager.hpp"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 // callback function for window resizing, hidden from any other files
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -49,10 +52,10 @@ void GraphicsManager::init() {
 
 void GraphicsManager::update()
 {
-	int display_w, display_h;
-	glfwGetFramebufferSize(mWindow, &display_w, &display_h);
-	glViewport(0, 0, display_w, display_h);
-	glfwSwapBuffers(mWindow);
+
+	//ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	//glfwSwapBuffers(mWindow);
+
 }
 
 
