@@ -77,7 +77,15 @@ void PhysicsSystem::update()
 
 				//collision detection based on shapes
 				bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
-				
+
+				if (collision)
+				{
+					Event e(EventID::E_COLLISION);
+					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
+					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
+					ae.sendEvent(e);
+					//todo may need contact position and direction in future
+				}
 			}
 		}
 

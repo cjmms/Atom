@@ -1812,9 +1812,6 @@
     <ClInclude Include="Atom\src\components\AllComponents.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\CharacterComponent.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
@@ -1906,6 +1903,9 @@
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
+    <ClInclude Include="Atom\src\components\CharacteristicComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">

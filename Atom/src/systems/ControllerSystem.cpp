@@ -7,6 +7,7 @@
 #include "components/ControllerComponent.hpp"
 #include "components/PhysicsBodyComponent.hpp"
 #include "components/TransformComponent.hpp"
+#include "components/CharacteristicComponent.hpp"
 
 //Temp
 
@@ -23,18 +24,13 @@ void playJumpSound(Event& e) {
 
 void ControllerSystem::init()
 {
-	ae.addEventListener(EventID::E_AUDIO_PLAY, [this](Event& e) {this->onEvent(e);});
-
-	playerCharecterstic.canWallJump.isActive = true;
-	playerCharecterstic.canWallJump.isEnabled = true;
-	playerCharecterstic.canDoubleJump.isActive = true;
-	playerCharecterstic.canDoubleJump.isEnabled = true;
-
+	ae.addEventListener(EventID::E_AUDIO_PLAY, [this](Event& e) {this->onEvent(e); });
+	ae.addEventListener(EventID::E_COLLISION, [this](Event& e) {this->onEvent(e);});
 }
 
 void ControllerSystem::update()
 {
-	EntityID activeEntity;
+	EntityID activeEntity = -1;
 	EntityID inactiveEntity;
 	
 	for (auto& entity : mEntities) 
@@ -50,8 +46,12 @@ void ControllerSystem::update()
 		}
 
 	}	
+
+	assert(activeEntity != -1);
+
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
+	auto& playerCharecterstic = ae.getComponent<CharacteristicComponent>(activeEntity);
 
 	{//Triggered
 
@@ -77,9 +77,8 @@ void ControllerSystem::update()
 				//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
 				//ae.sendEvent(e);
 
-
 				//Jump
-				if (body.velocityY == 0)
+				if (body.grounded)
 				{
 					body.totalForceY = 3;
 
@@ -90,31 +89,30 @@ void ControllerSystem::update()
 				}
 
 				//Wall Jump
-				else if (playerCharecterstic.canDoubleJump.isEnabled && body.velocityX == 0)
+				else if (playerCharecterstic.canWallJump.isEnabled && playerCharecterstic.canWallJump.isActive)
 				{
 					//colliding with right side of a wall
-					if (ae.mInputManager->isKeyPressed(controller.LEFT) && body.velocityX == 0)
+					if (ae.mInputManager->isKeyPressed(controller.LEFT))
 					{
-						body.totalForceX = 1;
-						body.totalForceY = 3;
+						body.velocityX = 1;
 					}
-					else if (ae.mInputManager->isKeyPressed(controller.RIGHT) && body.velocityX == 0)
+					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 					{
-						body.totalForceX = -1;
-						body.totalForceY = 3;
+						body.velocityX = -1;
 					}
-					//Double jumps if wall jump not done properly && Double jump is enabled
-					else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
+					else
 					{
-						body.totalForceY = 3;
-						playerCharecterstic.canDoubleJump.isActive = false;
+						return;
 					}
+					body.velocityY = 0;
+					body.totalForceY = 3;
+					playerCharecterstic.canWallJump.isActive = false;
 				}
 
 				//Double Jump
 				else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
 				{
-					//body.velocityY = 0;
+					body.velocityY = 0;
 					body.totalForceY = 3;
 					playerCharecterstic.canDoubleJump.isActive = false;
 				}
@@ -188,13 +186,19 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				body.totalForceX = -0.1;
+				if(body.grounded)
+					body.velocityX = -3;
+				else if(body.velocityX > -3)
+					body.totalForceX = -0.1f;
 				ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				body.totalForceX = 0.1;
+				if (body.grounded)
+					body.velocityX = 3;
+				else if (body.velocityX < 3)
+					body.totalForceX = 0.1f;
 				ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
@@ -240,6 +244,44 @@ void ControllerSystem::onEvent(Event& e)
 		auto chgroup = e.getParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP);
 		auto volumedb = e.getParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB);
 		ae.play(audioloc, chgroup, std::clamp(volumedb,0.0f,1.0f));
+	}
+
+	else if (e.getType() == EventID::E_COLLISION) {
+		EntityID e1 = e.getParam<EntityID>(EventID::P_COLLISION_ENTITYID1);
+		EntityID e2 = e.getParam<EntityID>(EventID::P_COLLISION_ENTITYID2);
+
+		if (ae.hasComponent<CharacteristicComponent>(e1))
+		{
+			auto& characteristic = ae.getComponent<CharacteristicComponent>(e1);
+			auto& body = ae.getComponent<PhysicsBodyComponent>(e1);
+			if (body.grounded)
+			{
+				characteristic.canWallJump.isActive = false;
+			}
+			else
+			{
+				characteristic.canWallJump.isActive = true;
+				characteristic.canDoubleJump.isActive = true;
+
+			}
+		}
+
+		//both colliders can be player char, todo refractor
+		if (ae.hasComponent<CharacteristicComponent>(e2))
+		{
+			auto& characteristic = ae.getComponent<CharacteristicComponent>(e2);
+			auto& body = ae.getComponent<PhysicsBodyComponent>(e1);
+			if (!body.grounded)
+			{
+				characteristic.canWallJump.isActive = true;
+			}
+			else
+			{
+				characteristic.canWallJump.isActive = false;
+				characteristic.canDoubleJump.isActive = true;
+			}
+		}
+
 	}
 		
 }

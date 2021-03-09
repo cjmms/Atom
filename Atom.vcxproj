@@ -652,7 +652,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
-    <ClInclude Include="Atom\src\components\CharacterComponent.hpp" />
+    <ClInclude Include="Atom\src\components\CharacteristicComponent.hpp" />
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
     <ClInclude Include="Atom\src\components\PhysicsBodyComponent.hpp" />
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />

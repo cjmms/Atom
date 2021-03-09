@@ -6,7 +6,7 @@
 #include "components/ShapeComponent.hpp"
 #include "components/TransformComponent.hpp"
 #include "components/ControllerComponent.hpp"
-#include "components/CharacterComponent.hpp"
+#include "components/CharacteristicComponent.hpp"
 #include "components/TagComponent.hpp"
 #include "components/RenderTextComponent.hpp"
 

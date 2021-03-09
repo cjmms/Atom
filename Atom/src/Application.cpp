@@ -187,6 +187,7 @@ int main(int argc, char** argv){
     ae.registerComponent<PhysicsBodyComponent>();
     ae.registerComponent<ShapeComponent>();
     ae.registerComponent<ControllerComponent>();
+    ae.registerComponent<CharacteristicComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
@@ -212,6 +213,7 @@ int main(int argc, char** argv){
         typeController.set(ae.getComponentType<ControllerComponent>());
         typeController.set(ae.getComponentType<PhysicsBodyComponent>());
         typeController.set(ae.getComponentType<TransformComponent>());
+        typeController.set(ae.getComponentType<CharacteristicComponent>());
         ae.setSystemArchetype<ControllerSystem>(typeController);
     }
     
@@ -225,8 +227,8 @@ int main(int argc, char** argv){
     
     ae.load("level_01.json");
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.00f);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -264,8 +266,8 @@ int main(int argc, char** argv){
 
         // render your GUI
         ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-        static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.2f; 
+        static float musicVolumedB = 0.00f;
+        static float sfxVolumedB = 0.0f; 
         static float listenerXOffset = 0.0f;
         static float listenerYOffset = 0.0f;
         static float listenerOffset[] = { 0.0f,0.0f };
