@@ -24,6 +24,12 @@ void playJumpSound(Event& e) {
 void ControllerSystem::init()
 {
 	ae.addEventListener(EventID::E_AUDIO_PLAY, [this](Event& e) {this->onEvent(e);});
+
+	playerCharecterstic.canWallJump.isActive = true;
+	playerCharecterstic.canWallJump.isEnabled = true;
+	playerCharecterstic.canDoubleJump.isActive = true;
+	playerCharecterstic.canDoubleJump.isEnabled = true;
+
 }
 
 void ControllerSystem::update()
@@ -52,13 +58,13 @@ void ControllerSystem::update()
 		if (ae.mInputManager->isKeyTriggered(controller.LEFT))
 		{
 			//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
-			body.velocityX = -1;
+			//body.velocityX = -1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
 		{
-			body.velocityX = 1;
+			//body.velocityX = 1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
@@ -71,8 +77,49 @@ void ControllerSystem::update()
 				//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
 				//ae.sendEvent(e);
 
-				if(body.velocityY == 0)
-					body.totalForceY += 3;
+
+				//Jump
+				if (body.velocityY == 0)
+				{
+					body.totalForceY = 3;
+
+					if (playerCharecterstic.canDoubleJump.isEnabled)
+					{
+						playerCharecterstic.canDoubleJump.isActive = true;
+					}
+				}
+
+				//Wall Jump
+				else if (playerCharecterstic.canDoubleJump.isEnabled && body.velocityX == 0)
+				{
+					//colliding with right side of a wall
+					if (ae.mInputManager->isKeyPressed(controller.LEFT) && body.velocityX == 0)
+					{
+						body.totalForceX = 1;
+						body.totalForceY = 3;
+					}
+					else if (ae.mInputManager->isKeyPressed(controller.RIGHT) && body.velocityX == 0)
+					{
+						body.totalForceX = -1;
+						body.totalForceY = 3;
+					}
+					//Double jumps if wall jump not done properly && Double jump is enabled
+					else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
+					{
+						body.totalForceY = 3;
+						playerCharecterstic.canDoubleJump.isActive = false;
+					}
+				}
+
+				//Double Jump
+				else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
+				{
+					//body.velocityY = 0;
+					body.totalForceY = 3;
+					playerCharecterstic.canDoubleJump.isActive = false;
+				}
+
+
 				//ATOM_INFO("VELOCITY : {}", body.velocityX);
 			}
 
@@ -141,12 +188,14 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				body.velocityX = -1;
+				body.totalForceX = -0.1;
+				ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				body.velocityX = 1;
+				body.totalForceX = 0.1;
+				ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
 	}
