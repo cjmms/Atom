@@ -81,8 +81,8 @@ void horizontalCollision(TransformComponent& transform1, PhysicsBodyComponent& b
 }
 
 bool CheckCollisionAABBAABB(double frameTime,
-	const ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
-	const ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
+	const ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+	const ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
     std::list<Contact*>& contacts)
 {
 	float left1, right1, top1, bottom1;
@@ -106,7 +106,9 @@ bool CheckCollisionAABBAABB(double frameTime,
 		|| top1 + EPSILON < bottom2 || top2 + EPSILON < bottom1)
 		return false;
 
-	
+	if (body1.isTrigger || body2.isTrigger)
+		return true;
+
 	//time to collide along asix
 	float distX, distY;
 	float timeX, timeY;

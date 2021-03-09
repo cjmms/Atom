@@ -9,5 +9,6 @@
 #include "components/CharacteristicComponent.hpp"
 #include "components/TagComponent.hpp"
 #include "components/RenderTextComponent.hpp"
+#include "components/SkillBoosterComponent.hpp"
 
 #endif 

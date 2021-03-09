@@ -4,8 +4,8 @@
 
 struct PowerUp
 {
-	bool isActive = true;	//todo for testing only
-	bool isEnabled = true;
+	bool isActive = false;
+	bool isEnabled = false;
 };
 
 class CharacteristicComponent

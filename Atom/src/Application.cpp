@@ -24,6 +24,7 @@ AtomEngine ae;
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
 #include "systems/RenderTextSystem.hpp"
+#include "systems/SkillSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -188,12 +189,14 @@ int main(int argc, char** argv){
     ae.registerComponent<ShapeComponent>();
     ae.registerComponent<ControllerComponent>();
     ae.registerComponent<CharacteristicComponent>();
+    ae.registerComponent<SkillBoosterComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
     ae.registerSystem<RenderTextSystem>();
+    ae.registerSystem<SkillSystem>();
 	
 
     // set archetypes
@@ -215,6 +218,11 @@ int main(int argc, char** argv){
         typeController.set(ae.getComponentType<TransformComponent>());
         typeController.set(ae.getComponentType<CharacteristicComponent>());
         ae.setSystemArchetype<ControllerSystem>(typeController);
+
+        Archetype typeSkill;
+        typeSkill.set(ae.getComponentType<SkillBoosterComponent>());
+        ae.setSystemArchetype<SkillSystem>(typeSkill);
+
     }
     
     // need to initialize systems again because systems got updated above
