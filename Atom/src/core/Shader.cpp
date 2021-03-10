@@ -10,7 +10,8 @@ Shader::Shader(const std::string& path)
     ShaderProgramSource source = ParseShader(shaderFilePath);
     rendererID = CreateShader(source.VertexSource,
         source.FragmentSource,
-        source.GeometrySource);
+        source.GeometrySource,
+        source.ComputeSource);
 }
 
 Shader::~Shader()
@@ -23,7 +24,7 @@ Shader::~Shader()
 ShaderProgramSource Shader::ParseShader(const std::string& path)
 {
     enum class ShaderMode {
-        NONE = -1, VERTEX_MODE = 0, FRAGMENT_MODE = 1, GEOMETRY_MODE = 2
+        NONE = -1, VERTEX_MODE = 0, FRAGMENT_MODE = 1, GEOMETRY_MODE = 2, COMPUTE_MODE = 3
     };
     std::fstream stream(path);
     std::string line;
@@ -45,36 +46,58 @@ ShaderProgramSource Shader::ParseShader(const std::string& path)
             else if (line.find("geometry") != std::string::npos &&
                 !(line.find("//") != std::string::npos))
                 currentMode = ShaderMode::GEOMETRY_MODE;
+            else if (line.find("compute") != std::string::npos) {
+                currentMode = ShaderMode::COMPUTE_MODE;
+            }
         }
         else
         {
             ss[(int)currentMode] << line << '\n';
         }
     }
-    return { ss[0].str(), ss[1].str(), ss[2].str() };
+    return { ss[0].str(), ss[1].str(), ss[2].str(), ss[3].str() };
 }
 
 
 unsigned int Shader::CreateShader(const std::string& vertexShader,
     const std::string& fragmentShader,
-    const std::string& geometryShader)
+    const std::string& geometryShader,
+    const std::string& computeShader)
 {
+    bool hasVertexShader = vertexShader.length() > 0;
+    bool hasFragmentShader = fragmentShader.length() > 0;
     bool hasGeometryShader = geometryShader.length() > 0;
+    bool hasComputeShader = computeShader.length() > 0;
 
 
     unsigned int shaderProgram = glCreateProgram();
-    unsigned int vertexShaderID = CompileShader(GL_VERTEX_SHADER, vertexShader);
-    unsigned int fragmentShaderID = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+    unsigned int vertexShaderID;
+    unsigned int fragmentShaderID;
     unsigned int geometryShaderID;
+    unsigned int computeShaderID;
 
-    glAttachShader(shaderProgram, vertexShaderID);
-    glAttachShader(shaderProgram, fragmentShaderID);
+    if (hasVertexShader)
+    {
+        vertexShaderID = CompileShader(GL_VERTEX_SHADER, vertexShader);
+        glAttachShader(shaderProgram, vertexShaderID);
+    }
+
+    if (hasFragmentShader)
+    {
+        fragmentShaderID = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+        glAttachShader(shaderProgram, fragmentShaderID);
+    }
+
 
     if (hasGeometryShader) {
         geometryShaderID = CompileShader(GL_GEOMETRY_SHADER, geometryShader);
         glAttachShader(shaderProgram, geometryShaderID);
     }
 
+    if (hasComputeShader) {
+        computeShaderID = CompileShader(GL_COMPUTE_SHADER, computeShader);
+        glAttachShader(shaderProgram, computeShaderID);
+    }
 
     // TODO: catch exceptions
     glLinkProgram(shaderProgram);
@@ -82,10 +105,12 @@ unsigned int Shader::CreateShader(const std::string& vertexShader,
     //TODO: catch exceptions
     glValidateProgram(shaderProgram);
 
-    glDeleteShader(vertexShaderID);
-    glDeleteShader(fragmentShaderID);
+    if (hasVertexShader) glDeleteShader(vertexShaderID);
+    if (hasFragmentShader) glDeleteShader(fragmentShaderID);
     if (hasGeometryShader) glDeleteShader(geometryShaderID);
+    if (hasComputeShader) glDeleteShader(computeShaderID);
 
+    return shaderProgram;
     return shaderProgram;
 }
 
@@ -113,8 +138,10 @@ void Shader::ShaderErrorInfo(unsigned int shader, unsigned int type)
             std::cout << "ERROR: Vertex Shader Compilation Error. " << infoLog << std::endl;
         else if (type == GL_FRAGMENT_SHADER)
             std::cout << "ERROR: Fragment Shader Compilation Error. " << infoLog << std::endl;
-        else
+        else if (type == GL_GEOMETRY_SHADER)
             std::cout << "ERROR: Geometry Shader Compilation Error. " << infoLog << std::endl;
+        else
+            std::cout << "ERROR: Compute Shader Compilation Error." << infoLog << std::endl;
     }
 }
 
