@@ -1908,6 +1908,7 @@
     </ClInclude>
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
+    <ClInclude Include="Atom\src\core\LevelManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1980,6 +1981,7 @@
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
+    <ClCompile Include="Atom\src\core\LevelManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

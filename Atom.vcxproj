@@ -651,6 +651,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
+    <ClInclude Include="Atom\src\core\LevelManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
     <ClInclude Include="Atom\src\components\CharacteristicComponent.hpp" />
@@ -702,6 +703,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\Application.cpp" />
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
+    <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
