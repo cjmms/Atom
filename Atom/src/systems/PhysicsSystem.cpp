@@ -83,6 +83,7 @@ void PhysicsSystem::update()
 					Event e(EventID::E_COLLISION);
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
+					ae.sendEvent(e);
 					//todo may need contact position and direction in future
 				}
 				
