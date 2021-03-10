@@ -23,6 +23,7 @@ AtomEngine ae;
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
+#include "systems/RenderTextSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -191,6 +192,7 @@ int main(int argc, char** argv){
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<RenderTextSystem>();
 	
 
     // set archetypes
@@ -248,6 +250,9 @@ int main(int argc, char** argv){
         ae.mInputManager->update();
         ae.mEventManager->update();
         ae.mSystemManager->update();
+
+        //Testing for rendering Text
+        //ae.mSystemManager->getSystem<RenderTextSystem>()->displayText("This is sample text", 0.0f, 0.0f, 10.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
         // Code Below should be sth like: ae.mUIManager->update() 
         // Or a UI system that will be updated inside mSystemManager->update()

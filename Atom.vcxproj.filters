@@ -1903,6 +1903,9 @@
       <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
+    <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
+    <ClInclude Include="Atom\src\core\CameraManager.hpp" />
     <ClInclude Include="Atom\src\core\LevelManager.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -1972,6 +1975,9 @@
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
+    <ClCompile Include="Atom\src\core\CameraManager.cpp" />
+    <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2167,6 +2173,7 @@
     <None Include="Atom\res\wariyo_mortals.ogg">
       <Filter>res</Filter>
     </None>
+    <None Include="Atom\res\renderText.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg">

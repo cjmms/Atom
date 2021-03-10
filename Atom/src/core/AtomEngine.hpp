@@ -23,6 +23,7 @@
 #include "core/ResourceManager.hpp"
 #include "core/LevelManager.hpp"
 #include "core/Types.hpp"
+#include "core/CameraManager.hpp"
 #include "components/AllComponents.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
@@ -39,6 +40,7 @@ public:
 		mResourceManager = std::make_unique<ResourceManager>();
 		mInputManager = std::make_unique<InputManager>();
 		mAudioManager = std::make_unique<AudioManager>();
+		mCameraManager = std::make_unique<CameraManager>();
 		mLevelManager = std::make_unique<LevelManager>();
 
 		dt = 0.0;
@@ -49,6 +51,7 @@ public:
 		mSystemManager->init();
 		mInputManager->init();
 		mAudioManager->init();
+		mCameraManager->init();
 		mLevelManager->init();
 
 		mIsRunning = true;
@@ -62,6 +65,7 @@ public:
 		mGraphicsManager->update();
 		mResourceManager->update();
 		mAudioManager->update();
+		mCameraManager->update();
 		mLevelManager->update();
 
 		endFrame();
@@ -72,6 +76,7 @@ public:
 		mResourceManager->onEvent(e);
 		mSystemManager->onEvent(e);
 		mAudioManager->onEvent(e);
+		mCameraManager->onEvent(e);
 		mLevelManager->onEvent(e);
 	}
 
@@ -302,6 +307,7 @@ public:
 
 	// shutdown
 	void shutdown() {
+		mCameraManager.reset();
 		mAudioManager.reset();
 		mInputManager.reset();
 		mResourceManager.reset();
@@ -327,6 +333,7 @@ public:
 	std::unique_ptr<ResourceManager> mResourceManager;
 	std::unique_ptr<InputManager> mInputManager;
 	std::unique_ptr<AudioManager> mAudioManager;
+	std::unique_ptr<CameraManager> mCameraManager;
 	std::unique_ptr<LevelManager> mLevelManager;
 };
 
