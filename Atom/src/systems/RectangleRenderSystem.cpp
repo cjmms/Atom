@@ -6,6 +6,9 @@
 #include "core/AtomEngine.hpp"
 #include "components/AllComponents.hpp"
 
+//Temp
+#include "ControllerSystem.hpp"
+
 
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
@@ -63,8 +66,10 @@ void RectangleRenderSystem::update() {
 		DebugMode = !DebugMode;
 	}
 
-	// draw Background
-	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
+	// draw Background 
+	// Temp - moving background
+	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
+	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
 	// draw all entities
 	drawEntities(DebugMode);
