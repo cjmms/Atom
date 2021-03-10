@@ -21,6 +21,7 @@
 #include "core/InputManager.hpp"
 #include "core/AudioManager.hpp"
 #include "core/ResourceManager.hpp"
+#include "core/LevelManager.hpp"
 #include "core/Types.hpp"
 #include "core/CameraManager.hpp"
 #include "components/AllComponents.hpp"
@@ -40,6 +41,7 @@ public:
 		mInputManager = std::make_unique<InputManager>();
 		mAudioManager = std::make_unique<AudioManager>();
 		mCameraManager = std::make_unique<CameraManager>();
+		mLevelManager = std::make_unique<LevelManager>();
 
 		dt = 0.0;
 
@@ -50,6 +52,7 @@ public:
 		mInputManager->init();
 		mAudioManager->init();
 		mCameraManager->init();
+		mLevelManager->init();
 
 		mIsRunning = true;
 	}
@@ -63,6 +66,7 @@ public:
 		mResourceManager->update();
 		mAudioManager->update();
 		mCameraManager->update();
+		mLevelManager->update();
 
 		endFrame();
 	}
@@ -73,6 +77,7 @@ public:
 		mSystemManager->onEvent(e);
 		mAudioManager->onEvent(e);
 		mCameraManager->onEvent(e);
+		mLevelManager->onEvent(e);
 	}
 
 
@@ -312,6 +317,7 @@ public:
 		mComponentManager.reset();
 		mEntityManager.reset();
 		mChrononManager.reset();
+		mLevelManager.reset();
 	}
 
 public:
@@ -328,6 +334,7 @@ public:
 	std::unique_ptr<InputManager> mInputManager;
 	std::unique_ptr<AudioManager> mAudioManager;
 	std::unique_ptr<CameraManager> mCameraManager;
+	std::unique_ptr<LevelManager> mLevelManager;
 };
 
 #endif // !ATOMENGINE_HPP
