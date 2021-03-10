@@ -112,13 +112,13 @@ EntityID makeSingleRectangle() {
     return rectangle;
 }
 
-void audioReact() {
-    auto fftbars = ae.mAudioManager->fft();
-    for (int i = 0; i < 200;++i) {
-        TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
-        rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
-    }
-}
+//void audioReact() {
+//    auto fftbars = ae.mAudioManager->fft();
+//    for (int i = 0; i < 200;++i) {
+//        TransformComponent& rt = ae.getComponent<TransformComponent>((EntityID)i);
+//        rt.scale.y = fftbars->spectrum[0][i] * 10.0f;
+//    }
+//}
 
 void glfwpoll() {
     glfwPollEvents();
@@ -314,7 +314,7 @@ int main(int argc, char** argv){
         ae.endFrame();
 
         // disabled, becasue when player jumps, it collides with visulizer
-        audioReact();
+        //audioReact();
         //makeSingleRectangle();
         fpsCounter();
     }

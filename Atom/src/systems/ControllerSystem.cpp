@@ -95,18 +95,20 @@ void ControllerSystem::update()
 					if (ae.mInputManager->isKeyPressed(controller.LEFT))
 					{
 						body.velocityX = 1;
+						playerCharecterstic.canWallJump.isActive = false;
 					}
 					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 					{
 						body.velocityX = -1;
+						playerCharecterstic.canWallJump.isActive = false;
 					}
-					else
+					//Double Jump
+					else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
 					{
-						return;
+						playerCharecterstic.canDoubleJump.isActive = false;
 					}
 					body.velocityY = 0;
 					body.totalForceY = 3;
-					playerCharecterstic.canWallJump.isActive = false;
 				}
 
 				//Double Jump
