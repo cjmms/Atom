@@ -51,17 +51,16 @@ public:
     }
 
 	void update() {
-            //ImGui_ImplOpenGL3_NewFrame();
-            //ImGui_ImplGlfw_NewFrame();
-            //ImGui::NewFrame();
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
 
-                //for (auto uiPainter : mUIPainters) {
-                //    uiPainter();
-                //}
+        for (auto uiPainter : mUIPainters) {
+            uiPainter();
+        }
 
-            // Render dear imgui into screen
-                //ImGui::Render();
-                //ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
     void onEvent(Event& e) {
 

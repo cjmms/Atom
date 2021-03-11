@@ -145,19 +145,17 @@ public:
 	inline void update() {
 		startFrame();
 
+		// get input 
+		mInputManager->update();
+
+		// process
 		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
 			mIsPaused = !mIsPaused;
 		}
-		// input and graphics always updates
-		mInputManager->update();
-		mGraphicsManager->update();
 
 		if (mIsPaused) {
 			mAudioManager->pause(musicChannelID, true);
 			mAudioManager->pause(sfxChannelID, true);
-			// graphics always updates
-			mUIManager->update();
-
 		}
 		else {
 			mAudioManager->pause(musicChannelID, false);
@@ -167,6 +165,10 @@ public:
 			mResourceManager->update();
 			mAudioManager->update();
 		}
+
+		// render
+		mGraphicsManager->update();
+		mUIManager->update();
 
 		endFrame();
 	}
@@ -186,8 +188,11 @@ public:
 	// ChrononManager
 	inline void startFrame() {
 		mChrononManager->startframe();
+		glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	inline void endFrame() {
+		glfwSwapBuffers(mGraphicsManager->getWindow());
 		mChrononManager->endFrame();
 		dt = mChrononManager->updatedt();
 	}
