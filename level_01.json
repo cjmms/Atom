@@ -1,13 +1,54 @@
 {
   "Entities": [
     {
-      "EntityID": 201,
+      "EntityID": 200,
       "TagComponent": {
-        "tag": "wall_right"
+        "tag": "Start"
       },
       "TransformComponent": {
         "position": {
-          "x": 1.0,
+          "x": -2.15,
+          "y": -0.375,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.3,
+          "y": 25.0,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.7,
+          "y": 0.2,
+          "z": 0.2
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 201,
+      "TagComponent": {
+        "tag": "Platform-1-Ground-Level"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": -1.0,
           "y": -1.0,
           "z": 0.0
         },
@@ -17,16 +58,57 @@
           "z": 0.0
         },
         "scale": {
-          "x": 1.0,
-          "y": 3.0,
+          "x": 2.0,
+          "y": 1.0,
           "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 202,
+      "TagComponent": {
+        "tag": "Platform-2-Ground-Level"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 1.5,
+          "y": -1.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 2.0,
           "y": 1.0,
           "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
         },
         "wireframe": false,
         "texturePath": ""
@@ -44,11 +126,52 @@
     {
       "EntityID": 203,
       "TagComponent": {
-        "tag": "Floor"
+        "tag": "Jump-on-Platform-1-Obstacle1"
       },
       "TransformComponent": {
         "position": {
+          "x": 3.3,
+          "y": -0.2,
+          "z": 0.0
+        },
+        "rotation": {
           "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.5,
+          "y": 0.08,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 204,
+      "TagComponent": {
+        "tag": "Platform-3-Ground-Level"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 5.0,
           "y": -1.0,
           "z": 0.0
         },
@@ -58,16 +181,16 @@
           "z": 0.0
         },
         "scale": {
-          "x": 5.0,
+          "x": 2.0,
           "y": 1.0,
           "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
         },
         "wireframe": false,
         "texturePath": ""
@@ -85,12 +208,12 @@
     {
       "EntityID": 205,
       "TagComponent": {
-        "tag": "wallceiling2"
+        "tag": "Jump-down-Platform-1-Obstacle1"
       },
       "TransformComponent": {
         "position": {
-          "x": -1.5,
-          "y": 1.2,
+          "x": 7,
+          "y": -1.35,
           "z": 0.0
         },
         "rotation": {
@@ -100,15 +223,15 @@
         },
         "scale": {
           "x": 2.0,
-          "y": 0.2,
-          "z": 0.2
+          "y": 0.3,
+          "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
         },
         "wireframe": false,
         "texturePath": ""
@@ -126,12 +249,12 @@
     {
       "EntityID": 206,
       "TagComponent": {
-        "tag": "platformL"
+        "tag": "Platform-4-Ground-Level"
       },
       "TransformComponent": {
         "position": {
-          "x": -2.0,
-          "y": 2.0,
+          "x": 8.5,
+          "y": -1.0,
           "z": 0.0
         },
         "rotation": {
@@ -140,16 +263,16 @@
           "z": 0.0
         },
         "scale": {
-          "x": 0.1,
+          "x": 2.0,
           "y": 1.0,
-          "z": 0.2
+          "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
         },
         "wireframe": false,
         "texturePath": ""
@@ -167,12 +290,12 @@
     {
       "EntityID": 207,
       "TagComponent": {
-        "tag": "platformR"
+        "tag": "Platform-5-Ground-Level"
       },
       "TransformComponent": {
         "position": {
-          "x": -0.8,
-          "y": 3.0,
+          "x": 12.0,
+          "y": -1.0,
           "z": 0.0
         },
         "rotation": {
@@ -181,16 +304,16 @@
           "z": 0.0
         },
         "scale": {
-          "x": 0.1,
+          "x": 2.0,
           "y": 1.0,
-          "z": 0.2
+          "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 1.0
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
         },
         "wireframe": false,
         "texturePath": ""
@@ -208,12 +331,12 @@
     {
       "EntityID": 208,
       "TagComponent": {
-        "tag": "platformL2"
+        "tag": "Wall-Obstacle-1-Ground-Level"
       },
       "TransformComponent": {
         "position": {
-          "x": -2.0,
-          "y": 4.0,
+          "x": 13.5,
+          "y": -0.375,
           "z": 0.0
         },
         "rotation": {
@@ -222,16 +345,139 @@
           "z": 0.0
         },
         "scale": {
-          "x": 0.1,
-          "y": 1.0,
-          "z": 0.2
+          "x": 1.0,
+          "y": 2.25,
+          "z": 1.0
         }
       },
       "RectangleComponent": {
         "color": {
-          "x": 1.0,
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 209,
+      "TagComponent": {
+        "tag": "Platform-6-Ground-Level"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 15.0,
+          "y": -1.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 2.0,
           "y": 1.0,
           "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 210,
+      "TagComponent": {
+        "tag": "Wall-Obstacle-1-Ground-Level"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 17.5,
+          "y": -0.375,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 2.25,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.8,
+          "y": 0.8,
+          "z": 0.7
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false
+      },
+      "ControllerComponent": null
+    },
+    {
+      "EntityID": 211,
+      "TagComponent": {
+        "tag": "Finish"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 18.0,
+          "y": -0.375,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.3,
+          "y": 25.0,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.2,
+          "y": 0.7,
+          "z": 0.2
         },
         "wireframe": false,
         "texturePath": ""
@@ -255,53 +501,8 @@
       },
       "TransformComponent": {
         "position": {
-          "x": 0.0,
-          "y": 0.3,
-          "z": 0.0
-        },
-        "rotation": {
-          "x": 0.0,
-          "y": 0.0,
-          "z": 0.0
-        },
-        "scale": {
-          "x": 0.1,
-          "y": 0.1,
-          "z": 1.0
-        }
-      },
-      "RectangleComponent": {
-        "color": {
-          "x": 1.0,
-          "y": 1.0,
-          "z": 0.0
-        },
-        "wireframe": false,
-        "texturePath": "Atom/res/jump.png"
-      },
-      "ShapeComponent": {
-        "shapeType": 0
-      },
-      "PhysicsBodyComponent": {
-        "mass": 1.0,
-        "staticBody": true,
-        "isTrigger": true
-      },
-      "ControllerComponent": null,
-      "SkillBoosterComponent": {
-        "skillType": "DoubleJump"
-      }
-    },
-
-    {
-      "EntityID": 300,
-      "TagComponent": {
-        "tag": "Skill"
-      },
-      "TransformComponent": {
-        "position": {
-          "x": 0.0,
-          "y": 0.3,
+          "x": 6.75,
+          "y": -0.75,
           "z": 0.0
         },
         "rotation": {
@@ -344,8 +545,8 @@
       },
       "TransformComponent": {
         "position": {
-          "x": 0.2,
-          "y": -0.1,
+          "x": 12.0,
+          "y": 0.2,
           "z": 0.0
         },
         "rotation": {
