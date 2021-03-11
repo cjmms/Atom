@@ -23,6 +23,7 @@ AtomEngine ae;
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
+#include "systems/ParticleSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -158,6 +159,9 @@ void listener3DSetYOffset(float offset) {
     ae.mAudioManager->mCoreSystem->set3DListenerAttributes(0, &camera_position, 0, &camera_fwd, &camera_up);
 }
 
+
+
+/*
 int main(int argc, char** argv){
     
     // Setup memory leak dump 
@@ -170,7 +174,7 @@ int main(int argc, char** argv){
     ae.setMaxFPS(60);  // set the fps
 
     // IMGUI GL 3.0 + GLSL 130
-    const char* glsl_version = "#version 430";
+    const char* glsl_version = "#version 450";
     //experimental
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     //glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
@@ -191,6 +195,7 @@ int main(int argc, char** argv){
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<ParticleSystem>();
 	
 
     // set archetypes
@@ -236,12 +241,32 @@ int main(int argc, char** argv){
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
 
+
+
+
+    ParticleConfig pCon(2000, 160, glm::vec2(0.1f, 2.0f));
+    // spawn center, spawn area size, spawn area shape
+    SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+    // move direction, speed, move pattern
+    MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+
+    ParticleEffect effect(sCon, mCon, pCon);
+    effect.Init();
+
+
+
+
     // game loop
     while (ae.mIsRunning) {
         glfwpoll();
 
         glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        effect.Draw();
+
+
+        
 
         //ae.update();
         ae.startFrame();
@@ -283,25 +308,17 @@ int main(int argc, char** argv){
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         
         //-----------------------------------------------------------------------------------------
-
-        /*
-         // move all these to GraphicManager.update()
-        int display_w, display_h;
-        glfwGetFramebufferSize(ae.mGraphicsManager->getWindow(), &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glfwSwapBuffers(ae.mGraphicsManager->getWindow());
-        */
-
         
         ae.mGraphicsManager->update();
-        ae.mResourceManager->update();
-        ae.mAudioManager->update();
-        ae.endFrame();
+        //ae.mResourceManager->update();
+        //ae.mAudioManager->update();
+        //ae.endFrame();
 
         // disabled, becasue when player jumps, it collides with visulizer
-        audioReact();
+        //audioReact();
         //makeSingleRectangle();
-        fpsCounter();
+        //fpsCounter();
+        
     }
     
     // Cleanup
@@ -315,5 +332,71 @@ int main(int argc, char** argv){
     ae.shutdown();
     Log::shutdown();
 
+    return 0;
+}
+
+*/
+
+
+
+
+int main(int argc, char** argv)
+{
+    GLFWwindow* window;
+
+    // Initialize the library 
+    if (!glfwInit())
+        return -1;
+
+    // Create a windowed mode window and its OpenGL context 
+    window = glfwCreateWindow(1200, 1000, "Vanilla", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+    // Make the window's context current 
+    glfwMakeContextCurrent(window);
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    if (glewInit() != GLEW_OK)
+        std::cout << "init error" << std::endl;
+
+    glEnable(GL_PROGRAM_POINT_SIZE);
+    glEnable(GL_DEPTH_TEST);
+
+
+    // number of particles, size of particles
+    ParticleConfig pCon(2000, 160, glm::vec2(0.1f, 2.0f));
+    // spawn center, spawn area size, spawn area shape
+    SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+    // move direction, speed, move pattern
+    MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+    ParticleEffect particleSystem(sCon, mCon, pCon);
+    
+    particleSystem.Init();
+    particleSystem.Print();
+
+    // Loop until the user closes the window 
+    while (!glfwWindowShouldClose(window))
+    {
+        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            glfwSetWindowShouldClose(window, true);
+
+        // Render here 
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        particleSystem.Draw();
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    particleSystem.Destory();
+
+    glfwTerminate();
     return 0;
 }

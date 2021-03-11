@@ -673,6 +673,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
@@ -681,6 +682,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\utils\Serde.hpp" />
     <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
+    <ClInclude Include="Atom\src\systems\ParticleSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
@@ -702,11 +704,13 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
+    <ClCompile Include="Atom\src\systems\ParticleSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo" />
@@ -770,6 +774,8 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\lib\spdlog\VERSION" />
     <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst" />
     <None Include="Atom\res\ColorRec.shader" />
+    <None Include="Atom\res\Particle.cs.shader" />
+    <None Include="Atom\res\Particle.shader" />
     <None Include="Atom\res\TextureRec.shader" />
     <None Include="Atom\res\optimus_speech.ogg" />
     <None Include="Atom\res\wariyo_mortals.ogg" />

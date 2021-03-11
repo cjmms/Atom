@@ -11,6 +11,7 @@
 #include "core/Shader.hpp"
 #include "core/Event.hpp"
 #include "core/System.hpp"
+#include "ParticleEffect/ParticleEffect.hpp"
 
 class RectangleRenderSystem : public System {
 public:
@@ -46,5 +47,8 @@ private:
 	float worriorTimer;
 	float VampireTimer;
 	float laternTimer;
+
+	// temp solution to init particle effects
+	//std::vector<ParticleEffect> ParticleEffects;
 };
 

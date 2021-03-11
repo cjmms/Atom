@@ -4,6 +4,7 @@
 #include "core/AtomEngine.hpp"
 #include "core/Types.hpp"
 
+
 #include "components/AllComponents.hpp"
 
 
@@ -52,22 +53,20 @@ void RectangleRenderSystem::init() {
 
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
-
-	}
+}
 
 
 void RectangleRenderSystem::update() {
-
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
 		DebugMode = !DebugMode;
 	}
 
 	// draw Background
-	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
+	//draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
 
 	// draw all entities
-	drawEntities(DebugMode);
+	//drawEntities(DebugMode);
 
 	// animation demo
 	//drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
@@ -121,7 +120,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
-	
+	/*
 	ColorRecShader->SetInt("wireframe", wireframe);
 
 	ColorRecShader->SetVec2("pos", pos);
@@ -129,7 +128,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec3("color", color);
 
 	ColorRecShader->SetVec2("cameraPos", CameraPos);
-
+	*/
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
 
@@ -147,6 +146,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	else {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
+	/*
 	TextureRecShader->SetInt("wireframe", wireframe);
 
 	TextureRecShader->SetVec2("pos", pos);
@@ -157,7 +157,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);
 	TextureRecShader->SetTexture("tex", textureID);
-
+	*/
 	TextureRecShader->Bind();
 	glBindVertexArray(RecVAO);
 
