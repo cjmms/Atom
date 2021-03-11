@@ -32,6 +32,7 @@
 #include "systems/ShootSystem.hpp"
 #include "systems/HealthRenderSystem.hpp"
 #include "systems/HealthSystem.hpp"
+#include "systems/ChaseSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -81,6 +82,8 @@ public:
 		registerComponent<HealthComponent>();
 		registerComponent<ShootComponent>();
 		registerComponent<DamageComponent>();
+		registerComponent<AutoShootComponent>();
+		registerComponent<ChasePlayerComponent>();
 
 		// register all systems
 		registerSystem<RectangleRenderSystem>();
@@ -90,6 +93,7 @@ public:
 		registerSystem<DamageSystem>();
 		registerSystem<HealthSystem>();
 		registerSystem<HealthRenderSystem>();
+		registerSystem<ChaseSystem>();
 
 
 		// set archetypes
@@ -131,6 +135,11 @@ public:
 			typeHealthRender.set(getComponentType<HealthComponent>());
 			setSystemArchetype<HealthRenderSystem>(typeHealthRender);
 
+			Archetype typeChase;
+			typeChase.set(getComponentType<TransformComponent>());
+			typeChase.set(getComponentType<ChasePlayerComponent>());
+			typeChase.set(getComponentType<PhysicsBodyComponent>());
+			setSystemArchetype<ChaseSystem>(typeChase);
 
 		}
 		// reinit systems because archetypes changed 
@@ -345,6 +354,8 @@ public:
 		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		serializeComponent<ShootComponent>(j["ShootComponent"], entity);
 		serializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		serializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		serializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -368,6 +379,8 @@ public:
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
 		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		deserializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 	}
 
 	inline float random() {

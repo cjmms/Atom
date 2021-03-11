@@ -23,15 +23,39 @@ void ShootSystem::update()
 		if (ae.hasComponent<ShootComponent>(entity))
 		{
 			auto& shoot = ae.getComponent<ShootComponent>(entity);
+
+			//always enable shoot
+			//todo can write another system for AutoShootComponent for smarter enemy shooting
+			if (ae.hasComponent<AutoShootComponent>(entity))
+			{
+				auto& autoShoot = ae.getComponent<AutoShootComponent>(entity);
+				shoot.isShooting = true;
+				auto& sourceTransform = ae.getComponent<TransformComponent>(entity);
+
+				//todo temp hard code
+				for (auto& entity : mEntities)
+				{
+					if (entity == autoShoot.target)
+					{
+						auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
+						glm::vec3 direction = targetTransform.position - sourceTransform.position;
+						glm::vec3 normDirection = glm::normalize(direction);
+						shoot.direction = atan2(normDirection.y, normDirection.x);
+					}
+				}
+
+			}
+
 			if(shoot.timer > 0)	//cooling down
 				shoot.timer -= frameTime;
 			else if(shoot.isShooting)
 			{
 				shoot.timer += shoot.shootInterval;
 				auto& transform = ae.getComponent<TransformComponent>(entity);
-				float offset = 0.1;	//may need to store in shoot component
-				float bulletX = transform.position.x + cos(shoot.direction) * offset;
-				float bulletY = transform.position.y + sin(shoot.direction) * offset;
+				float offsetX = transform.scale.x;	//may need to store in shoot component
+				float offsetY = transform.scale.y;	//may need to store in shoot component
+				float bulletX = transform.position.x + cos(shoot.direction) * offsetX;
+				float bulletY = transform.position.y + sin(shoot.direction) * offsetY;
 				EntityID bullet = ae.createEntity();
 
 				//todo ser/deser of bullet obj

@@ -11,5 +11,7 @@
 #include "components/HealthComponent.hpp"
 #include "components/ShootComponent.hpp"
 #include "components/DamageComponent.hpp"
+#include "components/AutoShootComponent.hpp"
+#include "components/ChasePlayerComponent.hpp"
 
 #endif 

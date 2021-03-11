@@ -1910,6 +1910,10 @@
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
+    <ClInclude Include="Atom\src\core\UIManager.hpp" />
+    <ClInclude Include="Atom\src\components\AutoShootComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ChasePlayerComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\ChaseSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -1982,6 +1986,7 @@
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">
