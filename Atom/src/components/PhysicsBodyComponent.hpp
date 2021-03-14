@@ -24,6 +24,7 @@ public:
 
 	bool grounded = false;
 	bool staticBody = true;
+	bool isTrigger = false;
 
 public:
 	PhysicsBodyComponent() {};
@@ -33,9 +34,11 @@ public:
 inline void to_json(ordered_json& j, const PhysicsBodyComponent& x) {
 	to_json(j["mass"], x.mass);
 	to_json(j["staticBody"], x.staticBody);
+	to_json(j["isTrigger"], x.isTrigger);
 }
 
 inline void from_json(const ordered_json& j, PhysicsBodyComponent& x) {
 	from_json(j["mass"], x.mass);
 	from_json(j["staticBody"], x.staticBody);
+	from_json(j["isTrigger"], x.isTrigger);
 }

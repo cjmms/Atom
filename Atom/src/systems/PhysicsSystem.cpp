@@ -28,7 +28,7 @@ void playLandSound(Event& e) {
 
 void PhysicsSystem::init()
 {
-	CollisionFunctions[ShapeComponent::ShapeType::AABB][ShapeComponent::ShapeType::AABB] = CheckCollisionAABBAABB;
+	CollisionFunctions[ShapeType::AABB][ShapeType::AABB] = CheckCollisionAABBAABB;
 }
 
 void PhysicsSystem::update()
@@ -80,13 +80,23 @@ void PhysicsSystem::update()
 
 				if (collision)
 				{
-					Event e(EventID::E_COLLISION);
-					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
-					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
-					ae.sendEvent(e);
+					if (body1.isTrigger || body2.isTrigger)
+					{
+						Event e(EventID::E_TRIGGER);
+						e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID1, entity1);
+						e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID2, entity2);
+						ae.sendEvent(e);
+					}
+					else
+					{
+						Event e(EventID::E_COLLISION);
+						e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
+						e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
+						ae.sendEvent(e);
+					}
+
 					//todo may need contact position and direction in future
 				}
-				
 			}
 		}
 
