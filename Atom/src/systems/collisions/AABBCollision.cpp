@@ -162,7 +162,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 		{
 			horizontalCollision(transform1, body1, transform2, body2, halfWidth1, halfWidth2);
 		}
-		else if (timeX > timeY)
+		else if (abs(timeX) < abs(timeY))
 		{
 			//horizontal reach faster
 			//vertical collision
