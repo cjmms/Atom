@@ -1,0 +1,122 @@
+{   "Map" : "map_01.json",
+  "Entities": [
+    {
+      "EntityID": 0,
+      "TagComponent": {
+        "tag": "large player"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 0.5,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.25,
+          "y": 0.25,
+          "z": 0.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.5
+        },
+        "wireframe": false,
+        "texturePath": "Atom/res/orange.png"
+      },
+      "ShapeComponent": {
+        "shapeType": "AABB"
+      },
+      "PhysicsBodyComponent": {
+        "mass": 2.0,
+        "staticBody": false,
+        "isTrigger": false,
+        "frictionless": false
+      },
+      "ShootComponent": {
+        "shootInterval": 0.5
+      },
+      "AutoShootComponent": {
+      },
+      "HealthComponent": {
+        "health": 200,
+        "totalHealth": 200
+      },
+      "ChasePlayerComponent": {
+      },
+      "CharacteristicComponent": {
+        "isBig": false
+      }
+    },
+    {
+      "EntityID": 1,
+      "TagComponent": {
+        "tag": "small player"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": -0.5,
+          "y": -0.3,
+          "z": 1.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.10000000149011612,
+          "y": 0.10000000149011612,
+          "z": 0.10000000149011612
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.800000011920929,
+          "y": 0.8999999761581421,
+          "z": 0.5
+        },
+        "wireframe": false,
+        "texturePath": "Atom/res/yellow.png"
+      },
+      "ShapeComponent": {
+        "shapeType": "AABB"
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": false,
+        "isTrigger": false,
+        "frictionless": false
+      },
+      "ControllerComponent": {
+        "UP": "ATOM_SCANCODE_UP",
+        "DOWN": "ATOM_SCANCODE_DOWN",
+        "LEFT": "ATOM_SCANCODE_LEFT",
+        "RIGHT": "ATOM_SCANCODE_RIGHT",
+        "SWAP_POSITION": "ATOM_SCANCODE_Z",
+        "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+        "ROTLEFT": 67,
+        "ROTRIGHT": 86,
+        "isActive": true
+      },
+      "ShootComponent": {
+        "shootInterval": 0.5
+      },
+      "HealthComponent": {
+        "health": 5000,
+        "totalHealth": 5000
+      },
+      "CharacteristicComponent": {
+        "isBig": false
+      }
+    }
+
+  ]
+  }

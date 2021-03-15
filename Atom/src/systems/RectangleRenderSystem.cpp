@@ -19,7 +19,7 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	setBackground("Atom/res/level_01_background.png");
+	//setBackground("Atom/res/level_01_background.png");
 
 	worriorTimer = glfwGetTime();
 	VampireTimer = glfwGetTime();

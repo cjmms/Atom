@@ -1900,6 +1900,17 @@
       <Filter>src\utils</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
+    <ClInclude Include="Atom\src\components\HealthComponent.hpp" />
+    <ClInclude Include="Atom\src\components\DamageComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
+    <ClInclude Include="Atom\src\core\UIManager.hpp" />
+    <ClInclude Include="Atom\src\components\AutoShootComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ChasePlayerComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\ChaseSystem.hpp" />
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
@@ -1977,6 +1988,11 @@
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp">
       <Filter>src\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />

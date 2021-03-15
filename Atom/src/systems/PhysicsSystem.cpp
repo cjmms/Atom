@@ -195,22 +195,28 @@ void PhysicsSystem::updatePhysicsBody(
 		body.grounded = false;
 	}
 
+	float gravityAcc = body.gravity ? GRAVITY : 0;
+
 	//update acceleration
 	body.accelerationX = body.totalForceX / frameTime / body.mass ;
-	body.accelerationY = body.totalForceY / frameTime / body.mass  - GRAVITY;
+	//body.accelerationY = body.totalForceY / frameTime / body.mass;
+	body.accelerationY = body.totalForceY / frameTime / body.mass  - gravityAcc;
 	//body.accelerationY = body.grounded && body.accelerationY < 0 ? 0 : body.accelerationY;
 
 	//update velocity
 	body.velocityX = body.accelerationX * frameTime + body.velocityX;
 	//apply friction if grounded, assume grounded if prev. Vy == 0
-	if (body.velocityY == 0)
+	//if (body.velocityY == 0)
+	if(!body.frictionless)
 	{
 		//advance phy: friction
 		float frictionCoefficient = 0.3;
-		float frictionSpeed = frictionCoefficient * frameTime * GRAVITY;
+		float frictionSpeed = frictionCoefficient * frameTime * gravityAcc;
 		//reduce speed by friction until speed becomes zero
 		int sign = signbit(body.velocityX) ? -1 : 1;
 		body.velocityX = abs(body.velocityX) > frictionSpeed ? body.velocityX - frictionSpeed * sign : 0;
+		//sign = signbit(body.velocityY) ? -1 : 1;
+		//body.velocityY = abs(body.velocityY) > frictionSpeed ? body.velocityY - frictionSpeed * sign : 0;
 	}
 	
 	//body.velocityX = -1;	//test

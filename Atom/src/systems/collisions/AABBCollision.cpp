@@ -83,7 +83,7 @@ void horizontalCollision(TransformComponent& transform1, PhysicsBodyComponent& b
 bool CheckCollisionAABBAABB(double frameTime,
 	const ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
 	const ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
-    std::list<Contact*>& contacts)
+	std::list<Contact*>& contacts)
 {
 	float left1, right1, top1, bottom1;
 	float left2, right2, top2, bottom2;

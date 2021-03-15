@@ -7,5 +7,7 @@
 void loadResource(unsigned int& id, string filename);
 void unloadResource(unsigned int& id);
 
+void loadResource(Grid& tilemap, string filename);
+void unloadResource(Grid& tilemap);
 
 #endif // !RESOURCELOADER_HPP
