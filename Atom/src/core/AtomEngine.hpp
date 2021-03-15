@@ -415,32 +415,32 @@ public:
 		return (float)dis(gen);
 	}
 
-	inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
-		EntityID tile = createEntity();
-		RectangleComponent rc;
+	//inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
+	//	EntityID tile = createEntity();
+	//	RectangleComponent rc;
 
-		addComponent<TagComponent>(tile, TagComponent{
-			"tile"
-			});
-		addComponent<RectangleComponent>(tile, RectangleComponent{
-			color,
-			false,
-			""
-			});
-		addComponent<TransformComponent>(tile, TransformComponent{
-			pos,
-			glm::vec3{0.0f,0.0f,0.0f},
-			scale,
-			glm::mat4(1)
-			});
-		addComponent<ShapeComponent>(tile, ShapeComponent{
-			ShapeType::AABB
-			});
-		addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
-			1.0f,
-			true
-		});
-	}
+	//	addComponent<TagComponent>(tile, TagComponent{
+	//		"tile"
+	//		});
+	//	addComponent<RectangleComponent>(tile, RectangleComponent{
+	//		color,
+	//		false,
+	//		""
+	//		});
+	//	addComponent<TransformComponent>(tile, TransformComponent{
+	//		pos,
+	//		glm::vec3{0.0f,0.0f,0.0f},
+	//		scale,
+	//		glm::mat4(1)
+	//		});
+	//	addComponent<ShapeComponent>(tile, ShapeComponent{
+	//		ShapeType::AABB
+	//		});
+	//	addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
+	//		1.0f,
+	//		true
+	//	});
+	//}
 
 	// load level
 	inline void load(string filepath) {
@@ -458,33 +458,54 @@ public:
 			inmap >> jm;
 			rows = jm["grid"].size();
 			cols = jm["grid"][0].size();
-			wallid = jm["wall_id"];
+			//wallid = jm["wall_id"];
 			
+			//todo cache map details into <unordered map> for optimzation here
+
+
 			// size normalized to [0,800]
 			tilesize_x = (float)jm["tilesize_x"]*2/SCREEN_WIDTH;
 			tilesize_y = (float)jm["tilesize_y"]*2/SCREEN_HEIGHT; 
 			for (int i = 0; i < rows; ++i) {
 				for (int j = 0; j < cols; ++j) {
-					if (jm["grid"][i][j] == wallid) {
-						createTile(
-							glm::vec3{-1.0f + j * tilesize_x + tilesize_x / 2.0f,
-								1.0f - i * tilesize_y - tilesize_y/2.0f,
-								0.0f },
-							glm::vec3{ random(),random(),random() },
-							glm::vec3{tilesize_x,tilesize_y,0.0f}
-						);
-					}
+					string gridID = jm["grid"][i][j];
+					if (jm[gridID].is_null())
+						continue;
+
+					ordered_json gridDetail = jm[gridID];
+					EntityID entityID;
+					deserializeEntity(gridDetail, entityID);
+					
+					auto& t = getComponent<TransformComponent>(entityID);
+					t.position = glm::vec3{
+						-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+						1.0f - i * tilesize_y - tilesize_y / 2.0f,
+						0.0f 
+					};
+					t.scale = glm::vec3{ 
+						tilesize_x * t.scale.x, 
+						tilesize_y * t.scale.y, 
+						0.0f 
+					};
 				}
 			}
 		}
 
-		// entities
-		if (!j["Entities"].is_null()) {
-			for (auto& entityjson : j["Entities"]) {
-				EntityID entid;
-				deserializeEntity(entityjson, entid);
+		if (!j["characters"].is_null()) {
+			string charloc = j["characters"];
+			std::ifstream inmap(charloc);
+			ordered_json jc;
+			inmap >> jc;
+
+			// entities
+			if (!jc["Entities"].is_null()) {
+				for (auto& entityjson : jc["Entities"]) {
+					EntityID entid;
+					deserializeEntity(entityjson, entid);
+				}
 			}
 		}
+
 		in.close();
 	}
 	// unload level

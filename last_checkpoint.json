@@ -24,9 +24,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.961021363735199,
-                    "y": 0.9701065421104431,
-                    "z": 0.05682854354381561
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -72,9 +72,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.48127859830856323,
-                    "y": 0.6685439348220825,
-                    "z": 0.2842238247394562
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -120,9 +120,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.28062471747398376,
-                    "y": 0.47313106060028076,
-                    "z": 0.12230166047811508
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -168,9 +168,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.8534038066864014,
-                    "y": 0.26861849427223206,
-                    "z": 0.8739789128303528
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -216,9 +216,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.08949924260377884,
-                    "y": 0.6744776964187622,
-                    "z": 0.991570234298706
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -264,9 +264,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.4770126938819885,
-                    "y": 0.44780680537223816,
-                    "z": 0.5260987877845764
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -312,9 +312,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.016846807673573494,
-                    "y": 0.34989887475967407,
-                    "z": 0.17827145755290985
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -360,9 +360,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.9797658324241638,
-                    "y": 0.3595605194568634,
-                    "z": 0.8547142744064331
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -408,9 +408,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.10050523281097412,
-                    "y": 0.2936111092567444,
-                    "z": 0.6951612234115601
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -456,9 +456,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.3617214858531952,
-                    "y": 0.3936398923397064,
-                    "z": 0.22375115752220154
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -504,9 +504,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.32592639327049255,
-                    "y": 0.9026311039924622,
-                    "z": 0.41382548213005066
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -552,9 +552,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.7619916796684265,
-                    "y": 0.2776181697845459,
-                    "z": 0.0030867778696119785
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -600,9 +600,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.6662489175796509,
-                    "y": 0.41763678193092346,
-                    "z": 0.7822843790054321
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -648,9 +648,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.5030534267425537,
-                    "y": 0.03730878606438637,
-                    "z": 0.009887684136629105
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -696,9 +696,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.13837912678718567,
-                    "y": 0.2652775049209595,
-                    "z": 0.5449472069740295
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -744,9 +744,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.012203982099890709,
-                    "y": 0.09147478640079498,
-                    "z": 0.36200547218322754
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -792,9 +792,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.07624270766973495,
-                    "y": 0.2919500470161438,
-                    "z": 0.1659356951713562
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -840,9 +840,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.28133219480514526,
-                    "y": 0.0008830241276882589,
-                    "z": 0.4523138105869293
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -888,9 +888,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.661305844783783,
-                    "y": 0.015731574967503548,
-                    "z": 0.1493295580148697
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -936,9 +936,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.7737060785293579,
-                    "y": 0.2481972873210907,
-                    "z": 0.953057587146759
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -984,9 +984,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.08108673244714737,
-                    "y": 0.9384192824363708,
-                    "z": 0.05054078996181488
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1032,9 +1032,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.6013316512107849,
-                    "y": 0.2165946066379547,
-                    "z": 0.9971620440483093
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1080,9 +1080,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.13965243101119995,
-                    "y": 0.5110386610031128,
-                    "z": 0.9406583905220032
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1128,9 +1128,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.8134072422981262,
-                    "y": 0.8832253217697144,
-                    "z": 0.6925167441368103
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1176,9 +1176,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.13336381316184998,
-                    "y": 0.02102670446038246,
-                    "z": 0.5771277546882629
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1224,9 +1224,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.8312516808509827,
-                    "y": 0.5281446576118469,
-                    "z": 0.889498770236969
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1272,9 +1272,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.7343257069587708,
-                    "y": 0.41110989451408386,
-                    "z": 0.27586978673934937
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1320,9 +1320,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.8388464450836182,
-                    "y": 0.5554142594337463,
-                    "z": 0.687877357006073
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
                 "texturePath": ""
@@ -1345,13 +1345,68 @@
             "SkillBoosterComponent": null
         },
         {
+            "EntityID": 28,
+            "TagComponent": {
+                "tag": "large player"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.1086677610874176,
+                    "y": -0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/orange.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 2.0,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": false
+            },
+            "ControllerComponent": null,
+            "ShootComponent": {
+                "shootInterval": 0.5
+            },
+            "HealthComponent": {
+                "health": 200,
+                "totalHealth": 200
+            },
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": {
+                "isBig": false
+            },
+            "SkillBoosterComponent": null
+        },
+        {
             "EntityID": 29,
             "TagComponent": {
                 "tag": "small player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": -0.5711243152618408,
                     "y": -0.699999988079071,
                     "z": 1.0
                 },
@@ -1399,7 +1454,7 @@
                 "shootInterval": 0.5
             },
             "HealthComponent": {
-                "health": 4500,
+                "health": 3950,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1407,52 +1462,6 @@
             "CharacteristicComponent": {
                 "isBig": false
             },
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 60,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 0.34571796655654907,
-                    "y": -0.1603253185749054,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
             "SkillBoosterComponent": null
         }
     ]

@@ -2193,6 +2193,7 @@
       <Filter>res</Filter>
     </None>
     <None Include="Atom\res\renderText.shader" />
+    <None Include="characters.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg">

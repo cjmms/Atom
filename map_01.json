@@ -1,33 +1,56 @@
 {
-    "mapname" : "map_01.json",
-    "tilesize_x" : 100,
-    "tilesize_y" : 100,
-    "grid" : [
-        [1,1,1,1,1,1,1,1],
-        [1,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,1],
-        [1,0,0,0,0,0,0,1],
-        [1,1,1,1,1,1,1,1]
-    ],
-    "wall_id" : 1,
-    "wall_entity" : {
-        
-      "EntityID": 1,
-      "TagComponent": {
-        "tag": "wall"
+  "mapname": "map_01.json",
+  "tilesize_x": 100,
+  "tilesize_y": 100,
+  "grid": [
+    [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "1", "1", "1", "1", "1", "1", "1" ]
+  ],
+  "1": {
+    "EntityID": 1,
+    "TagComponent": {
+      "tag": "wall"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
       },
-      "TransformComponent": null,
-      "RectangleComponent": null,
-      "ShapeComponent": {
-        "shapeType": "AABB"
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
-      "PhysicsBodyComponent": {
-        "mass": 1.0,
-        "staticBody": true
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
       },
-      "ControllerComponent": null
+      "wireframe": false,
+      "texturePath": "Atom/res/Wall.jpg"
+    },
+    "ShapeComponent": {
+      "shapeType": "AABB"
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": false,
+      "frictionless": false
     }
+  }
 }
