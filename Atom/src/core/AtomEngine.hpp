@@ -97,15 +97,15 @@ public:
 		registerComponent<SkillBoosterComponent>();
 
 		// register all systems
-		registerSystem<RectangleRenderSystem>();
-		registerSystem<PhysicsSystem>();
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
 		registerSystem<DamageSystem>();
 		registerSystem<HealthSystem>();
-		registerSystem<HealthRenderSystem>();
 		registerSystem<ChaseSystem>();
 		registerSystem<SkillSystem>();
+		registerSystem<PhysicsSystem>();
+		registerSystem<RectangleRenderSystem>();
+		registerSystem<HealthRenderSystem>();
 		registerSystem<RenderTextSystem>();
 
 
@@ -445,34 +445,33 @@ public:
 	// load level
 	inline void load(string filepath) {
 		std::ifstream in(filepath);
-		ordered_json j;
-		in >> j;
+		ordered_json json;
+		in >> json;
 		// tilemap
-		if (!j["Map"].is_null()) {
-			string maploc = j["Map"];
+		if (!json["Map"].is_null()) {
+			string maploc = json["Map"];
 			int rows=-1, cols=-1, wallid=-1;
 			float tilesize_x = 0.0f;
 			float tilesize_y = 0.0f;
 			std::ifstream inmap(maploc);
-			ordered_json jm;
-			inmap >> jm;
-			rows = jm["grid"].size();
-			cols = jm["grid"][0].size();
-			//wallid = jm["wall_id"];
+			ordered_json mapJson;
+			inmap >> mapJson;
+			rows = mapJson["grid"].size();
+			cols = mapJson["grid"][0].size();
+			//wallid = mapJson["wall_id"];
 			
 			//todo cache map details into <unordered map> for optimzation here
 
-
 			// size normalized to [0,800]
-			tilesize_x = (float)jm["tilesize_x"]*2/SCREEN_WIDTH;
-			tilesize_y = (float)jm["tilesize_y"]*2/SCREEN_HEIGHT; 
+			tilesize_x = (float)mapJson["tilesize_x"]*2/SCREEN_WIDTH;
+			tilesize_y = (float)mapJson["tilesize_y"]*2/SCREEN_HEIGHT;
 			for (int i = 0; i < rows; ++i) {
 				for (int j = 0; j < cols; ++j) {
-					string gridID = jm["grid"][i][j];
-					if (jm[gridID].is_null())
+					string gridID = mapJson["grid"][i][j];
+					if (json[gridID].is_null())
 						continue;
 
-					ordered_json gridDetail = jm[gridID];
+					ordered_json gridDetail = json[gridID];
 					EntityID entityID;
 					deserializeEntity(gridDetail, entityID);
 					
@@ -491,15 +490,15 @@ public:
 			}
 		}
 
-		if (!j["characters"].is_null()) {
-			string charloc = j["characters"];
+		if (!json["characters"].is_null()) {
+			string charloc = json["characters"];
 			std::ifstream inmap(charloc);
-			ordered_json jc;
-			inmap >> jc;
+			ordered_json characterJson;
+			inmap >> characterJson;
 
 			// entities
-			if (!jc["Entities"].is_null()) {
-				for (auto& entityjson : jc["Entities"]) {
+			if (!characterJson["Entities"].is_null()) {
+				for (auto& entityjson : characterJson["Entities"]) {
 					EntityID entid;
 					deserializeEntity(entityjson, entid);
 				}

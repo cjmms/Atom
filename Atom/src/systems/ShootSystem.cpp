@@ -52,34 +52,43 @@ void ShootSystem::update()
 			{
 				shoot.timer += shoot.shootInterval;
 				auto& transform = ae.getComponent<TransformComponent>(entity);
-				float offsetX = transform.scale.x;	//may need to store in shoot component
-				float offsetY = transform.scale.y;	//may need to store in shoot component
-				float bulletX = transform.position.x + cos(shoot.direction) * offsetX;
-				float bulletY = transform.position.y + sin(shoot.direction) * offsetY;
-				EntityID bullet = ae.createEntity();
 
-				//todo ser/deser of bullet obj
-				ae.addComponent(bullet, RectangleComponent{
-					glm::vec3{1.0f,1.0f,1.0f},
-					false
-					});
+				for (int i = 0; i < shoot.bulletPerShoot; i++)
+				{
+					float shootDirection = shoot.direction;
 
-				ae.addComponent(bullet, ShapeComponent{ShapeType::AABB});
+					//		+   (idx from up/down * angle * odd->down, even->up)
+					shootDirection += (i + 1) / 2 * PI / 12 * (i % 2 == 1 ? -1 : 1);
 
-				auto body = PhysicsBodyComponent(0.01f, false, true, false);
-				float speed = 1.0;
-				body.velocityX = cos(shoot.direction) * speed;
-				body.velocityY = sin(shoot.direction) * speed;
-				ae.addComponent(bullet, body);
+					float offsetX = transform.scale.x * 1.2;	//may need to store in shoot component
+					float offsetY = transform.scale.y * 1.2;	//may need to store in shoot component
+					float bulletX = transform.position.x + cos(shootDirection) * offsetX;
+					float bulletY = transform.position.y + sin(shootDirection) * offsetY;
+					EntityID bullet = ae.createEntity();
 
-				ae.addComponent(bullet, TransformComponent{
-					glm::vec3{bulletX,bulletY, 0.0f}, // position
-					glm::vec3{0.0f,0.0f,0.0f}, // rotation
-					glm::vec3{0.01f,0.01f,1.0f},  // scale 
-					glm::mat4(1.0f)
-					});
+					//todo ser/deser of bullet obj
+					ae.addComponent(bullet, RectangleComponent{
+						glm::vec3{1.0f,1.0f,1.0f},
+						false
+						});
 
-				ae.addComponent(bullet, DamageComponent{50});
+					ae.addComponent(bullet, ShapeComponent{ShapeType::AABB});
+
+					auto body = PhysicsBodyComponent(0.01f, false, true, false);
+					float speed = 1.5;	//todo store bullet speed
+					body.velocityX = cos(shootDirection) * speed;
+					body.velocityY = sin(shootDirection) * speed;
+					ae.addComponent(bullet, body);
+
+					ae.addComponent(bullet, TransformComponent{
+						glm::vec3{bulletX,bulletY, 0.0f}, // position
+						glm::vec3{0.0f,0.0f,0.0f}, // rotation
+						glm::vec3{0.01f,0.01f,1.0f},  // scale 
+						glm::mat4(1.0f)
+						});
+
+					ae.addComponent(bullet, DamageComponent{50, entity});
+				}
 
 			}
 			else

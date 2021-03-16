@@ -40,7 +40,9 @@ using Archetype = std::bitset<MAX_COMPONENTS>;
 enum SkillType
 {
 	DoubleJump,
-	WallJump
+	WallJump,
+	BulletCount,
+	BulletSpeed,
 };
 
 

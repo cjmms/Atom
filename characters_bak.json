@@ -1,6 +1,61 @@
 {
   "Entities": [
     {
+      "EntityID": 0,
+      "TagComponent": {
+        "tag": "large player"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 0.5,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.25,
+          "y": 0.25,
+          "z": 0.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.5
+        },
+        "wireframe": false,
+        "texturePath": "Atom/res/orange.png"
+      },
+      "ShapeComponent": {
+        "shapeType": "AABB"
+      },
+      "PhysicsBodyComponent": {
+        "mass": 2.0,
+        "staticBody": false,
+        "isTrigger": false,
+        "frictionless": false
+      },
+      "ShootComponent": {
+        "shootInterval": 0.5
+      },
+      "AutoShootComponent": {
+      },
+      "HealthComponent": {
+        "health": 200,
+        "totalHealth": 200
+      },
+      "ChasePlayerComponent": {
+      },
+      "CharacteristicComponent": {
+        "isBig": false
+      }
+    },
+    {
       "EntityID": 1,
       "TagComponent": {
         "tag": "small player"
@@ -52,8 +107,7 @@
         "isActive": true
       },
       "ShootComponent": {
-        "shootInterval": 0.3,
-        "bulletPerShoot": 1
+        "shootInterval": 0.5
       },
       "HealthComponent": {
         "health": 5000,

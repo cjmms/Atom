@@ -8,49 +8,8 @@
     [ "1", "0", "0", "0", "0", "0", "0", "1" ],
     [ "1", "0", "0", "0", "0", "0", "0", "1" ],
     [ "1", "0", "0", "0", "0", "0", "0", "1" ],
-    [ "1", "0", "0", "0", "0", "0", "0", "1" ],
+    [ "1", "BS", "0", "DJ","0", "BC","0", "1" ],
     [ "1", "0", "0", "0", "0", "0", "0", "1" ],
     [ "1", "1", "1", "1", "1", "1", "1", "1" ]
-  ],
-  "1": {
-    "EntityID": 1,
-    "TagComponent": {
-      "tag": "wall"
-    },
-    "TransformComponent": {
-      "position": {
-        "x": 1.0,
-        "y": -1.0,
-        "z": 0.0
-      },
-      "rotation": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "scale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-      }
-    },
-    "RectangleComponent": {
-      "color": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-      },
-      "wireframe": false,
-      "texturePath": "Atom/res/Wall.jpg"
-    },
-    "ShapeComponent": {
-      "shapeType": "AABB"
-    },
-    "PhysicsBodyComponent": {
-      "mass": 1.0,
-      "staticBody": true,
-      "isTrigger": false,
-      "frictionless": false
-    }
-  }
+  ]
 }

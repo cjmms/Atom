@@ -74,7 +74,7 @@ public:
 	}
 private:
 	std::unordered_map<const char*, Archetype> mArchetypes{};
-	std::unordered_map<const char*, std::shared_ptr<System>> mSystems{};
+	std::map<const char*, std::shared_ptr<System>> mSystems{};
 };
 
 
