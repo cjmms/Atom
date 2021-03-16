@@ -62,6 +62,47 @@
       "CharacteristicComponent": {
         "isBig": false
       }
+    },
+    {
+      "EntityID": 210,
+      "TagComponent": {
+        "tag": "DeadZone"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 0.0,
+          "y": -10.0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 100.0,
+          "y": 0.800000011920929,
+          "z": 0.800000011920929
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "wireframe": false,
+        "texturePath": ""
+      },
+      "ShapeComponent": {
+        "shapeType": "AABB"
+      },
+      "PhysicsBodyComponent": {
+        "mass": 1.0,
+        "staticBody": true,
+        "isTrigger": false,
+        "frictionless": false
+      }
     }
   ]
 }

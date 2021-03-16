@@ -87,6 +87,51 @@
       "skillType": "DoubleJump"
     }
   },
+  "WJ": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "Skill"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.3,
+        "y": 0.3,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/wall_jump.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false
+    },
+    "ControllerComponent": null,
+    "SkillBoosterComponent": {
+      "skillType": "WallJump"
+    }
+  },
   "BC": {
     "EntityID": 0,
     "TagComponent": {
