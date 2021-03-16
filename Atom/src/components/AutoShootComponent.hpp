@@ -14,7 +14,7 @@
 class AutoShootComponent {
 public:
     //todo hard coded value, should be retrieved by gameobject manager(etc)
-    EntityID target = 29;
+    EntityID target = 36;
 };
 
 inline void to_json(ordered_json& j, const AutoShootComponent& x) {

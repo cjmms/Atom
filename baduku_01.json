@@ -39,9 +39,66 @@
       "mass": 1.0,
       "staticBody": true,
       "isTrigger": false,
-      "frictionless": false
+      "frictionless": false,
+      "gravity": true
     }
   },
+
+  "E1": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "enemy"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.75,
+        "y": 0.75,
+        "z": 0.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/orange.png"
+    },
+    "ShapeComponent": {
+      "shapeType": "AABB"
+    },
+    "PhysicsBodyComponent": {
+      "mass": 2.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "ShootComponent": {
+      "shootInterval": 3,
+      "bulletPerShoot": 5
+    },
+    "AutoShootComponent": {
+    },
+    "HealthComponent": {
+      "health": 200,
+      "totalHealth": 200
+    },
+    "ChasePlayerComponent": {
+    }
+  },
+
   "DJ": {
     "EntityID": 0,
     "TagComponent": {
@@ -80,7 +137,8 @@
       "mass": 1.0,
       "staticBody": true,
       "isTrigger": true,
-      "frictionless": false
+      "frictionless": false,
+      "gravity": true
     },
     "ControllerComponent": null,
     "SkillBoosterComponent": {
@@ -125,7 +183,8 @@
       "mass": 1.0,
       "staticBody": true,
       "isTrigger": true,
-      "frictionless": false
+      "frictionless": false,
+      "gravity": true
     },
     "ControllerComponent": null,
     "SkillBoosterComponent": {
@@ -170,7 +229,8 @@
       "mass": 1.0,
       "staticBody": true,
       "isTrigger": true,
-      "frictionless": false
+      "frictionless": false,
+      "gravity": true
     },
     "ControllerComponent": null,
     "SkillBoosterComponent": {
@@ -215,7 +275,8 @@
       "mass": 1.0,
       "staticBody": true,
       "isTrigger": true,
-      "frictionless": false
+      "frictionless": false,
+      "gravity": true
     },
     "ControllerComponent": null,
     "SkillBoosterComponent": {

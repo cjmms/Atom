@@ -39,8 +39,16 @@ void ShootSystem::update()
 					{
 						auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
 						glm::vec3 direction = targetTransform.position - sourceTransform.position;
+
+						if (glm::length(direction) > 5.0)
+						{
+							shoot.isShooting = false;
+							break;
+						}
+
 						glm::vec3 normDirection = glm::normalize(direction);
 						shoot.direction = atan2(normDirection.y, normDirection.x);
+
 					}
 				}
 

@@ -22,6 +22,10 @@ void ChaseSystem::update()
 			auto& sourceTransform = ae.getComponent<TransformComponent>(entity);
 			auto& targetTransform = ae.getComponent<TransformComponent>(chasePlayer.target);
 			glm::vec3 direction = targetTransform.position - sourceTransform.position;
+			
+			if (glm::length(direction) > 5.0)
+				continue;
+			
 			glm::vec3 normDirection = glm::normalize(direction);
 			auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
 			body.velocityX = normDirection.x * chasePlayer.speed;

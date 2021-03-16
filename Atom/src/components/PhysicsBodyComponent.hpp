@@ -39,6 +39,7 @@ inline void to_json(ordered_json& j, const PhysicsBodyComponent& x) {
 	to_json(j["staticBody"], x.staticBody);
 	to_json(j["isTrigger"], x.isTrigger);
 	to_json(j["frictionless"], x.frictionless);
+	to_json(j["gravity"], x.gravity);
 }
 
 inline void from_json(const ordered_json& j, PhysicsBodyComponent& x) {
@@ -46,4 +47,5 @@ inline void from_json(const ordered_json& j, PhysicsBodyComponent& x) {
 	from_json(j["staticBody"], x.staticBody);
 	from_json(j["isTrigger"], x.isTrigger);
 	from_json(j["frictionless"], x.frictionless);
+	from_json(j["gravity"], x.gravity);
 }

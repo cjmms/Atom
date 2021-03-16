@@ -13,7 +13,7 @@
 class ChasePlayerComponent {
 public:
     //todo hard coded value, should be retrieved by gameobject manager, serialization(etc)
-    EntityID target = 29;
+    EntityID target = 36;
     float distance = 3; //start chasing at certain distance
     float speed = 0.3;
 };

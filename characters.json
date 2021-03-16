@@ -38,7 +38,8 @@
         "mass": 1.0,
         "staticBody": false,
         "isTrigger": false,
-        "frictionless": false
+        "frictionless": false,
+        "gravity": true
       },
       "ControllerComponent": {
         "UP": "ATOM_SCANCODE_UP",
@@ -101,7 +102,8 @@
         "mass": 1.0,
         "staticBody": true,
         "isTrigger": false,
-        "frictionless": false
+        "frictionless": false,
+        "gravity": true
       }
     }
   ]
