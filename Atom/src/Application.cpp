@@ -23,6 +23,8 @@ AtomEngine ae;
 #include "systems/RectangleRenderSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
 #include "systems/ControllerSystem.hpp"
+#include "systems/RenderTextSystem.hpp"
+#include "systems/SkillSystem.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
@@ -186,11 +188,15 @@ int main(int argc, char** argv){
     ae.registerComponent<PhysicsBodyComponent>();
     ae.registerComponent<ShapeComponent>();
     ae.registerComponent<ControllerComponent>();
+    ae.registerComponent<CharacteristicComponent>();
+    ae.registerComponent<SkillBoosterComponent>();
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
     ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<RenderTextSystem>();
+    ae.registerSystem<SkillSystem>();
 	
 
     // set archetypes
@@ -210,7 +216,13 @@ int main(int argc, char** argv){
         typeController.set(ae.getComponentType<ControllerComponent>());
         typeController.set(ae.getComponentType<PhysicsBodyComponent>());
         typeController.set(ae.getComponentType<TransformComponent>());
+        typeController.set(ae.getComponentType<CharacteristicComponent>());
         ae.setSystemArchetype<ControllerSystem>(typeController);
+
+        Archetype typeSkill;
+        typeSkill.set(ae.getComponentType<SkillBoosterComponent>());
+        ae.setSystemArchetype<SkillSystem>(typeSkill);
+
     }
     
     // need to initialize systems again because systems got updated above
@@ -223,8 +235,8 @@ int main(int argc, char** argv){
     
     ae.load("level_01.json");
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.01f);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.1f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.00f);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
 
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
@@ -249,6 +261,9 @@ int main(int argc, char** argv){
         ae.mEventManager->update();
         ae.mSystemManager->update();
 
+        //Testing for rendering Text
+        //ae.mSystemManager->getSystem<RenderTextSystem>()->displayText("This is sample text", 0.0f, 0.0f, 10.0f, glm::vec3(0.5, 0.8f, 0.2f));
+
         // Code Below should be sth like: ae.mUIManager->update() 
         // Or a UI system that will be updated inside mSystemManager->update()
         //-----------------------------------------------------------------------------------
@@ -259,8 +274,8 @@ int main(int argc, char** argv){
 
         // render your GUI
         ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-        static float musicVolumedB = 0.05f;
-        static float sfxVolumedB = 0.2f; 
+        static float musicVolumedB = 0.00f;
+        static float sfxVolumedB = 0.0f; 
         static float listenerXOffset = 0.0f;
         static float listenerYOffset = 0.0f;
         static float listenerOffset[] = { 0.0f,0.0f };
@@ -299,7 +314,7 @@ int main(int argc, char** argv){
         ae.endFrame();
 
         // disabled, becasue when player jumps, it collides with visulizer
-        audioReact();
+        //audioReact();
         //makeSingleRectangle();
         fpsCounter();
     }

@@ -3,8 +3,11 @@
 #include "utils/Log.hpp"
 #include "core/AtomEngine.hpp"
 #include "core/Types.hpp"
-
+#include "core/AtomEngine.hpp"
 #include "components/AllComponents.hpp"
+
+//Temp
+#include "ControllerSystem.hpp"
 
 
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
@@ -22,7 +25,7 @@ void RectangleRenderSystem::init() {
 	VampireTimer = glfwGetTime();
 	laternTimer = glfwGetTime();
 
-	CameraPos = glm::vec2(0.0f);
+	//CameraPos = ae.mCameraManager->camera.position;
 
 	// init shaders
 	ColorRecShader = std::make_unique<Shader> ("Atom/res/ColorRec.shader");
@@ -63,8 +66,10 @@ void RectangleRenderSystem::update() {
 		DebugMode = !DebugMode;
 	}
 
-	// draw Background
-	draw(glm::vec2(0.0,0.0), glm::vec2(2.0f), BackgroundAddress);
+	// draw Background 
+	// Temp - moving background
+	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
+	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
 	// draw all entities
 	drawEntities(DebugMode);
@@ -128,7 +133,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);
 
-	ColorRecShader->SetVec2("cameraPos", CameraPos);
+	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
 
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
@@ -152,7 +157,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
 
-	TextureRecShader->SetVec2("cameraPos", CameraPos);
+	TextureRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
 
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);

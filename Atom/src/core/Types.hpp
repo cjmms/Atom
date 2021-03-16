@@ -36,6 +36,20 @@ using ComponentID = std::uint8_t;
 const ComponentID MAX_COMPONENTS = 32;
 using Archetype = std::bitset<MAX_COMPONENTS>;
 
+// SKILLS
+enum SkillType
+{
+	DoubleJump,
+	WallJump
+};
+
+
+// PHYSICS
+enum ShapeType {
+	AABB,
+	NUM
+};
+
 // AUDIO
 using ChannelMap = std::map<unsigned int, FMOD::Channel*>;
 using SoundMap = std::map<string, FMOD::Sound*>;
@@ -113,6 +127,9 @@ enum EventID {
 	E_COLLISION,
 		P_COLLISION_ENTITYID1,
 		P_COLLISION_ENTITYID2,
+	E_TRIGGER,
+		P_TRIGGER_ENTITYID1,
+		P_TRIGGER_ENTITYID2,
 	EP_TOTAL
 };
 
