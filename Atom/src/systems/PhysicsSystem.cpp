@@ -97,6 +97,7 @@ void PhysicsSystem::update()
 
 					//todo may need contact position and direction in future
 				}
+
 			}
 		}
 
