@@ -18,6 +18,26 @@ extern ChannelID sfxChannelID;
 
 extern string sfxJump;
 extern string sfxLand;
+extern string sfxBullet;
+
+void playBulletSound() {
+	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
+}
+
+
+float lerp(float a, float b, float t, float lo, float hi) {
+	if (lo == hi) {
+		return a;
+	}
+	t = (t - lo) / (hi - lo);
+	float res = a * (1 - t) + b * (t);
+	return res;
+}
+
+float camera_fade_time = 0.3f;
+glm::vec2 target_position;
+glm::vec2 current_position;
+
 
 void playJumpSound(Event& e) {
 
@@ -28,8 +48,12 @@ void ControllerSystem::init()
 	ae.addEventListener(EventID::E_AUDIO_PLAY, [this](Event& e) {this->onEvent(e); });
 	ae.addEventListener(EventID::E_COLLISION, [this](Event& e) {this->onEvent(e);});
 
-	shouldFollow = false;
+	shouldFollow = true;
 }
+
+
+
+// current pos -> target pos - 1s
 
 void ControllerSystem::update()
 {
@@ -55,11 +79,20 @@ void ControllerSystem::update()
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
 	auto& playerCharecterstic = ae.getComponent<CharacteristicComponent>(activeEntity);
+	auto& transformComponent = ae.getComponent<TransformComponent>(activeEntity);
+
+
+	glm::vec2 target_position = glm::vec2{ transformComponent.position.x,transformComponent.position.y };
 
 	//Setting Camera - Follow active entity
 	if (shouldFollow)
 	{
-		ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
+
+		float x = lerp(ae.mCameraManager->getPosition().x, target_position.x, ae.dt, 0.0f, camera_fade_time);
+		float y = lerp(ae.mCameraManager->getPosition().y, target_position.y, ae.dt, 0.0f, camera_fade_time);
+		//float x = transformComponent.position.x;
+		//float y = transformComponent.position.y;
+		ae.mCameraManager->setPosition(glm::vec2{x,y});
 		playerPosition = glm::vec2(body.prevPositionX, body.prevPositionY);
 	}
 
@@ -258,6 +291,7 @@ void ControllerSystem::update()
 				//ATOM_INFO("direction: {}", body.direction);
 
 				shoot.isShooting = true;
+				playBulletSound();
 			}
 			else
 			{

@@ -3,10 +3,19 @@
 #include "Pch.hpp"
 #include "utils/Log.hpp"
 #include "GraphicsManager.hpp"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 // callback function for window resizing, hidden from any other files
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
+	glViewport(0, 0, width, height);
+}
+
+void windowResizeCallback(GLFWwindow* window, int width, int height)
+{
+	glfwSetWindowSize(window, (int)width, (int)height);
 	glViewport(0, 0, width, height);
 }
 
@@ -39,7 +48,8 @@ void GraphicsManager::init() {
 	}
 
 	// when window size changes, object scales properly
-	glfwSetFramebufferSizeCallback(mWindow, framebuffer_size_callback);
+	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
+	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -49,10 +59,8 @@ void GraphicsManager::init() {
 
 void GraphicsManager::update()
 {
-	int display_w, display_h;
-	glfwGetFramebufferSize(mWindow, &display_w, &display_h);
-	glViewport(0, 0, display_w, display_h);
-	glfwSwapBuffers(mWindow);
+
+
 }
 
 
