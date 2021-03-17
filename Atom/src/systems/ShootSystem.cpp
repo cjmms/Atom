@@ -74,6 +74,8 @@ void ShootSystem::update()
 					float bulletY = transform.position.y + sin(shootDirection) * offsetY;
 					EntityID bullet = ae.createEntity();
 
+					ae.addComponent(bullet, BulletComponent());
+
 					//todo ser/deser of bullet obj
 					ae.addComponent(bullet, RectangleComponent{
 						glm::vec3{1.0f,1.0f,1.0f},

@@ -45,58 +45,60 @@ void PhysicsSystem::update()
 		EntityID entity1 = *itr;
 
 		//component check
-		if (!hasRequiredComponents(entity1))
+		//if (!hasRequiredComponents(entity1))
+		//	continue;
+
+		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
+		//skip static body, !assume it is always static
+		if (body1.staticBody)
 			continue;
 
 		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
 		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
-		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
-		
 
 		bool previousGrounded = body1.grounded;
 
-		//skip static body, !assume it is always static
-		if (!body1.staticBody)
-		{
-			//update physics bodies (f, a, v, p)
-			updatePhysicsBody(body1, transform1, frameTime);
+		//update physics bodies (f, a, v, p)
+		updatePhysicsBody(body1, transform1, frameTime);
 
-			//collision checking loop
-			for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
-				EntityID entity2 = *itr2;
-				if (entity1 == entity2)
-					continue;
+		//collision checking loop
+		for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
+			EntityID entity2 = *itr2;
+			if (entity1 == entity2)
+				continue;
 
-				//component check
-				if (!hasRequiredComponents(entity1))
-					continue;
-				
-				auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
-				auto& transform2 = ae.getComponent<TransformComponent>(entity2);
-				auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
+			if (ae.hasComponent<BulletComponent>(entity2))
+				continue;
 
-				//collision detection based on shapes
-				bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+			//component check
+			//if (!hasRequiredComponents(entity1))
+			//	continue;
+			
+			auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
+			auto& transform2 = ae.getComponent<TransformComponent>(entity2);
+			auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
 
-				if (collision)
+			//collision detection based on shapes
+			bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+
+			if (collision)
+			{
+				if (body1.isTrigger || body2.isTrigger)
 				{
-					if (body1.isTrigger || body2.isTrigger)
-					{
-						Event e(EventID::E_TRIGGER);
-						e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID1, entity1);
-						e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID2, entity2);
-						ae.sendEvent(e);
-					}
-					else
-					{
-						Event e(EventID::E_COLLISION);
-						e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
-						e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
-						ae.sendEvent(e);
-					}
-
-					//todo may need contact position and direction in future
+					Event e(EventID::E_TRIGGER);
+					e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID1, entity1);
+					e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID2, entity2);
+					ae.sendEvent(e);
 				}
+				else
+				{
+					Event e(EventID::E_COLLISION);
+					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
+					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
+					ae.sendEvent(e);
+				}
+
+				//todo may need contact position and direction in future
 			}
 		}
 
@@ -170,16 +172,16 @@ bool PhysicsSystem::CollisionDetection(
 		contacts);
 }
 
-bool PhysicsSystem::hasRequiredComponents(EntityID entity)
-{
-	if (!ae.hasComponent<ShapeComponent>(entity))
-		return false;
-	if (!ae.hasComponent<TransformComponent>(entity))
-		return false;
-	if (!ae.hasComponent<PhysicsBodyComponent>(entity))
-		return false;
-	return true;
-}
+//bool PhysicsSystem::hasRequiredComponents(EntityID entity)
+//{
+//	if (!ae.hasComponent<ShapeComponent>(entity))
+//		return false;
+//	if (!ae.hasComponent<TransformComponent>(entity))
+//		return false;
+//	if (!ae.hasComponent<PhysicsBodyComponent>(entity))
+//		return false;
+//	return true;
+//}
 
 void PhysicsSystem::updatePhysicsBody(
 	PhysicsBodyComponent& body,

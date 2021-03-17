@@ -15,5 +15,6 @@
 #include "components/ChasePlayerComponent.hpp"
 #include "components/RenderTextComponent.hpp"
 #include "components/SkillBoosterComponent.hpp"
+#include "components/BulletComponent.hpp"
 
 #endif 

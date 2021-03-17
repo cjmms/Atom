@@ -95,6 +95,7 @@ public:
 		registerComponent<ChasePlayerComponent>();
 		registerComponent<CharacteristicComponent>();
 		registerComponent<SkillBoosterComponent>();
+		registerComponent<BulletComponent>();
 
 		// register all systems
 		registerSystem<ControllerSystem>();
@@ -486,6 +487,15 @@ public:
 						tilesize_y * t.scale.y, 
 						0.0f 
 					};
+
+					if (hasComponent<PhysicsBodyComponent>(entityID))
+					{
+						auto& p = getComponent<PhysicsBodyComponent>(entityID);
+						p.prevPositionX = t.position.x;
+						p.prevPositionY = t.position.y;
+						p.prevScaleX = t.scale.x;
+						p.prevScaleY = t.scale.y;
+					}
 				}
 			}
 		}

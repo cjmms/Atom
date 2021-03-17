@@ -1920,6 +1920,7 @@
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\core\LevelManager.hpp" />
+    <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
