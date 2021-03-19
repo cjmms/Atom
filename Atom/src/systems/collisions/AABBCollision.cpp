@@ -81,9 +81,9 @@ void horizontalCollision(TransformComponent& transform1, PhysicsBodyComponent& b
 }
 
 bool CheckCollisionAABBAABB(double frameTime,
-	const ShapeComponent::ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
-	const ShapeComponent::ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
-    std::list<Contact*>& contacts)
+	const ShapeType shapeType1, TransformComponent& transform1, PhysicsBodyComponent& body1,
+	const ShapeType shapeType2, TransformComponent& transform2, PhysicsBodyComponent& body2,
+	std::list<Contact*>& contacts)
 {
 	float left1, right1, top1, bottom1;
 	float left2, right2, top2, bottom2;
@@ -106,7 +106,9 @@ bool CheckCollisionAABBAABB(double frameTime,
 		|| top1 + EPSILON < bottom2 || top2 + EPSILON < bottom1)
 		return false;
 
-	
+	if (body1.isTrigger || body2.isTrigger)
+		return true;
+
 	//time to collide along asix
 	float distX, distY;
 	float timeX, timeY;
@@ -152,7 +154,15 @@ bool CheckCollisionAABBAABB(double frameTime,
 		distX = abs(transform1.position.x - transform2.position.x) - halfWidth1 - halfWidth2;
 		timeX = body1.velocityX == 0 ? 0 : distX / body1.velocityX;
 
-		if (timeX < timeY)
+		if (timeY == 0)
+		{
+			verticalCollision(transform1, body1, transform2, body2, halfHeight1, halfHeight2);
+		}
+		else if (timeX == 0)
+		{
+			horizontalCollision(transform1, body1, transform2, body2, halfWidth1, halfWidth2);
+		}
+		else if (abs(timeX) < abs(timeY))
 		{
 			//horizontal reach faster
 			//vertical collision

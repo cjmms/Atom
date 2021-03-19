@@ -28,7 +28,7 @@ void playLandSound(Event& e) {
 
 void PhysicsSystem::init()
 {
-	CollisionFunctions[ShapeComponent::ShapeType::AABB][ShapeComponent::ShapeType::AABB] = CheckCollisionAABBAABB;
+	CollisionFunctions[ShapeType::AABB][ShapeType::AABB] = CheckCollisionAABBAABB;
 }
 
 void PhysicsSystem::update()
@@ -45,48 +45,60 @@ void PhysicsSystem::update()
 		EntityID entity1 = *itr;
 
 		//component check
-		if (!hasRequiredComponents(entity1))
+		//if (!hasRequiredComponents(entity1))
+		//	continue;
+
+		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
+		//skip static body, !assume it is always static
+		if (body1.staticBody)
 			continue;
 
 		auto& shape1 = ae.getComponent<ShapeComponent>(entity1);
 		auto& transform1 = ae.getComponent<TransformComponent>(entity1);
-		auto& body1 = ae.getComponent<PhysicsBodyComponent>(entity1);
-		
 
 		bool previousGrounded = body1.grounded;
 
-		//skip static body, !assume it is always static
-		if (!body1.staticBody)
-		{
-			//update physics bodies (f, a, v, p)
-			updatePhysicsBody(body1, transform1, frameTime);
+		//update physics bodies (f, a, v, p)
+		updatePhysicsBody(body1, transform1, frameTime);
 
-			//collision checking loop
-			for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
-				EntityID entity2 = *itr2;
-				if (entity1 == entity2)
-					continue;
+		//collision checking loop
+		for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {
+			EntityID entity2 = *itr2;
+			if (entity1 == entity2)
+				continue;
 
-				//component check
-				if (!hasRequiredComponents(entity1))
-					continue;
-				
-				auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
-				auto& transform2 = ae.getComponent<TransformComponent>(entity2);
-				auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
+			if (ae.hasComponent<BulletComponent>(entity2))
+				continue;
 
-				//collision detection based on shapes
-				bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+			//component check
+			//if (!hasRequiredComponents(entity1))
+			//	continue;
+			
+			auto& shape2 = ae.getComponent<ShapeComponent>(entity2);
+			auto& transform2 = ae.getComponent<TransformComponent>(entity2);
+			auto& body2 = ae.getComponent<PhysicsBodyComponent>(entity2);
 
-				if (collision)
+			//collision detection based on shapes
+			bool collision = CollisionDetection(shape1, transform1, body1, shape2, transform2, body2);
+
+			if (collision)
+			{
+				if (body1.isTrigger || body2.isTrigger)
+				{
+					Event e(EventID::E_TRIGGER);
+					e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID1, entity1);
+					e.setParam<EntityID>(EventID::P_TRIGGER_ENTITYID2, entity2);
+					ae.sendEvent(e);
+				}
+				else
 				{
 					Event e(EventID::E_COLLISION);
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID1, entity1);
 					e.setParam<EntityID>(EventID::P_COLLISION_ENTITYID2, entity2);
 					ae.sendEvent(e);
-					//todo may need contact position and direction in future
 				}
-				
+
+				//todo may need contact position and direction in future
 			}
 		}
 
@@ -160,16 +172,16 @@ bool PhysicsSystem::CollisionDetection(
 		contacts);
 }
 
-bool PhysicsSystem::hasRequiredComponents(EntityID entity)
-{
-	if (!ae.hasComponent<ShapeComponent>(entity))
-		return false;
-	if (!ae.hasComponent<TransformComponent>(entity))
-		return false;
-	if (!ae.hasComponent<PhysicsBodyComponent>(entity))
-		return false;
-	return true;
-}
+//bool PhysicsSystem::hasRequiredComponents(EntityID entity)
+//{
+//	if (!ae.hasComponent<ShapeComponent>(entity))
+//		return false;
+//	if (!ae.hasComponent<TransformComponent>(entity))
+//		return false;
+//	if (!ae.hasComponent<PhysicsBodyComponent>(entity))
+//		return false;
+//	return true;
+//}
 
 void PhysicsSystem::updatePhysicsBody(
 	PhysicsBodyComponent& body,
@@ -185,22 +197,28 @@ void PhysicsSystem::updatePhysicsBody(
 		body.grounded = false;
 	}
 
+	float gravityAcc = body.gravity ? GRAVITY : 0;
+
 	//update acceleration
 	body.accelerationX = body.totalForceX / frameTime / body.mass ;
-	body.accelerationY = body.totalForceY / frameTime / body.mass  - GRAVITY;
+	//body.accelerationY = body.totalForceY / frameTime / body.mass;
+	body.accelerationY = body.totalForceY / frameTime / body.mass  - gravityAcc;
 	//body.accelerationY = body.grounded && body.accelerationY < 0 ? 0 : body.accelerationY;
 
 	//update velocity
 	body.velocityX = body.accelerationX * frameTime + body.velocityX;
 	//apply friction if grounded, assume grounded if prev. Vy == 0
-	if (body.velocityY == 0)
+	//if (body.velocityY == 0)
+	if(!body.frictionless)
 	{
 		//advance phy: friction
 		float frictionCoefficient = 0.3;
-		float frictionSpeed = frictionCoefficient * frameTime * GRAVITY;
+		float frictionSpeed = frictionCoefficient * frameTime * gravityAcc;
 		//reduce speed by friction until speed becomes zero
 		int sign = signbit(body.velocityX) ? -1 : 1;
 		body.velocityX = abs(body.velocityX) > frictionSpeed ? body.velocityX - frictionSpeed * sign : 0;
+		//sign = signbit(body.velocityY) ? -1 : 1;
+		//body.velocityY = abs(body.velocityY) > frictionSpeed ? body.velocityY - frictionSpeed * sign : 0;
 	}
 	
 	//body.velocityX = -1;	//test

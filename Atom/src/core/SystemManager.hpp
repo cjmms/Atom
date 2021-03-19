@@ -19,8 +19,8 @@ public:
 		const char* typeName = typeid(T).name();
 		assert(mSystems.find(typeName) == mSystems.end() && "Registering system more than once.");
 		auto system = std::make_shared<T>();
-		//mSystems.insert({ typeName, system });
 		mSystems[typeName] = system;
+		mOrderedSystems.push_back(std::make_pair(typeName, system));
 		return system;
 	}
 
@@ -53,18 +53,19 @@ public:
 		}
 	}
 	void init() {
-		for (auto& sysPair : mSystems) {
-			sysPair.second->init();
+		for (auto& system : mOrderedSystems) {
+			system.second->init();
 		}
 	}
 	void update() {
-		for (auto& sysPair : mSystems) {
-			sysPair.second->update();
+		for (auto& system : mOrderedSystems) {
+			ATOM_INFO(system.first);
+			system.second->update();
 		}
 	}
 	void onEvent(Event& e) {
-		for (auto& sysPair : mSystems) {
-			sysPair.second->onEvent(e);
+		for (auto& system : mOrderedSystems) {
+			system.second->onEvent(e);
 		}
 	}
 	template <typename T>
@@ -76,6 +77,7 @@ public:
 private:
 	std::unordered_map<const char*, Archetype> mArchetypes{};
 	std::unordered_map<const char*, std::shared_ptr<System>> mSystems{};
+	std::vector<std::pair< const char*, std::shared_ptr<System >> > mOrderedSystems{};
 };
 
 

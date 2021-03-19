@@ -30,7 +30,7 @@ private:
 	static std::shared_ptr<spdlog::logger> mLogger;
 };
 
-#ifndef SILENT
+#ifdef DEBUG
 	#define ATOM_ERROR(...)	Log::getLogger()->error(__VA_ARGS__);
 	#define ATOM_WARN(...)	Log::getLogger()->warn(__VA_ARGS__);
 	#define ATOM_INFO(...)	Log::getLogger()->info(__VA_ARGS__);
@@ -38,7 +38,7 @@ private:
 #endif
 
 
-#ifdef SILENT
+#ifndef DEBUG
 	#define ATOM_ERROR(...)
 	#define ATOM_WARN(...)
 	#define ATOM_INFO(...)

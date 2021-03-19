@@ -20,7 +20,7 @@ void LevelManager::update()
 	{
 		restartLevel = false;
 		ae.unload();
-		ae.load("level_01.json");
+		ae.load("baduku_01.json");
 	}
 }
 
