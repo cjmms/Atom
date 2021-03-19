@@ -36,12 +36,21 @@ using ComponentID = std::uint8_t;
 const ComponentID MAX_COMPONENTS = 32;
 using Archetype = std::bitset<MAX_COMPONENTS>;
 
+// SKILLS
+enum SkillType
+{
+	DoubleJump,
+	WallJump,
+	BulletCount,
+	BulletSpeed,
+};
+
+
 // PHYSICS
-enum ShapeType{
+enum ShapeType {
 	AABB,
 	NUM
 };
-
 
 // TILEMAP
 class Gridnode {
@@ -132,10 +141,12 @@ enum EventID {
 		P_AUDIO_PLAY_AUDIOLOC,
 		P_AUDIO_PLAY_CHANNELGROUP,
 		P_AUDIO_PLAY_VOLUMEDB,
-	// COLLISION EVENTS
 	E_COLLISION,
 		P_COLLISION_ENTITYID1,
 		P_COLLISION_ENTITYID2,
+	E_TRIGGER,
+		P_TRIGGER_ENTITYID1,
+		P_TRIGGER_ENTITYID2,
 	EP_TOTAL
 };
 

@@ -20,7 +20,8 @@ void HealthSystem::update()
 		if (ae.hasComponent<HealthComponent>(entity))
 		{
 			auto& health = ae.getComponent<HealthComponent>(entity);
-			if (health.health <= 0)
+			//todo temp ae.getComponent<ControllerComponent>(entity), need restart game logic here
+			if (health.health <= 0 && !ae.hasComponent<ControllerComponent>(entity))
 			{
 				destroyList.push_back(entity);
 			}

@@ -68,6 +68,12 @@ void DamageSystem::onEvent(Event& e)
 		return;
 
 	auto& damage = ae.getComponent<DamageComponent>(bullet);
+	
+	////ignore self-damage
+	////todo may need to ignore collision also
+	//if (damage.ownerID == target)
+	//	return;
+	
 	if (ae.hasComponent<HealthComponent>(target))
 	{
 		auto& health = ae.getComponent<HealthComponent>(target);

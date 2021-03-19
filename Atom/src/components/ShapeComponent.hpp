@@ -15,7 +15,6 @@ inline void to_json(ordered_json& j, const ShapeComponent& x) {
 	to_json(j["shapeType"], x.shapeType);
 }
 
-//todo gerald any better way to do enum deserialization?
 inline void from_json(const ordered_json& j, ShapeComponent& x) {
 	from_json(j["shapeType"], x.shapeType);
 }

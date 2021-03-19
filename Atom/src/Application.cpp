@@ -15,10 +15,6 @@
 // THE ENGINE
 AtomEngine ae;
 
-// use GPU 
-//extern "C" {
-//    _declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
-//}
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -82,6 +78,7 @@ string sfxTrack = "Atom/res/optimus_speech.ogg";
 
 string sfxJump = "Atom/res/EllenFootstepJump.ogg";
 string sfxLand = "Atom/res/EllenFootstepLand.ogg";
+string sfxBullet = "Atom/res/bullet-retro-gun-shot.mp3";
 
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
@@ -103,8 +100,7 @@ void uiDraw() {
         ImGui::Begin(
             "ATOM AUDIO CONTROL PANEL",
             0,
-            ImGuiWindowFlags_NoCollapse |
-            ImGuiWindowFlags_NoResize
+            ImGuiWindowFlags_NoCollapse
         );
         ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
         ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
@@ -140,6 +136,7 @@ void start() {
     ae.loadSound(sfxTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
+    ae.loadSound(sfxBullet);
 
     ae.load("baduku_01.json");
 

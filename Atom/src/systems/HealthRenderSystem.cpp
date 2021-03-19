@@ -71,8 +71,9 @@ void HealthRenderSystem::drawEntities()
 		glm::vec2 position = glm::vec2(t.position.x + h.offsetX,t.position.y + h.offsetY + t.scale.y/2.0f);
 		glm::vec2 size = glm::vec2(h.width * h.health / h.totalHealth, h.height);
 
-		draw(position, glm::vec2{h.width,h.height}, whiteColor);
-		draw(glm::vec2{position.x-(h.width-size.x),position.y}, size, redColor);
+		draw(position, glm::vec2{h.width, h.height}, whiteColor);
+		float offsetX = (h.width - size.x) / 2.0;
+		draw(glm::vec2{position.x-offsetX,position.y}, size, redColor);
 
 	}
 }
@@ -87,7 +88,7 @@ void HealthRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) c
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);
 
-	ColorRecShader->SetVec2("cameraPos", CameraPos);
+	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->getPosition());
 
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);

@@ -22,7 +22,10 @@
 #include "core/AudioManager.hpp"
 #include "core/ResourceManager.hpp"
 #include "core/UIManager.hpp"
+#include "core/LevelManager.hpp"
 #include "core/Types.hpp"
+#include "core/CameraManager.hpp"
+
 #include "components/AllComponents.hpp"
 
 #include "systems/ControllerSystem.hpp"
@@ -32,6 +35,9 @@
 #include "systems/ShootSystem.hpp"
 #include "systems/HealthRenderSystem.hpp"
 #include "systems/HealthSystem.hpp"
+#include "systems/ChaseSystem.hpp"
+#include "systems/RenderTextSystem.hpp"
+#include "systems/SkillSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -58,6 +64,8 @@ public:
 		mResourceManager = std::make_unique<ResourceManager>();
 		mInputManager = std::make_unique<InputManager>();
 		mAudioManager = std::make_unique<AudioManager>();
+		mCameraManager = std::make_unique<CameraManager>();
+		mLevelManager = std::make_unique<LevelManager>();
 		mUIManager = std::make_unique<UIManager>();
 
 		dt = 0.0;
@@ -69,6 +77,8 @@ public:
 		mSystemManager->init();
 		mInputManager->init();
 		mAudioManager->init();
+		mCameraManager->init();
+		mLevelManager->init();
 
 		mIsRunning = true;
 		mIsPaused = false;
@@ -85,15 +95,23 @@ public:
 		registerComponent<HealthComponent>();
 		registerComponent<ShootComponent>();
 		registerComponent<DamageComponent>();
+		registerComponent<AutoShootComponent>();
+		registerComponent<ChasePlayerComponent>();
+		registerComponent<CharacteristicComponent>();
+		registerComponent<SkillBoosterComponent>();
+		registerComponent<BulletComponent>();
 
 		// register all systems
-		registerSystem<RectangleRenderSystem>();
-		registerSystem<PhysicsSystem>();
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
 		registerSystem<DamageSystem>();
 		registerSystem<HealthSystem>();
+		registerSystem<ChaseSystem>();
+		registerSystem<SkillSystem>();
+		registerSystem<PhysicsSystem>();
+		registerSystem<RectangleRenderSystem>();
 		registerSystem<HealthRenderSystem>();
+		registerSystem<RenderTextSystem>();
 
 
 		// set archetypes
@@ -135,6 +153,15 @@ public:
 			typeHealthRender.set(getComponentType<HealthComponent>());
 			setSystemArchetype<HealthRenderSystem>(typeHealthRender);
 
+			Archetype typeChase;
+			typeChase.set(getComponentType<TransformComponent>());
+			typeChase.set(getComponentType<ChasePlayerComponent>());
+			typeChase.set(getComponentType<PhysicsBodyComponent>());
+			setSystemArchetype<ChaseSystem>(typeChase);
+
+			Archetype typeSkill;
+			typeSkill.set(getComponentType<SkillBoosterComponent>());
+			setSystemArchetype<SkillSystem>(typeSkill);
 
 		}
 		// reinit systems because archetypes changed 
@@ -371,6 +398,10 @@ public:
 		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		serializeComponent<ShootComponent>(j["ShootComponent"], entity);
 		serializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		serializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		serializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
+		serializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
+		serializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -392,8 +423,12 @@ public:
 		deserializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		deserializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		deserializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
+		deserializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
 		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
 		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		deserializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 	}
 
 	inline float random() {
@@ -403,76 +438,105 @@ public:
 		return (float)dis(gen);
 	}
 
-	inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
-		EntityID tile = createEntity();
-		RectangleComponent rc;
+	//inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
+	//	EntityID tile = createEntity();
+	//	RectangleComponent rc;
 
-		addComponent<TagComponent>(tile, TagComponent{
-			"tile"
-			});
-		addComponent<RectangleComponent>(tile, RectangleComponent{
-			color,
-			false,
-			""
-			});
-		addComponent<TransformComponent>(tile, TransformComponent{
-			pos,
-			glm::vec3{0.0f,0.0f,0.0f},
-			scale,
-			glm::mat4(1)
-			});
-		addComponent<ShapeComponent>(tile, ShapeComponent{
-			ShapeType::AABB
-			});
-		addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
-			1.0f,
-			true
-		});
-	}
+	//	addComponent<TagComponent>(tile, TagComponent{
+	//		"tile"
+	//		});
+	//	addComponent<RectangleComponent>(tile, RectangleComponent{
+	//		color,
+	//		false,
+	//		""
+	//		});
+	//	addComponent<TransformComponent>(tile, TransformComponent{
+	//		pos,
+	//		glm::vec3{0.0f,0.0f,0.0f},
+	//		scale,
+	//		glm::mat4(1)
+	//		});
+	//	addComponent<ShapeComponent>(tile, ShapeComponent{
+	//		ShapeType::AABB
+	//		});
+	//	addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
+	//		1.0f,
+	//		true
+	//	});
+	//}
 
 	// load level
 	inline void load(string filepath) {
 		std::ifstream in(filepath);
-		ordered_json j;
-		in >> j;
+		ordered_json json;
+		in >> json;
 		// tilemap
-		if (!j["Map"].is_null()) {
-			string maploc = j["Map"];
+		if (!json["Map"].is_null()) {
+			string maploc = json["Map"];
 			int rows=-1, cols=-1, wallid=-1;
 			float tilesize_x = 0.0f;
 			float tilesize_y = 0.0f;
 			std::ifstream inmap(maploc);
-			ordered_json jm;
-			inmap >> jm;
-			rows = jm["grid"].size();
-			cols = jm["grid"][0].size();
-			wallid = jm["wall_id"];
+			ordered_json mapJson;
+			inmap >> mapJson;
+			rows = mapJson["grid"].size();
+			cols = mapJson["grid"][0].size();
+			//wallid = mapJson["wall_id"];
 			
+			//todo cache map details into <unordered map> for optimzation here
+
 			// size normalized to [0,800]
-			tilesize_x = (float)jm["tilesize_x"]*2/SCREEN_WIDTH;
-			tilesize_y = (float)jm["tilesize_y"]*2/SCREEN_HEIGHT; 
+			tilesize_x = (float)mapJson["tilesize_x"]*2/SCREEN_WIDTH;
+			tilesize_y = (float)mapJson["tilesize_y"]*2/SCREEN_HEIGHT;
 			for (int i = 0; i < rows; ++i) {
 				for (int j = 0; j < cols; ++j) {
-					if (jm["grid"][i][j] == wallid) {
-						createTile(
-							glm::vec3{-1.0f + j * tilesize_x + tilesize_x / 2.0f,
-								1.0f - i * tilesize_y - tilesize_y/2.0f,
-								0.0f },
-							glm::vec3{ random(),random(),random() },
-							glm::vec3{tilesize_x,tilesize_y,0.0f}
-						);
+					string gridID = mapJson["grid"][i][j];
+					if (json[gridID].is_null())
+						continue;
+
+					ordered_json gridDetail = json[gridID];
+					EntityID entityID;
+					deserializeEntity(gridDetail, entityID);
+					
+					auto& t = getComponent<TransformComponent>(entityID);
+					t.position = glm::vec3{
+						-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+						1.0f - i * tilesize_y - tilesize_y / 2.0f,
+						0.0f 
+					};
+					t.scale = glm::vec3{ 
+						tilesize_x * t.scale.x, 
+						tilesize_y * t.scale.y, 
+						0.0f 
+					};
+
+					if (hasComponent<PhysicsBodyComponent>(entityID))
+					{
+						auto& p = getComponent<PhysicsBodyComponent>(entityID);
+						p.prevPositionX = t.position.x;
+						p.prevPositionY = t.position.y;
+						p.prevScaleX = t.scale.x;
+						p.prevScaleY = t.scale.y;
 					}
 				}
 			}
 		}
 
-		// entities
-		if (!j["Entities"].is_null()) {
-			for (auto& entityjson : j["Entities"]) {
-				EntityID entid;
-				deserializeEntity(entityjson, entid);
+		if (!json["characters"].is_null()) {
+			string charloc = json["characters"];
+			std::ifstream inmap(charloc);
+			ordered_json characterJson;
+			inmap >> characterJson;
+
+			// entities
+			if (!characterJson["Entities"].is_null()) {
+				for (auto& entityjson : characterJson["Entities"]) {
+					EntityID entid;
+					deserializeEntity(entityjson, entid);
+				}
 			}
 		}
+
 		in.close();
 	}
 	// unload level
@@ -501,6 +565,7 @@ public:
 
 	// shutdown
 	void shutdown() {
+		mCameraManager.reset();
 		mAudioManager.reset();
 		mInputManager.reset();
 		mResourceManager.reset();
@@ -511,6 +576,7 @@ public:
 		mComponentManager.reset();
 		mEntityManager.reset();
 		mChrononManager.reset();
+		mLevelManager.reset();
 	}
 
 public:
@@ -527,6 +593,8 @@ public:
 	std::unique_ptr<ResourceManager> mResourceManager;
 	std::unique_ptr<InputManager> mInputManager;
 	std::unique_ptr<AudioManager> mAudioManager;
+	std::unique_ptr<CameraManager> mCameraManager;
+	std::unique_ptr<LevelManager> mLevelManager;
 	std::unique_ptr<UIManager> mUIManager;
 };
 
