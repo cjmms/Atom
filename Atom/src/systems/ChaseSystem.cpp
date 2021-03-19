@@ -20,10 +20,18 @@ void ChaseSystem::update()
 		{
 			auto& chasePlayer = ae.getComponent<ChasePlayerComponent>(entity);
 			auto& sourceTransform = ae.getComponent<TransformComponent>(entity);
-			auto& targetTransform = ae.getComponent<TransformComponent>(chasePlayer.target);
+			//auto& targetTransform = ae.getComponent<TransformComponent>(chasePlayer.target);
+
+			//todo temp get player target
+			auto& targetPlayers = ae.mSystemManager->getSystem<ControllerSystem>()->mEntities;
+			if (targetPlayers.size() == 0)
+				return;
+			EntityID target = *targetPlayers.begin();
+			auto& targetTransform = ae.getComponent<TransformComponent>(target);
+			
 			glm::vec3 direction = targetTransform.position - sourceTransform.position;
 			
-			if (glm::length(direction) > 5.0)
+			if (glm::length(direction) > 3.0)
 				continue;
 			
 			glm::vec3 normDirection = glm::normalize(direction);
