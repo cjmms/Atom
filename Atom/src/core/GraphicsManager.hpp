@@ -30,6 +30,7 @@ public:
 
 	inline GLFWwindow* getWindow() { return mWindow; }
 
+	void getWindowSize(int &width, int &height);
 
 private:
 	GLFWwindow* mWindow = NULL;

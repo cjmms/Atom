@@ -59,17 +59,34 @@ void SkillSystem::onEvent(Event& e)
 		}
 
 		auto& skillComponent = ae.getComponent<SkillBoosterComponent>(skillEntity);
-		auto& characterComponent = ae.getComponent<CharacteristicComponent>(playerEntity);
 		auto sys = ae.mSystemManager->getSystem<PhysicsSystem>();
 
 		switch (skillComponent.skillType)
 		{
 		case DoubleJump:
+		{
+			auto& characterComponent = ae.getComponent<CharacteristicComponent>(playerEntity);
 			characterComponent.canDoubleJump.isEnabled = true;
 			break;
+		}
 		case WallJump:
+		{
+			auto& characterComponent = ae.getComponent<CharacteristicComponent>(playerEntity);
 			characterComponent.canWallJump.isEnabled = true;
 			break;
+		}
+		case BulletCount:
+		{
+			auto& shootComponent = ae.getComponent<ShootComponent>(playerEntity);
+			shootComponent.bulletPerShoot += 2;
+			break;
+		}
+		case BulletSpeed:
+		{
+			auto& shootComponent = ae.getComponent<ShootComponent>(playerEntity);
+			shootComponent.shootInterval *= 0.8;
+			break;
+		}
 		case Trigger:
 			sys->toMove = true;
 			break;

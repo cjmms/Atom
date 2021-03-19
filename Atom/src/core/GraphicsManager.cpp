@@ -3,10 +3,19 @@
 #include "Pch.hpp"
 #include "utils/Log.hpp"
 #include "GraphicsManager.hpp"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 // callback function for window resizing, hidden from any other files
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
+	glViewport(0, 0, width, height);
+}
+
+void windowResizeCallback(GLFWwindow* window, int width, int height)
+{
+	glfwSetWindowSize(window, (int)width, (int)height);
 	glViewport(0, 0, width, height);
 }
 
@@ -39,12 +48,10 @@ void GraphicsManager::init() {
 	}
 
 	// when window size changes, object scales properly
-	glfwSetFramebufferSizeCallback(mWindow, framebuffer_size_callback);
+	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
+	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
 
 	glEnable(GL_BLEND);
-	//glEnable(GL_DEPTH_TEST);
-	//glDepthMask(GL_FALSE);
-	//glDepthFunc(GL_LESS);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glBlendEquation(GL_FUNC_ADD);
 }
@@ -52,13 +59,8 @@ void GraphicsManager::init() {
 
 void GraphicsManager::update()
 {
-	//glfwSwapBuffers(mWindow);
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//glClear(GL_DEPTH_BUFFER_BIT);
-	int display_w, display_h;
-	glfwGetFramebufferSize(mWindow, &display_w, &display_h);
-	glViewport(0, 0, display_w, display_h);
-	glfwSwapBuffers(mWindow);
+
+
 }
 
 
@@ -82,3 +84,10 @@ void GraphicsManager::printInfo() const
 	ATOM_INFO("Graphics: Height: {}", height);
 	ATOM_INFO("Graphics: Title: {}", title);
 }
+
+void GraphicsManager::getWindowSize(int& width, int& height)
+{
+	width = this->width;
+	height = this->height;
+}
+

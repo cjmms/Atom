@@ -21,15 +21,40 @@
 #include "core/InputManager.hpp"
 #include "core/AudioManager.hpp"
 #include "core/ResourceManager.hpp"
+#include "core/UIManager.hpp"
 #include "core/LevelManager.hpp"
 #include "core/Types.hpp"
 #include "core/CameraManager.hpp"
+
 #include "components/AllComponents.hpp"
 
+#include "systems/ControllerSystem.hpp"
+#include "systems/DamageSystem.hpp"
+#include "systems/PhysicsSystem.hpp"
+#include "systems/RectangleRenderSystem.hpp"
+#include "systems/ShootSystem.hpp"
+#include "systems/HealthRenderSystem.hpp"
+#include "systems/HealthSystem.hpp"
+#include "systems/ChaseSystem.hpp"
+#include "systems/RenderTextSystem.hpp"
+#include "systems/SkillSystem.hpp"
+#include "systems/EnemyMovementSystem.hpp"
+
 // ------------------------------------ATOM ENGINE---------------------------------------------
+
+extern FMOD_VECTOR listener_position;
+extern FMOD_VECTOR listener_fwd;
+extern FMOD_VECTOR listener_up;
+extern float listener_step;
+
+extern ChannelID musicChannelID;
+extern ChannelID sfxChannelID;
+
 class AtomEngine {
 public:
 	inline void init() {
+
+
 
 		mChrononManager = std::make_unique<ChrononManager>();
 		mEntityManager = std::make_unique<EntityManager>();
@@ -42,11 +67,13 @@ public:
 		mAudioManager = std::make_unique<AudioManager>();
 		mCameraManager = std::make_unique<CameraManager>();
 		mLevelManager = std::make_unique<LevelManager>();
+		mUIManager = std::make_unique<UIManager>();
 
 		dt = 0.0;
 
 		mChrononManager->setMaxFPS(FPS);
 		mGraphicsManager->init();
+		mUIManager->init(mGraphicsManager->getWindow());
 		mResourceManager->init();
 		mSystemManager->init();
 		mInputManager->init();
@@ -55,29 +82,145 @@ public:
 		mLevelManager->init();
 
 		mIsRunning = true;
+		mIsPaused = false;
+
+		// TODO : move all this registration and init code into level manager 
+
+		// register all components 
+		registerComponent<TagComponent>();
+		registerComponent<RectangleComponent>();
+		registerComponent<TransformComponent>();
+		registerComponent<PhysicsBodyComponent>();
+		registerComponent<ShapeComponent>();
+		registerComponent<ControllerComponent>();
+		registerComponent<HealthComponent>();
+		registerComponent<ShootComponent>();
+		registerComponent<DamageComponent>();
+		registerComponent<AutoShootComponent>();
+		registerComponent<ChasePlayerComponent>();
+		registerComponent<CharacteristicComponent>();
+		registerComponent<SkillBoosterComponent>();
+		registerComponent<BulletComponent>();
+		registerComponent<HorizontalMovementComponent>();
+
+		// register all systems
+		registerSystem<ControllerSystem>();
+		registerSystem<ShootSystem>();
+		registerSystem<DamageSystem>();
+		registerSystem<HealthSystem>();
+		registerSystem<ChaseSystem>();
+		registerSystem<EnemyMovementSystem>();
+		registerSystem<SkillSystem>();
+		registerSystem<PhysicsSystem>();
+		registerSystem<RectangleRenderSystem>();
+		registerSystem<HealthRenderSystem>();
+		registerSystem<RenderTextSystem>();
+
+
+		// set archetypes
+		{
+			// this is a bitset denoting the system archetye
+			Archetype typeRectangleRender;
+			typeRectangleRender.set(getComponentType<RectangleComponent>());
+			typeRectangleRender.set(getComponentType<TransformComponent>());
+			setSystemArchetype<RectangleRenderSystem>(typeRectangleRender);
+
+			Archetype typePhysics;
+			typePhysics.set(getComponentType<TransformComponent>());
+			typePhysics.set(getComponentType<PhysicsBodyComponent>());
+			typePhysics.set(getComponentType<ShapeComponent>());
+			setSystemArchetype<PhysicsSystem>(typePhysics);
+
+			Archetype typeController;
+			typeController.set(getComponentType<ControllerComponent>());
+			typeController.set(getComponentType<PhysicsBodyComponent>());
+			typeController.set(getComponentType<TransformComponent>());
+			typeController.set(getComponentType<ShootComponent>());
+			setSystemArchetype<ControllerSystem>(typeController);
+
+			Archetype typeShoot;
+			typeShoot.set(getComponentType<ShootComponent>());
+			typeShoot.set(getComponentType<TransformComponent>());
+			setSystemArchetype<ShootSystem>(typeShoot);
+
+			Archetype typeDamage;
+			typeDamage.set(getComponentType<DamageComponent>());
+			setSystemArchetype<DamageSystem>(typeDamage);
+
+			Archetype typeHealth;
+			typeHealth.set(getComponentType<HealthComponent>());
+			setSystemArchetype<HealthSystem>(typeHealth);
+
+			Archetype typeHealthRender;
+			typeHealthRender.set(getComponentType<TransformComponent>());
+			typeHealthRender.set(getComponentType<HealthComponent>());
+			setSystemArchetype<HealthRenderSystem>(typeHealthRender);
+
+			Archetype typeChase;
+			typeChase.set(getComponentType<TransformComponent>());
+			typeChase.set(getComponentType<ChasePlayerComponent>());
+			typeChase.set(getComponentType<PhysicsBodyComponent>());
+			setSystemArchetype<ChaseSystem>(typeChase);
+
+			Archetype typeEnemyMovement;
+			typeEnemyMovement.set(getComponentType<TransformComponent>());
+			typeEnemyMovement.set(getComponentType<HorizontalMovementComponent>());
+			typeEnemyMovement.set(getComponentType<PhysicsBodyComponent>());
+			setSystemArchetype<EnemyMovementSystem>(typeEnemyMovement);
+
+			Archetype typeSkill;
+			typeSkill.set(getComponentType<SkillBoosterComponent>());
+			setSystemArchetype<SkillSystem>(typeSkill);
+
+		}
+		// reinit systems because archetypes changed 
+		initSystem();
+
+
 	}
 	inline void update() {
 		startFrame();
 
+		// get input 
 		mInputManager->update();
-		mEventManager->update();
-		mSystemManager->update();
+
+		// process
+		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
+			mIsPaused = !mIsPaused;
+		}
+
+		if (mIsPaused) {
+			mAudioManager->pause(musicChannelID, true);
+			mAudioManager->pause(sfxChannelID, true);
+		}
+		else {
+			mAudioManager->pause(musicChannelID, false);
+			mAudioManager->pause(sfxChannelID, false);
+			mEventManager->update();
+			mSystemManager->update();
+			mResourceManager->update();
+			mAudioManager->update();
+			mCameraManager->update();
+			mLevelManager->update();
+		}
+
+		// render
 		mGraphicsManager->update();
-		mResourceManager->update();
-		mAudioManager->update();
-		mCameraManager->update();
-		mLevelManager->update();
+		mUIManager->update();
 
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
-		mGraphicsManager->onEvent(e);
-		mResourceManager->onEvent(e);
-		mSystemManager->onEvent(e);
-		mAudioManager->onEvent(e);
-		mCameraManager->onEvent(e);
-		mLevelManager->onEvent(e);
+		mUIManager->onEvent(e);
+		if (!mIsPaused) {
+			mGraphicsManager->onEvent(e);
+			mResourceManager->onEvent(e);
+			mSystemManager->onEvent(e);
+			mAudioManager->onEvent(e);
+			mCameraManager->onEvent(e);
+			mLevelManager->onEvent(e);
+		}
 	}
 
 
@@ -85,8 +228,11 @@ public:
 	// ChrononManager
 	inline void startFrame() {
 		mChrononManager->startframe();
+		glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	inline void endFrame() {
+		glfwSwapBuffers(mGraphicsManager->getWindow());
 		mChrononManager->endFrame();
 		dt = mChrononManager->updatedt();
 	}
@@ -117,6 +263,24 @@ public:
 
 	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f) {
 		return mAudioManager->play(audioloc, cgtype, volumedB);
+	}
+	
+	inline float getVolumedB(ChannelID channelid) {
+		return mAudioManager->getChannelVolumedB(channelid);
+	}
+
+	inline void setVolume(ChannelID channelid, float volumedB) {
+		mAudioManager->setChannelVolumedB(channelid, std::clamp(volumedB, 0.0f, 1.0f));
+	}
+
+	inline void listener3DSetXOffset(float offset) {
+		listener_position.x = 0.0f + offset;
+		mAudioManager->mCoreSystem->set3DListenerAttributes(0, &listener_position, 0, &listener_fwd, &listener_up);
+	}
+
+	inline void listener3DSetYOffset(float offset) {
+		listener_position.y = 0.0f + offset;
+		mAudioManager->mCoreSystem->set3DListenerAttributes(0, &listener_position, 0, &listener_fwd, &listener_up);
 	}
 	
 	// GraphicsManager
@@ -245,8 +409,13 @@ public:
 		serializeComponent<ShapeComponent>(j["ShapeComponent"], entity);
 		serializeComponent<PhysicsBodyComponent>(j["PhysicsBodyComponent"], entity);
 		serializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
+		serializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		serializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		serializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		serializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 		serializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
 		serializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
+		serializeComponent<HorizontalMovementComponent>(j["HorizontalMovementComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -270,19 +439,119 @@ public:
 		deserializeComponent<ControllerComponent>(j["ControllerComponent"], entity);
 		deserializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
 		deserializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
+		deserializeComponent<ShootComponent>(j["ShootComponent"], entity);
+		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
+		deserializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
+		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
+		deserializeComponent<HorizontalMovementComponent>(j["HorizontalMovementComponent"], entity);
 	}
+
+	inline float random() {
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(0, 1);//uniform distribution between 0 and 1
+		return (float)dis(gen);
+	}
+
+	//inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
+	//	EntityID tile = createEntity();
+	//	RectangleComponent rc;
+
+	//	addComponent<TagComponent>(tile, TagComponent{
+	//		"tile"
+	//		});
+	//	addComponent<RectangleComponent>(tile, RectangleComponent{
+	//		color,
+	//		false,
+	//		""
+	//		});
+	//	addComponent<TransformComponent>(tile, TransformComponent{
+	//		pos,
+	//		glm::vec3{0.0f,0.0f,0.0f},
+	//		scale,
+	//		glm::mat4(1)
+	//		});
+	//	addComponent<ShapeComponent>(tile, ShapeComponent{
+	//		ShapeType::AABB
+	//		});
+	//	addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
+	//		1.0f,
+	//		true
+	//	});
+	//}
 
 	// load level
 	inline void load(string filepath) {
 		std::ifstream in(filepath);
-		ordered_json j;
-		in >> j;
-		if (!j["Entities"].is_null()) {
-			for (auto& entityjson : j["Entities"]) {
-				EntityID entid;
-				deserializeEntity(entityjson, entid);
+		ordered_json json;
+		in >> json;
+		// tilemap
+		if (!json["Map"].is_null()) {
+			string maploc = json["Map"];
+			int rows=-1, cols=-1, wallid=-1;
+			float tilesize_x = 0.0f;
+			float tilesize_y = 0.0f;
+			std::ifstream inmap(maploc);
+			ordered_json mapJson;
+			inmap >> mapJson;
+			rows = mapJson["grid"].size();
+			cols = mapJson["grid"][0].size();
+			//wallid = mapJson["wall_id"];
+			
+			//todo cache map details into <unordered map> for optimzation here
+
+			// size normalized to [0,800]
+			tilesize_x = (float)mapJson["tilesize_x"]*2/SCREEN_WIDTH;
+			tilesize_y = (float)mapJson["tilesize_y"]*2/SCREEN_HEIGHT;
+			for (int i = 0; i < rows; ++i) {
+				for (int j = 0; j < cols; ++j) {
+					string gridID = mapJson["grid"][i][j];
+					if (json[gridID].is_null())
+						continue;
+
+					ordered_json gridDetail = json[gridID];
+					EntityID entityID;
+					deserializeEntity(gridDetail, entityID);
+					
+					auto& t = getComponent<TransformComponent>(entityID);
+					t.position = glm::vec3{
+						-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+						1.0f - i * tilesize_y - tilesize_y / 2.0f,
+						0.0f 
+					};
+					t.scale = glm::vec3{ 
+						tilesize_x * t.scale.x, 
+						tilesize_y * t.scale.y, 
+						0.0f 
+					};
+
+					if (hasComponent<PhysicsBodyComponent>(entityID))
+					{
+						auto& p = getComponent<PhysicsBodyComponent>(entityID);
+						p.prevPositionX = t.position.x;
+						p.prevPositionY = t.position.y;
+						p.prevScaleX = t.scale.x;
+						p.prevScaleY = t.scale.y;
+					}
+				}
 			}
 		}
+
+		if (!json["characters"].is_null()) {
+			string charloc = json["characters"];
+			std::ifstream inmap(charloc);
+			ordered_json characterJson;
+			inmap >> characterJson;
+
+			// entities
+			if (!characterJson["Entities"].is_null()) {
+				for (auto& entityjson : characterJson["Entities"]) {
+					EntityID entid;
+					deserializeEntity(entityjson, entid);
+				}
+			}
+		}
+
 		in.close();
 	}
 	// unload level
@@ -317,6 +586,7 @@ public:
 		mResourceManager.reset();
 		mEventManager.reset();
 		mSystemManager.reset();
+		mUIManager.reset();
 		mGraphicsManager.reset();
 		mComponentManager.reset();
 		mEntityManager.reset();
@@ -327,6 +597,7 @@ public:
 public:
 	double dt;
 	bool mIsRunning;
+	bool mIsPaused;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;
@@ -339,6 +610,7 @@ public:
 	std::unique_ptr<AudioManager> mAudioManager;
 	std::unique_ptr<CameraManager> mCameraManager;
 	std::unique_ptr<LevelManager> mLevelManager;
+	std::unique_ptr<UIManager> mUIManager;
 };
 
 #endif // !ATOMENGINE_HPP

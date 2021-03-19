@@ -77,3 +77,13 @@ std::pair<double, double> InputManager::getCursorPosChange()
 
 	return dPosition;
 }
+
+std::pair<double, double> InputManager::getCursorPos()
+{
+	std::pair<double, double> dPosition;
+
+	dPosition.first = mCurrentMouseXPos;
+	dPosition.second = mCurrentMouseYPos;
+
+	return dPosition;
+}

@@ -31,7 +31,7 @@ using json = nlohmann::json;
 // ECS
 using ResourceID = std::uint32_t;
 using EntityID = std::uint32_t;
-const EntityID MAX_ENTITIES = 20000;
+const EntityID MAX_ENTITIES = 10000;
 using ComponentID = std::uint8_t;
 const ComponentID MAX_COMPONENTS = 32;
 using Archetype = std::bitset<MAX_COMPONENTS>;
@@ -41,6 +41,8 @@ enum SkillType
 {
 	DoubleJump,
 	WallJump,
+	BulletCount,
+	BulletSpeed,
 	Trigger
 };
 
@@ -49,6 +51,21 @@ enum SkillType
 enum ShapeType {
 	AABB,
 	NUM
+};
+
+// TILEMAP
+class Gridnode {
+public:
+	int data;
+};
+
+class Grid {
+public:
+	string filename;
+	int rows;
+	int cols;
+	int tilesize;
+	std::vector<std::vector<Gridnode>> cells;
 };
 
 // AUDIO
