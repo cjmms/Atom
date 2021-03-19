@@ -43,6 +43,7 @@ enum SkillType
 	WallJump,
 	BulletCount,
 	BulletSpeed,
+	Trigger
 };
 
 

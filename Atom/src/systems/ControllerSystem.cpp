@@ -77,8 +77,10 @@ void ControllerSystem::update()
 	assert(activeEntity != -1);
 
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
+	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
+	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
-	auto& playerCharecterstic = ae.getComponent<CharacteristicComponent>(activeEntity);
 	auto& transformComponent = ae.getComponent<TransformComponent>(activeEntity);
 
 
@@ -123,43 +125,47 @@ void ControllerSystem::update()
 				//Jump
 				if (body.grounded)
 				{
-					body.totalForceY = 3;
+					if(character1.isBig)
+						body.totalForceY = 1;
+					else
+						body.totalForceY = 3;
 
-					if (playerCharecterstic.canDoubleJump.isEnabled)
+
+					if (character1.canDoubleJump.isEnabled)
 					{
-						playerCharecterstic.canDoubleJump.isActive = true;
+						character1.canDoubleJump.isActive = true;
 					}
 				}
 
 				//Wall Jump
-				else if (playerCharecterstic.canWallJump.isEnabled && playerCharecterstic.canWallJump.isActive)
+				else if (character1.canWallJump.isEnabled && character1.canWallJump.isActive)
 				{
 					//colliding with right side of a wall
 					if (ae.mInputManager->isKeyPressed(controller.LEFT))
 					{
 						body.velocityX = 1;
-						playerCharecterstic.canWallJump.isActive = false;
+						character1.canWallJump.isActive = false;
 					}
 					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 					{
 						body.velocityX = -1;
-						playerCharecterstic.canWallJump.isActive = false;
+						character1.canWallJump.isActive = false;
 					}
 					//Double Jump
-					else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
+					else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
 					{
-						playerCharecterstic.canDoubleJump.isActive = false;
+						character1.canDoubleJump.isActive = false;
 					}
 					body.velocityY = 0;
 					body.totalForceY = 3;
 				}
 
 				//Double Jump
-				else if (playerCharecterstic.canDoubleJump.isEnabled && playerCharecterstic.canDoubleJump.isActive)
+				else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
 				{
 					body.velocityY = 0;
 					body.totalForceY = 3;
-					playerCharecterstic.canDoubleJump.isActive = false;
+					character1.canDoubleJump.isActive = false;
 				}
 
 
@@ -188,21 +194,18 @@ void ControllerSystem::update()
 		{
 			ATOM_INFO("SWAP_POSITION : {}", activeEntity);
 
-
-			auto& b1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
-			auto& b2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
 			auto& t1 = ae.getComponent<TransformComponent>(activeEntity);
 			auto& t2 = ae.getComponent<TransformComponent>(inactiveEntity);
 
-			b1.prevPositionX = t2.position.x;
-			b1.prevPositionY = t2.position.y;
-			b2.prevPositionX = t1.position.x;
-			b2.prevPositionY = t1.position.y;
+			body.prevPositionX = t2.position.x;
+			body.prevPositionY = t2.position.y;
+			body2.prevPositionX = t1.position.x;
+			body2.prevPositionY = t1.position.y;
 
-			b1.prevScaleX = t2.scale.x;
-			b1.prevScaleY = t2.scale.y;
-			b2.prevScaleX = t1.scale.x;
-			b2.prevScaleY = t1.scale.y;
+			body.prevScaleX = t2.scale.x;
+			body.prevScaleY = t2.scale.y;
+			body2.prevScaleX = t1.scale.x;
+			body2.prevScaleY = t1.scale.y;
 
 			//s(smaller), g(greater)
 			//g s.y + g.y / 2
@@ -217,13 +220,6 @@ void ControllerSystem::update()
 			t1.position = temp2;
 			t2.position = temp1;
 
-			/*
-
-			t1.position.y = t1.position.y - t1.scale.y / 2 + t2.scale.y / 2 ;
-			t2.position.y = t2.position.y - t2.scale.y / 2 + t1.scale.y / 2;
-
-
-			*/
 		}
 	}
 
@@ -319,7 +315,26 @@ void ControllerSystem::update()
 		{
 			shouldFollow = true;
 		}
+	}
 
+
+
+	//Gerald: how about make it always true instead of range 3-3.5 ?
+	//Jump for big character
+	//Glide between x = 3 and x = 5
+	if (character1.isBig && body.velocityY < 0)
+	{
+		if (body.prevPositionX > 3.0f && body.prevPositionX < 3.5f)
+			body.totalForceY += 0.15f;
+		else
+			body.totalForceY += 0.1f;
+	}
+	else if (character2.isBig && body2.velocityY < 0)
+	{
+		if (body2.prevPositionX > 3.0f && body2.prevPositionX < 3.5f)
+			body2.totalForceY += 0.15f;
+		else
+			body2.totalForceY += 0.1f;
 	}
 }
 
