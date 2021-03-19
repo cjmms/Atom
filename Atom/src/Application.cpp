@@ -193,8 +193,8 @@ int main(int argc, char** argv){
 
     // register all systems
     ae.registerSystem<RectangleRenderSystem>();
-    ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<ControllerSystem>();
+    ae.registerSystem<PhysicsSystem>();
     ae.registerSystem<RenderTextSystem>();
     ae.registerSystem<SkillSystem>();
 	

@@ -28,12 +28,15 @@ void ControllerSystem::init()
 	ae.addEventListener(EventID::E_COLLISION, [this](Event& e) {this->onEvent(e);});
 
 	shouldFollow = false;
+	isTriggered = false;
 }
 
 void ControllerSystem::update()
 {
 	EntityID activeEntity = -1;
 	EntityID inactiveEntity;
+	/*EntityID platform1Id = 19;
+	EntityID platform2Id = 20;*/
 	
 	for (auto& entity : mEntities) 
 	{
@@ -45,17 +48,35 @@ void ControllerSystem::update()
 				activeEntity = entity;
 			else
 				inactiveEntity = entity;
+
+			/*switch (entity)
+			{
+			case 502:
+				platform1Id = entity;
+			case 503:
+				platform2Id = entity;
+			default:
+				break;
+			}*/
 		}
 
 	}	
 
 	assert(activeEntity != -1);
 
-	inactiveEntity = activeEntity;
+	//inactiveEntity = activeEntity;
 
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
+	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
+	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
 	auto& playerCharecterstic = ae.getComponent<CharacteristicComponent>(activeEntity);
+
+	//Platforms - HardCoded
+	/*auto platform1 = ae.getComponent<PhysicsBodyComponent>(platform1Id);
+	auto platform2 = ae.getComponent<PhysicsBodyComponent>(platform2Id);*/
+
 
 	//Setting Camera - Follow active entity
 	if (shouldFollow)
@@ -69,13 +90,13 @@ void ControllerSystem::update()
 		if (ae.mInputManager->isKeyTriggered(controller.LEFT))
 		{
 			//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
-			//body.velocityX = -1;
+			body.velocityX = -1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
 		{
-			//body.velocityX = 1;
+			body.velocityX = 1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
@@ -91,7 +112,11 @@ void ControllerSystem::update()
 				//Jump
 				if (body.grounded)
 				{
-					body.totalForceY = 3;
+					if(character1.isBig)
+						body.totalForceY = 1;
+					else
+						body.totalForceY = 3;
+
 
 					if (playerCharecterstic.canDoubleJump.isEnabled)
 					{
@@ -153,47 +178,47 @@ void ControllerSystem::update()
 		}
 
 		//commented swap as nothing to swap to
-		//if (ae.mInputManager->isKeyTriggered(controller.SWAP_POSITION))
-		//{
-		//	ATOM_INFO("SWAP_POSITION : {}", activeEntity);
+		if (ae.mInputManager->isKeyTriggered(controller.SWAP_POSITION))
+		{
+			ATOM_INFO("SWAP_POSITION : {}", activeEntity);
 
 
-		//	auto& b1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
-		//	auto& b2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
-		//	auto& t1 = ae.getComponent<TransformComponent>(activeEntity);
-		//	auto& t2 = ae.getComponent<TransformComponent>(inactiveEntity);
+			auto& b1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+			auto& b2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
+			auto& t1 = ae.getComponent<TransformComponent>(activeEntity);
+			auto& t2 = ae.getComponent<TransformComponent>(inactiveEntity);
 
-		//	b1.prevPositionX = t2.position.x;
-		//	b1.prevPositionY = t2.position.y;
-		//	b2.prevPositionX = t1.position.x;
-		//	b2.prevPositionY = t1.position.y;
+			b1.prevPositionX = t2.position.x;
+			b1.prevPositionY = t2.position.y;
+			b2.prevPositionX = t1.position.x;
+			b2.prevPositionY = t1.position.y;
 
-		//	b1.prevScaleX = t2.scale.x;
-		//	b1.prevScaleY = t2.scale.y;
-		//	b2.prevScaleX = t1.scale.x;
-		//	b2.prevScaleY = t1.scale.y;
+			b1.prevScaleX = t2.scale.x;
+			b1.prevScaleY = t2.scale.y;
+			b2.prevScaleX = t1.scale.x;
+			b2.prevScaleY = t1.scale.y;
 
-		//	//s(smaller), g(greater)
-		//	//g s.y + g.y / 2
-		//	//s s.y/2
+			//s(smaller), g(greater)
+			//g s.y + g.y / 2
+			//s s.y/2
 
-		//	//s g.y + s.y/2
-		//	//g g.y/2
+			//s g.y + s.y/2
+			//g g.y/2
 
-		//	glm::vec3 temp1 = t1.position + glm::vec3(0, ((t2.scale.y + t1.scale.y) / 2.0f), 0);
-		//	glm::vec3 temp2 = t2.position + glm::vec3(0, ((t1.scale.y + t2.scale.y) / 2.0f), 0);
+			glm::vec3 temp1 = t1.position + glm::vec3(0, ((t2.scale.y + t1.scale.y) / 2.0f), 0);
+			glm::vec3 temp2 = t2.position + glm::vec3(0, ((t1.scale.y + t2.scale.y) / 2.0f), 0);
 
-		//	t1.position = temp2;
-		//	t2.position = temp1;
+			t1.position = temp2;
+			t2.position = temp1;
 
-		//	/*
+			/*
 
-		//	t1.position.y = t1.position.y - t1.scale.y / 2 + t2.scale.y / 2 ;
-		//	t2.position.y = t2.position.y - t2.scale.y / 2 + t1.scale.y / 2;
+			t1.position.y = t1.position.y - t1.scale.y / 2 + t2.scale.y / 2 ;
+			t2.position.y = t2.position.y - t2.scale.y / 2 + t1.scale.y / 2;
 
 
-		//	*/
-		//}
+			*/
+		}
 	}
 
 	{//Pressed
@@ -201,7 +226,9 @@ void ControllerSystem::update()
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
 				if(body.grounded)
-					body.velocityX = -3;
+					body.velocityX = -1.5f;
+				else if(body.velocityY != 0.0f)
+					body.velocityX = -1.5f;
 				else if(body.velocityX > -3)
 					body.totalForceX = -0.1f;
 			}
@@ -209,7 +236,9 @@ void ControllerSystem::update()
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
 				if (body.grounded)
-					body.velocityX = 3;
+					body.velocityX = 1.5f;
+				else if (body.velocityY != 0.0f)
+					body.velocityX = 1.5f;
 				else if (body.velocityX < 3)
 					body.totalForceX = 0.1f;
 				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
@@ -252,6 +281,54 @@ void ControllerSystem::update()
 			shouldFollow = true;
 		}
 	}
+
+	//Jump for big character
+	//Glide between x = 3 and x = 5
+	if (character1.isBig && body.velocityY < 0)
+	{
+		if (body.prevPositionX > 3.0f && body.prevPositionX < 3.5f)
+			body.totalForceY += 0.15f;
+		else
+			body.totalForceY += 0.1f;
+	}
+	else if (character2.isBig && body2.velocityY < 0)
+	{
+		if (body2.prevPositionX > 3.0f && body2.prevPositionX < 3.5f)
+			body2.totalForceY += 0.15f;
+		else
+			body2.totalForceY += 0.1f;
+	}
+
+	//To Move Platform
+	//if (isTriggered)
+	//{
+	//	platform1.staticBody = false;
+	//	platform2.staticBody = false;
+
+	//	//First Platform
+	//	if (platform1.prevPositionX > 3.5f)
+	//		platform1.velocityX = 0.5f;
+	//	else
+	//		platform1.velocityX = 0.0f;
+
+	//	if (platform1.prevPositionY > -0.2f)
+	//		platform1.velocityY = 0.5f;
+	//	else
+	//		platform1.velocityY = 0.0f;
+
+	//	//Second Platform
+	//	if (platform2.prevPositionX > 4.5f)
+	//		platform2.velocityX = 0.5f;
+	//	else
+	//		platform2.velocityX = 0.0f;
+
+	//	if (platform2.prevPositionY > -0.2f)
+	//		platform2.velocityY = 0.5f;
+	//	else
+	//		platform2.velocityY = 0.0f;
+
+	//}
+
 }
 
 void ControllerSystem::onEvent(Event& e)

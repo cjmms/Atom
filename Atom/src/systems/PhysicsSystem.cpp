@@ -33,13 +33,61 @@ void PhysicsSystem::init()
 
 void PhysicsSystem::update()
 {
-
 	//reset prev contacts;
 	Reset();
 
 	frameTime = ae.dt;
 	if (frameTime == 0)
 		return;
+
+	//For Platform Movement
+	/*EntityID platform1Id;
+	EntityID platform2Id;*/
+
+	//for (auto& entity : mEntities)
+	//{
+	//	//ATOM_INFO("hello");
+	//	auto& trans = ae.getComponent<TagComponent>(entity);
+	//	if (trans.tag == "Jump-on-Platform-2-Obstacle2-SwapPrototype")
+	//		platform1Id = entity;
+	//	else if (trans.tag == "Jump-on-Platform-3-Obstacle3-SwapPrototype")
+	//		platform2Id = entity;
+	//}
+
+	////////////////////////////////////////////////////////
+	//auto platform1 = ae.getComponent<PhysicsBodyComponent>(platform1Id);
+	//auto platform2 = ae.getComponent<PhysicsBodyComponent>(platform2Id);
+
+	////To Move Platform
+	//if (toMove)
+	//{
+	//	platform1.staticBody = false;
+	//	platform2.staticBody = false;
+
+	//	//First Platform
+	//	if (platform1.prevPositionX < 3.5f)
+	//		platform1.velocityX = 0.5f;
+	//	else
+	//		platform1.velocityX = 0.0f;
+
+	//	if (platform1.prevPositionY > -0.2f)
+	//		platform1.velocityY = -0.5f;
+	//	else
+	//		platform1.velocityY = 0.0f;
+
+	//	//Second Platform
+	//	if (platform2.prevPositionX < 4.5f)
+	//		platform2.velocityX = 0.5f;
+	//	else
+	//		platform2.velocityX = 0.0f;
+
+	//	if (platform2.prevPositionY > -0.2f)
+	//		platform2.velocityY = -0.5f;
+	//	else
+	//		platform2.velocityY = 0.0f;
+
+	//}
+	///////////////////////////////////////////////////////
 
 	for (auto& itr = mEntities.begin(); itr != mEntities.end(); itr++) {
 		EntityID entity1 = *itr;
@@ -54,6 +102,7 @@ void PhysicsSystem::update()
 		
 
 		bool previousGrounded = body1.grounded;
+
 
 		//skip static body, !assume it is always static
 		if (!body1.staticBody)

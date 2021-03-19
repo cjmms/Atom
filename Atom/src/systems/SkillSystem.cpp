@@ -4,6 +4,7 @@
 #include "core/AtomEngine.hpp"
 #include "utils/Log.hpp"
 #include "components/AllComponents.hpp"
+#include "PhysicsSystem.hpp"
 
 //Temp
 
@@ -59,6 +60,7 @@ void SkillSystem::onEvent(Event& e)
 
 		auto& skillComponent = ae.getComponent<SkillBoosterComponent>(skillEntity);
 		auto& characterComponent = ae.getComponent<CharacteristicComponent>(playerEntity);
+		auto sys = ae.mSystemManager->getSystem<PhysicsSystem>();
 
 		switch (skillComponent.skillType)
 		{
@@ -67,6 +69,9 @@ void SkillSystem::onEvent(Event& e)
 			break;
 		case WallJump:
 			characterComponent.canWallJump.isEnabled = true;
+			break;
+		case Trigger:
+			sys->toMove = true;
 			break;
 		default:
 			ATOM_ERROR("Skill : Missing new skill");

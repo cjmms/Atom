@@ -13,6 +13,8 @@ public:
 	void onEvent(Event& e) override;
 
 	bool shouldFollow;
+	bool isTriggered;
+
 
 	glm::vec2 playerPosition;
 };
