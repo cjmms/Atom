@@ -81,6 +81,7 @@ void DamageSystem::onEvent(Event& e)
 	}
 
 	//handle destroy in another loop
-	damage.destroy = true;
+	if (ae.hasComponent<BulletComponent>(bullet))
+		damage.destroy = true;
 
 }

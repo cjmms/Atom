@@ -57,8 +57,8 @@
         "bulletPerShoot": 1
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 1000,
+        "totalHealth": 1000
       },
       "CharacteristicComponent": {
         "isBig": false

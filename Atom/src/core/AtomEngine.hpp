@@ -38,6 +38,7 @@
 #include "systems/ChaseSystem.hpp"
 #include "systems/RenderTextSystem.hpp"
 #include "systems/SkillSystem.hpp"
+#include "systems/EnemyMovementSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -96,6 +97,7 @@ public:
 		registerComponent<CharacteristicComponent>();
 		registerComponent<SkillBoosterComponent>();
 		registerComponent<BulletComponent>();
+		registerComponent<HorizontalMovementComponent>();
 
 		// register all systems
 		registerSystem<ControllerSystem>();
@@ -103,6 +105,7 @@ public:
 		registerSystem<DamageSystem>();
 		registerSystem<HealthSystem>();
 		registerSystem<ChaseSystem>();
+		registerSystem<EnemyMovementSystem>();
 		registerSystem<SkillSystem>();
 		registerSystem<PhysicsSystem>();
 		registerSystem<RectangleRenderSystem>();
@@ -154,6 +157,12 @@ public:
 			typeChase.set(getComponentType<ChasePlayerComponent>());
 			typeChase.set(getComponentType<PhysicsBodyComponent>());
 			setSystemArchetype<ChaseSystem>(typeChase);
+
+			Archetype typeEnemyMovement;
+			typeEnemyMovement.set(getComponentType<TransformComponent>());
+			typeEnemyMovement.set(getComponentType<HorizontalMovementComponent>());
+			typeEnemyMovement.set(getComponentType<PhysicsBodyComponent>());
+			setSystemArchetype<EnemyMovementSystem>(typeEnemyMovement);
 
 			Archetype typeSkill;
 			typeSkill.set(getComponentType<SkillBoosterComponent>());
@@ -380,6 +389,7 @@ public:
 		serializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 		serializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
 		serializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
+		serializeComponent<HorizontalMovementComponent>(j["HorizontalMovementComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -407,6 +417,7 @@ public:
 		deserializeComponent<HealthComponent>(j["HealthComponent"], entity);
 		deserializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
 		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
+		deserializeComponent<HorizontalMovementComponent>(j["HorizontalMovementComponent"], entity);
 	}
 
 	inline float random() {

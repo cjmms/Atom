@@ -28,29 +28,32 @@ void ShootSystem::update()
 			//todo can write another system for AutoShootComponent for smarter enemy shooting
 			if (ae.hasComponent<AutoShootComponent>(entity))
 			{
+
+				//todo temp get player target
+				auto& targetPlayers = ae.mSystemManager->getSystem<ControllerSystem>()->mEntities;
+				if (targetPlayers.size() == 0)
+					return;
+				EntityID target = *targetPlayers.begin();
+				//auto& targetTransform = ae.getComponent<TransformComponent>(target);
+
+
 				auto& autoShoot = ae.getComponent<AutoShootComponent>(entity);
 				shoot.isShooting = true;
 				auto& sourceTransform = ae.getComponent<TransformComponent>(entity);
 
 				//todo temp hard code
-				for (auto& entity : mEntities)
+				//auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
+				auto& targetTransform = ae.getComponent<TransformComponent>(target);
+				glm::vec3 direction = targetTransform.position - sourceTransform.position;
+
+				if (glm::length(direction) > 3.0)
 				{
-					if (entity == autoShoot.target)
-					{
-						auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
-						glm::vec3 direction = targetTransform.position - sourceTransform.position;
-
-						if (glm::length(direction) > 5.0)
-						{
-							shoot.isShooting = false;
-							break;
-						}
-
-						glm::vec3 normDirection = glm::normalize(direction);
-						shoot.direction = atan2(normDirection.y, normDirection.x);
-
-					}
+					shoot.isShooting = false;
+					continue;
 				}
+
+				glm::vec3 normDirection = glm::normalize(direction);
+				shoot.direction = atan2(normDirection.y, normDirection.x);
 
 			}
 
