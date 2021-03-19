@@ -92,8 +92,8 @@ void ControllerSystem::update()
 		float y = lerp(ae.mCameraManager->getPosition().y, target_position.y, ae.dt, 0.0f, camera_fade_time);
 		//float x = transformComponent.position.x;
 		//float y = transformComponent.position.y;
-		ae.mCameraManager->setPosition(glm::vec2{x,y});
-		playerPosition = glm::vec2(body.prevPositionX, body.prevPositionY);
+		ae.mCameraManager->setPosition(glm::vec2{ x,y });
+		playerPosition = glm::vec2{ x, y };
 	}
 
 	{//Triggered

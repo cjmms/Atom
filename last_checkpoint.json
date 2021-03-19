@@ -7,8 +7,8 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": 4.375,
-                    "y": 0.625,
+                    "x": 3.84375,
+                    "y": 0.23281335830688477,
                     "z": 0.0
                 },
                 "rotation": {
@@ -105,61 +105,6 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 2,
-            "TagComponent": {
-                "tag": "enemy"
-            },
-            "TransformComponent": {
-                "position": {
-                    "x": 4.375,
-                    "y": 0.375,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.1875,
-                    "y": 0.1875,
-                    "z": 0.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "z": 0.5
-                },
-                "wireframe": false,
-                "texturePath": "Atom/res/orange.png"
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 2.0,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": {
-                "shootInterval": 3.0,
-                "bulletPerShoot": 5
-            },
-            "HealthComponent": {
-                "health": 200,
-                "totalHealth": 200
-            },
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
             "EntityID": 3,
             "TagComponent": {
                 "tag": "Skill"
@@ -218,7 +163,7 @@
             "TransformComponent": {
                 "position": {
                     "x": 3.84375,
-                    "y": -0.42233234643936157,
+                    "y": -0.4728354513645172,
                     "z": 0.0
                 },
                 "rotation": {
@@ -257,7 +202,7 @@
                 "bulletPerShoot": 5
             },
             "HealthComponent": {
-                "health": 200,
+                "health": 50,
                 "totalHealth": 200
             },
             "AutoShootComponent": null,
@@ -321,8 +266,8 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": 0.4467969536781311,
-                    "y": -1.048006296157837,
+                    "x": 1.9709080457687378,
+                    "y": -0.8874737620353699,
                     "z": 0.0
                 },
                 "rotation": {
@@ -568,14 +513,14 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 12,
+            "EntityID": 11,
             "TagComponent": {
-                "tag": "Skill"
+                "tag": "enemy"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 1.625,
-                    "y": -1.125,
+                    "x": 1.3352653980255127,
+                    "y": -1.233628273010254,
                     "z": 0.0
                 },
                 "rotation": {
@@ -584,39 +529,43 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.07500000298023224,
-                    "y": 0.07500000298023224,
+                    "x": 0.1875,
+                    "y": 0.1875,
                     "z": 0.0
                 }
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 0.0
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/jump.png"
+                "texturePath": "Atom/res/orange.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
             "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": true,
+                "mass": 2.0,
+                "staticBody": false,
+                "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
+            "ShootComponent": {
+                "shootInterval": 3.0,
+                "bulletPerShoot": 5
+            },
+            "HealthComponent": {
+                "health": 150,
+                "totalHealth": 200
+            },
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": {
-                "skillType": "DoubleJump"
-            }
+            "SkillBoosterComponent": null
         },
         {
             "EntityID": 13,
@@ -1752,7 +1701,7 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": 3.0959925651550293,
                     "y": -1.4500000476837158,
                     "z": 1.0
                 },
@@ -1802,7 +1751,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4800,
+                "health": 4950,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1866,8 +1815,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -7.866717338562012,
-                    "y": -1.779947280883789,
+                    "x": -4.289856433868408,
+                    "y": -1.2770171165466309,
                     "z": 0.0
                 },
                 "rotation": {
@@ -1913,8 +1862,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -7.889723777770996,
-                    "y": 0.8175071477890015,
+                    "x": -4.304427623748779,
+                    "y": 0.3773854076862335,
                     "z": 0.0
                 },
                 "rotation": {
@@ -1960,8 +1909,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -8.94327163696289,
-                    "y": -0.7859076261520386,
+                    "x": -5.332859039306641,
+                    "y": -0.898919403553009,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2007,8 +1956,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -8.523602485656738,
-                    "y": 1.7775380611419678,
+                    "x": -5.065550327301025,
+                    "y": 0.7338137626647949,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2050,12 +1999,12 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 48,
+            "EntityID": 49,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 5.686201572418213,
-                    "y": 6.209048271179199,
+                    "x": -1.776030421257019,
+                    "y": -0.2524696886539459,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2097,106 +2046,12 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 50,
+            "EntityID": 51,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -5.382308483123779,
-                    "y": -0.45670440793037415,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 52,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -5.197262287139893,
-                    "y": 2.0295374393463135,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 59,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -4.15752649307251,
-                    "y": -1.473935604095459,
+                    "x": -1.6609363555908203,
+                    "y": 1.293285846710205,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2242,55 +2097,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -4.170057773590088,
-                    "y": -0.05445593222975731,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 64,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -5.09829044342041,
-                    "y": -1.083343744277954,
+                    "x": -0.6540480852127075,
+                    "y": 1.0858365297317505,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2336,8 +2144,8 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -4.86898136138916,
-                    "y": 0.3175317049026489,
+                    "x": 2.744539976119995,
+                    "y": -2.2945046424865723,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2379,12 +2187,12 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 75,
+            "EntityID": 68,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.1773744821548462,
-                    "y": -1.205527663230896,
+                    "x": 2.8652377128601074,
+                    "y": -1.4216476678848267,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2426,12 +2234,12 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 76,
+            "EntityID": 69,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -0.3101118206977844,
-                    "y": -1.3693747520446777,
+                    "x": 2.7459018230438232,
+                    "y": -1.8828916549682617,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2473,12 +2281,12 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 77,
+            "EntityID": 70,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -0.3746659457683563,
-                    "y": -1.1366835832595825,
+                    "x": 2.861123561859131,
+                    "y": -0.9452275037765503,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2520,12 +2328,59 @@
             "SkillBoosterComponent": null
         },
         {
-            "EntityID": 79,
+            "EntityID": 85,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -0.37679558992385864,
-                    "y": -0.8952110409736633,
+                    "x": 3.7655978202819824,
+                    "y": -0.2505445182323456,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 0.009999999776482582,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": true,
+                "gravity": false
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null
+        },
+        {
+            "EntityID": 87,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.905897855758667,
+                    "y": -0.25265151262283325,
                     "z": 0.0
                 },
                 "rotation": {
