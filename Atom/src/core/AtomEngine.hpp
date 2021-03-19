@@ -177,27 +177,46 @@ public:
 	inline void update() {
 		startFrame();
 
+		// get input 
 		mInputManager->update();
-		mEventManager->update();
-		mSystemManager->update();
-		mUIManager->update();
+
+		// process
+		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
+			mIsPaused = !mIsPaused;
+		}
+
+		if (mIsPaused) {
+			mAudioManager->pause(musicChannelID, true);
+			mAudioManager->pause(sfxChannelID, true);
+		}
+		else {
+			mAudioManager->pause(musicChannelID, false);
+			mAudioManager->pause(sfxChannelID, false);
+			mEventManager->update();
+			mSystemManager->update();
+			mResourceManager->update();
+			mAudioManager->update();
+			mCameraManager->update();
+			mLevelManager->update();
+		}
+
+		// render
 		mGraphicsManager->update();
-		mResourceManager->update();
-		mAudioManager->update();
-		mCameraManager->update();
-		mLevelManager->update();
+		mUIManager->update();
 
 		endFrame();
 	}
 
 	inline void onEvent(Event& e) {
 		mUIManager->onEvent(e);
-		mGraphicsManager->onEvent(e);
-		mResourceManager->onEvent(e);
-		mSystemManager->onEvent(e);
-		mAudioManager->onEvent(e);
-		mCameraManager->onEvent(e);
-		mLevelManager->onEvent(e);
+		if (!mIsPaused) {
+			mGraphicsManager->onEvent(e);
+			mResourceManager->onEvent(e);
+			mSystemManager->onEvent(e);
+			mAudioManager->onEvent(e);
+			mCameraManager->onEvent(e);
+			mLevelManager->onEvent(e);
+		}
 	}
 
 
@@ -205,8 +224,11 @@ public:
 	// ChrononManager
 	inline void startFrame() {
 		mChrononManager->startframe();
+		glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	inline void endFrame() {
+		glfwSwapBuffers(mGraphicsManager->getWindow());
 		mChrononManager->endFrame();
 		dt = mChrononManager->updatedt();
 	}
@@ -571,6 +593,7 @@ public:
 public:
 	double dt;
 	bool mIsRunning;
+	bool mIsPaused;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;

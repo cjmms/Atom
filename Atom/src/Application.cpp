@@ -78,6 +78,7 @@ string sfxTrack = "Atom/res/optimus_speech.ogg";
 
 string sfxJump = "Atom/res/EllenFootstepJump.ogg";
 string sfxLand = "Atom/res/EllenFootstepLand.ogg";
+string sfxBullet = "Atom/res/bullet-retro-gun-shot.mp3";
 
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
@@ -94,16 +95,24 @@ static FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
 static float listener_step = 0.1f;
 
 void uiDraw() {
-    // render your GUI
-    ImGui::Begin("ATOM AUDIO CONTROL PANEL");
-    ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
+    if (ae.mIsPaused) {
+        //render your GUI
+        ImGui::Begin(
+            "ATOM AUDIO CONTROL PANEL",
+            0,
+            ImGuiWindowFlags_NoCollapse
+        );
+        ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+        ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+        ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
-    ae.setVolume(musicChannelID, musicVolumedB);
-    ae.setVolume(sfxChannelID, sfxVolumedB);
-    ae.listener3DSetXOffset(listenerOffset[0]);
-    ae.listener3DSetYOffset(listenerOffset[1]);
+        ae.setVolume(musicChannelID, musicVolumedB);
+        ae.setVolume(sfxChannelID, sfxVolumedB);
+        ae.listener3DSetXOffset(listenerOffset[0]);
+        ae.listener3DSetYOffset(listenerOffset[1]);
+        ImGui::End();
+
+    }
 }
 
 
@@ -127,6 +136,7 @@ void start() {
     ae.loadSound(sfxTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
+    ae.loadSound(sfxBullet);
 
     ae.load("baduku_01.json");
 
@@ -149,14 +159,13 @@ int main(int argc, char** argv){
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     start();
-    // game loop
+ 
     while (ae.mIsRunning) {
         glfwpoll();
-        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
-        glClear(GL_COLOR_BUFFER_BIT);
         ae.update();
         fpsCounter();
     }
+
     shutdown();
     return 0;
 }
