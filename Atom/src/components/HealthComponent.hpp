@@ -17,7 +17,7 @@ public:
 	int totalHealth;
 
 	//for rendering
-	float offsetX = 0.0f, offsetY = 0.0f;
+	float offsetX = 0.0f, offsetY = 0.02f;
 	float width = 0.1f, height = 0.01f;
 
 public:

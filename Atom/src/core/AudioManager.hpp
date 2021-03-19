@@ -117,10 +117,9 @@ public:
 		return playing;
 	}
 
-	inline void pause(ChannelID channelid) {
-		bool paused = true;
+	inline void pause(ChannelID channelid, bool paused) {
 		if (mChannelPool.count(channelid) > 0) {
-			mChannelPool[channelid]->setPaused(&paused);
+			mChannelPool[channelid]->setPaused(paused);
 		}
 	}
 
