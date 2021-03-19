@@ -200,6 +200,8 @@ public:
 			mSystemManager->update();
 			mResourceManager->update();
 			mAudioManager->update();
+			mCameraManager->update();
+			mLevelManager->update();
 		}
 
 		// render
@@ -216,6 +218,8 @@ public:
 			mResourceManager->onEvent(e);
 			mSystemManager->onEvent(e);
 			mAudioManager->onEvent(e);
+			mCameraManager->onEvent(e);
+			mLevelManager->onEvent(e);
 		}
 	}
 

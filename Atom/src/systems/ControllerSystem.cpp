@@ -232,16 +232,16 @@ void ControllerSystem::update()
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
 				if(body.grounded)
-					body.velocityX = -3;
-				else if(body.velocityX > -3)
+					body.velocityX = -1;
+				else if(body.velocityX > -1)
 					body.totalForceX = -0.1f;
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
 				if (body.grounded)
-					body.velocityX = 3;
-				else if (body.velocityX < 3)
+					body.velocityX = 1;
+				else if (body.velocityX < 1)
 					body.totalForceX = 0.1f;
 				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
