@@ -1,5 +1,5 @@
 #include "Pch.hpp"
-#include "EnemyMovementSystem.hpp"
+#include "AutoMovementSystem.hpp"
 #include "core/Types.hpp"
 #include "core/AtomEngine.hpp"
 #include "utils/Log.hpp"
@@ -7,16 +7,16 @@
 
 extern AtomEngine ae;
 
-void EnemyMovementSystem::init()
+void AutoMovementSystem::init()
 {
 
 }
 
-void EnemyMovementSystem::update()
+void AutoMovementSystem::update()
 {
 	for (auto& entity : mEntities)
 	{
-		auto& movement = ae.getComponent<HorizontalMovementComponent>(entity);
+		auto& movement = ae.getComponent<AutoMovementComponent>(entity);
 		auto& transform = ae.getComponent<TransformComponent>(entity);
 		auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
 
@@ -29,11 +29,13 @@ void EnemyMovementSystem::update()
 			movement.oppositeDirection = !movement.oppositeDirection;
 		}
 
-		body.velocityX = movement.velocity * (movement.oppositeDirection ? -1 : 1);
+		body.velocityX = movement.velocityX * (movement.oppositeDirection ? -1 : 1);
+		if(!body.gravity)
+			body.velocityY = movement.velocityY * (movement.oppositeDirection ? -1 : 1);
 	}
 }
 
-void EnemyMovementSystem::onEvent(Event& e)
+void AutoMovementSystem::onEvent(Event& e)
 {
 
 }
