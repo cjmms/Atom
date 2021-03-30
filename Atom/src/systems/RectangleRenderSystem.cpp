@@ -19,13 +19,12 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	//setBackground("Atom/res/level_01_background.png");
+	setBackground("Atom/res/level_01_background.png");
+	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
 	VampireTimer = glfwGetTime();
 	laternTimer = glfwGetTime();
-
-	//CameraPos = ae.mCameraManager->camera.position;
 
 	// init shaders
 	ColorRecShader = std::make_unique<Shader> ("Atom/res/ColorRec.shader");

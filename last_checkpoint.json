@@ -7,8 +7,8 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": 1.9538731575012207,
-                    "y": -1.590560793876648,
+                    "x": 4.375,
+                    "y": 0.625,
                     "z": 0.0
                 },
                 "rotation": {
@@ -29,7 +29,7 @@
                     "z": 0.5
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/orange.png"
+                "texturePath": "Atom/res/Art/PlatformEnemy.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
@@ -53,7 +53,8 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
             "EntityID": 1,
@@ -84,8 +85,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 2,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": 0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -94,7 +129,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -102,10 +137,67 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
             "EntityID": 3,
+            "TagComponent": {
+                "tag": "enemy"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 4.375,
+                    "y": 0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.1875,
+                    "y": 0.1875,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/Art/PlatformEnemy.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 2.0,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": false,
+                "gravity": false
+            },
+            "ControllerComponent": null,
+            "ShootComponent": {
+                "shootInterval": 3.0,
+                "bulletPerShoot": 5
+            },
+            "HealthComponent": {
+                "health": 200,
+                "totalHealth": 200
+            },
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 4,
             "TagComponent": {
                 "tag": "Skill"
             },
@@ -153,17 +245,18 @@
             "CharacteristicComponent": null,
             "SkillBoosterComponent": {
                 "skillType": "BulletCount"
-            }
+            },
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 4,
+            "EntityID": 5,
             "TagComponent": {
                 "tag": "enemy"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 3.84375,
-                    "y": -1.40625,
+                    "x": 4.375,
+                    "y": 0.125,
                     "z": 0.0
                 },
                 "rotation": {
@@ -184,7 +277,7 @@
                     "z": 0.5
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/orange.png"
+                "texturePath": "Atom/res/Art/PlatformEnemy.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
@@ -202,16 +295,17 @@
                 "bulletPerShoot": 5
             },
             "HealthComponent": {
-                "health": 50,
+                "health": 200,
                 "totalHealth": 200
             },
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 5,
+            "EntityID": 6,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -239,8 +333,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 7,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -0.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -249,7 +377,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -257,17 +385,18 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 6,
+            "EntityID": 8,
             "TagComponent": {
                 "tag": "enemy"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 0.3217933475971222,
-                    "y": -1.40625,
+                    "x": 1.591031551361084,
+                    "y": -0.5621891617774963,
                     "z": 0.0
                 },
                 "rotation": {
@@ -288,7 +417,7 @@
                     "z": 0.5
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/orange.png"
+                "texturePath": "Atom/res/Art/PlatformEnemy.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
@@ -306,16 +435,17 @@
                 "bulletPerShoot": 5
             },
             "HealthComponent": {
-                "health": 100,
+                "health": 200,
                 "totalHealth": 200
             },
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 7,
+            "EntityID": 9,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -343,8 +473,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 10,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -0.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -353,7 +517,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -361,10 +525,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 8,
+            "EntityID": 11,
             "TagComponent": {
                 "tag": "Skill"
             },
@@ -412,10 +577,11 @@
             "CharacteristicComponent": null,
             "SkillBoosterComponent": {
                 "skillType": "WallJump"
-            }
+            },
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 9,
+            "EntityID": 12,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -443,8 +609,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 13,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -0.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -453,7 +653,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -461,10 +661,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 10,
+            "EntityID": 14,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -492,8 +693,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 15,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -0.875,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -502,7 +737,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -510,10 +745,67 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 12,
+            "EntityID": 16,
+            "TagComponent": {
+                "tag": "enemy"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 0.6399447917938232,
+                    "y": -1.182536005973816,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.1875,
+                    "y": 0.1875,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/Art/PlatformEnemy.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 2.0,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": false,
+                "gravity": false
+            },
+            "ControllerComponent": null,
+            "ShootComponent": {
+                "shootInterval": 3.0,
+                "bulletPerShoot": 5
+            },
+            "HealthComponent": {
+                "health": 150,
+                "totalHealth": 200
+            },
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 17,
             "TagComponent": {
                 "tag": "Skill"
             },
@@ -561,10 +853,11 @@
             "CharacteristicComponent": null,
             "SkillBoosterComponent": {
                 "skillType": "DoubleJump"
-            }
+            },
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 13,
+            "EntityID": 18,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -592,8 +885,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 19,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -1.125,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -602,7 +929,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -610,10 +937,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 14,
+            "EntityID": 20,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -641,8 +969,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 21,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.625,
+                    "y": -1.375,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 0.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -651,7 +1013,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -659,10 +1021,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 15,
+            "EntityID": 22,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -690,28 +1053,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 16,
+            "EntityID": 23,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -739,28 +1097,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 17,
+            "EntityID": 24,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -788,28 +1141,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 18,
+            "EntityID": 25,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -837,28 +1185,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 19,
+            "EntityID": 26,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -886,8 +1229,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 27,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": -0.375,
+                    "y": -1.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 1.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -896,7 +1273,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -904,10 +1281,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 20,
+            "EntityID": 28,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -935,28 +1313,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 21,
+            "EntityID": 29,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -984,28 +1357,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 22,
+            "EntityID": 30,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1033,28 +1401,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 23,
+            "EntityID": 31,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1082,28 +1445,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 24,
+            "EntityID": 32,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1131,8 +1489,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 33,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 1.125,
+                    "y": -1.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 1.25,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -1141,7 +1533,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -1149,10 +1541,11 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 25,
+            "EntityID": 34,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1180,28 +1573,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 26,
+            "EntityID": 35,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1229,28 +1617,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 27,
+            "EntityID": 36,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1278,28 +1661,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 28,
+            "EntityID": 37,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1327,28 +1705,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 29,
+            "EntityID": 38,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1376,28 +1749,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 30,
+            "EntityID": 39,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1425,28 +1793,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 31,
+            "EntityID": 40,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1474,28 +1837,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 32,
+            "EntityID": 41,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1523,28 +1881,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 33,
+            "EntityID": 42,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1572,28 +1925,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 34,
+            "EntityID": 43,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1621,28 +1969,23 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
-            "PhysicsBodyComponent": {
-                "mass": 1.0,
-                "staticBody": true,
-                "isTrigger": false,
-                "frictionless": false,
-                "gravity": true
-            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 35,
+            "EntityID": 44,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1670,8 +2013,42 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/Wall.jpg"
+                "texturePath": "Atom/res/Art/FixedPlatform1.png"
             },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 45,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 3.875,
+                    "y": -1.625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 4.591354418360263e-41,
+                    "y": -0.01879468560218811,
+                    "z": 1.3032075718220799e-43
+                },
+                "scale": {
+                    "x": 2.75,
+                    "y": 0.25,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": null,
             "ShapeComponent": {
                 "shapeType": "AABB"
             },
@@ -1680,7 +2057,7 @@
                 "staticBody": true,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": true
+                "gravity": false
             },
             "ControllerComponent": null,
             "ShootComponent": null,
@@ -1688,17 +2065,18 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 36,
+            "EntityID": 46,
             "TagComponent": {
                 "tag": "small player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 50.29051971435547,
-                    "y": -239.39247131347656,
+                    "x": -0.5,
+                    "y": -1.4500000476837158,
                     "z": 1.0
                 },
                 "rotation": {
@@ -1719,7 +2097,7 @@
                     "z": 0.5
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/yellow.png"
+                "texturePath": "Atom/res/Art/Small.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
@@ -1747,7 +2125,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4750,
+                "health": 4950,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1755,10 +2133,79 @@
             "CharacteristicComponent": {
                 "isBig": false
             },
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 37,
+            "EntityID": 47,
+            "TagComponent": {
+                "tag": "large player"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.800000011920929,
+                    "y": -1.399999976158142,
+                    "z": 1.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.20000000298023224,
+                    "y": 0.20000000298023224,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.800000011920929,
+                    "y": 0.8999999761581421,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/Art/Large.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 1.0,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": false,
+                "gravity": true
+            },
+            "ControllerComponent": {
+                "UP": "ATOM_SCANCODE_UP",
+                "DOWN": "ATOM_SCANCODE_DOWN",
+                "LEFT": "ATOM_SCANCODE_LEFT",
+                "RIGHT": "ATOM_SCANCODE_RIGHT",
+                "SWAP_POSITION": "ATOM_SCANCODE_Z",
+                "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+                "ROTLEFT": 67,
+                "ROTRIGHT": 86,
+                "isActive": false
+            },
+            "ShootComponent": {
+                "shootInterval": 0.30000001192092896,
+                "bulletPerShoot": 1
+            },
+            "HealthComponent": {
+                "health": 5000,
+                "totalHealth": 5000
+            },
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": {
+                "isBig": true
+            },
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
+        },
+        {
+            "EntityID": 48,
             "TagComponent": {
                 "tag": "DeadZone"
             },
@@ -1804,203 +2251,16 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 39,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -21.051860809326172,
-                    "y": -3.631850242614746,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 41,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -21.104787826538086,
-                    "y": 2.441483736038208,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 44,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -22.251157760620117,
-                    "y": -0.36301395297050476,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 46,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -21.268611907958984,
-                    "y": 5.630551338195801,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
             "EntityID": 49,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -18.657756805419922,
-                    "y": -1.2104709148406982,
+                    "x": -0.34950920939445496,
+                    "y": -1.3861050605773926,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2039,15 +2299,16 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 51,
+            "EntityID": 50,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -18.21532440185547,
-                    "y": 4.736532211303711,
+                    "x": -0.5265594720840454,
+                    "y": -0.7479049563407898,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2086,15 +2347,16 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 53,
+            "EntityID": 52,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -15.413012504577637,
-                    "y": -5.773456573486328,
+                    "x": -0.5323983430862427,
+                    "y": -0.0856265276670456,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2133,15 +2395,16 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 56,
+            "EntityID": 55,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -15.836148262023926,
-                    "y": 4.944276809692383,
+                    "x": -1.5343761444091797,
+                    "y": -1.018224835395813,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2180,15 +2443,16 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         },
         {
-            "EntityID": 59,
+            "EntityID": 57,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -16.16499137878418,
-                    "y": -1.1798064708709717,
+                    "x": -1.4273954629898071,
+                    "y": -0.3646183907985687,
                     "z": 0.0
                 },
                 "rotation": {
@@ -2227,806 +2491,8 @@
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 61,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -15.932232856750488,
-                    "y": 4.1978349685668945,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 64,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -17.190391540527344,
-                    "y": -4.067937850952148,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 66,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -17.43478012084961,
-                    "y": 0.8176680207252502,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 68,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -18.153457641601563,
-                    "y": -3.7411348819732666,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 69,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -18.179983139038086,
-                    "y": 1.150503158569336,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 71,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -16.93955421447754,
-                    "y": 5.882331848144531,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 79,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -12.492643356323242,
-                    "y": -1.594720482826233,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 81,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -12.3815279006958,
-                    "y": 2.6261675357818604,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 94,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -1.2976175097000755e+17,
-                    "y": -4.954090157113344e+17,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 95,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -1.1316043793259561e+18,
-                    "y": 2.37546051207168e+17,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 96,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 1.9556807164821504e+17,
-                    "y": -1.0302604684484936e+18,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 97,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -1.7398439726096056e+18,
-                    "y": 3.8570057012556595e+17,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 104,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -8.692380905151367,
-                    "y": -2.2338924407958984,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 106,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -8.841161727905273,
-                    "y": 0.80791175365448,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 109,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -8.087889671325684,
-                    "y": -1.451327919960022,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 111,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -8.091681480407715,
-                    "y": 1.5626413822174072,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
-        },
-        {
-            "EntityID": 112,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": -3.660013437271118,
-                    "y": -9.098403930664063,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": false
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null
+            "SkillBoosterComponent": null,
+            "HorizontalMovementComponent": null
         }
     ]
 }
