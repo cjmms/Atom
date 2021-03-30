@@ -88,15 +88,15 @@ bool CheckCollisionAABBAABB(double frameTime,
 	float left1, right1, top1, bottom1;
 	float left2, right2, top2, bottom2;
 
-	float halfWidth1 = transform1.scale.x / 2;
-	float halfHeight1 = transform1.scale.y / 2;
+	float halfWidth1 = fabs(transform1.scale.x) / 2;
+	float halfHeight1 = fabs(transform1.scale.y) / 2;
 	left1 = transform1.position.x - halfWidth1;
 	right1 = transform1.position.x + halfWidth1;
 	top1 = transform1.position.y + halfHeight1;
 	bottom1 = transform1.position.y - halfHeight1;
 
-	float halfWidth2 = transform2.scale.x / 2;
-	float halfHeight2 = transform2.scale.y / 2;
+	float halfWidth2 = fabs(transform2.scale.x) / 2;
+	float halfHeight2 = fabs(transform2.scale.y) / 2;
 	left2 = transform2.position.x - halfWidth2;
 	right2 = transform2.position.x + halfWidth2;
 	top2 = transform2.position.y + halfHeight2;
@@ -113,7 +113,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 	float distX, distY;
 	float timeX, timeY;
 
-	if (abs(body1.prevPositionX - body2.prevPositionX) + EPSILON < (body1.prevScaleX + body2.prevScaleX) / 2.0)
+	if (abs(body1.prevPositionX - body2.prevPositionX) + EPSILON < (fabs(body1.prevScaleX) + fabs(body2.prevScaleX)) / 2.0)
 	{
 		//vertical collision only
 		// ---
@@ -127,7 +127,7 @@ bool CheckCollisionAABBAABB(double frameTime,
 		timeY = body1.velocityY == 0 ? 0 : distY / body1.velocityY;
 		verticalCollision(transform1, body1, transform2, body2, halfHeight1, halfHeight2);
 	}
-	else if (abs(body1.prevPositionY - body2.prevPositionY) + EPSILON < (body1.prevScaleY + body2.prevScaleY) / 2.0)
+	else if (abs(body1.prevPositionY - body2.prevPositionY) + EPSILON < (fabs(body1.prevScaleY) + fabs(body2.prevScaleY)) / 2.0)
 	{
 		//horizontal collision only
 		// ---

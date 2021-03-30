@@ -104,12 +104,14 @@ void ControllerSystem::update()
 		{
 			//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 			body.velocityX = -1;
+			transformComponent.scale.x = -1.0f * fabs(transformComponent.scale.x);
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
 		{
 			body.velocityX = 1;
+			transformComponent.scale.x = fabs(transformComponent.scale.x);
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 

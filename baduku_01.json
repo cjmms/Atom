@@ -34,13 +34,6 @@
     },
     "ShapeComponent": {
       "shapeType": "AABB"
-    },
-    "PhysicsBodyComponent": {
-      "mass": 1.0,
-      "staticBody": true,
-      "isTrigger": false,
-      "frictionless": false,
-      "gravity": true
     }
   },
 

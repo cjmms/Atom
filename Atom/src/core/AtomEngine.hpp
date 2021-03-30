@@ -503,38 +503,105 @@ public:
 			// size normalized to [0,800]
 			tilesize_x = (float)mapJson["tilesize_x"]*2/SCREEN_WIDTH;
 			tilesize_y = (float)mapJson["tilesize_y"]*2/SCREEN_HEIGHT;
+
+			//merge along row
+			int mergeStartIndex = -1;
+			float wallHeight = 1;
+
 			for (int i = 0; i < rows; ++i) {
 				for (int j = 0; j < cols; ++j) {
 					string gridID = mapJson["grid"][i][j];
-					if (json[gridID].is_null())
-						continue;
-
-					ordered_json gridDetail = json[gridID];
 					EntityID entityID;
-					deserializeEntity(gridDetail, entityID);
-					
-					auto& t = getComponent<TransformComponent>(entityID);
-					t.position = glm::vec3{
-						-1.0f + j * tilesize_x + tilesize_x / 2.0f,
-						1.0f - i * tilesize_y - tilesize_y / 2.0f,
-						0.0f 
-					};
-					t.scale = glm::vec3{ 
-						tilesize_x * t.scale.x, 
-						tilesize_y * t.scale.y, 
-						0.0f 
-					};
-
-					if (hasComponent<PhysicsBodyComponent>(entityID))
+					if (!json[gridID].is_null())
 					{
-						auto& p = getComponent<PhysicsBodyComponent>(entityID);
-						p.prevPositionX = t.position.x;
-						p.prevPositionY = t.position.y;
-						p.prevScaleX = t.scale.x;
-						p.prevScaleY = t.scale.y;
+						ordered_json objectJson = json[gridID];
+						deserializeEntity(objectJson, entityID);
+						
+						auto& t = getComponent<TransformComponent>(entityID);
+						t.position = glm::vec3{
+							-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+							1.0f - i * tilesize_y - tilesize_y / 2.0f,
+							0.0f 
+						};
+						t.scale = glm::vec3{ 
+							tilesize_x * t.scale.x, 
+							tilesize_y * t.scale.y, 
+							0.0f 
+						};
+
+						if (hasComponent<PhysicsBodyComponent>(entityID))
+						{
+							auto& p = getComponent<PhysicsBodyComponent>(entityID);
+							p.prevPositionX = t.position.x;
+							p.prevPositionY = t.position.y;
+							p.prevScaleX = t.scale.x;
+							p.prevScaleY = t.scale.y;
+						}
+					}
+
+					//for merging of phys body
+					//if not null and is wall
+					if (!json[gridID].is_null() && hasComponent<TagComponent>(entityID) && getComponent<TagComponent>(entityID).tag == "wall")
+					{
+						if (mergeStartIndex == -1)
+						{
+							mergeStartIndex = j;
+						}
+						auto& t = getComponent<TransformComponent>(entityID);
+						wallHeight = t.scale.y;
+					}
+					//if has gap or end of row->merge
+					if (mergeStartIndex != -1 && (j == cols - 1 || json[gridID].is_null()))
+					{
+						if (j == cols - 1)
+						{
+							j++;
+						}
+
+						//merge from index to prev item
+						EntityID mergedPhysicsBody = createEntity();
+						TransformComponent mergedTransform;
+						int gridWidth = j - mergeStartIndex;
+						float positionX = gridWidth / 2.0 + mergeStartIndex - 0.5;
+						mergedTransform.position = glm::vec3{
+							-1.0f + positionX * tilesize_x + tilesize_x / 2.0f,
+							1.0f - i * tilesize_y - tilesize_y / 2.0f,
+							0.0f
+						};
+						mergedTransform.scale = glm::vec3{
+							tilesize_x * gridWidth,
+							wallHeight,
+							0.0f 
+						};
+						addComponent(mergedPhysicsBody, mergedTransform);
+
+						//RectangleComponent mergedRect;
+						//mergedRect.color = glm::vec3(0, 1, 0);
+						//addComponent(mergedPhysicsBody, mergedRect);
+
+						ShapeComponent mergedShape;
+						mergedShape.shapeType = ShapeType::AABB;
+						addComponent(mergedPhysicsBody, mergedShape);
+
+						PhysicsBodyComponent mergedBody;
+						mergedBody.mass = 1.0;
+						mergedBody.staticBody = true;
+						mergedBody.isTrigger = false;
+						mergedBody.frictionless = false;
+						mergedBody.gravity = false;
+						mergedBody.prevPositionX = mergedTransform.position.x;
+						mergedBody.prevPositionY = mergedTransform.position.y;
+						mergedBody.prevScaleX = mergedTransform.scale.x;
+						mergedBody.prevScaleY = mergedTransform.scale.y;
+						addComponent(mergedPhysicsBody, mergedBody);
+
+						//reset index
+						mergeStartIndex = -1;
+
 					}
 				}
 			}
+
 		}
 
 		if (!json["characters"].is_null()) {
