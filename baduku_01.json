@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/Wall.jpg"
+      "texturePath": "Atom/res/Art/FixedPlatform1.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -66,7 +66,7 @@
         "z": 0.5
       },
       "wireframe": false,
-      "texturePath": "Atom/res/orange.png"
+      "texturePath": "Atom/res/Art/PlatformEnemy.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
