@@ -54,7 +54,7 @@
       },
       "scale": {
         "x": 1.0,
-        "y": 0.5,
+        "y": 1.25,
         "z": 1.0
       }
     },
@@ -267,7 +267,7 @@
       "totalHealth": 200
     },
     "AutoMovementComponent": {
-      "velocityX": -0.3,
+      "velocityX": 0.0,
       "velocityY": 0,
       "tripTime": 10.0
     }
