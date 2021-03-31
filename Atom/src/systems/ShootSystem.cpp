@@ -101,9 +101,16 @@ void ShootSystem::update()
 						glm::mat4(1.0f)
 						});
 
-					ae.addComponent(bullet, DamageComponent{50, entity});
+					string tag = "";
+					if (ae.hasComponent<TagComponent>(entity))
+					{
+						 tag = ae.getComponent<TagComponent>(entity).tag;
+					}
+
+					ae.addComponent(bullet, DamageComponent{50, tag});
 
 					ae.addComponent(bullet, SelfDestroyComponent(1.5));
+					
 
 					////to send to Entity Manager for handling destroy event
 					//Event e(EventID::E_SELF_DESTROY);

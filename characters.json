@@ -3,7 +3,7 @@
     {
       "EntityID": 1,
       "TagComponent": {
-        "tag": "small player"
+        "tag": "player"
       },
       "TransformComponent": {
         "position": {
@@ -67,7 +67,7 @@
     {
       "EntityID": 1,
       "TagComponent": {
-        "tag": "large player"
+        "tag": "player"
       },
       "TransformComponent": {
         "position": {
