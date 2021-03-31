@@ -14,23 +14,23 @@ void DamageSystem::init()
 
 void DamageSystem::update()
 {
-	std::vector<EntityID> destroyList;
-	for (auto& entity : mEntities)
-	{
-		if (ae.hasComponent<DamageComponent>(entity))
-		{
-			auto& damage = ae.getComponent<DamageComponent>(entity);
-			if (damage.destroy)
-			{
-				destroyList.push_back(entity);
-			}
-		}
-	}
-
-	for (int i = destroyList.size() - 1; i >= 0; i--)
-	{
-		ae.destroyEntity(destroyList[i]);
-	}
+	//std::vector<EntityID> destroyList;
+	//for (auto& entity : mEntities)
+	//{
+	//	if (ae.hasComponent<DamageComponent>(entity))
+	//	{
+	//		auto& damage = ae.getComponent<DamageComponent>(entity);
+	//		if (damage.destroy)
+	//		{
+	//			destroyList.push_back(entity);
+	//		}
+	//	}
+	//}
+	//
+	//for (int i = destroyList.size() - 1; i >= 0; i--)
+	//{
+	//	ae.destroyEntity(destroyList[i]);
+	//}
 }
 
 void DamageSystem::onEvent(Event& e)
@@ -53,8 +53,10 @@ void DamageSystem::onEvent(Event& e)
 		if (bullet != -1)
 		{
 			//both bullet
-			ae.getComponent<DamageComponent>(e1).destroy = true;
-			ae.getComponent<DamageComponent>(e2).destroy = true;
+			ae.EnqueueDestroyEntity(e1);
+			ae.EnqueueDestroyEntity(e2);
+			//ae.getComponent<DamageComponent>(e1).destroy = true;
+			//ae.getComponent<DamageComponent>(e2).destroy = true;
 			return;
 		}
 		else
@@ -82,6 +84,9 @@ void DamageSystem::onEvent(Event& e)
 
 	//handle destroy in another loop
 	if (ae.hasComponent<BulletComponent>(bullet))
-		damage.destroy = true;
+	{
+		ae.EnqueueDestroyEntity(bullet);
+		//damage.destroy = true;
+	}
 
 }

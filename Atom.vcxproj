@@ -717,6 +717,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\Application.cpp" />
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
+    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

@@ -198,6 +198,7 @@ public:
 			mAudioManager->pause(sfxChannelID, false);
 			mEventManager->update();
 			mSystemManager->update();
+			mEntityManager->update();
 			mResourceManager->update();
 			mAudioManager->update();
 			mCameraManager->update();
@@ -321,6 +322,10 @@ public:
 		mComponentManager->entityDestroyed(entity);
 		mSystemManager->entityDestroyed(entity);
 	}
+	inline void EnqueueDestroyEntity(EntityID entity) {
+		mEntityManager->EnqueueDestroyEntity(entity);
+	}
+
 	template <typename T>
 	inline bool hasComponent(EntityID entity) {
 		const char* typeName = typeid(T).name();

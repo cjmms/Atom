@@ -2002,6 +2002,7 @@
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
+    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

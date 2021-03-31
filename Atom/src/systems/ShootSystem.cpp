@@ -101,6 +101,8 @@ void ShootSystem::update()
 						});
 
 					ae.addComponent(bullet, DamageComponent{50, entity});
+
+					//ae.mEventManager->sendTimedEvent();
 				}
 
 			}

@@ -83,7 +83,7 @@ string sfxBullet = "Atom/res/bullet-retro-gun-shot.mp3";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
-static float musicVolumedB = 0.1f;
+static float musicVolumedB = 0.0f;
 static float sfxVolumedB = 0.1f;
 static float listenerXOffset = 0.0f;
 static float listenerYOffset = 0.0f;
