@@ -18,5 +18,6 @@
 #include "components/BulletComponent.hpp"
 #include "components/AutoMovementComponent.hpp"
 #include "components/SelfDestroyComponent.hpp"
+#include "components/LevelTriggerComponent.hpp"
 
 #endif 

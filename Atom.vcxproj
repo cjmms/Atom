@@ -650,6 +650,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\lib\stb_image.h" />
     <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
     <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
+    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
     <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />

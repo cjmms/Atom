@@ -12,48 +12,281 @@ LevelManager::LevelManager()
 void LevelManager::init()
 {
 	ae.addEventListener(EventID::E_COLLISION, [this](Event& e) {this->onEvent(e); });
+	ae.addEventListener(EventID::E_TRIGGER, [this](Event& e) {this->onEvent(e); });
 }
 
 void LevelManager::update()
 {
-	if (restartLevel)
+	//todo UI to tell player died
+
+
+	if (enterNextLevel)
+	{
+		enterNextLevel = false;
+		restartLevel = false;
+
+		unload();
+		level++;
+		load(level);
+	}
+	else if (restartLevel)
 	{
 		restartLevel = false;
-		ae.unload();
-		ae.load("baduku_01.json");
+		unload();
+		load(level);
 	}
+
 }
 
 void LevelManager::onEvent(Event& e)
 {
+	//restart level
 	if (e.getType() == EventID::E_COLLISION) {
 		EntityID e1 = e.getParam<EntityID>(EventID::P_COLLISION_ENTITYID1);
 		EntityID e2 = e.getParam<EntityID>(EventID::P_COLLISION_ENTITYID2);
 
 		EntityID player = -1;
-
-		bool enteredDeadZone = false;
+		EntityID deadzone = -1;
 
 		if (ae.hasComponent<ControllerComponent>(e1))
 		{
 			player = e1;
-			if (ae.hasComponent<TagComponent>(e2) && ae.getComponent<TagComponent>(e2).tag == "DeadZone")
-			{
-				enteredDeadZone = true;
-			}
+			deadzone = e2;
 		}
 		else if (ae.hasComponent<ControllerComponent>(e2))
 		{
 			player = e2;
-			if (ae.hasComponent<TagComponent>(e1) && ae.getComponent<TagComponent>(e1).tag == "DeadZone")
-			{
-				enteredDeadZone = true;
+			deadzone = e1;
+		}
+		else
+			return;
+
+		if (ae.hasComponent<TagComponent>(deadzone) 
+			&& ae.getComponent<TagComponent>(deadzone).tag == "DeadZone")
+		{
+			restartLevel = true;
+		}
+
+	}
+	//enter next level
+	else if (e.getType() == EventID::E_TRIGGER) {
+
+		EntityID e1 = e.getParam<EntityID>(EventID::P_TRIGGER_ENTITYID1);
+		EntityID e2 = e.getParam<EntityID>(EventID::P_TRIGGER_ENTITYID2);
+
+		EntityID player = -1;
+		EntityID trigger = -1;
+
+		bool triggeredNextLevel = false;
+
+		if (ae.hasComponent<ControllerComponent>(e1))
+		{
+			player = e1;
+			trigger = e2;
+		}
+		else if (ae.hasComponent<ControllerComponent>(e2))
+		{
+			player = e2;
+			trigger = e1;
+		}
+		else
+		{
+			return;
+		}
+
+		if (ae.hasComponent<LevelTriggerComponent>(trigger))
+		{
+			EntityID& characterEntered = ae.getComponent<LevelTriggerComponent>(trigger).characterEntered;
+			//if both distinct char entered 
+			if (characterEntered != -1 && characterEntered != player)
+				enterNextLevel = true;
+			else
+				characterEntered = player;
+		}
+	}
+}
+
+void LevelManager::load(int level) {
+	//"baduku_01.json"
+	this->level = level;
+	std::string mapName = string("map_") + fmt::format("{:0>{}}", level, 2) + ".json";
+	load(mapName);
+}
+
+void LevelManager::loadNextLevel()
+{
+	enterNextLevel = true;
+}
+
+// load level
+void LevelManager::load(string filepath) {
+	std::ifstream in("baduku_01.json");
+	ordered_json json;
+	in >> json;
+	// tilemap
+	if (!filepath.empty()) {
+		string maploc = filepath;
+		int rows = -1, cols = -1, wallid = -1;
+		float tilesize_x = 0.0f;
+		float tilesize_y = 0.0f;
+		std::ifstream inmap(maploc);
+		ordered_json mapJson;
+		inmap >> mapJson;
+		rows = mapJson["grid"].size();
+		cols = mapJson["grid"][0].size();
+		//wallid = mapJson["wall_id"];
+
+		//todo cache map details into <unordered map> for optimzation here
+
+		// size normalized to [0,800]
+		tilesize_x = (float)mapJson["tilesize_x"] * 2 / SCREEN_WIDTH;
+		tilesize_y = (float)mapJson["tilesize_y"] * 2 / SCREEN_HEIGHT;
+
+		//merge along row
+		int mergeStartIndex = -1;
+		float wallHeight = 1;
+
+		for (int i = 0; i < rows; ++i) {
+			for (int j = 0; j < cols; ++j) {
+				string gridID = mapJson["grid"][i][j];
+				EntityID entityID;
+				if (!json[gridID].is_null())
+				{
+					ordered_json objectJson = json[gridID];
+					ae.deserializeEntity(objectJson, entityID);
+
+					auto& t = ae.getComponent<TransformComponent>(entityID);
+					t.position = glm::vec3{
+						-1.0f + j * tilesize_x + tilesize_x / 2.0f,
+						1.0f - i * tilesize_y - tilesize_y / 2.0f,
+						0.0f
+					};
+					t.scale = glm::vec3{
+						tilesize_x * t.scale.x,
+						tilesize_y * t.scale.y,
+						0.0f
+					};
+
+					if (ae.hasComponent<PhysicsBodyComponent>(entityID))
+					{
+						auto& p = ae.getComponent<PhysicsBodyComponent>(entityID);
+						p.prevPositionX = t.position.x;
+						p.prevPositionY = t.position.y;
+						p.prevScaleX = t.scale.x;
+						p.prevScaleY = t.scale.y;
+					}
+				}
+
+				//for merging of phys body
+				//if not null and is wall
+				if (!json[gridID].is_null() && ae.hasComponent<TagComponent>(entityID) && ae.getComponent<TagComponent>(entityID).tag == "wall")
+				{
+					if (mergeStartIndex == -1)
+					{
+						mergeStartIndex = j;
+					}
+					auto& t = ae.getComponent<TransformComponent>(entityID);
+					wallHeight = t.scale.y;
+				}
+				//if has gap or end of row->merge
+				if (mergeStartIndex != -1 && (j == cols - 1 || json[gridID].is_null()))
+				{
+					if (j == cols - 1)
+					{
+						j++;
+					}
+
+					//merge from index to prev item
+					EntityID mergedPhysicsBody = ae.createEntity();
+					TransformComponent mergedTransform;
+					int gridWidth = j - mergeStartIndex;
+					float positionX = gridWidth / 2.0 + mergeStartIndex - 0.5;
+					mergedTransform.position = glm::vec3{
+						-1.0f + positionX * tilesize_x + tilesize_x / 2.0f,
+						1.0f - i * tilesize_y - tilesize_y / 2.0f,
+						0.0f
+					};
+					mergedTransform.scale = glm::vec3{
+						tilesize_x * gridWidth,
+						wallHeight,
+						0.0f
+					};
+					ae.addComponent(mergedPhysicsBody, mergedTransform);
+
+					//RectangleComponent mergedRect;
+					//mergedRect.color = glm::vec3(0, 1, 0);
+					//addComponent(mergedPhysicsBody, mergedRect);
+
+					ShapeComponent mergedShape;
+					mergedShape.shapeType = ShapeType::AABB;
+					ae.addComponent(mergedPhysicsBody, mergedShape);
+
+					PhysicsBodyComponent mergedBody;
+					mergedBody.mass = 1.0;
+					mergedBody.staticBody = true;
+					mergedBody.isTrigger = false;
+					mergedBody.frictionless = false;
+					mergedBody.gravity = false;
+					mergedBody.prevPositionX = mergedTransform.position.x;
+					mergedBody.prevPositionY = mergedTransform.position.y;
+					mergedBody.prevScaleX = mergedTransform.scale.x;
+					mergedBody.prevScaleY = mergedTransform.scale.y;
+					ae.addComponent(mergedPhysicsBody, mergedBody);
+
+					//reset index
+					mergeStartIndex = -1;
+
+				}
 			}
 		}
 
-		if (!enteredDeadZone)
-			return;
-
-		restartLevel = true;
 	}
+
+	loadCharacters();
+
+	in.close();
+}
+
+void LevelManager::loadCharacters()
+{
+
+	string charloc = "characters.json";
+	std::ifstream inmap(charloc);
+	ordered_json characterJson;
+	inmap >> characterJson;
+
+	// entities
+	if (!characterJson["Entities"].is_null()) {
+		for (auto& entityjson : characterJson["Entities"]) {
+			EntityID entid;
+			ae.deserializeEntity(entityjson, entid);
+		}
+	}
+}
+
+// unload level
+void LevelManager::unload() {
+	std::vector<EntityID> toEject;
+	for (auto& entity : ae.mEntityManager->mAllocdEntities) {
+		toEject.push_back(entity);
+	}
+	for (auto& entity : toEject) {
+		ae.destroyEntity(entity);
+	}
+	ae.mEntityManager->mLivingEntityCount = 0;
+}
+
+// save
+void LevelManager::save() {
+	string filepath = "last_checkpoint.json";
+
+	std::ofstream out(filepath);
+	ordered_json j;
+	j["Entities"] = ordered_json::array();
+	for (auto entity : ae.mEntityManager->mAllocdEntities) {
+		ordered_json json_ent;
+		ae.serializeEntity(json_ent, entity);
+		j["Entities"].push_back(json_ent);
+	}
+	out << std::setw(4) << j;
 }

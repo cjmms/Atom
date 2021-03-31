@@ -104,6 +104,7 @@ public:
 		registerComponent<BulletComponent>();
 		registerComponent<AutoMovementComponent>();
 		registerComponent<SelfDestroyComponent>();
+		registerComponent<LevelTriggerComponent>();
 
 		// register all systems
 		registerSystem<ControllerSystem>();
@@ -430,6 +431,7 @@ public:
 		serializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
+		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -459,6 +461,7 @@ public:
 		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
+		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
 	}
 
 	inline float random() {
@@ -494,171 +497,6 @@ public:
 	//		true
 	//	});
 	//}
-
-	// load level
-	inline void load(string filepath) {
-		std::ifstream in(filepath);
-		ordered_json json;
-		in >> json;
-		// tilemap
-		if (!json["Map"].is_null()) {
-			string maploc = json["Map"];
-			int rows=-1, cols=-1, wallid=-1;
-			float tilesize_x = 0.0f;
-			float tilesize_y = 0.0f;
-			std::ifstream inmap(maploc);
-			ordered_json mapJson;
-			inmap >> mapJson;
-			rows = mapJson["grid"].size();
-			cols = mapJson["grid"][0].size();
-			//wallid = mapJson["wall_id"];
-			
-			//todo cache map details into <unordered map> for optimzation here
-
-			// size normalized to [0,800]
-			tilesize_x = (float)mapJson["tilesize_x"]*2/SCREEN_WIDTH;
-			tilesize_y = (float)mapJson["tilesize_y"]*2/SCREEN_HEIGHT;
-
-			//merge along row
-			int mergeStartIndex = -1;
-			float wallHeight = 1;
-
-			for (int i = 0; i < rows; ++i) {
-				for (int j = 0; j < cols; ++j) {
-					string gridID = mapJson["grid"][i][j];
-					EntityID entityID;
-					if (!json[gridID].is_null())
-					{
-						ordered_json objectJson = json[gridID];
-						deserializeEntity(objectJson, entityID);
-						
-						auto& t = getComponent<TransformComponent>(entityID);
-						t.position = glm::vec3{
-							-1.0f + j * tilesize_x + tilesize_x / 2.0f,
-							1.0f - i * tilesize_y - tilesize_y / 2.0f,
-							0.0f 
-						};
-						t.scale = glm::vec3{ 
-							tilesize_x * t.scale.x, 
-							tilesize_y * t.scale.y, 
-							0.0f 
-						};
-
-						if (hasComponent<PhysicsBodyComponent>(entityID))
-						{
-							auto& p = getComponent<PhysicsBodyComponent>(entityID);
-							p.prevPositionX = t.position.x;
-							p.prevPositionY = t.position.y;
-							p.prevScaleX = t.scale.x;
-							p.prevScaleY = t.scale.y;
-						}
-					}
-
-					//for merging of phys body
-					//if not null and is wall
-					if (!json[gridID].is_null() && hasComponent<TagComponent>(entityID) && getComponent<TagComponent>(entityID).tag == "wall")
-					{
-						if (mergeStartIndex == -1)
-						{
-							mergeStartIndex = j;
-						}
-						auto& t = getComponent<TransformComponent>(entityID);
-						wallHeight = t.scale.y;
-					}
-					//if has gap or end of row->merge
-					if (mergeStartIndex != -1 && (j == cols - 1 || json[gridID].is_null()))
-					{
-						if (j == cols - 1)
-						{
-							j++;
-						}
-
-						//merge from index to prev item
-						EntityID mergedPhysicsBody = createEntity();
-						TransformComponent mergedTransform;
-						int gridWidth = j - mergeStartIndex;
-						float positionX = gridWidth / 2.0 + mergeStartIndex - 0.5;
-						mergedTransform.position = glm::vec3{
-							-1.0f + positionX * tilesize_x + tilesize_x / 2.0f,
-							1.0f - i * tilesize_y - tilesize_y / 2.0f,
-							0.0f
-						};
-						mergedTransform.scale = glm::vec3{
-							tilesize_x * gridWidth,
-							wallHeight,
-							0.0f 
-						};
-						addComponent(mergedPhysicsBody, mergedTransform);
-
-						//RectangleComponent mergedRect;
-						//mergedRect.color = glm::vec3(0, 1, 0);
-						//addComponent(mergedPhysicsBody, mergedRect);
-
-						ShapeComponent mergedShape;
-						mergedShape.shapeType = ShapeType::AABB;
-						addComponent(mergedPhysicsBody, mergedShape);
-
-						PhysicsBodyComponent mergedBody;
-						mergedBody.mass = 1.0;
-						mergedBody.staticBody = true;
-						mergedBody.isTrigger = false;
-						mergedBody.frictionless = false;
-						mergedBody.gravity = false;
-						mergedBody.prevPositionX = mergedTransform.position.x;
-						mergedBody.prevPositionY = mergedTransform.position.y;
-						mergedBody.prevScaleX = mergedTransform.scale.x;
-						mergedBody.prevScaleY = mergedTransform.scale.y;
-						addComponent(mergedPhysicsBody, mergedBody);
-
-						//reset index
-						mergeStartIndex = -1;
-
-					}
-				}
-			}
-
-		}
-
-		if (!json["characters"].is_null()) {
-			string charloc = json["characters"];
-			std::ifstream inmap(charloc);
-			ordered_json characterJson;
-			inmap >> characterJson;
-
-			// entities
-			if (!characterJson["Entities"].is_null()) {
-				for (auto& entityjson : characterJson["Entities"]) {
-					EntityID entid;
-					deserializeEntity(entityjson, entid);
-				}
-			}
-		}
-
-		in.close();
-	}
-	// unload level
-	inline void unload() {
-		std::vector<EntityID> toEject;
-		for (auto& entity : mEntityManager->mAllocdEntities) {
-			toEject.push_back(entity);
-		}
-		for (auto& entity : toEject) {
-			destroyEntity(entity);
-		}
-		mEntityManager->mLivingEntityCount = 0;
-	}
-	// save
-	void save(string filepath) {
-		std::ofstream out(filepath);
-		ordered_json j;
-		j["Entities"] = ordered_json::array();
-		for (auto entity : mEntityManager->mAllocdEntities) {
-			ordered_json json_ent;
-			serializeEntity(json_ent, entity);
-			j["Entities"].push_back(json_ent);
-		}
-		out << std::setw(4) << j;
-	}
 
 	// shutdown
 	void shutdown() {

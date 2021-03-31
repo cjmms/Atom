@@ -1,6 +1,4 @@
 {
-  "Map": "map_01.json",
-  "characters": "characters.json",
   "1": {
     "EntityID": 0,
     "TagComponent": {
@@ -78,6 +76,48 @@
       "velocityX": -0.3,
       "velocityY": 0,
       "tripTime": 5.0
+    }
+  },
+
+  "L": {
+    "EntityID": 0,
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/Art/Switch_On.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": false
+    },
+    "LevelTriggerComponent": {
     }
   },
 

@@ -1925,6 +1925,7 @@
     <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
     <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
+    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">

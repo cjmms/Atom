@@ -138,7 +138,7 @@ void start() {
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
 
-    ae.load("baduku_01.json");
+    ae.mLevelManager->load(1);
 
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
@@ -146,8 +146,8 @@ void start() {
 
 void shutdown() {
     // save progress unload memory and shutdown
-    ae.save("last_checkpoint.json");
-    ae.unload();
+    ae.mLevelManager->save();
+    ae.mLevelManager->unload();
     ae.shutdown();
     Log::shutdown();
 }
