@@ -144,7 +144,7 @@ void LevelManager::load(string filepath) {
 
 		//merge along row
 		int mergeStartIndex = -1;
-		float wallHeight = 1;
+		float wallHeight = 1, wallWidth = 1;
 
 		for (int i = 0; i < rows; ++i) {
 			for (int j = 0; j < cols; ++j) {
@@ -187,6 +187,7 @@ void LevelManager::load(string filepath) {
 					}
 					auto& t = ae.getComponent<TransformComponent>(entityID);
 					wallHeight = t.scale.y;
+					wallWidth = t.scale.x;
 				}
 				//if has gap or end of row->merge
 				if (mergeStartIndex != -1 && (j == cols - 1 || json[gridID].is_null()))
@@ -199,7 +200,9 @@ void LevelManager::load(string filepath) {
 					//merge from index to prev item
 					EntityID mergedPhysicsBody = ae.createEntity();
 					TransformComponent mergedTransform;
-					int gridWidth = j - mergeStartIndex;
+					float gridWidth = j - mergeStartIndex;
+					if (gridWidth == 1)
+						gridWidth = wallWidth;
 					float positionX = gridWidth / 2.0 + mergeStartIndex - 0.5;
 					mergedTransform.position = glm::vec3{
 						-1.0f + positionX * tilesize_x + tilesize_x / 2.0f,
