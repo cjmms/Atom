@@ -99,7 +99,7 @@
         "shapeType": "AABB"
       },
       "PhysicsBodyComponent": {
-        "mass": 1.0,
+        "mass": 0.7,
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,

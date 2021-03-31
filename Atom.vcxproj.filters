@@ -2198,6 +2198,9 @@
     </None>
     <None Include="Atom\res\renderText.shader" />
     <None Include="characters.json" />
+    <None Include="map_layout_45_60.json" />
+    <None Include="Level0_Map.json" />
+    <None Include="Level0_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg">

@@ -806,6 +806,9 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\optimus_speech.ogg" />
     <None Include="Atom\res\wariyo_mortals.ogg" />
     <None Include="characters.json" />
+    <None Include="Level0_Map.json" />
+    <None Include="Level0_Settings.json" />
+    <None Include="map_layout_45_60.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg" />
