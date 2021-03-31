@@ -71,8 +71,8 @@ void ShootSystem::update()
 					//		+   (idx from up/down * angle * odd->down, even->up)
 					shootDirection += (i + 1) / 2 * PI / 12 * (i % 2 == 1 ? -1 : 1);
 
-					float offsetX = transform.scale.x * 1.2;	//may need to store in shoot component
-					float offsetY = transform.scale.y * 1.2;	//may need to store in shoot component
+					float offsetX = fabs(transform.scale.x) * 1.2;	//may need to store in shoot component
+					float offsetY = fabs(transform.scale.y) * 1.2;	//may need to store in shoot component
 					float bulletX = transform.position.x + cos(shootDirection) * offsetX;
 					float bulletY = transform.position.y + sin(shootDirection) * offsetY;
 					EntityID bullet = ae.createEntity();
@@ -91,6 +91,7 @@ void ShootSystem::update()
 					float speed = 1.5;	//todo store bullet speed
 					body.velocityX = cos(shootDirection) * speed;
 					body.velocityY = sin(shootDirection) * speed;
+					body.isTrigger = true;
 					ae.addComponent(bullet, body);
 
 					ae.addComponent(bullet, TransformComponent{
