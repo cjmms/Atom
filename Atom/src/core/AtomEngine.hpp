@@ -39,6 +39,7 @@
 #include "systems/RenderTextSystem.hpp"
 #include "systems/SkillSystem.hpp"
 #include "systems/AutoMovementSystem.hpp"
+#include "systems/SelfDestroySystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -57,11 +58,11 @@ public:
 
 
 		mChrononManager = std::make_unique<ChrononManager>();
+		mEventManager = std::make_unique<EventManager>();
 		mEntityManager = std::make_unique<EntityManager>();
 		mComponentManager = std::make_unique<ComponentManager>();
 		mGraphicsManager = std::make_unique<GraphicsManager>();
 		mSystemManager = std::make_unique<SystemManager>();
-		mEventManager = std::make_unique<EventManager>();
 		mResourceManager = std::make_unique<ResourceManager>();
 		mInputManager = std::make_unique<InputManager>();
 		mAudioManager = std::make_unique<AudioManager>();
@@ -102,6 +103,7 @@ public:
 		registerComponent<SkillBoosterComponent>();
 		registerComponent<BulletComponent>();
 		registerComponent<AutoMovementComponent>();
+		registerComponent<SelfDestroyComponent>();
 
 		// register all systems
 		registerSystem<ControllerSystem>();
@@ -115,6 +117,7 @@ public:
 		registerSystem<RectangleRenderSystem>();
 		registerSystem<HealthRenderSystem>();
 		registerSystem<RenderTextSystem>();
+		registerSystem<SelfDestroySystem>();
 
 
 		// set archetypes
@@ -172,6 +175,10 @@ public:
 			typeSkill.set(getComponentType<SkillBoosterComponent>());
 			setSystemArchetype<SkillSystem>(typeSkill);
 
+			Archetype typeSelfDestroy;
+			typeSelfDestroy.set(getComponentType<SelfDestroyComponent>());
+			setSystemArchetype<SelfDestroySystem>(typeSelfDestroy);
+
 		}
 		// reinit systems because archetypes changed 
 		initSystem();
@@ -196,8 +203,8 @@ public:
 		else {
 			mAudioManager->pause(musicChannelID, false);
 			mAudioManager->pause(sfxChannelID, false);
-			mEventManager->update();
 			mSystemManager->update();
+			mEventManager->update();
 			mEntityManager->update();
 			mResourceManager->update();
 			mAudioManager->update();
@@ -221,6 +228,7 @@ public:
 			mAudioManager->onEvent(e);
 			mCameraManager->onEvent(e);
 			mLevelManager->onEvent(e);
+			mEntityManager->onEvent(e);
 		}
 	}
 
@@ -421,6 +429,7 @@ public:
 		serializeComponent<CharacteristicComponent>(j["CharacteristicComponent"], entity);
 		serializeComponent<SkillBoosterComponent>(j["SkillBoosterComponent"], entity);
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
+		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -449,6 +458,7 @@ public:
 		deserializeComponent<AutoShootComponent>(j["AutoShootComponent"], entity);
 		deserializeComponent<ChasePlayerComponent>(j["ChasePlayerComponent"], entity);
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
+		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 	}
 
 	inline float random() {

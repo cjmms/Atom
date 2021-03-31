@@ -17,5 +17,6 @@
 #include "components/SkillBoosterComponent.hpp"
 #include "components/BulletComponent.hpp"
 #include "components/AutoMovementComponent.hpp"
+#include "components/SelfDestroyComponent.hpp"
 
 #endif 

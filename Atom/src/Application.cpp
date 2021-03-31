@@ -140,7 +140,7 @@ void start() {
 
     ae.load("baduku_01.json");
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.1f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
 }
 

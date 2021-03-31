@@ -102,7 +102,12 @@ void ShootSystem::update()
 
 					ae.addComponent(bullet, DamageComponent{50, entity});
 
-					//ae.mEventManager->sendTimedEvent();
+					ae.addComponent(bullet, SelfDestroyComponent(1.5));
+
+					////to send to Entity Manager for handling destroy event
+					//Event e(EventID::E_SELF_DESTROY);
+					//e.setParam<EntityID>(EventID::P_SELF_DESTROY_ENTITYID, bullet);
+					//ae.mEventManager->sendTimedEvent(e, 3000);
 				}
 
 			}

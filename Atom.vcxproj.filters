@@ -1923,6 +1923,8 @@
     <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
     <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
     <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
+    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2003,6 +2005,7 @@
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\core\EntityManager.cpp" />
+    <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">

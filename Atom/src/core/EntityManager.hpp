@@ -10,6 +10,8 @@
 
 #include "core/Types.hpp"
 
+class Event;
+
 class EntityManager {
 public:
 	EntityManager();
@@ -27,6 +29,8 @@ public:
 	void EnqueueDestroyEntity(EntityID entity);
 
 	void update();
+
+	void onEvent(Event& e);
 
 public:
 	std::deque<EntityID> mAvailableEntities{};

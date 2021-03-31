@@ -651,6 +651,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
     <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
+    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
     <ClInclude Include="Atom\src\core\LevelManager.hpp" />
@@ -694,6 +695,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
@@ -735,6 +737,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />

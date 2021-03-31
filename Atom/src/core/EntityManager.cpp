@@ -4,11 +4,14 @@
 #include "utils/Log.hpp"
 #include "EntityManager.hpp"
 #include "core/AtomEngine.hpp"
+#include "core/Event.hpp"
 
 extern AtomEngine ae;
 
 EntityManager::EntityManager()
 {
+	//ae.addEventListener(EventID::E_SELF_DESTROY, [this](Event& e) {this->onEvent(e); });
+	
 	for (EntityID entity = 0; entity < MAX_ENTITIES; ++entity) {
 		mAvailableEntities.push_back(entity);
 	}
@@ -31,6 +34,7 @@ EntityID EntityManager::createEntity()
 void EntityManager::destroyEntity(EntityID entity)
 {
 	assert(entity < MAX_ENTITIES && "EntityID out of range.");
+	assert(mLivingEntityCount > 0);
 	mArchetypes[entity].reset();
 	mAvailableEntities.push_back(entity);
 	mAllocdEntities.erase(entity);
@@ -67,4 +71,12 @@ void EntityManager::update()
 		ae.destroyEntity(destroyList[i]);
 	}
 	destroyList.clear();
+}
+
+void EntityManager::onEvent(Event& e)
+{
+	//if (e.getType() == EventID::E_SELF_DESTROY) {
+	//	EntityID entity = e.getParam<EntityID>(EventID::P_SELF_DESTROY_ENTITYID);
+	//	EnqueueDestroyEntity(entity);
+	//}
 }

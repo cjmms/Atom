@@ -56,7 +56,7 @@ public:
 			Event top = timequeue.top();
 			auto futuretime = top.getParam<std::chrono::steady_clock::time_point>(EventID::P_TIMED_EVENT_TIME_EXEC);
 			if (std::chrono::steady_clock::now() >= futuretime) {
-				for (auto const& listener : listeners[EventID::E_TIMED_EVENT]) {
+				for (auto const& listener : listeners[top.getType()]) {
 					listener(top);
 					Event edebug(EventID::E_GRAPHICS_DEBUG_TOGGLE);
 					sendEvent(edebug);
