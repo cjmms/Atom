@@ -57,8 +57,8 @@
         "bulletPerShoot": 1
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 500,
+        "totalHealth": 500
       },
       "CharacteristicComponent": {
         "isBig": false
@@ -99,7 +99,7 @@
         "shapeType": "AABB"
       },
       "PhysicsBodyComponent": {
-        "mass": 0.5,
+        "mass": 5.0,
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,
@@ -121,8 +121,8 @@
         "bulletPerShoot": 1
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 5000000,
+        "totalHealth": 5000000
       },
       "CharacteristicComponent": {
         "isBig": true
