@@ -197,7 +197,7 @@ void PhysicsSystem::updatePhysicsBody(
 		body.grounded = false;
 	}
 
-	float gravityAcc = body.gravity ? GRAVITY : 0;
+	float gravityAcc = body.gravity;
 
 	//update acceleration
 	body.accelerationX = body.totalForceX / frameTime / body.mass ;

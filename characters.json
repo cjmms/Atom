@@ -39,7 +39,7 @@
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 9.81
       },
       "ControllerComponent": {
         "UP": "ATOM_SCANCODE_UP",
@@ -99,11 +99,11 @@
         "shapeType": "AABB"
       },
       "PhysicsBodyComponent": {
-        "mass": 1.0,
+        "mass": 0.5,
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 3.0
       },
       "ControllerComponent": {
         "UP": "ATOM_SCANCODE_UP",
@@ -167,7 +167,7 @@
         "staticBody": true,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 9.81
       }
     }
   ]
