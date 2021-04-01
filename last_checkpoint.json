@@ -58,7 +58,9 @@
                 "velocityX": 0.0,
                 "velocityY": 0.0,
                 "tripTime": 10.0
-            }
+            },
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 1,
@@ -102,7 +104,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 2,
@@ -146,7 +150,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 3,
@@ -190,7 +196,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 4,
@@ -234,7 +242,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 5,
@@ -278,7 +288,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 6,
@@ -318,7 +330,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 7,
@@ -362,7 +376,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 8,
@@ -406,7 +422,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 9,
@@ -446,7 +464,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 10,
@@ -490,7 +510,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 11,
@@ -534,7 +556,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 12,
@@ -578,7 +602,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 13,
@@ -622,7 +648,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 14,
@@ -666,7 +694,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 15,
@@ -710,7 +740,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 16,
@@ -754,7 +786,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 17,
@@ -794,7 +828,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 18,
@@ -838,7 +874,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 19,
@@ -882,7 +920,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 20,
@@ -926,7 +966,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 21,
@@ -970,7 +1012,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 22,
@@ -1014,7 +1058,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 23,
@@ -1054,7 +1100,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 24,
@@ -1098,7 +1146,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 25,
@@ -1142,7 +1192,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 26,
@@ -1182,7 +1234,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 27,
@@ -1226,7 +1280,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 28,
@@ -1270,7 +1326,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 29,
@@ -1314,7 +1372,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 30,
@@ -1358,7 +1418,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 31,
@@ -1402,7 +1464,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 32,
@@ -1446,7 +1510,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 33,
@@ -1490,7 +1556,9 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 34,
@@ -1530,16 +1598,18 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 35,
             "TagComponent": {
-                "tag": "small player"
+                "tag": "player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 1.4579509496688843,
+                    "x": -0.5,
                     "y": -1.2000000476837158,
                     "z": 1.0
                 },
@@ -1589,7 +1659,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4850,
+                "health": 4500,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1598,12 +1668,14 @@
                 "isBig": false
             },
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 36,
             "TagComponent": {
-                "tag": "large player"
+                "tag": "player"
             },
             "TransformComponent": {
                 "position": {
@@ -1666,7 +1738,9 @@
                 "isBig": true
             },
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
             "EntityID": 37,
@@ -1676,7 +1750,7 @@
             "TransformComponent": {
                 "position": {
                     "x": 0.0,
-                    "y": -10.0,
+                    "y": -5.0,
                     "z": 0.0
                 },
                 "rotation": {
@@ -1685,9 +1759,9 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 100.0,
-                    "y": 0.800000011920929,
-                    "z": 0.800000011920929
+                    "x": 200.0,
+                    "y": 1.0,
+                    "z": 1.0
                 }
             },
             "RectangleComponent": {
@@ -1716,15 +1790,17 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
         },
         {
-            "EntityID": 41,
+            "EntityID": 48,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -0.0052431547082960606,
-                    "y": -0.8551086783409119,
+                    "x": 0.8099390864372253,
+                    "y": -1.1758668422698975,
                     "z": 0.0
                 },
                 "rotation": {
@@ -1733,7 +1809,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.009999999776482582,
+                    "x": -0.009999999776482582,
                     "y": 0.009999999776482582,
                     "z": 1.0
                 }
@@ -1753,7 +1829,7 @@
             "PhysicsBodyComponent": {
                 "mass": 0.009999999776482582,
                 "staticBody": false,
-                "isTrigger": false,
+                "isTrigger": true,
                 "frictionless": true,
                 "gravity": 0.0
             },
@@ -1764,55 +1840,11 @@
             "ChasePlayerComponent": null,
             "CharacteristicComponent": null,
             "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
-        },
-        {
-            "EntityID": 42,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 1.5138916969299316,
-                    "y": -1.19413161277771,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": {
+                "timeLimit": 1.5
             },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": false,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null
+            "LevelTriggerComponent": null
         }
     ]
 }

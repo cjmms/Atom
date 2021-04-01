@@ -107,10 +107,14 @@ void LevelManager::onEvent(Event& e)
 }
 
 void LevelManager::load(int level) {
-	//"baduku_01.json"
+	string levelstring = string("Level") + std::to_string(level) + string("_Settings.json");
+	std::ifstream in(levelstring);
+	ordered_json json;
+	in >> json;
+	in.close();
 	this->level = level;
-	std::string mapName = string("map_") + fmt::format("{:0>{}}", level, 2) + ".json";
-	load(mapName);
+	//std::string mapName = json["Map"];
+	this->load(levelstring);
 }
 
 void LevelManager::loadNextLevel()
@@ -120,12 +124,12 @@ void LevelManager::loadNextLevel()
 
 // load level
 void LevelManager::load(string filepath) {
-	std::ifstream in("baduku_01.json");
+	std::ifstream in(filepath);
 	ordered_json json;
 	in >> json;
 	// tilemap
 	if (!filepath.empty()) {
-		string maploc = filepath;
+		std::string maploc = json["Map"];
 		int rows = -1, cols = -1, wallid = -1;
 		float tilesize_x = 0.0f;
 		float tilesize_y = 0.0f;

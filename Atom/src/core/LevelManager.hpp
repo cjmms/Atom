@@ -22,6 +22,7 @@ private:
 
 	void loadCharacters();
 
+
 private:
 	bool restartLevel = false;
 	bool enterNextLevel = false;

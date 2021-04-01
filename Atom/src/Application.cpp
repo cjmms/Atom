@@ -138,7 +138,8 @@ void start() {
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
 
-    ae.mLevelManager->load(1);
+
+    ae.mLevelManager->load(0);
 
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
