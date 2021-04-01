@@ -812,6 +812,12 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Level1_Settings.json" />
     <None Include="Level2_Map.json" />
     <None Include="Level2_Settings.json" />
+    <None Include="Level3_Map.json" />
+    <None Include="Level3_Settings.json" />
+    <None Include="Level4_Map.json" />
+    <None Include="Level4_Settings.json" />
+    <None Include="Level5_Map.json" />
+    <None Include="Level5_Settings.json" />
     <None Include="map_layout_45_60.json" />
   </ItemGroup>
   <ItemGroup>

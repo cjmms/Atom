@@ -1,5 +1,5 @@
 {
-  "Map": "Level5_Map.json",
+  "Map": "Level3_Map.json",
   "characters": "characters.json",
   "1": {
     "EntityID": 0,
@@ -53,7 +53,7 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
+        "x": 1.0,
         "y": 1.0,
         "z": 1.0
       }

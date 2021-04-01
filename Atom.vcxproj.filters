@@ -2205,6 +2205,12 @@
     <None Include="Level1_Settings.json" />
     <None Include="Level2_Map.json" />
     <None Include="Level2_Settings.json" />
+    <None Include="Level3_Settings.json" />
+    <None Include="Level3_Map.json" />
+    <None Include="Level4_Map.json" />
+    <None Include="Level4_Settings.json" />
+    <None Include="Level5_Map.json" />
+    <None Include="Level5_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg">
