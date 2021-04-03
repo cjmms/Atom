@@ -205,8 +205,8 @@ void LevelManager::load(string filepath) {
 					EntityID mergedPhysicsBody = ae.createEntity();
 					TransformComponent mergedTransform;
 					float gridWidth = j - mergeStartIndex;
-					if (gridWidth == 1)
-						gridWidth = wallWidth;
+					/*if (gridWidth == 1)
+						gridWidth = wallWidth;*/
 					float positionX = gridWidth / 2.0 + mergeStartIndex - 0.5;
 					mergedTransform.position = glm::vec3{
 						-1.0f + positionX * tilesize_x + tilesize_x / 2.0f,
@@ -214,7 +214,7 @@ void LevelManager::load(string filepath) {
 						0.0f
 					};
 					mergedTransform.scale = glm::vec3{
-						tilesize_x * gridWidth,
+						gridWidth == 1 ? wallWidth : tilesize_x * gridWidth,
 						wallHeight,
 						0.0f
 					};

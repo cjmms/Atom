@@ -2206,8 +2206,6 @@
     <None Include="map_layout_45_60.json" />
     <None Include="Level0_Map.json" />
     <None Include="Level0_Settings.json" />
-    <None Include="Level1_Map.json" />
-    <None Include="Level1_Settings.json" />
     <None Include="Level2_Map.json" />
     <None Include="Level2_Settings.json" />
   </ItemGroup>
