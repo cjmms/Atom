@@ -53,7 +53,7 @@
         "isActive": true
       },
       "ShootComponent": {
-        "shootInterval": 0.3,
+        "shootInterval": 0.03,
         "bulletPerShoot": 1
       },
       "HealthComponent": {

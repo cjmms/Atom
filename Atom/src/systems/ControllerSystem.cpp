@@ -20,9 +20,9 @@ extern string sfxJump;
 extern string sfxLand;
 extern string sfxBullet;
 
-void playBulletSound() {
-	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
-}
+//void playBulletSound() {
+//	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
+//}
 
 
 float lerp(float a, float b, float t, float lo, float hi) {
@@ -287,7 +287,7 @@ void ControllerSystem::update()
 				//ATOM_INFO("direction: {}", body.direction);
 
 				shoot.isShooting = true;
-				playBulletSound();
+				//playBulletSound();
 			}
 			else
 			{

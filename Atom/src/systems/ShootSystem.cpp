@@ -10,6 +10,16 @@
 
 extern AtomEngine ae;
 
+extern ChannelID sfxChannelID;
+
+extern string sfxJump;
+extern string sfxLand;
+extern string sfxBullet;
+
+void playBulletSound() {
+	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
+}
+
 void ShootSystem::init()
 {
 }
@@ -111,6 +121,7 @@ void ShootSystem::update()
 
 					ae.addComponent(bullet, SelfDestroyComponent(1.5));
 					
+					playBulletSound();
 
 					////to send to Entity Manager for handling destroy event
 					//Event e(EventID::E_SELF_DESTROY);
@@ -130,5 +141,10 @@ void ShootSystem::update()
 
 void ShootSystem::onEvent(Event& e)
 {
-	
+	if (e.getType() == EventID::E_AUDIO_PLAY) {
+		auto audioloc = e.getParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC);
+		auto chgroup = e.getParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP);
+		auto volumedb = e.getParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB);
+		ae.play(audioloc, chgroup, std::clamp(volumedb, 0.0f, 1.0f));
+	}
 }
