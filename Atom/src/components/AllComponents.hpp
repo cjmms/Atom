@@ -16,6 +16,8 @@
 #include "components/RenderTextComponent.hpp"
 #include "components/SkillBoosterComponent.hpp"
 #include "components/BulletComponent.hpp"
-#include "components/HorizontalMovementComponent.hpp"
+#include "components/AutoMovementComponent.hpp"
+#include "components/SelfDestroyComponent.hpp"
+#include "components/LevelTriggerComponent.hpp"
 
 #endif 

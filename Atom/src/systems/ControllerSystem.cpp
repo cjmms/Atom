@@ -104,14 +104,12 @@ void ControllerSystem::update()
 		{
 			//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 			body.velocityX = -1;
-			transformComponent.scale.x = -1.0f * fabs(transformComponent.scale.x);
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
 		{
 			body.velocityX = 1;
-			transformComponent.scale.x = fabs(transformComponent.scale.x);
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
@@ -321,23 +319,7 @@ void ControllerSystem::update()
 
 
 
-	//Gerald: how about make it always true instead of range 3-3.5 ?
-	//Jump for big character
-	//Glide between x = 3 and x = 5
-	if (character1.isBig && body.velocityY < 0)
-	{
-		if (body.prevPositionX > 3.0f && body.prevPositionX < 3.5f)
-			body.totalForceY += 0.15f;
-		else
-			body.totalForceY += 0.1f;
-	}
-	else if (character2.isBig && body2.velocityY < 0)
-	{
-		if (body2.prevPositionX > 3.0f && body2.prevPositionX < 3.5f)
-			body2.totalForceY += 0.15f;
-		else
-			body2.totalForceY += 0.1f;
-	}
+
 }
 
 void ControllerSystem::onEvent(Event& e)

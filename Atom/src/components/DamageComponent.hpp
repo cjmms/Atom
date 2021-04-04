@@ -15,11 +15,11 @@ class DamageComponent
 public:
 	int damage;
 	bool destroy = false;	//destroy this component after hit (assume bullet)
-	EntityID ownerID;
+	string tag;
 
 public:
 	DamageComponent() {};
-	DamageComponent(int damage, EntityID ownerID) : damage(damage), ownerID(ownerID) {};
+	DamageComponent(int damage, string tag) : damage(damage), tag(tag) {};
 };
 
 inline void to_json(ordered_json& j, const DamageComponent& x) {

@@ -27,7 +27,7 @@ public:
 	bool staticBody = true;
 	bool isTrigger = false;
 	bool frictionless = false;
-	bool gravity = true;
+	float gravity = 9.81f;
 
 public:
 	PhysicsBodyComponent() {};

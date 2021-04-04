@@ -14,7 +14,7 @@ void HealthSystem::init()
 
 void HealthSystem::update()
 {
-	std::vector<EntityID> destroyList;
+	//std::vector<EntityID> destroyList;
 	for (auto& entity : mEntities)
 	{
 		if (ae.hasComponent<HealthComponent>(entity))
@@ -23,15 +23,16 @@ void HealthSystem::update()
 			//todo temp ae.getComponent<ControllerComponent>(entity), need restart game logic here
 			if (health.health <= 0 && !ae.hasComponent<ControllerComponent>(entity))
 			{
-				destroyList.push_back(entity);
+				//destroyList.push_back(entity);
+				ae.EnqueueDestroyEntity(entity);
 			}
 		}
 	}
 
-	for (int i = destroyList.size() - 1; i >= 0; i--)
-	{
-		ae.destroyEntity(destroyList[i]);
-	}
+	//for (int i = destroyList.size() - 1; i >= 0; i--)
+	//{
+	//	ae.destroyEntity(destroyList[i]);
+	//}
 }
 
 void HealthSystem::onEvent(Event& e)

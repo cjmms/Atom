@@ -197,7 +197,7 @@ void PhysicsSystem::updatePhysicsBody(
 		body.grounded = false;
 	}
 
-	float gravityAcc = body.gravity ? GRAVITY : 0;
+	float gravityAcc = body.gravity;
 
 	//update acceleration
 	body.accelerationX = body.totalForceX / frameTime / body.mass ;
@@ -229,6 +229,10 @@ void PhysicsSystem::updatePhysicsBody(
 	//update position
 	transform.position.x = transform.position.x + body.velocityX * frameTime;
 	transform.position.y = transform.position.y + body.velocityY * frameTime;
+
+	//update facing direction based on velocity
+	if(abs(body.velocityX) > 0)
+		transform.scale.x = fabs(transform.scale.x) * (body.velocityX >= 0 ? 1 : -1);
 
 	body.totalForceY = 0;
 	body.totalForceX = 0;

@@ -17,21 +17,24 @@ void SkillSystem::init()
 
 void SkillSystem::update()
 {
-	std::vector<EntityID> destroyList;
-	for (auto& entity : mEntities)
-	{
-		if (ae.hasComponent<SkillBoosterComponent>(entity))
-		{
-			auto& damage = ae.getComponent<SkillBoosterComponent>(entity);
-			if (damage.destroy)
-				destroyList.push_back(entity);
-		}
-	}
+	//std::vector<EntityID> destroyList;
+	//for (auto& entity : mEntities)
+	//{
+	//	if (ae.hasComponent<SkillBoosterComponent>(entity))
+	//	{
+	//		auto& damage = ae.getComponent<SkillBoosterComponent>(entity);
+	//		if (damage.destroy)
+	//		{
+	//			destroyList.push_back(entity);
+	//		}
+	//
+	//	}
+	//}
 
-	for (int i = destroyList.size() - 1; i >= 0; i--)
-	{
-		ae.destroyEntity(destroyList[i]);
-	}
+	//for (int i = destroyList.size() - 1; i >= 0; i--)
+	//{
+	//	ae.destroyEntity(destroyList[i]);
+	//}
 }
 
 void SkillSystem::onEvent(Event& e)
@@ -95,6 +98,7 @@ void SkillSystem::onEvent(Event& e)
 			break;
 		}
 
-		skillComponent.destroy = true;
+		//skillComponent.destroy = true;
+		ae.EnqueueDestroyEntity(skillEntity);
 	}
 }

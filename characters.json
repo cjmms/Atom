@@ -3,7 +3,7 @@
     {
       "EntityID": 1,
       "TagComponent": {
-        "tag": "small player"
+        "tag": "player"
       },
       "TransformComponent": {
         "position": {
@@ -39,7 +39,7 @@
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 9.81
       },
       "ControllerComponent": {
         "UP": "ATOM_SCANCODE_UP",
@@ -67,7 +67,7 @@
     {
       "EntityID": 1,
       "TagComponent": {
-        "tag": "large player"
+        "tag": "player"
       },
       "TransformComponent": {
         "position": {
@@ -99,11 +99,11 @@
         "shapeType": "AABB"
       },
       "PhysicsBodyComponent": {
-        "mass": 1.0,
+        "mass": 0.5,
         "staticBody": false,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 3.0
       },
       "ControllerComponent": {
         "UP": "ATOM_SCANCODE_UP",
@@ -136,7 +136,7 @@
       "TransformComponent": {
         "position": {
           "x": 0.0,
-          "y": -10.0,
+          "y": -5.0,
           "z": 0.0
         },
         "rotation": {
@@ -145,9 +145,9 @@
           "z": 0.0
         },
         "scale": {
-          "x": 100.0,
-          "y": 0.800000011920929,
-          "z": 0.800000011920929
+          "x": 200.0,
+          "y": 1.0,
+          "z": 1.0
         }
       },
       "RectangleComponent": {
@@ -167,7 +167,7 @@
         "staticBody": true,
         "isTrigger": false,
         "frictionless": false,
-        "gravity": true
+        "gravity": 9.81
       }
     }
   ]

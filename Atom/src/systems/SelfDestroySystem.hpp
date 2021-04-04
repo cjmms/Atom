@@ -5,7 +5,7 @@
 #include "core/Event.hpp"
 #include "core/Types.hpp"
 
-class EnemyMovementSystem : public System {
+class SelfDestroySystem : public System {
 public:
 	void init() override;
 	void update() override;

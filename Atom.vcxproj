@@ -649,8 +649,10 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
     <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
-    <ClInclude Include="Atom\src\components\HorizontalMovementComponent.hpp" />
+    <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
+    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
     <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
+    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\core\CameraManager.hpp" />
     <ClInclude Include="Atom\src\core\LevelManager.hpp" />
@@ -687,13 +689,14 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\systems\ChaseSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
-    <ClInclude Include="Atom\src\systems\EnemyMovementSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
@@ -717,6 +720,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\Application.cpp" />
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
+    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -727,13 +731,14 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
-    <ClCompile Include="Atom\src\systems\EnemyMovementSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
@@ -806,6 +811,11 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\optimus_speech.ogg" />
     <None Include="Atom\res\wariyo_mortals.ogg" />
     <None Include="characters.json" />
+    <None Include="Level0_Map.json" />
+    <None Include="Level0_Settings.json" />
+    <None Include="Level2_Map.json" />
+    <None Include="Level2_Settings.json" />
+    <None Include="map_layout_45_60.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg" />

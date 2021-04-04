@@ -83,7 +83,7 @@ string sfxBullet = "Atom/res/bullet-retro-gun-shot.mp3";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
-static float musicVolumedB = 0.1f;
+static float musicVolumedB = 0.0f;
 static float sfxVolumedB = 0.1f;
 static float listenerXOffset = 0.0f;
 static float listenerYOffset = 0.0f;
@@ -138,16 +138,17 @@ void start() {
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
 
-    ae.load("baduku_01.json");
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.1f);
+    ae.mLevelManager->load(0);
+
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
 }
 
 void shutdown() {
     // save progress unload memory and shutdown
-    ae.save("last_checkpoint.json");
-    ae.unload();
+    ae.mLevelManager->save();
+    ae.mLevelManager->unload();
     ae.shutdown();
     Log::shutdown();
 }

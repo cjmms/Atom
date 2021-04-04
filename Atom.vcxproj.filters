@@ -1921,8 +1921,11 @@
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\core\LevelManager.hpp" />
     <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
-    <ClInclude Include="Atom\src\components\HorizontalMovementComponent.hpp" />
-    <ClInclude Include="Atom\src\systems\EnemyMovementSystem.hpp" />
+    <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
+    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
+    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2001,7 +2004,9 @@
     <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
-    <ClCompile Include="Atom\src\systems\EnemyMovementSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
+    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
+    <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\.vs\Atom\v16\.suo">
@@ -2198,6 +2203,11 @@
     </None>
     <None Include="Atom\res\renderText.shader" />
     <None Include="characters.json" />
+    <None Include="map_layout_45_60.json" />
+    <None Include="Level0_Map.json" />
+    <None Include="Level0_Settings.json" />
+    <None Include="Level2_Map.json" />
+    <None Include="Level2_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\Background.jpg">
