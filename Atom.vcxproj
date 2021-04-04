@@ -59,7 +59,7 @@
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;Atom\lib\freetype-2.10.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
@@ -68,8 +68,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;Atom\lib\freetype-2.10.4\objs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul)
@@ -85,7 +85,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
       <PrecompiledHeaderFile>Pch.hpp</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;Atom\lib\freetype-2.10.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Atom;Atom\src;Atom\lib;Atom\lib\GLEW\include;Atom\lib\GLFW\include;Atom\lib\glm;Atom\lib\spdlog\include;Atom\lib\fmod\api\core\inc;Atom\lib\fmod\api\fsbank\inc;Atom\lib\fmod\api\studio\inc;Atom\lib\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -98,8 +98,8 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;Atom\lib\freetype-2.10.4\objs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;fmod_vc.lib;fmodstudio_vc.lib;fsbank_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Atom\lib\GLEW\lib;Atom\lib\GLFW\lib-vc2019;Atom\lib\fmod\api\core\lib\x64;Atom\lib\fmod\api\fsbank\lib\x64;Atom\lib\fmod\api\studio\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\core\lib\x64\fmod.dll" "$(TargetDir)" &gt; nul)
@@ -648,31 +648,29 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
-    <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
-    <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
-    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
-    <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
-    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
-    <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
-    <ClInclude Include="Atom\src\core\CameraManager.hpp" />
-    <ClInclude Include="Atom\src\core\LevelManager.hpp" />
-    <ClInclude Include="Atom\src\components\AutoShootComponent.hpp" />
-    <ClInclude Include="Atom\src\components\ChasePlayerComponent.hpp" />
-    <ClInclude Include="Atom\src\components\DamageComponent.hpp" />
-    <ClInclude Include="Atom\src\components\HealthComponent.hpp" />
-    <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
-    <ClInclude Include="Atom\src\core\UIManager.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
+    <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
+    <ClInclude Include="Atom\src\components\AutoShootComponent.hpp" />
+    <ClInclude Include="Atom\src\components\BulletComponent.hpp" />
     <ClInclude Include="Atom\src\components\CharacteristicComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ChasePlayerComponent.hpp" />
     <ClInclude Include="Atom\src\components\ControllerComponent.hpp" />
+    <ClInclude Include="Atom\src\components\DamageComponent.hpp" />
+    <ClInclude Include="Atom\src\components\HealthComponent.hpp" />
+    <ClInclude Include="Atom\src\components\LevelTriggerComponent.hpp" />
     <ClInclude Include="Atom\src\components\PhysicsBodyComponent.hpp" />
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
+    <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
+    <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\components\ShapeComponent.hpp" />
+    <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
+    <ClInclude Include="Atom\src\components\SkillBoosterComponent.hpp" />
     <ClInclude Include="Atom\src\components\TagComponent.hpp" />
     <ClInclude Include="Atom\src\components\TransformComponent.hpp" />
     <ClInclude Include="Atom\src\core\AtomEngine.hpp" />
     <ClInclude Include="Atom\src\core\AudioManager.hpp" />
+    <ClInclude Include="Atom\src\core\CameraManager.hpp" />
     <ClInclude Include="Atom\src\core\ChrononManager.hpp" />
     <ClInclude Include="Atom\src\core\ComponentContainer.hpp" />
     <ClInclude Include="Atom\src\core\ComponentManager.hpp" />
@@ -681,29 +679,31 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\core\EventManager.hpp" />
     <ClInclude Include="Atom\src\core\GraphicsManager.hpp" />
     <ClInclude Include="Atom\src\core\InputManager.hpp" />
+    <ClInclude Include="Atom\src\core\LevelManager.hpp" />
     <ClInclude Include="Atom\src\core\ResourceManager.hpp" />
     <ClInclude Include="Atom\src\core\Shader.hpp" />
     <ClInclude Include="Atom\src\core\System.hpp" />
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
+    <ClInclude Include="Atom\src\core\UIManager.hpp" />
+    <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ChaseSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
-    <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
-    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
     <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
-    <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
+    <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\utils\Serde.hpp" />
-    <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
@@ -718,109 +718,161 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\lib\imgui\imgui_tables.cpp" />
     <ClCompile Include="Atom\lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
-    <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
-    <ClCompile Include="Atom\src\core\CameraManager.cpp" />
-    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
-    <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
+    <ClCompile Include="Atom\src\core\CameraManager.cpp" />
+    <ClCompile Include="Atom\src\core\EntityManager.cpp" />
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
+    <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
+    <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
-    <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
-    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
     <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
-    <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Atom\.vs\Atom\v16\.suo" />
-    <None Include="Atom\.vs\Atom\v16\Browse.VC.db" />
-    <None Include="Atom\.vs\Atom\v16\ipch\AutoPCH\ae292d5f646dc3f4\APPLICATION.ipch" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Application.obj" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.Build.CppClean.log" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.log" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\Atom.lastbuildstate" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.command.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.read.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\CL.write.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.command.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.read.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.tlog\link.write.1.tlog" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.idb" />
-    <None Include="Atom\bin-int\Debug-x64\Atom\vc142.pdb" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.exe" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.ilk" />
-    <None Include="Atom\bin\Debug-x64\Atom\Atom.pdb" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\CharacterStatusSystem.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\CameraManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\InputManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Pch.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\PhysicsSystem.obj" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\RectangleRenderSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\RenderTextComponent.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ResourceLoader.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Shader.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_demo.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_draw.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_glfw.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl2.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_opengl3.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_impl_win32.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_main.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_tables.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_widgets.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.idb" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb" />
     <None Include="Atom\lib\GLEW\lib\glew32s.lib" />
     <None Include="Atom\lib\GLFW\lib-vc2019\glfw3.lib" />
     <None Include="Atom\lib\fmod\api\core\inc\fmod.cs" />
     <None Include="Atom\lib\fmod\api\core\inc\fmod_dsp.cs" />
     <None Include="Atom\lib\fmod\api\core\inc\fmod_errors.cs" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmodL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\core\lib\x64\fmod_vc.lib" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\fmod.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\fmodL.dll" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\fmodL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\fmod_vc.lib" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\libfmod.a" />
+    <None Include="Atom\lib\fmod\api\core\lib\x86\libfmodL.a" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\fsbank_vc.lib" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x64\opus.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x86\fsbank.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x86\fsbank_vc.lib" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x86\libfsbvorbis.dll" />
+    <None Include="Atom\lib\fmod\api\fsbank\lib\x86\opus.dll" />
     <None Include="Atom\lib\fmod\api\studio\inc\fmod_studio.cs" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudioL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x64\fmodstudio_vc.lib" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\fmodstudio.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\fmodstudioL.dll" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\fmodstudioL_vc.lib" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\fmodstudio_vc.lib" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\libfmodstudio.a" />
+    <None Include="Atom\lib\fmod\api\studio\lib\x86\libfmodstudioL.a" />
     <None Include="Atom\lib\glm\glm\CMakeLists.txt" />
     <None Include="Atom\lib\imgui\LICENSE.txt" />
     <None Include="Atom\lib\nlohmann\LICENSE.MIT.txt" />
     <None Include="Atom\lib\spdlog\LICENSE" />
     <None Include="Atom\lib\spdlog\VERSION" />
     <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst" />
-    <None Include="Atom\res\ColorRec.shader" />
-    <None Include="Atom\res\renderText.shader" />
-    <None Include="Atom\res\TextureRec.shader" />
-    <None Include="Atom\res\optimus_speech.ogg" />
-    <None Include="Atom\res\wariyo_mortals.ogg" />
-    <None Include="characters.json" />
-    <None Include="Level0_Map.json" />
-    <None Include="Level0_Settings.json" />
-    <None Include="Level2_Map.json" />
-    <None Include="Level2_Settings.json" />
-    <None Include="map_layout_45_60.json" />
+    <None Include="Atom\res\audio\EllenFootstepJump.ogg" />
+    <None Include="Atom\res\audio\EllenFootstepLand.ogg" />
+    <None Include="Atom\res\audio\bullet-retro-gun-shot.mp3" />
+    <None Include="Atom\res\audio\optimus_speech.ogg" />
+    <None Include="Atom\res\audio\wariyo_mortals.ogg" />
+    <None Include="Atom\res\fonts\arial.ttf" />
+    <None Include="Atom\res\fonts\arialbd.ttf" />
+    <None Include="Atom\res\fonts\arialbi.ttf" />
+    <None Include="Atom\res\fonts\ariali.ttf" />
+    <None Include="Atom\res\fonts\ariblk.ttf" />
+    <None Include="Atom\res\levels\Level0_Map.json" />
+    <None Include="Atom\res\levels\Level0_Settings.json" />
+    <None Include="Atom\res\levels\Level1_Map.json" />
+    <None Include="Atom\res\levels\Level1_Settings.json" />
+    <None Include="Atom\res\levels\Level2_Map.json" />
+    <None Include="Atom\res\levels\Level2_Settings.json" />
+    <None Include="Atom\res\levels\Level3_Map.json" />
+    <None Include="Atom\res\levels\Level3_Settings.json" />
+    <None Include="Atom\res\levels\Level4_Map.json" />
+    <None Include="Atom\res\levels\Level4_Settings.json" />
+    <None Include="Atom\res\levels\characters.json" />
+    <None Include="Atom\res\shaders\ColorRec.shader" />
+    <None Include="Atom\res\shaders\TextureRec.shader" />
+    <None Include="Atom\res\shaders\renderText.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Atom\res\Background.jpg" />
-    <Image Include="Atom\res\img.jpg" />
-    <Image Include="Atom\res\level_01_background.png" />
+    <Image Include="Atom\res\animation\Vampire0.png" />
+    <Image Include="Atom\res\animation\Vampire1.png" />
+    <Image Include="Atom\res\animation\Vampire2.png" />
+    <Image Include="Atom\res\animation\Vampire3.png" />
+    <Image Include="Atom\res\animation\knightSlice0.png" />
+    <Image Include="Atom\res\animation\knightSlice1.png" />
+    <Image Include="Atom\res\animation\knightSlice2.png" />
+    <Image Include="Atom\res\animation\latern0.png" />
+    <Image Include="Atom\res\animation\latern1.png" />
+    <Image Include="Atom\res\animation\latern2.png" />
+    <Image Include="Atom\res\animation\latern3.png" />
+    <Image Include="Atom\res\art\Background.jpg" />
+    <Image Include="Atom\res\art\CharacterBullet.png" />
+    <Image Include="Atom\res\art\Enemy.png" />
+    <Image Include="Atom\res\art\EnemyBullet.png" />
+    <Image Include="Atom\res\art\FixedPlatform1.png" />
+    <Image Include="Atom\res\art\FixedPlatform2.png" />
+    <Image Include="Atom\res\art\Large.png" />
+    <Image Include="Atom\res\art\MovingPlatform.png" />
+    <Image Include="Atom\res\art\PlatformEnemy.png" />
+    <Image Include="Atom\res\art\Small.png" />
+    <Image Include="Atom\res\art\Switch_Off.png" />
+    <Image Include="Atom\res\art\Switch_On.png" />
+    <Image Include="Atom\res\art\Wall.jpg" />
+    <Image Include="Atom\res\art\bullet_count.png" />
+    <Image Include="Atom\res\art\bullet_speed.png" />
+    <Image Include="Atom\res\art\grass.png" />
+    <Image Include="Atom\res\art\img.jpg" />
+    <Image Include="Atom\res\art\jump.png" />
+    <Image Include="Atom\res\art\level_01_background.png" />
+    <Image Include="Atom\res\art\orange.png" />
+    <Image Include="Atom\res\art\orange_transparent.png" />
+    <Image Include="Atom\res\art\wall_jump.png" />
+    <Image Include="Atom\res\art\yellow.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

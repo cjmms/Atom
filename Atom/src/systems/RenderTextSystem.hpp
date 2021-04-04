@@ -23,7 +23,7 @@ public:
 
 	void displayText(std::string text, float x, float y, float scale, glm::vec3 color);
 
-	RenderText renderText;
+	//RenderText renderText;
 
 	glm::mat4 projection;
 

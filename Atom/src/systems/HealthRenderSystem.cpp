@@ -14,7 +14,7 @@ extern AtomEngine ae;
 void HealthRenderSystem::init() {
 
 	// init shaders
-	ColorRecShader = std::make_unique<Shader>("Atom/res/ColorRec.shader");
+	ColorRecShader = std::make_unique<Shader>("Atom/res/shaders/ColorRec.shader");
 
 	float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
 	   // positions   // texCoords

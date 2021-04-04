@@ -73,12 +73,12 @@ void fpsCounter() {
 
 
 
-string musicTrack = "Atom/res/wariyo_mortals.ogg";
-string sfxTrack = "Atom/res/optimus_speech.ogg";
+string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
+string sfxTrack = "Atom/res/audio/optimus_speech.ogg";
 
-string sfxJump = "Atom/res/EllenFootstepJump.ogg";
-string sfxLand = "Atom/res/EllenFootstepLand.ogg";
-string sfxBullet = "Atom/res/bullet-retro-gun-shot.mp3";
+string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
+string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
+string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
 
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;

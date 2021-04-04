@@ -107,7 +107,7 @@ void LevelManager::onEvent(Event& e)
 }
 
 void LevelManager::load(int level) {
-	string levelstring = string("Level") + std::to_string(level) + string("_Settings.json");
+	string levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
 	std::ifstream in(levelstring);
 	ordered_json json;
 	in >> json;
@@ -257,7 +257,7 @@ void LevelManager::load(string filepath) {
 void LevelManager::loadCharacters()
 {
 
-	string charloc = "characters.json";
+	string charloc = "Atom/res/levels/characters.json";
 	std::ifstream inmap(charloc);
 	ordered_json characterJson;
 	inmap >> characterJson;
