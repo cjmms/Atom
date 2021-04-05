@@ -107,7 +107,7 @@ void UIManager::showMenu()
 
 void UIManager::showCheckCloseWindow()
 {
-    ImGui::Begin("", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+    ImGui::Begin("CloseWindow", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
     ImGui::Text("Are you sure you want to quit the game?");
 
     if (ImGui::Button("Yes")) ae.mIsRunning = false;
@@ -119,7 +119,7 @@ void UIManager::showCheckCloseWindow()
 
 void UIManager::showCheckRestartWindow()
 {
-    ImGui::Begin("", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("Restart", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
     ImGui::Text("Are you sure you want to restart the level? Current progress will lost.");
     if (ImGui::Button("Yes"))
     {
