@@ -718,6 +718,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\lib\imgui\imgui_tables.cpp" />
     <ClCompile Include="Atom\lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
+    <ClCompile Include="Atom\src\core\UIManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

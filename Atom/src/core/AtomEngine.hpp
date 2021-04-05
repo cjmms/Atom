@@ -195,6 +195,7 @@ public:
 		// process
 		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
 			mIsPaused = !mIsPaused;
+			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
 		}
 
 		if (mIsPaused) {
