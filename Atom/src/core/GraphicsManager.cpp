@@ -6,6 +6,9 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "AtomEngine.hpp"
+
+extern AtomEngine ae;
 
 // callback function for window resizing, hidden from any other files
 void framebufferSizeCallback(GLFWwindow* window, int width, int height)
@@ -19,6 +22,11 @@ void windowResizeCallback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
+void windowCloseCallback(GLFWwindow* window)
+{
+	glfwSetWindowShouldClose(window, false);
+	ae.mUIManager->closeWindow();
+}
 
 void GraphicsManager::init() {
 	title = APPNAME;
@@ -50,6 +58,7 @@ void GraphicsManager::init() {
 	// when window size changes, object scales properly
 	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
 	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
+	glfwSetWindowCloseCallback(mWindow, windowCloseCallback);
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

@@ -59,6 +59,12 @@ void UIManager::update()
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
+void UIManager::closeWindow()
+{
+    ae.mIsPaused = true;
+    checkCloseWindow = true;
+}
+
 
 
 
@@ -67,6 +73,13 @@ void UIManager::showMenu()
 {
     //render your GUI
     ImGui::Begin("Menu", 0, ImGuiWindowFlags_NoCollapse);
+
+    if (ImGui::Button("Resume Game"))
+    {
+        checkRestartWindow = false;  // disable other window
+        checkCloseWindow = false;    // disable other window
+        ae.mIsPaused = false;
+    }
 
     // Audio UI setup
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
@@ -78,25 +91,16 @@ void UIManager::showMenu()
     ae.listener3DSetXOffset(listenerOffset[0]);
     ae.listener3DSetYOffset(listenerOffset[1]);
 
+    if (ImGui::Button("Restart Current Level"))
+    {
+        checkCloseWindow = false;   // disable other window
+        checkRestartWindow = true;
+    }
 
     if (ImGui::Button("Quit Game"))
     {
         checkRestartWindow = false; // disable other window
         checkCloseWindow = true;
-    }
-
-    if (ImGui::Button("Resume Game"))
-    {
-        checkRestartWindow = false;  // disable other window
-        checkCloseWindow = false;    // disable other window
-        ae.mIsPaused = false;
-    }
-
-
-    if (ImGui::Button("Restart Current Level")) 
-    {
-        checkCloseWindow = false;   // disable other window
-        checkRestartWindow = true;
     }
 
     ImGui::End();

@@ -23,11 +23,11 @@ public:
 
     void init(GLFWwindow* window); 
 
-
     void update(); 
 
-
     void onEvent(Event& e) {}
+
+    void closeWindow();
 
 private:
     bool checkCloseWindow = false;
