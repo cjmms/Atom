@@ -55,6 +55,8 @@ public:
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        
+
         for (auto uiPainter : mUIPainters) {
             uiPainter();
         }

@@ -15,6 +15,8 @@
 // THE ENGINE
 AtomEngine ae;
 
+void shutdown();
+
 
 #ifdef _WIN64
 #include "Windows.h"
@@ -94,11 +96,16 @@ static FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
 static FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
 static float listener_step = 0.1f;
 
+bool checkCloseWindow = false;
+bool checkRestartWindow = false;
+
 void uiDraw() {
+
     if (ae.mIsPaused) {
+
         //render your GUI
         ImGui::Begin(
-            "ATOM AUDIO CONTROL PANEL",
+            "Menu",
             0,
             ImGuiWindowFlags_NoCollapse
         );
@@ -110,7 +117,51 @@ void uiDraw() {
         ae.setVolume(sfxChannelID, sfxVolumedB);
         ae.listener3DSetXOffset(listenerOffset[0]);
         ae.listener3DSetYOffset(listenerOffset[1]);
+
+
+        if (ImGui::Button("Quit Game"))
+        {
+            checkCloseWindow = true;
+        }
+
+        if (ImGui::Button("Resume Game"))
+        {
+            ae.mIsPaused = false;
+        }
+
+        if (ImGui::Button("Restart Current Level"))
+        {
+            checkRestartWindow = true;
+
+            //ae.mLevelManager->restartCurrentLevel();
+            //ae.mIsPaused = false;   // close the menu
+        }
         ImGui::End();
+
+        // check if the player wants to end the game
+        if (checkCloseWindow) {
+            ImGui::Begin("", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+            ImGui::Text("Are you sure you want to quit the game?");
+
+            if (ImGui::Button("Yes")) ae.mIsRunning = false;
+            if (ImGui::Button("No")) checkCloseWindow = false;
+            ImGui::End();
+        }
+
+        // check if the player wants to restart the menu
+        if (checkRestartWindow)
+        {
+            ImGui::Begin("", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
+            ImGui::Text("Are you sure you want to restart the level? Current progress will lost.");
+            if (ImGui::Button("Yes"))
+            {
+                ae.mLevelManager->restartCurrentLevel();
+                ae.mIsPaused = false;   // close the menu
+            }
+            if (ImGui::Button("No")) checkRestartWindow = false;
+
+            ImGui::End();
+        }
 
     }
 }

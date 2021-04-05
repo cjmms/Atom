@@ -17,6 +17,8 @@ public:
 
 	void save();
 
+	inline void restartCurrentLevel() { restartLevel = true; }
+
 private:
 	void load(string filepath);
 
