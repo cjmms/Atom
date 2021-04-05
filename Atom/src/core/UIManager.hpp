@@ -34,6 +34,10 @@ private:
     bool checkRestartWindow = false;
 
 
+    void showMenu();
+    void showCheckCloseWindow();
+    void showCheckRestartWindow();
+
 };
 
 #endif

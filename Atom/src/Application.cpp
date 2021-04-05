@@ -15,7 +15,7 @@
 // THE ENGINE
 AtomEngine ae;
 
-void shutdown();
+
 
 
 #ifdef _WIN64

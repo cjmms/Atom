@@ -1,5 +1,4 @@
 
-
 #include <Pch.hpp>
 #include "UIManager.hpp"
 #include "AtomEngine.hpp"
@@ -41,16 +40,35 @@ UIManager::~UIManager()
 
 void UIManager::update()
 {
+    // if the game is not paused, do not show menu UI
     if (!ae.mIsPaused) return;
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
+    showMenu();
+    
+    // check if the player wants to end the game
+    if (checkCloseWindow) showCheckCloseWindow();
 
+    // check if the player wants to restart the menu
+    if (checkRestartWindow) showCheckRestartWindow();
+
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+
+
+
+void UIManager::showMenu()
+{
     //render your GUI
     ImGui::Begin("Menu", 0, ImGuiWindowFlags_NoCollapse);
 
+    // Audio UI setup
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
     ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
     ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
@@ -63,46 +81,53 @@ void UIManager::update()
 
     if (ImGui::Button("Quit Game"))
     {
+        checkRestartWindow = false; // disable other window
         checkCloseWindow = true;
     }
 
     if (ImGui::Button("Resume Game"))
     {
+        checkRestartWindow = false;  // disable other window
+        checkCloseWindow = false;    // disable other window
         ae.mIsPaused = false;
     }
 
-    if (ImGui::Button("Restart Current Level"))
+
+    if (ImGui::Button("Restart Current Level")) 
     {
+        checkCloseWindow = false;   // disable other window
         checkRestartWindow = true;
     }
+
     ImGui::End();
+}
 
-    // check if the player wants to end the game
-    if (checkCloseWindow) {
-        ImGui::Begin("", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-        ImGui::Text("Are you sure you want to quit the game?");
 
-        if (ImGui::Button("Yes")) ae.mIsRunning = false;
-        if (ImGui::Button("No")) checkCloseWindow = false;
-        ImGui::End();
-    }
 
-    // check if the player wants to restart the menu
-    if (checkRestartWindow)
+
+void UIManager::showCheckCloseWindow()
+{
+    ImGui::Begin("", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+    ImGui::Text("Are you sure you want to quit the game?");
+
+    if (ImGui::Button("Yes")) ae.mIsRunning = false;
+    if (ImGui::Button("No")) checkCloseWindow = false;
+    ImGui::End();
+}
+
+
+
+void UIManager::showCheckRestartWindow()
+{
+    ImGui::Begin("", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
+    ImGui::Text("Are you sure you want to restart the level? Current progress will lost.");
+    if (ImGui::Button("Yes"))
     {
-        ImGui::Begin("", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
-        ImGui::Text("Are you sure you want to restart the level? Current progress will lost.");
-        if (ImGui::Button("Yes"))
-        {
-            ae.mLevelManager->restartCurrentLevel();
-            ae.mIsPaused = false;   // close the menu
-        }
-        if (ImGui::Button("No")) checkRestartWindow = false;
-
-        ImGui::End();
+        ae.mLevelManager->restartCurrentLevel();
+        checkRestartWindow = false;
+        ae.mIsPaused = false;   // close the menu
     }
+    if (ImGui::Button("No")) checkRestartWindow = false;
 
-
-    ImGui::Render();
-    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    ImGui::End();
 }
