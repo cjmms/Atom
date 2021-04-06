@@ -2357,6 +2357,7 @@
     <None Include="Atom\res\shaders\renderText.shader">
       <Filter>res\shaders</Filter>
     </None>
+    <None Include="Atom\res\shaders\ParticleEffect.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\animation\Vampire0.png">

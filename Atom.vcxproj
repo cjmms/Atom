@@ -836,6 +836,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\levels\Level4_Settings.json" />
     <None Include="Atom\res\levels\characters.json" />
     <None Include="Atom\res\shaders\ColorRec.shader" />
+    <None Include="Atom\res\shaders\ParticleEffect.shader" />
     <None Include="Atom\res\shaders\TextureRec.shader" />
     <None Include="Atom\res\shaders\renderText.shader" />
   </ItemGroup>
