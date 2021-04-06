@@ -20,21 +20,36 @@ void LevelManager::update()
 	//todo UI to tell player died
 
 
-	if (enterNextLevel)
+	//logic to move to next level automatically
+	if (levelTime != -1 && ae.getUptime() - levelStartTime > levelTime)
 	{
-		enterNextLevel = false;
-		restartLevel = false;
+		enterNextLevel = true;
+	}
 
+	if (enterPreviousLevel)
+	{
+		unload();
+		level--;
+		if (level < 0)
+			level = 0;
+		load(level);
+	}
+	else if (enterNextLevel)
+	{
 		unload();
 		level++;
 		load(level);
 	}
 	else if (restartLevel)
 	{
-		restartLevel = false;
 		unload();
 		load(level);
 	}
+
+	//reset level status
+	enterNextLevel = false;
+	enterPreviousLevel = false;
+	restartLevel = false;
 
 }
 
@@ -115,11 +130,24 @@ void LevelManager::load(int level) {
 	this->level = level;
 	//std::string mapName = json["Map"];
 	this->load(levelstring);
+
+	levelStartTime = ae.getUptime();
+
+}
+
+void LevelManager::startGame()
+{
+	load(0);
 }
 
 void LevelManager::loadNextLevel()
 {
 	enterNextLevel = true;
+}
+
+void LevelManager::loadPreviosLevel()
+{
+	enterPreviousLevel = true;
 }
 
 // load level
@@ -136,6 +164,12 @@ void LevelManager::load(string filepath) {
 		std::ifstream inmap(maploc);
 		ordered_json mapJson;
 		inmap >> mapJson;
+
+		if (mapJson["time"].is_null())
+			levelTime = -1;
+		else
+			levelTime = mapJson["time"];
+
 		rows = mapJson["grid"].size();
 		cols = mapJson["grid"][0].size();
 		//wallid = mapJson["wall_id"];
@@ -256,7 +290,7 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
-
+	return;
 	string charloc = "Atom/res/levels/characters.json";
 	std::ifstream inmap(charloc);
 	ordered_json characterJson;

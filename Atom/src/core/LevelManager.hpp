@@ -10,8 +10,9 @@ public:
 	void update();
 	void onEvent(Event& e);
 
-	void load(int level);
+	void startGame();
 	void loadNextLevel();
+	void loadPreviosLevel();
 
 	void unload();
 
@@ -20,6 +21,7 @@ public:
 	inline void restartCurrentLevel() { restartLevel = true; }
 
 private:
+	void load(int level);
 	void load(string filepath);
 
 	void loadCharacters();
@@ -28,6 +30,12 @@ private:
 private:
 	bool restartLevel = false;
 	bool enterNextLevel = false;
+	bool enterPreviousLevel = false;
 
-	int level = 1;	//1-base level
+	int level = 0;
+
+	//from map json, -1: no timer, >0: enter next level after the time
+	double levelTime;	
+	double levelStartTime;
+
 };

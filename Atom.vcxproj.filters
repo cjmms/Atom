@@ -2315,12 +2315,6 @@
     <None Include="Atom\res\fonts\ariblk.ttf">
       <Filter>res\fonts</Filter>
     </None>
-    <None Include="Atom\res\levels\Level0_Map.json">
-      <Filter>res\levels</Filter>
-    </None>
-    <None Include="Atom\res\levels\Level0_Settings.json">
-      <Filter>res\levels</Filter>
-    </None>
     <None Include="Atom\res\levels\Level1_Map.json">
       <Filter>res\levels</Filter>
     </None>
@@ -2345,6 +2339,12 @@
     <None Include="Atom\res\levels\Level4_Settings.json">
       <Filter>res\levels</Filter>
     </None>
+    <None Include="Atom\res\levels\Level5_Map.json">
+      <Filter>res\levels</Filter>
+    </None>
+    <None Include="Atom\res\levels\Level5_Settings.json">
+      <Filter>res\levels</Filter>
+    </None>
     <None Include="Atom\res\levels\characters.json">
       <Filter>res\levels</Filter>
     </None>
@@ -2357,6 +2357,8 @@
     <None Include="Atom\res\shaders\renderText.shader">
       <Filter>res\shaders</Filter>
     </None>
+    <None Include="Atom\res\levels\Level0_Map.json" />
+    <None Include="Atom\res\levels\Level0_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\animation\Vampire0.png">

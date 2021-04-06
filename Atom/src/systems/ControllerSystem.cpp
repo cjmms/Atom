@@ -74,7 +74,8 @@ void ControllerSystem::update()
 
 	}	
 
-	assert(activeEntity != -1);
+	if (activeEntity == -1)
+		return;
 
 	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
