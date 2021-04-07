@@ -80,8 +80,6 @@ float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
 // every frame 
 void LevelManager::update()
 {
-
-
 	//logic to move to next level automatically
 	if (levelTime != -1 && ae.getUptime() - levelStartTime > levelTime)
 	{
@@ -90,7 +88,7 @@ void LevelManager::update()
 
 	if (enterPreviousLevel)
 	{
-		if (fade_out_timer > 0) {
+		if (fade_out_timer > 0 && !screenByPass()) {
 			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
 			fade_out_timer -= ae.dt;
 			//std::cout << "level alpha : " << level_alpha << std::endl;
@@ -109,7 +107,7 @@ void LevelManager::update()
 	else if (enterNextLevel )
 	{
 
-		if (fade_out_timer > 0) {
+		if (fade_out_timer > 0 && !screenByPass()) {
 			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
 			fade_out_timer -= ae.dt;
 		}
@@ -155,6 +153,17 @@ void LevelManager::update()
 
 
 
+}
+
+bool LevelManager::screenByPass()
+{
+	return (ae.mInputManager->isKeyPressed(VK_LBUTTON)
+		|| ae.mInputManager->isKeyPressed(VK_RBUTTON)
+		|| ae.mInputManager->isKeyPressed(VK_SPACE)
+		|| ae.mInputManager->isKeyPressed(VK_ESCAPE)
+		|| ae.mInputManager->isKeyPressed(VK_RETURN)
+		);
+	
 }
 
 void LevelManager::onEvent(Event& e)
@@ -228,8 +237,8 @@ void LevelManager::onEvent(Event& e)
 void LevelManager::load(int level) {
 
 	level_alpha = 1.0f;
-	fade_out_timer = 1.0f;
-	fade_in_timer = 1.0f;
+	fade_out_timer = 3.0f;
+	fade_in_timer = 0.5f;
 
 	levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
 	std::ifstream in(levelstring);

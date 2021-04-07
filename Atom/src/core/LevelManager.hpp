@@ -28,6 +28,7 @@ private:
 	void load(string filepath);
 
 	void loadCharacters();
+	bool screenByPass();
 
 
 private:
