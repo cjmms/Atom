@@ -28,7 +28,7 @@ project "Atom"
 	}
 
 	if os.host() == "windows" then
-		kind ("ConsoleApp")
+		kind ("WindowedApp")
 	
 		defines {
 			"GLEW_STATIC"
@@ -90,12 +90,12 @@ project "Atom"
 				-- studio
 				'{COPY} "%{prj.name}\\lib\\fmod\\api\\studio\\lib\\x64\\fmodstudio.dll" "%{cfg.buildtarget.directory}"',
 			-- resources
-				'{COPY} "%{prj.name}\\res\\animation\\**" "%{cfg.buildtarget.directory}\\res\\animation"',
-				'{COPY} "%{prj.name}\\res\\art\\**" "%{cfg.buildtarget.directory}\\res\\art"',
-				'{COPY} "%{prj.name}\\res\\audio\\**" "%{cfg.buildtarget.directory}\\res\\audio"',
-				'{COPY} "%{prj.name}\\res\\fonts\\**" "%{cfg.buildtarget.directory}\\res\\fonts"',
-				'{COPY} "%{prj.name}\\res\\levels\\**" "%{cfg.buildtarget.directory}\\res\\levels"',
-				'{COPY} "%{prj.name}\\res\\shaders\\**" "%{cfg.buildtarget.directory}\\res\\shaders"'
+				'{COPY} "%{prj.name}\\res\\animation\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\animation"',
+				'{COPY} "%{prj.name}\\res\\art\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\art"',
+				'{COPY} "%{prj.name}\\res\\audio\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\audio"',
+				'{COPY} "%{prj.name}\\res\\fonts\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\fonts"',
+				'{COPY} "%{prj.name}\\res\\levels\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\levels"',
+				'{COPY} "%{prj.name}\\res\\shaders\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\shaders"'
 		}
 
 		buildoptions {

@@ -51,7 +51,7 @@ Source: "app\fsbank.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\libfsbvorbis64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\opus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "copyright\DigiPen_EULA.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\res\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "app\Atom\res\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "redist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

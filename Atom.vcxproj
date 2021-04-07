@@ -77,12 +77,12 @@ IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)
-IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul)
-IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul)
-IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul)
-IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul)
-IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul)
-IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul)</Command>
+IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\Atom\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\Atom\res\animation" &gt; nul)
+IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\Atom\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\Atom\res\art" &gt; nul)
+IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\Atom\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\Atom\res\audio" &gt; nul)
+IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\Atom\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\Atom\res\fonts" &gt; nul)
+IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\Atom\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\Atom\res\levels" &gt; nul)
+IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\Atom\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\Atom\res\shaders" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -113,12 +113,12 @@ IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)
-IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul)
-IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul)
-IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul)
-IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul)
-IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul)
-IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul)</Command>
+IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\Atom\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\Atom\res\animation" &gt; nul)
+IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\Atom\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\Atom\res\art" &gt; nul)
+IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\Atom\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\Atom\res\audio" &gt; nul)
+IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\Atom\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\Atom\res\fonts" &gt; nul)
+IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\Atom\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\Atom\res\levels" &gt; nul)
+IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\Atom\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\Atom\res\shaders" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -765,6 +765,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.Build.CppClean.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch" />
@@ -775,6 +776,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AutoMovementSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\CameraManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ChaseSystem.obj" />
@@ -867,44 +869,76 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\audio\EllenFootstepJump.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\audio\EllenFootstepLand.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\audio\bullet-retro-gun-shot.mp3" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\audio\optimus_speech.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\audio\wariyo_mortals.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\fonts\arial.ttf" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\fonts\arialbd.ttf" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\fonts\arialbi.ttf" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\fonts\ariali.ttf" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\fonts\ariblk.ttf" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level0_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level0_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level1_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level1_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level2_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level2_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level3_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level3_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level4_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level4_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level5_Map.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\Level5_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\levels\characters.json" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\shaders\ColorRec.shader" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\shaders\ParticleEffect.shader" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\shaders\RenderParticle.shader" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\shaders\TextureRec.shader" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\shaders\renderText.shader" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmod.dll" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmodstudio.dll" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fsbank.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\imgui.ini" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\last_checkpoint.json" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\libfsbvorbis64.dll" />
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\opus.dll" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\EllenFootstepJump.ogg" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\EllenFootstepLand.ogg" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\bullet-retro-gun-shot.mp3" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\optimus_speech.ogg" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\wariyo_mortals.ogg" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arial.ttf" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arialbd.ttf" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arialbi.ttf" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\ariali.ttf" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\ariblk.ttf" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level0_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level0_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level1_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level1_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level2_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level2_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level3_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level3_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level4_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level4_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level5_Map.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level5_Settings.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\characters.json" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\ColorRec.shader" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\ParticleEffect.shader" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\RenderParticle.shader" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\TextureRec.shader" />
-    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\renderText.shader" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.exe" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.pdb" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\audio\EllenFootstepJump.ogg" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\audio\EllenFootstepLand.ogg" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\audio\bullet-retro-gun-shot.mp3" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\audio\optimus_speech.ogg" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\audio\wariyo_mortals.ogg" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\fonts\arial.ttf" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\fonts\arialbd.ttf" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\fonts\arialbi.ttf" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\fonts\ariali.ttf" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\fonts\ariblk.ttf" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level0_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level0_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level1_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level1_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level2_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level2_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level3_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level3_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level4_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level4_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level5_Map.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\Level5_Settings.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\levels\characters.json" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\shaders\ColorRec.shader" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\shaders\ParticleEffect.shader" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\shaders\RenderParticle.shader" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\shaders\TextureRec.shader" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\shaders\renderText.shader" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmod.dll" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmodstudio.dll" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fsbank.dll" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\imgui.ini" />
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\last_checkpoint.json" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\libfsbvorbis64.dll" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\opus.dll" />
     <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\EllenFootstepJump.ogg" />
@@ -1005,43 +1039,80 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\shaders\renderText.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire0.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire1.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire2.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire3.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice0.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice1.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice2.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern0.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern1.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern2.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern3.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Background.jpg" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\CharacterBullet.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Enemy.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\EnemyBullet.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\FixedPlatform1.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\FixedPlatform2.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Large.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\MovingPlatform.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\PlatformEnemy.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Small.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Switch_Off.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Switch_On.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Wall.jpg" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\black.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\bullet_count.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\bullet_speed.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\digipen_logo.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\fmod_logo.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\grass.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\img.jpg" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\jump.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\level_01_background.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\orange.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\orange_transparent.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\wall_jump.png" />
-    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\yellow.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire1.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire2.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire3.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\knightSlice0.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\knightSlice1.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\knightSlice2.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\latern0.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\latern1.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\latern2.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\latern3.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Background.jpg" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\CharacterBullet.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Enemy.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\EnemyBullet.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\FixedPlatform1.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\FixedPlatform2.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Large.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\MovingPlatform.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\PlatformEnemy.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Small.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Switch_Off.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Switch_On.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\Wall.jpg" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\black.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\bullet_count.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\bullet_speed.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\digipen_logo.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\fmod_logo.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\grass.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\img.jpg" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\jump.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\level_01_background.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\orange.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\orange_transparent.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\wall_jump.png" />
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\art\yellow.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\Vampire0.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\Vampire1.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\Vampire2.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\Vampire3.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\knightSlice0.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\knightSlice1.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\knightSlice2.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\latern0.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\latern1.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\latern2.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\animation\latern3.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Background.jpg" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\CharacterBullet.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Enemy.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\EnemyBullet.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\FixedPlatform1.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\FixedPlatform2.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Large.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\MovingPlatform.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\PlatformEnemy.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Small.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Switch_Off.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Switch_On.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\Wall.jpg" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\black.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\bullet_count.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\bullet_speed.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\digipen_logo.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\fmod_logo.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\grass.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\img.jpg" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\jump.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\level_01_background.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\orange.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\orange_transparent.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\wall_jump.png" />
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom\res\art\yellow.png" />
     <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire0.png" />
     <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire1.png" />
     <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire2.png" />

@@ -1,6 +1,6 @@
 {
-  "Map": "res/levels/Level4_Map.json",
-  "characters": "res/levels/characters.json",
+  "Map": "Atom/res/levels/Level4_Map.json",
+  "characters": "Atom/res/levels/characters.json",
   "1": {
     "EntityID": 0,
     "TagComponent": {
@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/art/FixedPlatform1.png"
+      "texturePath": "Atom/res/art/FixedPlatform1.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -65,7 +65,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/art/FixedPlatform1.png"
+      "texturePath": "Atom/res/art/FixedPlatform1.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -97,7 +97,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/art/Switch_On.png"
+      "texturePath": "Atom/res/art/Switch_On.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -138,7 +138,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/Wall.jpg"
+      "texturePath": "Atom/res/Wall.jpg"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -183,7 +183,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/Wall.jpg"
+      "texturePath": "Atom/res/Wall.jpg"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -228,7 +228,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/Wall.jpg"
+      "texturePath": "Atom/res/Wall.jpg"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -276,7 +276,7 @@
         "z": 0.5
       },
       "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -331,7 +331,7 @@
         "z": 0.5
       },
       "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -389,7 +389,7 @@
         "z": 0.5
       },
       "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -447,7 +447,7 @@
         "z": 0.5
       },
       "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -505,7 +505,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/jump.png"
+      "texturePath": "Atom/res/jump.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -551,7 +551,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/wall_jump.png"
+      "texturePath": "Atom/res/wall_jump.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -597,7 +597,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/bullet_count.png"
+      "texturePath": "Atom/res/bullet_count.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -643,7 +643,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/bullet_speed.png"
+      "texturePath": "Atom/res/bullet_speed.png"
     },
     "ShapeComponent": {
       "shapeType": 0
