@@ -30,7 +30,10 @@ public:
 
 	inline GLFWwindow* getWindow() { return mWindow; }
 
-	void getWindowSize(int &width, int &height);
+	void SetWindowSize(int &width, int &height);
+
+	inline unsigned int GetWindowWidth() const { return width; }
+	inline unsigned int GetWindowHeight() const { return height; }
 
 private:
 	GLFWwindow* mWindow = NULL;

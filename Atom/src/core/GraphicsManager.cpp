@@ -94,7 +94,7 @@ void GraphicsManager::printInfo() const
 	ATOM_INFO("Graphics: Title: {}", title);
 }
 
-void GraphicsManager::getWindowSize(int& width, int& height)
+void GraphicsManager::SetWindowSize(int& width, int& height)
 {
 	width = this->width;
 	height = this->height;

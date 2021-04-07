@@ -12,6 +12,8 @@
 
 #include "core/AtomEngine.hpp"
 
+#include "systems/ParticleEffect/ParticleEffect.hpp"
+
 // THE ENGINE
 AtomEngine ae;
 
@@ -140,9 +142,9 @@ int main(int argc, char** argv){
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     start();
- 
+
     while (ae.mIsRunning) {
-        glfwpoll();
+        glfwpoll();      
         ae.update();
         fpsCounter();
     }

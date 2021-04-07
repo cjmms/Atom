@@ -23,6 +23,9 @@ public:
 	glm::vec2 getPosition();
 	void setPosition(glm::vec2 pos);
 
+
+	glm::mat4 GetProjectionMatrix();
+
 	Camera camera;
 };
 

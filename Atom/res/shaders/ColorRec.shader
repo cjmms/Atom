@@ -6,6 +6,8 @@ uniform vec2 scale;
 uniform vec2 pos;
 
 uniform vec2 cameraPos;
+uniform mat4 projection;
+
 
 void main()
 {
@@ -18,7 +20,7 @@ void main()
 	// translate
 	position = pos + position - cameraPos;
 
-	gl_Position = vec4(position, 0.0, 1.0);
+	gl_Position = projection * vec4(position, 0.0, 1.0);
 }
 
 

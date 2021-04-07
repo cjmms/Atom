@@ -10,9 +10,12 @@
 #include "ControllerSystem.hpp"
 
 
+
+
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
 bool DebugMode;
+
 
 
 void RectangleRenderSystem::init() {
@@ -55,11 +58,24 @@ void RectangleRenderSystem::init() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
-	}
+
+	// number of particles, size of particles
+	ParticleConfig pCon(30, 160, glm::vec2(0.1f, 2.0f));
+	// spawn center, spawn area size, spawn area shape
+	SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+	// move direction, speed, move pattern
+	MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+	particleEffect = new ParticleEffect(sCon, mCon, pCon);
+
+	particleEffect->Init();
+	particleEffect->Print();
+
+}
 
 
 void RectangleRenderSystem::update() {
 
+	
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
 		DebugMode = !DebugMode;
@@ -69,6 +85,8 @@ void RectangleRenderSystem::update() {
 	// Temp - moving background
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
+
+	particleEffect->Draw();
 
 	// draw all entities
 	drawEntities(DebugMode);
@@ -136,6 +154,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec3("color", color);
 
 	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
+	// pass view matrix uniform 
+	ColorRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
 
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
@@ -161,6 +181,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 
 	TextureRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
 
+	TextureRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
+
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);
 	TextureRecShader->SetTexture("tex", textureID);
@@ -174,6 +196,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 
 void RectangleRenderSystem::drawEntities(bool debugMode)
 {
+
 	for (auto& entity : mEntities) {
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);

@@ -272,7 +272,7 @@ void ControllerSystem::update()
 				//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
 				
 				int width, height;
-				ae.mGraphicsManager->getWindowSize(width, height);
+				ae.mGraphicsManager->SetWindowSize(width, height);
 				
 				//old way of getting direction when camera is fixed
 				//float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
