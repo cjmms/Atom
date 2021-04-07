@@ -143,11 +143,8 @@ int main(int argc, char** argv){
 
     start();
 
-    
- 
     while (ae.mIsRunning) {
         glfwpoll();      
-
         ae.update();
         fpsCounter();
     }

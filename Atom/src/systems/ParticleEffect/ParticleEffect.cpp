@@ -10,7 +10,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 
-void ParticleSystem::Init()
+void ParticleEffect::Init()
 {
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
@@ -49,8 +49,6 @@ void ParticleSystem::Init()
 
 	float time = duration_cast<duration<float>>(steady_clock::now() - lastFrameTime).count();
 	ComputeShader.SetFloat("time", time);
-	ComputeShader.SetVec2("resolution", glm::vec2(1200, 1000));	// pass screen resolution
-	ComputeShader.SetVec2("attractor_radii", glm::vec2(300, 600));
 
 	// render shader uniforms
 	RenderShader.SetInt("vertex_count", Particles.size());
@@ -63,7 +61,7 @@ void ParticleSystem::Init()
 
 
 
-void ParticleSystem::Draw()
+void ParticleEffect::Draw()
 {
 	time_point<steady_clock> now = steady_clock::now();
 	float time = duration_cast<duration<float>>(now - lastFrameTime).count();
@@ -90,7 +88,7 @@ void ParticleSystem::Draw()
 
 
 
-void ParticleSystem::Destory()
+void ParticleEffect::Destory()
 {
 	glDeleteBuffers(1, &SSBO);
 	glDeleteVertexArrays(1, &VAO);
@@ -98,7 +96,7 @@ void ParticleSystem::Destory()
 
 
 
-void ParticleSystem::Print()
+void ParticleEffect::Print()
 {
 	std::stringstream ss;
 	ss << "Compute Shader Capabilities:" << std::endl;
@@ -132,12 +130,7 @@ float gen_random(float min, float max) {
 
 
 
-Particle::Particle()
-	:position(gen_random(0.0, 1200.0), gen_random(0.0, 1000.0)),
-	velocity(0.0, 0.0),
-	scale(gen_random(1.0f, 16.0f)),
-	duration(scale)
-{}
+
 
 
 Particle::Particle(glm::vec2 position, glm::vec2 velocity, float scale, float time)
@@ -189,7 +182,7 @@ float CalVecAngle(glm::vec2 vec)
 
 
 
-ParticleSystem::ParticleSystem(SpawnConfig spawnConfig, MoveConfig moveConfig, ParticleConfig paConfig)
+ParticleEffect::ParticleEffect(SpawnConfig spawnConfig, MoveConfig moveConfig, ParticleConfig paConfig)
 	:Particles(), ComputeShader("Atom/res/shaders/ParticleEffect.shader"),
 	RenderShader("Atom/res/shaders/RenderParticle.shader")
 
@@ -226,12 +219,3 @@ ParticleSystem::ParticleSystem(SpawnConfig spawnConfig, MoveConfig moveConfig, P
 	}
 }
 
-
-ParticleSystem::ParticleSystem(int num_particles)
-	:Particles(), ComputeShader("res/Shaders/ParticleSystem/ParticleSystem.cs.shader"),
-	RenderShader("res/Shaders/ParticleSystem/Render.shader")
-
-{
-	for (int i = 0; i < num_particles; ++i)
-		Particles.push_back(Particle());
-}

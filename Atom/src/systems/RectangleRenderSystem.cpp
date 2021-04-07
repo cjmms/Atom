@@ -65,7 +65,7 @@ void RectangleRenderSystem::init() {
 	SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
 	// move direction, speed, move pattern
 	MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
-	particleEffect = new ParticleSystem(sCon, mCon, pCon);
+	particleEffect = new ParticleEffect(sCon, mCon, pCon);
 
 	particleEffect->Init();
 	particleEffect->Print();

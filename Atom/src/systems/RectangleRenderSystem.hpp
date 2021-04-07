@@ -46,6 +46,6 @@ private:
 	float VampireTimer;
 	float laternTimer;
 
-	ParticleSystem* particleEffect;
+	ParticleEffect* particleEffect;
 };
 

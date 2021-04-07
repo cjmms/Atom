@@ -14,7 +14,6 @@ float gen_random(float min, float max);
 
 struct Particle
 {
-	Particle();
 	Particle(glm::vec2 position, glm::vec2 velocity, float scale, float time);
 
 	glm::vec2 position;
@@ -77,12 +76,11 @@ struct MoveConfig
 
 
 
-class ParticleSystem
+class ParticleEffect
 {
 
 public:
-	ParticleSystem(int num_particles = 10);
-	ParticleSystem(SpawnConfig spawnConfig, MoveConfig moveConfig, ParticleConfig paConfig);
+	ParticleEffect(SpawnConfig spawnConfig, MoveConfig moveConfig, ParticleConfig paConfig);
 
 	void Init();
 	void Draw();
