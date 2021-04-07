@@ -1447,7 +1447,7 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 3.8750102519989014,
+                    "x": 3.555004596710205,
                     "y": -1.875,
                     "z": 0.0
                 },
@@ -1457,7 +1457,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.75,
+                    "x": -0.75,
                     "y": 0.25,
                     "z": 0.0
                 }
@@ -3163,7 +3163,7 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": 7.13316011428833,
                     "y": -1.2000000476837158,
                     "z": 1.0
                 },
@@ -3213,7 +3213,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 5000,
+                "health": 4750,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -3349,12 +3349,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 78,
+            "EntityID": 109,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.3675757944583893,
-                    "y": -1.5493144989013672,
+                    "x": 7.055367469787598,
+                    "y": 0.2216717004776001,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3363,7 +3363,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": -0.009999999776482582,
+                    "x": 0.009999999776482582,
                     "y": 0.009999999776482582,
                     "z": 1.0
                 }
@@ -3401,12 +3401,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 79,
+            "EntityID": 110,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.9963916540145874,
-                    "y": -1.9631597995758057,
+                    "x": 7.768476486206055,
+                    "y": -0.3202388882637024,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3415,7 +3415,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": -0.009999999776482582,
+                    "x": 0.009999999776482582,
                     "y": 0.009999999776482582,
                     "z": 1.0
                 }

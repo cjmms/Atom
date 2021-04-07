@@ -86,7 +86,8 @@ void RectangleRenderSystem::update() {
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
-	particleEffect->Draw();
+	if (ae.mLevelManager->GetCurrentLevelNumber() < 2)
+		particleEffect->Draw();
 
 	// draw all entities
 	drawEntities(DebugMode);
