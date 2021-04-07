@@ -23,6 +23,8 @@ public:
 	float lerp10(float a, float b, float t, float lo, float hi);
 	float lerp01(float a, float b, float t, float lo, float hi);
 
+	inline int GetCurrentLevelNumber() { return level; }
+
 private:
 	void load(int level);
 	void load(string filepath);

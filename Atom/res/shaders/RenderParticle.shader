@@ -15,7 +15,7 @@ uniform float vertex_count;
 
 
 void main() {
-	gl_Position = vec4(position, 0.2f, 1.0);	// 0.2 is a bias
+	gl_Position = vec4(vec2(0.1) +  position, 0.2f, 1.0);	// 0.2 is a bias
 
 	vertex_scale = scale;
 	vertex_speed = length(velocity);
@@ -32,6 +32,7 @@ layout(points) in;
 layout(triangle_strip, max_vertices = 4) out;
 
 uniform mat4 projection;
+uniform vec2 cameraPos;
 
 in float vertex_scale[];
 in float vertex_speed[];
@@ -50,19 +51,19 @@ void main() {
 	geom_duration = vertex_duration[0];
 
 	geom_uv = vec2(0, 0);
-	gl_Position = projection * (position + vec4(-size, -size, 0.0, 0.0));
+	gl_Position = projection * (position + vec4(-size, -size, 0.0, 0.0) - vec4(cameraPos, 0.0, 0.0));
 	EmitVertex();
 
 	geom_uv = vec2(0, 1);
-	gl_Position = projection * (position + vec4(-size, size, 0.0, 0.0));
+	gl_Position = projection * (position + vec4(-size, size, 0.0, 0.0) - vec4(cameraPos, 0.0, 0.0));
 	EmitVertex();
 
 	geom_uv = vec2(1, 0);
-	gl_Position = projection * (position + vec4(size, -size, 0.0, 0.0));
+	gl_Position = projection * (position + vec4(size, -size, 0.0, 0.0) - vec4(cameraPos, 0.0, 0.0));
 	EmitVertex();
 
 	geom_uv = vec2(1, 1);
-	gl_Position = projection * (position + vec4(size, size, 0.0, 0.0));
+	gl_Position = projection * (position + vec4(size, size, 0.0, 0.0) - vec4(cameraPos, 0.0, 0.0));
 	EmitVertex();
 
 	EndPrimitive();
