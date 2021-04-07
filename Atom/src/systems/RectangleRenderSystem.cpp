@@ -19,7 +19,7 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	setBackground("Atom/res/art/level_01_background.png");
+	//setBackground("Atom/res/art/level_01_background.png");
 	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
@@ -79,6 +79,8 @@ void RectangleRenderSystem::update() {
 	//drawAnimation(glm::vec2(0.8, -0.8), glm::vec2(0.4f), "Vampire", "png", 4, VampireTimer, DebugMode);
 
 	//drawAnimation(glm::vec2(-0.8, -0.8), glm::vec2(0.4f), "latern", "png", 4, laternTimer, DebugMode);
+
+
 }
 
 
@@ -116,7 +118,7 @@ void RectangleRenderSystem::onEvent(Event& e) {
 }
 
 
-void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe) const
+void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe, float alpha) const
 {
 
 	if (wireframe) {
@@ -143,7 +145,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 
 
 
-void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe) const
+void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha) const
 {
 	if (wireframe) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -152,7 +154,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 	TextureRecShader->SetInt("wireframe", wireframe);
-
+	TextureRecShader->SetFloat("alpha", alpha);
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
 
@@ -177,14 +179,18 @@ void RectangleRenderSystem::drawEntities(bool debugMode)
 
 			if (ae.hasComponent<TransformComponent>(entity)) {
 				auto& t = ae.getComponent<TransformComponent>(entity);
+				float alpha = 1.0f;
+				alpha = ae.mLevelManager->level_alpha;
 
 				if (!rc.texturePath.empty())
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false,alpha);
 				else
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false, alpha);
 
-				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true);
+				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true, 1.0f);
 			}
+
+
 		}
 	}
 }

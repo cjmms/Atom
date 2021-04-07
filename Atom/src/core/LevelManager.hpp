@@ -20,6 +20,9 @@ public:
 
 	inline void restartCurrentLevel() { restartLevel = true; }
 
+	float lerp10(float a, float b, float t, float lo, float hi);
+	float lerp01(float a, float b, float t, float lo, float hi);
+
 private:
 	void load(int level);
 	void load(string filepath);
@@ -37,5 +40,12 @@ private:
 	//from map json, -1: no timer, >0: enter next level after the time
 	double levelTime;	
 	double levelStartTime;
+
+
+public:
+	float level_alpha = 1.0f;
+	float level_alpha_end = 0.0f;
+	float fade_timer = 2.0f;
+	string levelstring = "";
 
 };

@@ -4,6 +4,7 @@
 
 extern AtomEngine ae;
 
+
 LevelManager::LevelManager()
 {
 
@@ -15,9 +16,70 @@ void LevelManager::init()
 	ae.addEventListener(EventID::E_TRIGGER, [this](Event& e) {this->onEvent(e); });
 }
 
+
+float LevelManager::lerp10(float a, float b, float t, float lo, float hi) {
+	if (lo == hi) {
+		return a;
+	}
+	t = (t - lo) / (hi - lo);
+	float res = b * (1 - t) + a * (t);
+	return res;
+}
+
+float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
+	if (lo == hi) {
+		return a;
+	}
+	t = (t - lo) / (hi - lo);
+	float res = a * (1 - t) + b * (t);
+	return res;
+}
+
+
+
+/*
+
+	fade time = 4.0f
+	T1(30) T2(40)
+
+	playint T1 ----------|[1.0]->[0.0]@T1 (2sec) [0.0]->[1.0]@T2
+						 --,--playing T2 ----------...
+
+
+	fade10
+
+	fade_timer 2.0f
+
+	lo,hi : 30,40 [10 -> 1]
+				[2 -> 0.2]
+
+	t : 32
+	t = (t - lo) / (hi - lo); [0,1]
+
+	t = 0.2
+
+	res = b(1-t) + a(t);
+
+	res (0.8)
+
+
+	lerp10(a,b,,lo,hi){
+		
+	}
+
+	lerp01(){
+
+	}
+
+	L1------------|[1.0]->[0.0]@T1 : alpha
+				  --
+	L2				[0.0]->[1.0]@T2 : alpha-----------
+*/
+
+
+// every frame 
 void LevelManager::update()
 {
-	//todo UI to tell player died
 
 
 	//logic to move to next level automatically
@@ -34,11 +96,19 @@ void LevelManager::update()
 			level = 0;
 		load(level);
 	}
-	else if (enterNextLevel)
+	else if (enterNextLevel )
 	{
-		unload();
-		level++;
-		load(level);
+
+		if (fade_timer > 0) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_timer);
+			fade_timer -= ae.dt;
+			std::cout << "level alpha : " << level_alpha << std::endl;
+		}
+		else {
+			unload();
+			level++;
+			load(level);
+		}
 	}
 	else if (restartLevel)
 	{
@@ -122,7 +192,11 @@ void LevelManager::onEvent(Event& e)
 }
 
 void LevelManager::load(int level) {
-	string levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
+
+	level_alpha = 1.0f;
+	fade_timer = 3.0f;
+
+	levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
 	std::ifstream in(levelstring);
 	ordered_json json;
 	in >> json;
@@ -290,17 +364,18 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
-	return;
-	string charloc = "Atom/res/levels/characters.json";
-	std::ifstream inmap(charloc);
-	ordered_json characterJson;
-	inmap >> characterJson;
+	if (level > 1) {
+		string charloc = "Atom/res/levels/characters.json";
+		std::ifstream inmap(charloc);
+		ordered_json characterJson;
+		inmap >> characterJson;
 
-	// entities
-	if (!characterJson["Entities"].is_null()) {
-		for (auto& entityjson : characterJson["Entities"]) {
-			EntityID entid;
-			ae.deserializeEntity(entityjson, entid);
+		// entities
+		if (!characterJson["Entities"].is_null()) {
+			for (auto& entityjson : characterJson["Entities"]) {
+				EntityID entid;
+				ae.deserializeEntity(entityjson, entid);
+			}
 		}
 	}
 }
