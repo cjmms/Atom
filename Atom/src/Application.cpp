@@ -143,8 +143,11 @@ void shutdown() {
 }
 
 
+#ifdef DEBUG
 int main(int argc, char** argv){
-    
+#else
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
+#endif
     // Setup memory leak dump 
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
