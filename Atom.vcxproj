@@ -700,6 +700,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp" />
+    <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
     <ClInclude Include="Atom\src\utils\AtomScancode.hpp" />
     <ClInclude Include="Atom\src\utils\Log.hpp" />
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
@@ -744,6 +745,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
+    <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />

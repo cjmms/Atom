@@ -198,6 +198,21 @@ void RectangleRenderSystem::drawEntities(bool debugMode)
 {
 
 	for (auto& entity : mEntities) {
+		if (ae.hasComponent<TagComponent>(entity)) {
+			auto& tag = ae.getComponent<TagComponent>(entity);
+			if (tag.tag == "player") {
+				if (ae.hasComponent<CharacteristicComponent>(entity)) {
+					auto& c = ae.getComponent<CharacteristicComponent>(entity);
+					if (!c.isBig) {
+						if (ae.hasComponent<TransformComponent>(entity)) {
+							auto& t = ae.getComponent<TransformComponent>(entity);
+							particleEffect->position = t.position;
+						}
+					}
+				}
+			}
+		}
+
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);
 

@@ -1973,6 +1973,7 @@
     </ClInclude>
     <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
     <ClInclude Include="Atom\src\components\FadeComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\TransformSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2082,6 +2083,7 @@
     </ClCompile>
     <ClCompile Include="Atom\src\core\UIManager.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
+    <ClCompile Include="Atom\src\systems\TransformSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">
@@ -2360,6 +2362,10 @@
     <None Include="Atom\res\shaders\renderText.shader">
       <Filter>res\shaders</Filter>
     </None>
+    <None Include="Atom\res\levels\Level0_Map.json" />
+    <None Include="Atom\res\levels\Level0_Settings.json" />
+    <None Include="Atom\res\shaders\ParticleEffect.shader" />
+    <None Include="Atom\res\shaders\RenderParticle.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\animation\Vampire0.png">
