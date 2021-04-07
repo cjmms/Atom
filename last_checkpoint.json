@@ -1659,7 +1659,7 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": -0.08936797827482224,
                     "y": -1.2000000476837158,
                     "z": 1.0
                 },
@@ -1669,7 +1669,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.10000000149011612,
+                    "x": -0.10000000149011612,
                     "y": 0.10000000149011612,
                     "z": 0.10000000149011612
                 }
@@ -1709,7 +1709,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4900,
+                "health": 4850,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1845,12 +1845,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 41,
+            "EntityID": 46,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.2888411581516266,
-                    "y": -1.1854685544967651,
+                    "x": 0.7899646162986755,
+                    "y": -0.9429728984832764,
                     "z": 0.0
                 },
                 "rotation": {

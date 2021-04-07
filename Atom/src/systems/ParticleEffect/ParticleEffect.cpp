@@ -4,10 +4,14 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include "core/AtomEngine.hpp"
+#include "components/AllComponents.hpp"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+extern AtomEngine ae;
 
 
 void ParticleEffect::Init()

@@ -13,6 +13,7 @@ out float vertex_duration;
 
 uniform float vertex_count;
 
+
 void main() {
 	gl_Position = vec4(position, 0.2f, 1.0);	// 0.2 is a bias
 

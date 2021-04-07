@@ -151,6 +151,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec3("color", color);
 
 	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
+	// pass view matrix uniform 
+	ColorRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
 
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
@@ -176,6 +178,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 
 	TextureRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
 
+	TextureRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
+
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);
 	TextureRecShader->SetTexture("tex", textureID);
@@ -189,6 +193,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 
 void RectangleRenderSystem::drawEntities(bool debugMode)
 {
+
 	for (auto& entity : mEntities) {
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);
