@@ -93,6 +93,8 @@ void DamageSystem::onEvent(Event& e)
 	{
 		auto& health = ae.getComponent<HealthComponent>(target);
 		health.health -= damage.damage;
+		if (health.health <= 0)
+			health.health = 0;
 	}
 
 	//handle destroy in another loop

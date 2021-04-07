@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 160,
+            "EntityID": 6,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -63,7 +63,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 161,
+            "EntityID": 7,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -113,7 +113,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 162,
+            "EntityID": 8,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -159,7 +159,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 163,
+            "EntityID": 9,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -205,7 +205,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 164,
+            "EntityID": 10,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -251,7 +251,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 165,
+            "EntityID": 11,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -297,7 +297,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 166,
+            "EntityID": 12,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -343,7 +343,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 167,
+            "EntityID": 13,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -385,7 +385,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 168,
+            "EntityID": 14,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -447,7 +447,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 169,
+            "EntityID": 15,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -493,7 +493,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 170,
+            "EntityID": 16,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -539,7 +539,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 171,
+            "EntityID": 17,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -585,7 +585,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 172,
+            "EntityID": 18,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -631,7 +631,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 173,
+            "EntityID": 19,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -677,7 +677,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 174,
+            "EntityID": 20,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -719,7 +719,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 175,
+            "EntityID": 21,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -765,7 +765,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 176,
+            "EntityID": 22,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -811,7 +811,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 177,
+            "EntityID": 23,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -857,7 +857,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 178,
+            "EntityID": 24,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -903,7 +903,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 179,
+            "EntityID": 25,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -949,7 +949,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 180,
+            "EntityID": 26,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -991,7 +991,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 181,
+            "EntityID": 27,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1037,7 +1037,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 182,
+            "EntityID": 28,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1083,7 +1083,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 183,
+            "EntityID": 29,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1129,7 +1129,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 184,
+            "EntityID": 30,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1175,7 +1175,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 185,
+            "EntityID": 31,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1221,7 +1221,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 186,
+            "EntityID": 32,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1267,7 +1267,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 187,
+            "EntityID": 33,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1309,7 +1309,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 188,
+            "EntityID": 34,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1355,7 +1355,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 189,
+            "EntityID": 35,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1401,7 +1401,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 190,
+            "EntityID": 36,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1443,11 +1443,11 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 191,
+            "EntityID": 37,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 4.24501895904541,
+                    "x": 4.405025005340576,
                     "y": -1.875,
                     "z": 0.0
                 },
@@ -1457,7 +1457,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 0.75,
+                    "x": -0.75,
                     "y": 0.25,
                     "z": 0.0
                 }
@@ -1497,7 +1497,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 192,
+            "EntityID": 38,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1543,7 +1543,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 193,
+            "EntityID": 39,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1589,7 +1589,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 194,
+            "EntityID": 40,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1635,7 +1635,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 195,
+            "EntityID": 41,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1681,7 +1681,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 196,
+            "EntityID": 42,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1727,7 +1727,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 197,
+            "EntityID": 43,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1769,7 +1769,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 198,
+            "EntityID": 44,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1815,7 +1815,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 199,
+            "EntityID": 45,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1857,7 +1857,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 200,
+            "EntityID": 46,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -1919,7 +1919,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 201,
+            "EntityID": 47,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -1981,7 +1981,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 202,
+            "EntityID": 48,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2027,7 +2027,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 203,
+            "EntityID": 49,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2069,7 +2069,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 204,
+            "EntityID": 50,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2115,7 +2115,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 205,
+            "EntityID": 51,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2161,7 +2161,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 206,
+            "EntityID": 52,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2203,7 +2203,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 207,
+            "EntityID": 53,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2249,7 +2249,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 208,
+            "EntityID": 54,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2295,7 +2295,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 209,
+            "EntityID": 55,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2341,7 +2341,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 210,
+            "EntityID": 56,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2387,7 +2387,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 211,
+            "EntityID": 57,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2429,7 +2429,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 212,
+            "EntityID": 58,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2475,7 +2475,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 213,
+            "EntityID": 59,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2521,7 +2521,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 214,
+            "EntityID": 60,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2567,7 +2567,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 215,
+            "EntityID": 61,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2613,7 +2613,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 216,
+            "EntityID": 62,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2659,7 +2659,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 217,
+            "EntityID": 63,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2705,7 +2705,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 218,
+            "EntityID": 64,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2751,7 +2751,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 219,
+            "EntityID": 65,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2793,7 +2793,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 220,
+            "EntityID": 66,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2839,7 +2839,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 221,
+            "EntityID": 67,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2885,7 +2885,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 222,
+            "EntityID": 68,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2931,7 +2931,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 223,
+            "EntityID": 69,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2977,7 +2977,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 224,
+            "EntityID": 70,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3023,7 +3023,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 225,
+            "EntityID": 71,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3069,7 +3069,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 226,
+            "EntityID": 72,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3115,7 +3115,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 227,
+            "EntityID": 73,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3157,13 +3157,13 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 228,
+            "EntityID": 74,
             "TagComponent": {
                 "tag": "player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.0791076123714447,
+                    "x": -0.5,
                     "y": -1.2000000476837158,
                     "z": 1.0
                 },
@@ -3209,12 +3209,12 @@
                 "isActive": true
             },
             "ShootComponent": {
-                "shootInterval": 0.029999999329447746,
+                "shootInterval": 0.20000000298023224,
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 5000,
-                "totalHealth": 5000
+                "health": 100,
+                "totalHealth": 100
             },
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
@@ -3227,7 +3227,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 229,
+            "EntityID": 75,
             "TagComponent": {
                 "tag": "player"
             },
@@ -3279,12 +3279,12 @@
                 "isActive": false
             },
             "ShootComponent": {
-                "shootInterval": 0.30000001192092896,
-                "bulletPerShoot": 1
+                "shootInterval": 0.800000011920929,
+                "bulletPerShoot": 3
             },
             "HealthComponent": {
-                "health": 5000,
-                "totalHealth": 5000
+                "health": 1000,
+                "totalHealth": 1000
             },
             "AutoShootComponent": null,
             "ChasePlayerComponent": null,
@@ -3297,7 +3297,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 230,
+            "EntityID": 76,
             "TagComponent": {
                 "tag": "DeadZone"
             },
@@ -3349,12 +3349,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 235,
+            "EntityID": 149,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.769240140914917,
-                    "y": -1.7578905820846558,
+                    "x": 0.3727980852127075,
+                    "y": -1.6451267004013062,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3396,17 +3396,17 @@
             "SkillBoosterComponent": null,
             "AutoMovementComponent": null,
             "SelfDestroyComponent": {
-                "timeLimit": 1.5
+                "timeLimit": 5.0
             },
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 236,
+            "EntityID": 150,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.5381660461425781,
-                    "y": -1.9914189577102661,
+                    "x": 1.0478521585464478,
+                    "y": -1.8232142925262451,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3448,7 +3448,7 @@
             "SkillBoosterComponent": null,
             "AutoMovementComponent": null,
             "SelfDestroyComponent": {
-                "timeLimit": 1.5
+                "timeLimit": 5.0
             },
             "LevelTriggerComponent": null
         }
