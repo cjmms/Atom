@@ -29,7 +29,7 @@
           "z": 0.5
         },
         "wireframe": false,
-        "texturePath": "Atom/res/art/Small.png"
+        "texturePath": "res/art/Small.png"
       },
       "ShapeComponent": {
         "shapeType": "AABB"
@@ -93,7 +93,7 @@
           "z": 0.5
         },
         "wireframe": false,
-        "texturePath": "Atom/res/art/Large.png"
+        "texturePath": "res/art/Large.png"
       },
       "ShapeComponent": {
         "shapeType": "AABB"

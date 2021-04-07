@@ -352,8 +352,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -486,8 +486,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -850,8 +850,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -1122,8 +1122,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -1256,8 +1256,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -1620,8 +1620,8 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.5914945482066956e-41,
-                    "y": 1.401298464324817e-45,
+                    "x": 4.5909340288209657e-41,
+                    "y": 0.0,
                     "z": 0.0
                 },
                 "scale": {
@@ -1709,7 +1709,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 5000,
+                "health": 4900,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1845,64 +1845,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 39,
+            "EntityID": 41,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -0.2672346234321594,
-                    "y": -1.1957120895385742,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": -0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 1.5
-            },
-            "LevelTriggerComponent": null
-        },
-        {
-            "EntityID": 40,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 1.263014554977417,
-                    "y": -1.1675235033035278,
+                    "x": 0.9251185655593872,
+                    "y": -1.173746109008789,
                     "z": 0.0
                 },
                 "rotation": {

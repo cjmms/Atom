@@ -76,7 +76,13 @@
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
-IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)</Command>
+IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul)
+IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul)
+IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul)
+IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul)
+IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul)
+IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -106,7 +112,13 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\fsbank.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\libfsbvorbis64.dll" "$(TargetDir)" &gt; nul)
 IF EXIST "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\fsbank\lib\x64\opus.dll" "$(TargetDir)" &gt; nul)
-IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)</Command>
+IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q /E /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll" "$(TargetDir)" &gt; nul)
+IF EXIST "$(ProjectName)\res\animation\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\animation\**" "$(TargetDir)\res\animation" &gt; nul)
+IF EXIST "$(ProjectName)\res\art\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\art\**" "$(TargetDir)\res\art" &gt; nul)
+IF EXIST "$(ProjectName)\res\audio\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\audio\**" "$(TargetDir)\res\audio" &gt; nul)
+IF EXIST "$(ProjectName)\res\fonts\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\fonts\**" "$(TargetDir)\res\fonts" &gt; nul)
+IF EXIST "$(ProjectName)\res\levels\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\levels\**" "$(TargetDir)\res\levels" &gt; nul)
+IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul) ELSE (xcopy /Q /Y /I "$(ProjectName)\res\shaders\**" "$(TargetDir)\res\shaders" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -718,7 +730,6 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\lib\imgui\imgui_tables.cpp" />
     <ClCompile Include="Atom\lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Atom\src\Application.cpp" />
-    <ClCompile Include="Atom\src\core\UIManager.cpp" />
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -729,6 +740,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\core\InputManager.cpp" />
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
+    <ClCompile Include="Atom\src\core\UIManager.cpp" />
     <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
@@ -747,20 +759,40 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Application.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.exe.recipe" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.log" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.pch" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog" />
-    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\unsuccessfulbuild" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AutoMovementSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\CameraManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ChaseSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ControllerSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\DamageSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\EntityManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\GraphicsManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\HealthRenderSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\HealthSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\InputManager.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\LevelManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Pch.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\PhysicsSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\RectangleRenderSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\RenderTextComponent.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\RenderTextSystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ResourceLoader.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\SelfDestroySystem.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Shader.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ShootSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\SkillSystem.obj" />
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\UIManager.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\glm.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_demo.obj" />
@@ -774,6 +806,19 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\imgui_widgets.obj" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.idb" />
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.ilk" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.pdb" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmod.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fmodstudio.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\fsbank.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\libfsbvorbis64.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\opus.dll" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\EllenFootstepJump.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\EllenFootstepLand.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\bullet-retro-gun-shot.mp3" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\optimus_speech.ogg" />
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\wariyo_mortals.ogg" />
     <None Include="Atom\lib\GLEW\lib\glew32s.lib" />
     <None Include="Atom\lib\GLFW\lib-vc2019\glfw3.lib" />
     <None Include="Atom\lib\fmod\api\core\inc\fmod.cs" />
@@ -840,40 +885,40 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\shaders\renderText.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Atom\res\animation\Vampire0.png" />
-    <Image Include="Atom\res\animation\Vampire1.png" />
-    <Image Include="Atom\res\animation\Vampire2.png" />
-    <Image Include="Atom\res\animation\Vampire3.png" />
-    <Image Include="Atom\res\animation\knightSlice0.png" />
-    <Image Include="Atom\res\animation\knightSlice1.png" />
-    <Image Include="Atom\res\animation\knightSlice2.png" />
-    <Image Include="Atom\res\animation\latern0.png" />
-    <Image Include="Atom\res\animation\latern1.png" />
-    <Image Include="Atom\res\animation\latern2.png" />
-    <Image Include="Atom\res\animation\latern3.png" />
-    <Image Include="Atom\res\art\Background.jpg" />
-    <Image Include="Atom\res\art\CharacterBullet.png" />
-    <Image Include="Atom\res\art\Enemy.png" />
-    <Image Include="Atom\res\art\EnemyBullet.png" />
-    <Image Include="Atom\res\art\FixedPlatform1.png" />
-    <Image Include="Atom\res\art\FixedPlatform2.png" />
-    <Image Include="Atom\res\art\Large.png" />
-    <Image Include="Atom\res\art\MovingPlatform.png" />
-    <Image Include="Atom\res\art\PlatformEnemy.png" />
-    <Image Include="Atom\res\art\Small.png" />
-    <Image Include="Atom\res\art\Switch_Off.png" />
-    <Image Include="Atom\res\art\Switch_On.png" />
-    <Image Include="Atom\res\art\Wall.jpg" />
-    <Image Include="Atom\res\art\bullet_count.png" />
-    <Image Include="Atom\res\art\bullet_speed.png" />
-    <Image Include="Atom\res\art\grass.png" />
-    <Image Include="Atom\res\art\img.jpg" />
-    <Image Include="Atom\res\art\jump.png" />
-    <Image Include="Atom\res\art\level_01_background.png" />
-    <Image Include="Atom\res\art\orange.png" />
-    <Image Include="Atom\res\art\orange_transparent.png" />
-    <Image Include="Atom\res\art\wall_jump.png" />
-    <Image Include="Atom\res\art\yellow.png" />
+    <Image Include="Atom\res\Animation\Vampire0.png" />
+    <Image Include="Atom\res\Animation\Vampire1.png" />
+    <Image Include="Atom\res\Animation\Vampire2.png" />
+    <Image Include="Atom\res\Animation\Vampire3.png" />
+    <Image Include="Atom\res\Animation\knightSlice0.png" />
+    <Image Include="Atom\res\Animation\knightSlice1.png" />
+    <Image Include="Atom\res\Animation\knightSlice2.png" />
+    <Image Include="Atom\res\Animation\latern0.png" />
+    <Image Include="Atom\res\Animation\latern1.png" />
+    <Image Include="Atom\res\Animation\latern2.png" />
+    <Image Include="Atom\res\Animation\latern3.png" />
+    <Image Include="Atom\res\Art\Background.jpg" />
+    <Image Include="Atom\res\Art\CharacterBullet.png" />
+    <Image Include="Atom\res\Art\Enemy.png" />
+    <Image Include="Atom\res\Art\EnemyBullet.png" />
+    <Image Include="Atom\res\Art\FixedPlatform1.png" />
+    <Image Include="Atom\res\Art\FixedPlatform2.png" />
+    <Image Include="Atom\res\Art\Large.png" />
+    <Image Include="Atom\res\Art\MovingPlatform.png" />
+    <Image Include="Atom\res\Art\PlatformEnemy.png" />
+    <Image Include="Atom\res\Art\Small.png" />
+    <Image Include="Atom\res\Art\Switch_Off.png" />
+    <Image Include="Atom\res\Art\Switch_On.png" />
+    <Image Include="Atom\res\Art\Wall.jpg" />
+    <Image Include="Atom\res\Art\bullet_count.png" />
+    <Image Include="Atom\res\Art\bullet_speed.png" />
+    <Image Include="Atom\res\Art\grass.png" />
+    <Image Include="Atom\res\Art\img.jpg" />
+    <Image Include="Atom\res\Art\jump.png" />
+    <Image Include="Atom\res\Art\level_01_background.png" />
+    <Image Include="Atom\res\Art\orange.png" />
+    <Image Include="Atom\res\Art\orange_transparent.png" />
+    <Image Include="Atom\res\Art\wall_jump.png" />
+    <Image Include="Atom\res\Art\yellow.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,7 +19,7 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	setBackground("Atom/res/art/level_01_background.png");
+	setBackground("res/art/level_01_background.png");
 	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
@@ -27,8 +27,8 @@ void RectangleRenderSystem::init() {
 	laternTimer = glfwGetTime();
 
 	// init shaders
-	ColorRecShader = std::make_unique<Shader> ("Atom/res/shaders/ColorRec.shader");
-	TextureRecShader = std::make_unique<Shader>("Atom/res/shaders/TextureRec.shader");
+	ColorRecShader = std::make_unique<Shader> ("res/shaders/ColorRec.shader");
+	TextureRecShader = std::make_unique<Shader>("res/shaders/TextureRec.shader");
 
 	float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
 	   // positions   // texCoords
@@ -85,7 +85,7 @@ void RectangleRenderSystem::update() {
 
 void RectangleRenderSystem::drawKeyFrame(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, bool wireframe) const
 {
-	std::string address = "Atom/res/animation/" + name + std::to_string(n) + "." + type;
+	std::string address = "res/animation/" + name + std::to_string(n) + "." + type;
 	draw(pos, scale, address, false);
 	if (wireframe) draw(pos, scale, address, true);
 }
