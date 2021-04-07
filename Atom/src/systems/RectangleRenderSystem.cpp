@@ -128,8 +128,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 	
+	ColorRecShader->SetFloat("alpha", alpha);
 	ColorRecShader->SetInt("wireframe", wireframe);
-
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);
@@ -187,7 +187,7 @@ void RectangleRenderSystem::drawEntities(bool debugMode)
 				else
 					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false, alpha);
 
-				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true, 1.0f);
+				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true, alpha);
 			}
 
 

@@ -48,7 +48,7 @@ float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
 
 	fade10
 
-	fade_timer 2.0f
+	fade_out_timer 2.0f
 
 	lo,hi : 30,40 [10 -> 1]
 				[2 -> 0.2]
@@ -90,36 +90,70 @@ void LevelManager::update()
 
 	if (enterPreviousLevel)
 	{
-		unload();
-		level--;
-		if (level < 0)
-			level = 0;
-		load(level);
+		if (fade_out_timer > 0) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
+		}
+		else {
+			unload();
+			level--;
+			if (level < 0)
+				level = 0;
+			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			enterPreviousLevel = false;
+		}
 	}
 	else if (enterNextLevel )
 	{
 
-		if (fade_timer > 0) {
-			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_timer);
-			fade_timer -= ae.dt;
-			std::cout << "level alpha : " << level_alpha << std::endl;
+		if (fade_out_timer > 0) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
 		}
 		else {
 			unload();
 			level++;
 			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			enterNextLevel = false;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
 		}
 	}
 	else if (restartLevel)
 	{
-		unload();
-		load(level);
+		if (fade_out_timer > 0) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
+		}
+		else {
+			unload();
+			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			restartLevel = false;
+
+		}
+	}
+	else if (fade_in_level) {
+		if (fade_in_timer > 0.0f) {
+			level_alpha = lerp01(level_alpha, 1.0f,ae.dt, 0.0f, fade_in_timer);
+			fade_in_timer -= ae.dt;
+			std::cout << "level alpha fade in : " << level_alpha << std::endl;
+		}
+		else {
+			fade_in_level = false;
+		}
 	}
 
 	//reset level status
-	enterNextLevel = false;
-	enterPreviousLevel = false;
-	restartLevel = false;
+
+
+
 
 }
 
@@ -194,7 +228,8 @@ void LevelManager::onEvent(Event& e)
 void LevelManager::load(int level) {
 
 	level_alpha = 1.0f;
-	fade_timer = 3.0f;
+	fade_out_timer = 1.0f;
+	fade_in_timer = 1.0f;
 
 	levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
 	std::ifstream in(levelstring);
@@ -212,6 +247,7 @@ void LevelManager::load(int level) {
 void LevelManager::startGame()
 {
 	load(0);
+	level_alpha = 0.0f;
 }
 
 void LevelManager::loadNextLevel()
