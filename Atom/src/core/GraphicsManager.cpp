@@ -60,9 +60,9 @@ void GraphicsManager::init() {
 	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
 	glfwSetWindowCloseCallback(mWindow, windowCloseCallback);
 
-	//glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	//glBlendEquation(GL_FUNC_ADD);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendEquation(GL_FUNC_ADD);
 }
 
 

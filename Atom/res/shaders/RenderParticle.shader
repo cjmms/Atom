@@ -82,7 +82,7 @@ void main() {
 	float c = geom_speed * 0.3;
 
 	vec4 color = vec4(-0.1 + c, 0.3, 1.4 - c, 0.1);	// color base on speed
-
+	color = vec4(1.0, 0.0, 0.0, 1.0);
 	FragColor = color;
 
 	if (geom_duration < 0.0) { discard; }

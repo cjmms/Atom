@@ -1709,7 +1709,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4300,
+                "health": 4900,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -1845,12 +1845,12 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 53,
+            "EntityID": 41,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.18227550387382507,
-                    "y": -1.187431812286377,
+                    "x": 0.2888411581516266,
+                    "y": -1.1854685544967651,
                     "z": 0.0
                 },
                 "rotation": {
