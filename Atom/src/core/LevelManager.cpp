@@ -236,12 +236,13 @@ void LevelManager::onEvent(Event& e)
 
 		if (ae.hasComponent<LevelTriggerComponent>(trigger))
 		{
-			EntityID& characterEntered = ae.getComponent<LevelTriggerComponent>(trigger).characterEntered;
-			//if both distinct char entered 
-			if (characterEntered != -1 && characterEntered != player)
-				enterNextLevel = true;
-			else
-				characterEntered = player;
+			enterNextLevel = true;
+			//EntityID& characterEntered = ae.getComponent<LevelTriggerComponent>(trigger).characterEntered;
+			////if both distinct char entered 
+			//if (characterEntered != -1 && characterEntered != player)
+			//	enterNextLevel = true;
+			//else
+			//	characterEntered = player;
 		}
 	}
 }
@@ -273,7 +274,7 @@ void LevelManager::load(int level) {
 
 void LevelManager::startGame()
 {
-	load(13);
+	load(0);
 	level_alpha = 0.0f;
 }
 

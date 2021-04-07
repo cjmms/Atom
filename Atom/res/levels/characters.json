@@ -53,12 +53,12 @@
         "isActive": true
       },
       "ShootComponent": {
-        "shootInterval": 0.03,
+        "shootInterval": 0.2,
         "bulletPerShoot": 1
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 100,
+        "totalHealth": 100
       },
       "CharacteristicComponent": {
         "isBig": false
@@ -117,12 +117,12 @@
         "isActive": false
       },
       "ShootComponent": {
-        "shootInterval": 0.3,
-        "bulletPerShoot": 1
+        "shootInterval": 0.8,
+        "bulletPerShoot": 3
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 1000,
+        "totalHealth": 1000
       },
       "CharacteristicComponent": {
         "isBig": true
