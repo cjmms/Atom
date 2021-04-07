@@ -19,5 +19,6 @@
 #include "components/AutoMovementComponent.hpp"
 #include "components/SelfDestroyComponent.hpp"
 #include "components/LevelTriggerComponent.hpp"
+#include "components/PushUpComponent.hpp"
 
 #endif 

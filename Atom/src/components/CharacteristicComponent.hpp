@@ -13,6 +13,9 @@ class CharacteristicComponent
 public:
 	bool isBig;
 
+	bool inGodMode = false;
+	bool inSuperGodMode = false;
+
 	PowerUp canWallJump;
 	PowerUp canDoubleJump;
 

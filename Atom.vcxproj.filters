@@ -1971,6 +1971,8 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\PushUpComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\PushUpSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2079,6 +2081,7 @@
       <Filter>src\utils</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\UIManager.cpp" />
+    <ClCompile Include="Atom\src\systems\PushUpSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">

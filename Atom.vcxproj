@@ -648,6 +648,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
+    <ClInclude Include="Atom\src\components\PushUpComponent.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
     <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
@@ -693,6 +694,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\PushUpSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
     <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
@@ -736,6 +738,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\PushUpSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
     <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />

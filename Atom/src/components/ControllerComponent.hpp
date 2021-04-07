@@ -15,6 +15,10 @@ public:
     AtomScancode RIGHT;
     AtomScancode SWAP_POSITION;
     AtomScancode SWAP_CHARACTER;
+    AtomScancode GOD_MODE;
+    AtomScancode SUPER_GOD_MODE;
+    AtomScancode NEXT_LEVEL;
+    AtomScancode PREV_LEVEL;
     int ROTLEFT = GLFW_KEY_C;
     int ROTRIGHT = GLFW_KEY_V;
 
@@ -29,6 +33,10 @@ inline void to_json(ordered_json& j, const ControllerComponent& x) {
     to_json(j["RIGHT"], x.RIGHT);
     to_json(j["SWAP_POSITION"], x.SWAP_POSITION);
     to_json(j["SWAP_CHARACTER"], x.SWAP_CHARACTER);
+    to_json(j["GOD_MODE"], x.GOD_MODE);
+    to_json(j["SUPER_GOD_MODE"], x.SUPER_GOD_MODE);
+    to_json(j["NEXT_LEVEL"], x.NEXT_LEVEL);
+    to_json(j["PREV_LEVEL"], x.PREV_LEVEL);
     to_json(j["ROTLEFT"], x.ROTLEFT);
     to_json(j["ROTRIGHT"], x.ROTRIGHT);
     
@@ -42,6 +50,10 @@ inline void from_json(const ordered_json& j, ControllerComponent& x) {
     from_json(j["RIGHT"], x.RIGHT);
     from_json(j["SWAP_POSITION"], x.SWAP_POSITION);
     from_json(j["SWAP_CHARACTER"], x.SWAP_CHARACTER);
+    from_json(j["GOD_MODE"], x.GOD_MODE);
+    from_json(j["SUPER_GOD_MODE"], x.SUPER_GOD_MODE);
+    from_json(j["NEXT_LEVEL"], x.NEXT_LEVEL);
+    from_json(j["PREV_LEVEL"], x.PREV_LEVEL);
     from_json(j["ROTLEFT"], x.ROTLEFT);
     from_json(j["ROTRIGHT"], x.ROTRIGHT);
 

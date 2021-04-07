@@ -76,7 +76,7 @@ void ControllerSystem::update()
 
 	assert(activeEntity != -1);
 
-	auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
+	auto& body1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
 	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
 	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
@@ -100,20 +100,56 @@ void ControllerSystem::update()
 
 	{//Triggered
 
+		if (ae.mInputManager->isKeyTriggered(controller.GOD_MODE))
+		{
+			if(character1.inGodMode)
+			{
+				character1.inGodMode = false;
+			}
+			else
+			{
+				character1.inGodMode = true;
+			}
+		}
+		
+		if (ae.mInputManager->isKeyTriggered(controller.SUPER_GOD_MODE))
+		{
+			if (character1.inSuperGodMode)
+			{
+				character1.inSuperGodMode = false;
+				body1.gravity = 9.81f;
+			}
+			else
+			{
+				character1.inSuperGodMode = true;
+				body1.gravity = 0;
+			}
+			
+		}
+		if (ae.mInputManager->isKeyTriggered(controller.NEXT_LEVEL))
+		{
+			ae.mLevelManager->loadNextLevel();
+		}
+		if (ae.mInputManager->isKeyTriggered(controller.PREV_LEVEL))
+		{
+			ATOM_ERROR("Prompt for Prev Level");
+		}
+
+
 		if (ae.mInputManager->isKeyTriggered(controller.LEFT))
 		{
 			//auto& body = ae.getComponent<PhysicsBodyComponent>(activeEntity);
-			body.velocityX = -1;
+			body1.velocityX = -1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.RIGHT))
 		{
-			body.velocityX = 1;
+			body1.velocityX = 1;
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
-			if (ae.mInputManager->isKeyTriggered(controller.UP))
+			if (ae.mInputManager->isKeyTriggered(controller.UP) && !character1.inSuperGodMode)
 			{
 				// AUDIO EVENT
 				//Event e(EventID::E_AUDIO_PLAY);
@@ -123,12 +159,12 @@ void ControllerSystem::update()
 				//ae.sendEvent(e);
 
 				//Jump
-				if (body.grounded)
+				if (body1.grounded)
 				{
 					if(character1.isBig)
-						body.totalForceY = 1;
+						body1.totalForceY = 0.2f;
 					else
-						body.totalForceY = 3;
+						body1.totalForceY = 3.0f;
 
 
 					if (character1.canDoubleJump.isEnabled)
@@ -143,12 +179,12 @@ void ControllerSystem::update()
 					//colliding with right side of a wall
 					if (ae.mInputManager->isKeyPressed(controller.LEFT))
 					{
-						body.velocityX = 1;
+						body1.velocityX = 1;
 						character1.canWallJump.isActive = false;
 					}
 					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 					{
-						body.velocityX = -1;
+						body1.velocityX = -1;
 						character1.canWallJump.isActive = false;
 					}
 					//Double Jump
@@ -156,15 +192,15 @@ void ControllerSystem::update()
 					{
 						character1.canDoubleJump.isActive = false;
 					}
-					body.velocityY = 0;
-					body.totalForceY = 3;
+					body1.velocityY = 0;
+					body1.totalForceY = 3;
 				}
 
 				//Double Jump
 				else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
 				{
-					body.velocityY = 0;
-					body.totalForceY = 3;
+					body1.velocityY = 0;
+					body1.totalForceY = 3;
 					character1.canDoubleJump.isActive = false;
 				}
 
@@ -197,13 +233,13 @@ void ControllerSystem::update()
 			auto& t1 = ae.getComponent<TransformComponent>(activeEntity);
 			auto& t2 = ae.getComponent<TransformComponent>(inactiveEntity);
 
-			body.prevPositionX = t2.position.x;
-			body.prevPositionY = t2.position.y;
+			body1.prevPositionX = t2.position.x;
+			body1.prevPositionY = t2.position.y;
 			body2.prevPositionX = t1.position.x;
 			body2.prevPositionY = t1.position.y;
 
-			body.prevScaleX = t2.scale.x;
-			body.prevScaleY = t2.scale.y;
+			body1.prevScaleX = t2.scale.x;
+			body1.prevScaleY = t2.scale.y;
 			body2.prevScaleX = t1.scale.x;
 			body2.prevScaleY = t1.scale.y;
 
@@ -220,25 +256,39 @@ void ControllerSystem::update()
 			t1.position = temp2;
 			t2.position = temp1;
 
+			auto& controllerInactive = ae.getComponent<ControllerComponent>(inactiveEntity);
+
+			controller.isActive = FALSE;
+			controllerInactive.isActive = TRUE;
+
 		}
 	}
 
 	{//Pressed
 
+			if (ae.mInputManager->isKeyPressed(controller.UP) && character1.inSuperGodMode)
+			{
+					body1.velocityY = 1;
+			}
+			if (ae.mInputManager->isKeyPressed(controller.DOWN) && character1.inSuperGodMode)
+			{
+					body1.velocityY = -1;
+			}
+
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				if(body.grounded)
-					body.velocityX = -1;
-				else if(body.velocityX > -1)
-					body.totalForceX = -0.1f;
+				if(body1.grounded)
+					body1.velocityX = -1;
+				else if(body1.velocityX > -1)
+					body1.totalForceX = -0.1f;
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				if (body.grounded)
-					body.velocityX = 1;
-				else if (body.velocityX < 1)
-					body.totalForceX = 0.1f;
+				if (body1.grounded)
+					body1.velocityX = 1;
+				else if (body1.velocityX < 1)
+					body1.totalForceX = 0.1f;
 				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
@@ -246,13 +296,22 @@ void ControllerSystem::update()
 
 	{//Released
 
+			if (ae.mInputManager->isKeyReleased(controller.UP) && character1.inSuperGodMode)
+			{
+				body1.velocityY = 0;
+			}
+			if (ae.mInputManager->isKeyReleased(controller.DOWN) && character1.inSuperGodMode)
+			{
+				body1.velocityY = 0;
+			}
+
 			if (ae.mInputManager->isKeyReleased(controller.LEFT))
 			{
-				body.velocityX = 0;
+				body1.velocityX = 0;
 			}
 			if (ae.mInputManager->isKeyReleased(controller.RIGHT))
 			{
-				body.velocityX = 0;
+				body1.velocityX = 0;
 			}
 
 	}
