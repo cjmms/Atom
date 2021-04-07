@@ -56,11 +56,6 @@ void ParticleEffect::Init()
 
 	// render shader uniforms
 	RenderShader.SetInt("vertex_count", Particles.size());
-	RenderShader.SetMat4("projection", glm::ortho(0.0f, 1200.0f, 0.0f, 1000.0f, 0.1f, 10.0f));
-
-	glm::mat4 view = glm::lookAt(glm::vec3(0.0, 0.0, 1.0), glm::vec3(0, 0, 0), glm::vec3(0.0, 1.0, 0.0));
-	glm::mat4 projection = glm::ortho(0.0f, 1200.0f, 0.0f, 1000.0f, 0.0f, 10.0f);
-	RenderShader.SetMat4("projection", projection * view);
 }
 
 
@@ -73,6 +68,7 @@ void ParticleEffect::Draw()
 	//std::cout << "total time: " << duration_cast<duration<float>>(now - start).count() << std::endl;
 	ComputeShader.SetFloat("time", time);
 	ComputeShader.SetFloat("seed", rand() % 100 + 1); // random seed from 1 to 100
+	ComputeShader.SetVec2("spawnCenter", spawnCenter);
 
 	// Invoke Compute Shader and wait for all memory access to SSBO to safely finish
 	ComputeShader.Bind();
@@ -81,6 +77,8 @@ void ParticleEffect::Draw()
 	glMemoryBarrier(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT);
 	ComputeShader.UnBind();
 
+	RenderShader.SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
+	RenderShader.SetVec2("cameraPos", ae.mCameraManager->getPosition());
 
 	// Render the results
 	RenderShader.Bind();
@@ -197,7 +195,10 @@ ParticleEffect::ParticleEffect(SpawnConfig spawnConfig, MoveConfig moveConfig, P
 		glm::vec2 velocity(0.0f);
 
 		if (spawnConfig.mode == SQUARE)
+		{
+			spawnCenter = spawnConfig.areaCenter;
 			pos = randomPointInSquare(spawnConfig.areaCenter, spawnConfig.length);
+		}
 		else if (spawnConfig.mode == CIRCLE)
 			pos = randomPointInCircle(spawnConfig.areaCenter, spawnConfig.length);
 

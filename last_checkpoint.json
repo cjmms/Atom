@@ -1447,7 +1447,7 @@
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 3.9550163745880127,
+                    "x": 3.8750102519989014,
                     "y": -1.875,
                     "z": 0.0
                 },
@@ -3163,8 +3163,8 @@
             },
             "TransformComponent": {
                 "position": {
-                    "x": 100.05000305175781,
-                    "y": -27.48424530029297,
+                    "x": -0.5,
+                    "y": -1.2000000476837158,
                     "z": 1.0
                 },
                 "rotation": {
@@ -3213,7 +3213,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 4950,
+                "health": 5000,
                 "totalHealth": 5000
             },
             "AutoShootComponent": null,
@@ -3346,6 +3346,110 @@
             "SkillBoosterComponent": null,
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
+        },
+        {
+            "EntityID": 78,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 0.3675757944583893,
+                    "y": -1.5493144989013672,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": -0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 0.009999999776482582,
+                "staticBody": false,
+                "isTrigger": true,
+                "frictionless": true,
+                "gravity": 0.0
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": {
+                "timeLimit": 1.5
+            },
+            "LevelTriggerComponent": null
+        },
+        {
+            "EntityID": 79,
+            "TagComponent": null,
+            "TransformComponent": {
+                "position": {
+                    "x": 0.9963916540145874,
+                    "y": -1.9631597995758057,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": -0.009999999776482582,
+                    "y": 0.009999999776482582,
+                    "z": 1.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": ""
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 0.009999999776482582,
+                "staticBody": false,
+                "isTrigger": true,
+                "frictionless": true,
+                "gravity": 0.0
+            },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": {
+                "timeLimit": 1.5
+            },
             "LevelTriggerComponent": null
         }
     ]

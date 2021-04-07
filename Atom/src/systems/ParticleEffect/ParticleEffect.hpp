@@ -100,6 +100,8 @@ private:
 
 	std::vector<Particle> Particles;
 
+	glm::vec2 spawnCenter;
+
 public:
 	glm::vec3 position = glm::vec3{0.0f,0.0f,0.0f};
 };

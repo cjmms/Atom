@@ -16,6 +16,7 @@ layout(local_size_x = 128) in;
 
 uniform float time;
 uniform float seed;
+uniform vec2 spawnCenter;
 
 float rand(vec2 co) {
 	return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
@@ -42,7 +43,7 @@ void main() {
 	if (particles[gid].duration < 0)
 	{
 		particles[gid].duration = gold_noise(vec2(0.0001, 1.0), seed);
-		particles[gid].position = vec2(600, 600);
+		particles[gid].position = spawnCenter;
 	}
 
 }
