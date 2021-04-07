@@ -68,6 +68,7 @@ void ParticleEffect::Draw()
 	//std::cout << "delta time: " << time << std::endl;
 	//std::cout << "total time: " << duration_cast<duration<float>>(now - start).count() << std::endl;
 	ComputeShader.SetFloat("time", time);
+	ComputeShader.SetFloat("seed", rand() % 100 + 1); // random seed from 1 to 100
 
 	// Invoke Compute Shader and wait for all memory access to SSBO to safely finish
 	ComputeShader.Bind();
