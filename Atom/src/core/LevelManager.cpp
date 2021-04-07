@@ -96,8 +96,8 @@ void LevelManager::update()
 		else {
 			unload();
 			level--;
-			if (level < 0)
-				level = 0;
+			if (level < 2)
+				level = 2;
 			load(level);
 			level_alpha = 0.0f;
 			fade_in_level = true;
@@ -123,12 +123,13 @@ void LevelManager::update()
 	}
 	else if (restartLevel)
 	{
-		if (fade_out_timer > 0) {
-			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
-			fade_out_timer -= ae.dt;
-			//std::cout << "level alpha : " << level_alpha << std::endl;
-		}
-		else {
+		//if (fade_out_timer > 0) {
+		//	level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+		//	fade_out_timer -= ae.dt;
+		//	//std::cout << "level alpha : " << level_alpha << std::endl;
+		//}
+		//else 
+		{
 			unload();
 			load(level);
 			level_alpha = 0.0f;
@@ -409,7 +410,7 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
-	if (level > 1) {
+	if (level > 1 && level < 10) {
 		string charloc = "Atom/res/levels/characters.json";
 		std::ifstream inmap(charloc);
 		ordered_json characterJson;
