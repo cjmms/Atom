@@ -19,8 +19,50 @@
     <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res">
       <UniqueIdentifier>{0D8A748C-F932-DCBB-22C9-F73A0ED1F6FC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\animation">
+      <UniqueIdentifier>{5C17416A-48D7-D10E-B1F4-B9199DD3E420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\art">
+      <UniqueIdentifier>{233AB068-0F79-5AE4-B8FB-3616A419104F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\audio">
       <UniqueIdentifier>{EEBDA855-DA67-DE64-C338-E67FAF817E53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts">
+      <UniqueIdentifier>{261A0056-12C4-3565-FB94-3D80E7DDD553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\levels">
+      <UniqueIdentifier>{67805123-D367-3C19-DC55-3E9548BCDFDB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders">
+      <UniqueIdentifier>{0604DCAD-F2D8-2361-1B88-635D07BC3178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64">
+      <UniqueIdentifier>{CEA650A3-3AC1-B344-83E3-C3D8EF3CDB4B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom">
+      <UniqueIdentifier>{0E38A751-FAB5-F7EA-E3AD-B582CFCA3913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res">
+      <UniqueIdentifier>{47479CC3-33DB-916B-9C9F-EB1F8852CC5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\animation">
+      <UniqueIdentifier>{1625FAA6-0290-BAB2-ABAB-1F1897F57D95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\art">
+      <UniqueIdentifier>{5D04883B-49AE-BD4A-327F-C5651EC85D39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\audio">
+      <UniqueIdentifier>{A8FE9B3D-94D3-E3F0-BD82-23EDA9B6F107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\fonts">
+      <UniqueIdentifier>{E05AF33D-CC2F-3BF1-F5DE-7AEDE1124908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\levels">
+      <UniqueIdentifier>{61D8AC09-CD4A-EF25-16DF-24AA8290B91E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin\Release-windows-x86_64\Atom\res\shaders">
+      <UniqueIdentifier>{405BA25F-2C1B-3304-9538-1B0F81174616}</UniqueIdentifier>
     </Filter>
     <Filter Include="builds\windows\bin-int">
       <UniqueIdentifier>{42019718-2EFB-BF6A-1768-567B030126D7}</UniqueIdentifier>
@@ -33,6 +75,15 @@
     </Filter>
     <Filter Include="builds\windows\bin-int\Debug-windows-x86_64\Atom\Atom.tlog">
       <UniqueIdentifier>{F0D9C23A-DC99-53DF-45B7-3BEA319666F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64">
+      <UniqueIdentifier>{26039C6E-9273-9EE7-5B92-1870C7C1D6E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64\Atom">
+      <UniqueIdentifier>{660BB24B-529F-A7F3-BB63-01A8A716E2E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog">
+      <UniqueIdentifier>{AA508EF2-96BB-4EFE-3FD7-B3632B2112E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="lib">
       <UniqueIdentifier>{3C8C880B-A895-887C-3111-9F7C9D19947C}</UniqueIdentifier>
@@ -166,11 +217,11 @@
     <Filter Include="res">
       <UniqueIdentifier>{4FA5880B-BBAE-887C-442A-9F7CB032947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\Animation">
-      <UniqueIdentifier>{FE8CCB6B-6A4D-47A2-3388-901F9F078C7E}</UniqueIdentifier>
+    <Filter Include="res\animation">
+      <UniqueIdentifier>{1EAD59FB-8A6D-D531-53A8-1EAFBF271A0E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\Art">
-      <UniqueIdentifier>{459E033F-B17D-82DA-BA95-0DB126F4E83B}</UniqueIdentifier>
+    <Filter Include="res\art">
+      <UniqueIdentifier>{6526043F-D105-83DA-DA1D-0EB1467CE93B}</UniqueIdentifier>
     </Filter>
     <Filter Include="res\audio">
       <UniqueIdentifier>{B0C2A810-1C2D-5D87-656B-0E2DD1143BDC}</UniqueIdentifier>
@@ -195,6 +246,9 @@
     </Filter>
     <Filter Include="src\systems">
       <UniqueIdentifier>{547605C4-C02B-7EB9-4920-7890B5D474BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\systems\ParticleEffect">
+      <UniqueIdentifier>{64FE36B5-500E-E385-B9C7-47A4A5F6D11E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\systems\collisions">
       <UniqueIdentifier>{E2567C04-CE50-A556-B7BD-3B67A3560BC3}</UniqueIdentifier>
@@ -1845,6 +1899,9 @@
     <ClInclude Include="Atom\src\components\DamageComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\components\FadeComponent.hpp">
+      <Filter>src\components</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\components\HealthComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
@@ -1950,6 +2007,9 @@
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp">
+      <Filter>src\systems\ParticleEffect</Filter>
+    </ClInclude>
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
@@ -1966,6 +2026,9 @@
       <Filter>src\systems</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp">
+      <Filter>src\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Atom\src\systems\TransformSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
     <ClInclude Include="Atom\src\systems\collisions\AABBCollision.hpp">
@@ -2069,6 +2132,9 @@
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
+    <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp">
+      <Filter>src\systems\ParticleEffect</Filter>
+    </ClCompile>
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
@@ -2085,6 +2151,9 @@
       <Filter>src\systems</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp">
+      <Filter>src\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Atom\src\systems\TransformSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp">
@@ -2170,6 +2239,9 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Log.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\ParticleEffect.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\Pch.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
@@ -2198,6 +2270,9 @@
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\SkillSystem.obj">
+      <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\TransformSystem.obj">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\UIManager.obj">
@@ -2242,6 +2317,159 @@
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\vc142.pdb">
       <Filter>builds\windows\bin-int\Debug-windows-x86_64\Atom</Filter>
     </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\AABBCollision.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Application.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.Build.CppClean.log">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.exe.recipe">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.log">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.pch">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\Atom.lastbuildstate">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.command.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.read.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\CL.write.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.command.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.read.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog\link.write.1.tlog">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.tlog</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Atom.vcxproj.FileListAbsolute.txt">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\AutoMovementSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\CameraManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ChaseSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ControllerSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\DamageSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\EntityManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\GraphicsManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\HealthRenderSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\HealthSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\InputManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\LevelManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Log.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ParticleEffect.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Pch.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\PhysicsSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\RectangleRenderSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\RenderTextComponent.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\RenderTextSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ResourceLoader.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\SelfDestroySystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\Shader.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\ShootSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\SkillSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\TransformSystem.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\UIManager.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\glm.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_demo.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_draw.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_impl_glfw.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_impl_opengl2.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_impl_opengl3.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_impl_win32.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_main.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_tables.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\imgui_widgets.obj">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin-int\Release-windows-x86_64\Atom\vc142.pdb">
+      <Filter>builds\windows\bin-int\Release-windows-x86_64\Atom</Filter>
+    </None>
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom.exe">
       <Filter>builds\windows\bin\Debug-windows-x86_64\Atom</Filter>
     </None>
@@ -2280,6 +2508,180 @@
     </None>
     <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\audio\wariyo_mortals.ogg">
       <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arial.ttf">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arialbd.ttf">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\arialbi.ttf">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\ariali.ttf">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts\ariblk.ttf">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level0_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level0_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level1_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level1_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level2_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level2_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level3_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level3_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level4_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level4_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level5_Map.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\Level5_Settings.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\levels\characters.json">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\ColorRec.shader">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\ParticleEffect.shader">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\RenderParticle.shader">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\TextureRec.shader">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders\renderText.shader">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.exe">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\Atom.pdb">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmod.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fmodstudio.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\fsbank.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\libfsbvorbis64.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\opus.dll">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\EllenFootstepJump.ogg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\EllenFootstepLand.ogg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\bullet-retro-gun-shot.mp3">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\optimus_speech.ogg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\audio\wariyo_mortals.ogg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\audio</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\fonts\arial.ttf">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\fonts\arialbd.ttf">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\fonts\arialbi.ttf">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\fonts\ariali.ttf">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\fonts\ariblk.ttf">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\fonts</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level0_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level0_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level1_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level1_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level2_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level2_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level3_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level3_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level4_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level4_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level5_Map.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\Level5_Settings.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\levels\characters.json">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\levels</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\shaders\ColorRec.shader">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\shaders\ParticleEffect.shader">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\shaders\RenderParticle.shader">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\shaders\TextureRec.shader">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\shaders</Filter>
+    </None>
+    <None Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\shaders\renderText.shader">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\shaders</Filter>
     </None>
     <None Include="Atom\lib\GLEW\lib\glew32s.lib">
       <Filter>lib\GLEW\lib</Filter>
@@ -2461,10 +2863,22 @@
     <None Include="Atom\res\levels\Level4_Settings.json">
       <Filter>res\levels</Filter>
     </None>
+    <None Include="Atom\res\levels\Level5_Map.json">
+      <Filter>res\levels</Filter>
+    </None>
+    <None Include="Atom\res\levels\Level5_Settings.json">
+      <Filter>res\levels</Filter>
+    </None>
     <None Include="Atom\res\levels\characters.json">
       <Filter>res\levels</Filter>
     </None>
     <None Include="Atom\res\shaders\ColorRec.shader">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="Atom\res\shaders\ParticleEffect.shader">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="Atom\res\shaders\RenderParticle.shader">
       <Filter>res\shaders</Filter>
     </None>
     <None Include="Atom\res\shaders\TextureRec.shader">
@@ -2475,107 +2889,338 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Atom\res\Animation\Vampire0.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire0.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\Vampire1.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire1.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\Vampire2.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire2.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\Vampire3.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\Vampire3.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\knightSlice0.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice0.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\knightSlice1.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice1.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\knightSlice2.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\knightSlice2.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\latern0.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern0.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\latern1.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern1.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\latern2.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern2.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Animation\latern3.png">
-      <Filter>res\Animation</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\animation\latern3.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\animation</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Background.jpg">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Background.jpg">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\CharacterBullet.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\CharacterBullet.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Enemy.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Enemy.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\EnemyBullet.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\EnemyBullet.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\FixedPlatform1.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\FixedPlatform1.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\FixedPlatform2.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\FixedPlatform2.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Large.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Large.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\MovingPlatform.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\MovingPlatform.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\PlatformEnemy.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\PlatformEnemy.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Small.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Small.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Switch_Off.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Switch_Off.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Switch_On.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Switch_On.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\Wall.jpg">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\Wall.jpg">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\bullet_count.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\black.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\bullet_speed.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\bullet_count.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\grass.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\bullet_speed.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\img.jpg">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\digipen_logo.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\jump.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\fmod_logo.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\level_01_background.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\grass.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\orange.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\img.jpg">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\orange_transparent.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\jump.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\wall_jump.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\level_01_background.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
     </Image>
-    <Image Include="Atom\res\Art\yellow.png">
-      <Filter>res\Art</Filter>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\orange.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\orange_transparent.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\wall_jump.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\res\art\yellow.png">
+      <Filter>builds\windows\bin\Debug-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire0.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire1.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire2.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\Vampire3.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\knightSlice0.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\knightSlice1.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\knightSlice2.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\latern0.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\latern1.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\latern2.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\animation\latern3.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\animation</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Background.jpg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\CharacterBullet.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Enemy.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\EnemyBullet.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\FixedPlatform1.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\FixedPlatform2.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Large.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\MovingPlatform.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\PlatformEnemy.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Small.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Switch_Off.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Switch_On.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\Wall.jpg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\black.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\bullet_count.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\bullet_speed.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\digipen_logo.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\fmod_logo.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\grass.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\img.jpg">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\jump.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\level_01_background.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\orange.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\orange_transparent.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\wall_jump.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\builds\windows\bin\Release-windows-x86_64\Atom\res\art\yellow.png">
+      <Filter>builds\windows\bin\Release-windows-x86_64\Atom\res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\Vampire0.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\Vampire1.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\Vampire2.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\Vampire3.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\knightSlice0.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\knightSlice1.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\knightSlice2.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\latern0.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\latern1.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\latern2.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\animation\latern3.png">
+      <Filter>res\animation</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Background.jpg">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\CharacterBullet.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Enemy.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\EnemyBullet.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\FixedPlatform1.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\FixedPlatform2.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Large.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\MovingPlatform.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\PlatformEnemy.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Small.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Switch_Off.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Switch_On.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\Wall.jpg">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\black.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\bullet_count.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\bullet_speed.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\digipen_logo.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\fmod_logo.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\grass.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\img.jpg">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\jump.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\level_01_background.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\orange.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\orange_transparent.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\wall_jump.png">
+      <Filter>res\art</Filter>
+    </Image>
+    <Image Include="Atom\res\art\yellow.png">
+      <Filter>res\art</Filter>
     </Image>
   </ItemGroup>
 </Project>

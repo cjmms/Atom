@@ -12,6 +12,8 @@
 #include "core/Event.hpp"
 #include "core/System.hpp"
 
+#include "systems/ParticleEffect/ParticleEffect.hpp"
+
 class RectangleRenderSystem : public System {
 public:
 
@@ -24,8 +26,8 @@ public:
 
 	// other methods in the system
 	// pos is the top left vertex of the rectangle
-	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe=false) const;
-	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe=false) const;
+	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe=false, float alpha = 1.0) const;
+	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe=false, float alpha = 1.0) const;
 
 	void drawEntities(bool debugMode);
 
@@ -43,5 +45,7 @@ private:
 	float worriorTimer;
 	float VampireTimer;
 	float laternTimer;
+
+	ParticleEffect* particleEffect;
 };
 

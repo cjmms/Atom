@@ -14,7 +14,7 @@ extern AtomEngine ae;
 void HealthRenderSystem::init() {
 
 	// init shaders
-	ColorRecShader = std::make_unique<Shader>("res/shaders/ColorRec.shader");
+	ColorRecShader = std::make_unique<Shader>("Atom/res/shaders/ColorRec.shader");
 
 	float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
 	   // positions   // texCoords
@@ -84,6 +84,7 @@ void HealthRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) c
 
 	ColorRecShader->SetInt("wireframe", false);
 
+	ColorRecShader->SetFloat("alpha", ae.mLevelManager->level_alpha);
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);

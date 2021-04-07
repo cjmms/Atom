@@ -36,7 +36,7 @@ project "Atom"
 
 		includedirs {
 			-- include basepath
-			basepath.."%{prj.name}",
+			basepath.."%{prj.name}/",
 			-- src 
 			basepath.."%{prj.name}/src",
 			-- lib includes

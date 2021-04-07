@@ -6,6 +6,8 @@ uniform vec2 scale;
 uniform vec2 pos;
 
 uniform vec2 cameraPos;
+uniform mat4 projection;
+
 
 void main()
 {
@@ -18,7 +20,7 @@ void main()
 	// translate
 	position = pos + position - cameraPos;
 
-	gl_Position = vec4(position, 0.0, 1.0);
+	gl_Position = projection * vec4(position, 0.0, 1.0);
 }
 
 
@@ -34,8 +36,10 @@ out vec4 FragColor;
 uniform vec3 color;
 uniform int wireframe;
 
+uniform float alpha;
+
 void main()
 {
-	FragColor = vec4(color, 1.0f);
-	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	FragColor = vec4((0,1,0), alpha);
+	if (wireframe == 1) FragColor = vec4(0.0, 1.0, 0.0, alpha);
 }

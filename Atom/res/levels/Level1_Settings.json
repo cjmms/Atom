@@ -1,7 +1,80 @@
 {
   "Map": "res/levels/Level1_Map.json",
-  "characters": "res/levels/characters.json",
-  "1": {
+
+  "Logo": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "logo"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 12,
+        "y": 3,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "res/art/digipen_logo.png"
+    },
+    "ShapeComponent": {
+      "shapeType": "AABB"
+    }
+  },
+
+  "Logo2": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "logo2"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 12,
+        "y": 6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "res/art/fmod_logo.png"
+    },
+    "ShapeComponent": {
+      "shapeType": "AABB"
+    }
+  },
+
+
+  "BG": {
     "EntityID": 0,
     "TagComponent": {
       "tag": "wall"
@@ -18,19 +91,19 @@
         "z": 0.0
       },
       "scale": {
-        "x": 1.0,
-        "y": 1.0,
+        "x": 100.0,
+        "y": 100.0,
         "z": 1.0
       }
     },
     "RectangleComponent": {
       "color": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "res/art/FixedPlatform1.png"
+      "texturePath": "res/art/black.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -53,8 +126,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
-        "y": 1.0,
+        "x": 1.0,
+        "y": 1.25,
         "z": 1.0
       }
     },
@@ -138,7 +211,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "res/art/Wall.jpg"
+      "texturePath": "res/Wall.jpg"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -151,7 +224,7 @@
       "gravity": false
     },
     "AutoMovementComponent": {
-      "velocityX": 0.3,
+      "velocityX": -0.3,
       "velocityY": 0.0,
       "tripTime": 4.0
     }
@@ -171,7 +244,7 @@
         "z": 0.0
       },
       "scale": {
-        "x": 2.0,
+        "x": 3.0,
         "y": 1.0,
         "z": 1.0
       }
@@ -196,54 +269,9 @@
       "gravity": false
     },
     "AutoMovementComponent": {
-      "velocityX": -0.2,
+      "velocityX": 0.3,
       "velocityY": 0.0,
-      "tripTime": 5.0
-    }
-  },
-
-  "R": {
-    "EntityID": 0,
-    "TransformComponent": {
-      "position": {
-        "x": 1.0,
-        "y": -1.0,
-        "z": 0.0
-      },
-      "rotation": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "scale": {
-        "x": 2.0,
-        "y": 1.0,
-        "z": 1.0
-      }
-    },
-    "RectangleComponent": {
-      "color": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-      },
-      "wireframe": false,
-      "texturePath": "res/Wall.jpg"
-    },
-    "ShapeComponent": {
-      "shapeType": "AABB"
-    },
-    "PhysicsBodyComponent": {
-      "mass": 1.0,
-      "staticBody": false,
-      "isTrigger": false,
-      "frictionless": false,
-      "gravity": false
-    },
-    "AutoMovementComponent": {
-      "velocityX": -0.4,
-      "velocityY": 0.0,
-      "tripTime": 3.0
+      "tripTime": 4.0
     }
   },
 
@@ -301,7 +329,6 @@
     "ChasePlayerComponent": {
     }
   },
-
   "E2": {
     "EntityID": 0,
     "TagComponent": {
@@ -356,123 +383,7 @@
     "AutoMovementComponent": {
       "velocityX": 0.0,
       "velocityY": 0,
-      "tripTime": 4.0
-    }
-  },
-
-  "E3": {
-    "EntityID": 0,
-    "TagComponent": {
-      "tag": "enemy"
-    },
-    "TransformComponent": {
-      "position": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "rotation": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "scale": {
-        "x": 0.75,
-        "y": 0.75,
-        "z": 0.0
-      }
-    },
-    "RectangleComponent": {
-      "color": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
-      },
-      "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
-    },
-    "ShapeComponent": {
-      "shapeType": "AABB"
-    },
-    "PhysicsBodyComponent": {
-      "mass": 2.0,
-      "staticBody": false,
-      "isTrigger": false,
-      "frictionless": false,
-      "gravity": true
-    },
-    "ShootComponent": {
-      "shootInterval": 1,
-      "bulletPerShoot": 1
-    },
-    "AutoShootComponent": {
-    },
-    "HealthComponent": {
-      "health": 200,
-      "totalHealth": 200
-    },
-    "AutoMovementComponent": {
-      "velocityX": -0.2,
-      "velocityY": 0,
-      "tripTime": 5.0
-    }
-  },
-
-  "E4": {
-    "EntityID": 0,
-    "TagComponent": {
-      "tag": "enemy"
-    },
-    "TransformComponent": {
-      "position": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "rotation": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
-      },
-      "scale": {
-        "x": 0.75,
-        "y": 0.75,
-        "z": 0.0
-      }
-    },
-    "RectangleComponent": {
-      "color": {
-        "x": 0.5,
-        "y": 0.5,
-        "z": 0.5
-      },
-      "wireframe": false,
-      "texturePath": "res/art/PlatformEnemy.png"
-    },
-    "ShapeComponent": {
-      "shapeType": "AABB"
-    },
-    "PhysicsBodyComponent": {
-      "mass": 2.0,
-      "staticBody": false,
-      "isTrigger": false,
-      "frictionless": false,
-      "gravity": true
-    },
-    "ShootComponent": {
-      "shootInterval": 1,
-      "bulletPerShoot": 1
-    },
-    "AutoShootComponent": {
-    },
-    "HealthComponent": {
-      "health": 200,
-      "totalHealth": 200
-    },
-    "AutoMovementComponent": {
-      "velocityX": -0.4,
-      "velocityY": 0,
-      "tripTime": 3.0
+      "tripTime": 10.0
     }
   },
 

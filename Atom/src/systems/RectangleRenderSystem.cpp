@@ -10,16 +10,19 @@
 #include "ControllerSystem.hpp"
 
 
+
+
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
 bool DebugMode;
+
 
 
 void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	setBackground("res/art/level_01_background.png");
+	//setBackground("Atom/res/art/level_01_background.png");
 	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
@@ -55,11 +58,24 @@ void RectangleRenderSystem::init() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
-	}
+
+	// number of particles, size of particles
+	ParticleConfig pCon(30, 160, glm::vec2(0.1f, 2.0f));
+	// spawn center, spawn area size, spawn area shape
+	SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+	// move direction, speed, move pattern
+	MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+	particleEffect = new ParticleEffect(sCon, mCon, pCon);
+
+	particleEffect->Init();
+	particleEffect->Print();
+
+}
 
 
 void RectangleRenderSystem::update() {
 
+	
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
 		DebugMode = !DebugMode;
@@ -70,6 +86,8 @@ void RectangleRenderSystem::update() {
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
+	particleEffect->Draw();
+
 	// draw all entities
 	drawEntities(DebugMode);
 
@@ -79,6 +97,8 @@ void RectangleRenderSystem::update() {
 	//drawAnimation(glm::vec2(0.8, -0.8), glm::vec2(0.4f), "Vampire", "png", 4, VampireTimer, DebugMode);
 
 	//drawAnimation(glm::vec2(-0.8, -0.8), glm::vec2(0.4f), "latern", "png", 4, laternTimer, DebugMode);
+
+
 }
 
 
@@ -116,7 +136,7 @@ void RectangleRenderSystem::onEvent(Event& e) {
 }
 
 
-void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe) const
+void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe, float alpha) const
 {
 
 	if (wireframe) {
@@ -126,6 +146,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 	
+	ColorRecShader->SetFloat("alpha", alpha);
 	ColorRecShader->SetInt("wireframe", wireframe);
 
 	ColorRecShader->SetVec2("pos", pos);
@@ -133,6 +154,8 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	ColorRecShader->SetVec3("color", color);
 
 	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
+	// pass view matrix uniform 
+	ColorRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
 
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
@@ -143,7 +166,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 
 
 
-void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe) const
+void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha) const
 {
 	if (wireframe) {
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -152,11 +175,13 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 	TextureRecShader->SetInt("wireframe", wireframe);
-
+	TextureRecShader->SetFloat("alpha", alpha);
 	TextureRecShader->SetVec2("pos", pos);
 	TextureRecShader->SetVec2("scale", scale);
 
 	TextureRecShader->SetVec2("cameraPos", ae.mCameraManager->camera.position);
+
+	TextureRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
 
 	// load texture
 	unsigned int textureID = ae.getOrLoadResource<unsigned int>(texturePath);
@@ -171,20 +196,40 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, string textureP
 
 void RectangleRenderSystem::drawEntities(bool debugMode)
 {
+
 	for (auto& entity : mEntities) {
+		if (ae.hasComponent<TagComponent>(entity)) {
+			auto& tag = ae.getComponent<TagComponent>(entity);
+			if (tag.tag == "player") {
+				if (ae.hasComponent<CharacteristicComponent>(entity)) {
+					auto& c = ae.getComponent<CharacteristicComponent>(entity);
+					if (!c.isBig) {
+						if (ae.hasComponent<TransformComponent>(entity)) {
+							auto& t = ae.getComponent<TransformComponent>(entity);
+							particleEffect->position = t.position;
+						}
+					}
+				}
+			}
+		}
+
 		if (ae.hasComponent<RectangleComponent>(entity)) {
 			auto& rc = ae.getComponent<RectangleComponent>(entity);
 
 			if (ae.hasComponent<TransformComponent>(entity)) {
 				auto& t = ae.getComponent<TransformComponent>(entity);
+				float alpha = 1.0f;
+				alpha = ae.mLevelManager->level_alpha;
 
 				if (!rc.texturePath.empty())
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.texturePath, false,alpha);
 				else
-					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false);
+					draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, false, alpha);
 
-				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true);
+				if (debugMode) draw(glm::vec2{ t.position.x,t.position.y }, t.scale, rc.color, true, alpha);
 			}
+
+
 		}
 	}
 }

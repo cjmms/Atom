@@ -28,6 +28,7 @@
 
 #include "components/AllComponents.hpp"
 
+#include "systems/TransformSystem.hpp"
 #include "systems/ControllerSystem.hpp"
 #include "systems/DamageSystem.hpp"
 #include "systems/PhysicsSystem.hpp"
@@ -105,8 +106,10 @@ public:
 		registerComponent<AutoMovementComponent>();
 		registerComponent<SelfDestroyComponent>();
 		registerComponent<LevelTriggerComponent>();
+		registerComponent<FadeComponent>();
 
 		// register all systems
+		registerSystem<TransformSystem>();
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
 		registerSystem<DamageSystem>();
@@ -123,6 +126,10 @@ public:
 
 		// set archetypes
 		{
+			Archetype typeTransformSystem;
+			typeTransformSystem.set(getComponentType<TransformComponent>());
+			setSystemArchetype<TransformSystem>(typeTransformSystem);
+
 			// this is a bitset denoting the system archetye
 			Archetype typeRectangleRender;
 			typeRectangleRender.set(getComponentType<RectangleComponent>());
