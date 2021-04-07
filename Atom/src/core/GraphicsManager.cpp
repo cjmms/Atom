@@ -20,6 +20,7 @@ void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
 	glfwSetWindowSize(window, (int)width, (int)height);
 	glViewport(0, 0, width, height);
+	ae.mGraphicsManager->SetWindowSize(width, height);
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -96,7 +97,7 @@ void GraphicsManager::printInfo() const
 
 void GraphicsManager::SetWindowSize(int& width, int& height)
 {
-	width = this->width;
-	height = this->height;
+	this->width = width;
+	this->height = height;
 }
 
