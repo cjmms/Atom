@@ -130,6 +130,7 @@ void RectangleRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color
 	
 	ColorRecShader->SetFloat("alpha", alpha);
 	ColorRecShader->SetInt("wireframe", wireframe);
+
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);

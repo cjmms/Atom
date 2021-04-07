@@ -138,28 +138,28 @@ void ControllerSystem::update()
 					}
 				}
 
-				//Wall Jump
-				else if (character1.canWallJump.isEnabled && character1.canWallJump.isActive)
-				{
-					//colliding with right side of a wall
-					if (ae.mInputManager->isKeyPressed(controller.LEFT))
-					{
-						body.velocityX = 1;
-						character1.canWallJump.isActive = false;
-					}
-					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
-					{
-						body.velocityX = -1;
-						character1.canWallJump.isActive = false;
-					}
-					//Double Jump
-					else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
-					{
-						character1.canDoubleJump.isActive = false;
-					}
-					body.velocityY = 0;
-					body.totalForceY = 3;
-				}
+				////Wall Jump
+				//else if (character1.canWallJump.isEnabled && character1.canWallJump.isActive)
+				//{
+				//	//colliding with right side of a wall
+				//	if (ae.mInputManager->isKeyPressed(controller.LEFT))
+				//	{
+				//		body.velocityX = 1;
+				//		character1.canWallJump.isActive = false;
+				//	}
+				//	else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
+				//	{
+				//		body.velocityX = -1;
+				//		character1.canWallJump.isActive = false;
+				//	}
+				//	//Double Jump
+				//	else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
+				//	{
+				//		character1.canDoubleJump.isActive = false;
+				//	}
+				//	body.velocityY = 0;
+				//	body.totalForceY = 3;
+				//}
 
 				//Double Jump
 				else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
@@ -228,18 +228,18 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				if(body.grounded)
+				//if(body.grounded)
 					body.velocityX = -1;
-				else if(body.velocityX > -1)
-					body.totalForceX = -0.1f;
+				//else if(body.velocityX > -1)
+				//	body.totalForceX = -0.1f;
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				if (body.grounded)
+				//if (body.grounded)
 					body.velocityX = 1;
-				else if (body.velocityX < 1)
-					body.totalForceX = 0.1f;
+				//else if (body.velocityX < 1)
+				//	body.totalForceX = 0.1f;
 				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
