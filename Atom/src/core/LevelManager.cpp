@@ -86,7 +86,18 @@ void LevelManager::update()
 		enterNextLevel = true;
 	}
 
-	if (enterPreviousLevel)
+	if (restartGame)
+	{
+		unload();
+		level = 2;
+		if (level < 2)
+			level = 2;
+		load(level);
+		level_alpha = 0.0f;
+		fade_in_level = true;
+		restartGame = false;
+	}
+	else if (enterPreviousLevel)
 	{
 		if (fade_out_timer > 0 && !screenByPass()) {
 			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
@@ -252,11 +263,17 @@ void LevelManager::load(int level) {
 
 	levelStartTime = ae.getUptime();
 
+	if (level == 15)
+	{
+		//UI: restart game
+		ae.mIsPaused = true;
+		ae.mUIManager->checkRestartGame = true;
+	}
 }
 
 void LevelManager::startGame()
 {
-	load(0);
+	load(13);
 	level_alpha = 0.0f;
 }
 
