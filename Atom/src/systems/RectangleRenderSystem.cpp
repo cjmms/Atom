@@ -10,9 +10,12 @@
 #include "ControllerSystem.hpp"
 
 
+
+
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
 bool DebugMode;
+
 
 
 void RectangleRenderSystem::init() {
@@ -55,11 +58,24 @@ void RectangleRenderSystem::init() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
-	}
+
+	// number of particles, size of particles
+	ParticleConfig pCon(2000, 160, glm::vec2(0.1f, 2.0f));
+	// spawn center, spawn area size, spawn area shape
+	SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+	// move direction, speed, move pattern
+	MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+	particleEffect = new ParticleSystem(sCon, mCon, pCon);
+
+	particleEffect->Init();
+	particleEffect->Print();
+
+}
 
 
 void RectangleRenderSystem::update() {
 
+	
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
 		DebugMode = !DebugMode;
@@ -69,6 +85,8 @@ void RectangleRenderSystem::update() {
 	// Temp - moving background
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
+
+	particleEffect->Draw();
 
 	// draw all entities
 	drawEntities(DebugMode);

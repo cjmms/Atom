@@ -704,6 +704,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\src\utils\MathUtils.hpp" />
     <ClInclude Include="Atom\src\utils\ResourceLoader.hpp" />
     <ClInclude Include="Atom\src\utils\Serde.hpp" />
+    <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp" />
@@ -744,6 +745,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClCompile Include="Atom\src\systems\collisions\AABBCollision.cpp" />
     <ClCompile Include="Atom\src\utils\Log.cpp" />
     <ClCompile Include="Atom\src\utils\ResourceLoader.cpp" />
+    <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj" />
@@ -837,6 +839,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\levels\characters.json" />
     <None Include="Atom\res\shaders\ColorRec.shader" />
     <None Include="Atom\res\shaders\ParticleEffect.shader" />
+    <None Include="Atom\res\shaders\RenderParticle.shader" />
     <None Include="Atom\res\shaders\TextureRec.shader" />
     <None Include="Atom\res\shaders\renderText.shader" />
   </ItemGroup>

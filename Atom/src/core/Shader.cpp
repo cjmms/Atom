@@ -47,8 +47,10 @@ ShaderProgramSource Shader::ParseShader(const std::string& path)
                 currentMode = ShaderMode::FRAGMENT_MODE;
             else if (line.find("geometry") != std::string::npos)
                 currentMode = ShaderMode::GEOMETRY_MODE;
-            else if (line.find("compute") != std::string::npos) 
-                currentMode = ShaderMode::COMPUTE_MODE; 
+            else if (line.find("compute") != std::string::npos)
+            {
+                currentMode = ShaderMode::COMPUTE_MODE;
+            }
         }
         else
         {
@@ -99,11 +101,34 @@ unsigned int Shader::CreateShader(const std::string& vertexShader,
         glAttachShader(shaderProgram, computeShaderID);
     }
 
-    // TODO: catch exceptions
+
     glLinkProgram(shaderProgram);
 
-    //TODO: catch exceptions
+    GLint success;
+    //glGetShaderiv(shaderProgram, GL_LINK_STATUS, &success);
+    /*
+    if (!success)
+    {
+        GLchar errorLog[1024] = { 0 };
+        glGetProgramInfoLog(shaderProgram, 1024, NULL, errorLog);
+        std::cout << "ERROR: Shader Linking Error." << errorLog << std::endl;
+    }*/
+
+
     glValidateProgram(shaderProgram);
+    /*
+    success = GL_FALSE;
+    glGetProgramiv(shaderProgram, GL_VALIDATE_STATUS, &success);
+    if (success == GL_FALSE)
+    {
+        GLchar errorLog[1024] = { 0 };
+        glGetProgramInfoLog(shaderProgram, 1024, NULL, errorLog);
+        std::cout << "ERROR: Shader Validation Error." << errorLog << std::endl;
+    }*/
+
+
+
+
 
     if (hasVertexShader) glDeleteShader(vertexShaderID);
     if (hasFragmentShader) glDeleteShader(fragmentShaderID);

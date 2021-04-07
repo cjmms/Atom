@@ -1971,6 +1971,7 @@
     <ClInclude Include="Atom\src\utils\Serde.hpp">
       <Filter>src\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2079,6 +2080,7 @@
       <Filter>src\utils</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\UIManager.cpp" />
+    <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">
@@ -2358,6 +2360,7 @@
       <Filter>res\shaders</Filter>
     </None>
     <None Include="Atom\res\shaders\ParticleEffect.shader" />
+    <None Include="Atom\res\shaders\RenderParticle.shader" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\res\animation\Vampire0.png">
