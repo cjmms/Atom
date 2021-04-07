@@ -36,8 +36,10 @@ out vec4 FragColor;
 uniform vec3 color;
 uniform int wireframe;
 
+uniform float alpha;
+
 void main()
 {
-	FragColor = vec4(color, 1.0f);
-	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	FragColor = vec4(color, alpha);
+	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, alpha);
 }

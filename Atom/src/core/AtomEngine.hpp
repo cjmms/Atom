@@ -105,6 +105,7 @@ public:
 		registerComponent<AutoMovementComponent>();
 		registerComponent<SelfDestroyComponent>();
 		registerComponent<LevelTriggerComponent>();
+		registerComponent<FadeComponent>();
 
 		// register all systems
 		registerSystem<ControllerSystem>();

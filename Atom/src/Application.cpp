@@ -111,20 +111,20 @@ void start() {
     Log::init();                            // setup logging
 
     ae.init();                              // initialize engine
-    ae.setMaxFPS(120);                       // set the fps
+    ae.setMaxFPS(30);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
-    
+
     ae.loadSound(musicTrack);
     ae.loadSound(sfxTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
 
-
-    ae.mLevelManager->load(0);
+    ae.mLevelManager->startGame();
 
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
     sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
+
 }
 
 void shutdown() {

@@ -84,6 +84,7 @@ void HealthRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color) c
 
 	ColorRecShader->SetInt("wireframe", false);
 
+	ColorRecShader->SetFloat("alpha", ae.mLevelManager->level_alpha);
 	ColorRecShader->SetVec2("pos", pos);
 	ColorRecShader->SetVec2("scale", scale);
 	ColorRecShader->SetVec3("color", color);

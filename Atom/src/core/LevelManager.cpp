@@ -4,6 +4,7 @@
 
 extern AtomEngine ae;
 
+
 LevelManager::LevelManager()
 {
 
@@ -15,27 +16,154 @@ void LevelManager::init()
 	ae.addEventListener(EventID::E_TRIGGER, [this](Event& e) {this->onEvent(e); });
 }
 
+
+float LevelManager::lerp10(float a, float b, float t, float lo, float hi) {
+	if (lo == hi) {
+		return a;
+	}
+	t = (t - lo) / (hi - lo);
+	float res = b * (1 - t) + a * (t);
+	return res;
+}
+
+float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
+	if (lo == hi) {
+		return a;
+	}
+	t = (t - lo) / (hi - lo);
+	float res = a * (1 - t) + b * (t);
+	return res;
+}
+
+
+
+/*
+
+	fade time = 4.0f
+	T1(30) T2(40)
+
+	playint T1 ----------|[1.0]->[0.0]@T1 (2sec) [0.0]->[1.0]@T2
+						 --,--playing T2 ----------...
+
+
+	fade10
+
+	fade_out_timer 2.0f
+
+	lo,hi : 30,40 [10 -> 1]
+				[2 -> 0.2]
+
+	t : 32
+	t = (t - lo) / (hi - lo); [0,1]
+
+	t = 0.2
+
+	res = b(1-t) + a(t);
+
+	res (0.8)
+
+
+	lerp10(a,b,,lo,hi){
+		
+	}
+
+	lerp01(){
+
+	}
+
+	L1------------|[1.0]->[0.0]@T1 : alpha
+				  --
+	L2				[0.0]->[1.0]@T2 : alpha-----------
+*/
+
+
+// every frame 
 void LevelManager::update()
 {
-	//todo UI to tell player died
-
-
-	if (enterNextLevel)
+	//logic to move to next level automatically
+	if (levelTime != -1 && ae.getUptime() - levelStartTime > levelTime)
 	{
-		enterNextLevel = false;
-		restartLevel = false;
+		enterNextLevel = true;
+	}
 
-		unload();
-		level++;
-		load(level);
+	if (enterPreviousLevel)
+	{
+		if (fade_out_timer > 0 && !screenByPass()) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
+		}
+		else {
+			unload();
+			level--;
+			if (level < 0)
+				level = 0;
+			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			enterPreviousLevel = false;
+		}
+	}
+	else if (enterNextLevel )
+	{
+
+		if (fade_out_timer > 0 && !screenByPass()) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
+		}
+		else {
+			unload();
+			level++;
+			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			enterNextLevel = false;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
+		}
 	}
 	else if (restartLevel)
 	{
-		restartLevel = false;
-		unload();
-		load(level);
+		if (fade_out_timer > 0) {
+			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+			fade_out_timer -= ae.dt;
+			//std::cout << "level alpha : " << level_alpha << std::endl;
+		}
+		else {
+			unload();
+			load(level);
+			level_alpha = 0.0f;
+			fade_in_level = true;
+			restartLevel = false;
+
+		}
+	}
+	else if (fade_in_level) {
+		if (fade_in_timer > 0.0f) {
+			level_alpha = lerp01(level_alpha, 1.0f,ae.dt, 0.0f, fade_in_timer);
+			fade_in_timer -= ae.dt;
+			std::cout << "level alpha fade in : " << level_alpha << std::endl;
+		}
+		else {
+			fade_in_level = false;
+		}
 	}
 
+	//reset level status
+
+
+
+
+}
+
+bool LevelManager::screenByPass()
+{
+	return (ae.mInputManager->isKeyPressed(VK_LBUTTON)
+		|| ae.mInputManager->isKeyPressed(VK_RBUTTON)
+		|| ae.mInputManager->isKeyPressed(VK_SPACE)
+		|| ae.mInputManager->isKeyPressed(VK_ESCAPE)
+		|| ae.mInputManager->isKeyPressed(VK_RETURN)
+		);
+	
 }
 
 void LevelManager::onEvent(Event& e)
@@ -107,7 +235,12 @@ void LevelManager::onEvent(Event& e)
 }
 
 void LevelManager::load(int level) {
-	string levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
+
+	level_alpha = 1.0f;
+	fade_out_timer = 3.0f;
+	fade_in_timer = 0.5f;
+
+	levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
 	std::ifstream in(levelstring);
 	ordered_json json;
 	in >> json;
@@ -115,11 +248,25 @@ void LevelManager::load(int level) {
 	this->level = level;
 	//std::string mapName = json["Map"];
 	this->load(levelstring);
+
+	levelStartTime = ae.getUptime();
+
+}
+
+void LevelManager::startGame()
+{
+	load(0);
+	level_alpha = 0.0f;
 }
 
 void LevelManager::loadNextLevel()
 {
 	enterNextLevel = true;
+}
+
+void LevelManager::loadPreviosLevel()
+{
+	enterPreviousLevel = true;
 }
 
 // load level
@@ -136,6 +283,12 @@ void LevelManager::load(string filepath) {
 		std::ifstream inmap(maploc);
 		ordered_json mapJson;
 		inmap >> mapJson;
+
+		if (mapJson["time"].is_null())
+			levelTime = -1;
+		else
+			levelTime = mapJson["time"];
+
 		rows = mapJson["grid"].size();
 		cols = mapJson["grid"][0].size();
 		//wallid = mapJson["wall_id"];
@@ -256,17 +409,18 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
+	if (level > 1) {
+		string charloc = "Atom/res/levels/characters.json";
+		std::ifstream inmap(charloc);
+		ordered_json characterJson;
+		inmap >> characterJson;
 
-	string charloc = "Atom/res/levels/characters.json";
-	std::ifstream inmap(charloc);
-	ordered_json characterJson;
-	inmap >> characterJson;
-
-	// entities
-	if (!characterJson["Entities"].is_null()) {
-		for (auto& entityjson : characterJson["Entities"]) {
-			EntityID entid;
-			ae.deserializeEntity(entityjson, entid);
+		// entities
+		if (!characterJson["Entities"].is_null()) {
+			for (auto& entityjson : characterJson["Entities"]) {
+				EntityID entid;
+				ae.deserializeEntity(entityjson, entid);
+			}
 		}
 	}
 }

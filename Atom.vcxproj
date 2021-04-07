@@ -648,6 +648,7 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
+    <ClInclude Include="Atom\src\components\FadeComponent.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
     <ClInclude Include="Atom\src\components\AutoMovementComponent.hpp" />
@@ -836,6 +837,8 @@ IF EXIST "$(ProjectName)\lib\fmod\api\studio\lib\x64\fmodstudio.dll"\ (xcopy /Q 
     <None Include="Atom\res\levels\Level3_Settings.json" />
     <None Include="Atom\res\levels\Level4_Map.json" />
     <None Include="Atom\res\levels\Level4_Settings.json" />
+    <None Include="Atom\res\levels\Level5_Map.json" />
+    <None Include="Atom\res\levels\Level5_Settings.json" />
     <None Include="Atom\res\levels\characters.json" />
     <None Include="Atom\res\shaders\ColorRec.shader" />
     <None Include="Atom\res\shaders\ParticleEffect.shader" />
