@@ -83,8 +83,28 @@ void ControllerSystem::update()
 	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
 	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
+	auto& controller2 = ae.getComponent<ControllerComponent>(inactiveEntity);
 	auto& transformComponent = ae.getComponent<TransformComponent>(activeEntity);
+	auto& health1 = ae.getComponent<HealthComponent>(activeEntity);
+	auto& health2 = ae.getComponent<HealthComponent>(inactiveEntity);
 
+	//restart game
+	if (health1.health <= 0 && health2.health <= 0)
+	{
+		ae.mLevelManager->restartCurrentLevel();
+		return;
+	}
+
+	//cannot control character of zero health
+	if (health1.health <= 0)
+	{
+		//active char die, switch to another char
+		ae.getComponent<ShootComponent>(activeEntity).isShooting = false;
+		controller.isActive = false;
+		controller2.isActive = true;
+		return;
+	}
+	
 
 	glm::vec2 target_position = glm::vec2{ transformComponent.position.x,transformComponent.position.y };
 

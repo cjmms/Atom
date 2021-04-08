@@ -1,5 +1,5 @@
 {
-  "Map": "Atom/res/levels/Level1_Map.json",
+  "Map": "Atom/res/levels/Level12_Map.json",
 
   "Logo": {
     "EntityID": 0,
@@ -18,8 +18,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 12,
-        "y": 3,
+        "x": 8,
+        "y": 8,
         "z": 1.0
       }
     },
@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/digipen_logo.png"
+      "texturePath": "Atom/res/art/faculty.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -54,8 +54,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 16,
-        "y": 4,
+        "x": 12,
+        "y": 6,
         "z": 1.0
       }
     },
@@ -66,7 +66,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/game_logo.png"
+      "texturePath": "Atom/res/art/fmod_logo.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -98,9 +98,9 @@
     },
     "RectangleComponent": {
       "color": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
       },
       "wireframe": false,
       "texturePath": "Atom/res/art/black.png"

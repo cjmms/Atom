@@ -1,5 +1,5 @@
 {
-  "Map": "Atom/res/levels/Level1_Map.json",
+  "Map": "Atom/res/levels/Level15_Map.json",
 
   "Logo": {
     "EntityID": 0,
@@ -54,8 +54,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 16,
-        "y": 4,
+        "x": 12,
+        "y": 3,
         "z": 1.0
       }
     },
@@ -66,7 +66,44 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/game_logo.png"
+      "texturePath": "Atom/res/art/fmod_logo.png"
+    },
+    "ShapeComponent": {
+      "shapeType": "AABB"
+    }
+  },
+
+
+  "Logo3": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "logo3"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 10,
+        "y": 0.5,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/fmod_logo2.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -98,9 +135,9 @@
     },
     "RectangleComponent": {
       "color": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
       },
       "wireframe": false,
       "texturePath": "Atom/res/art/black.png"

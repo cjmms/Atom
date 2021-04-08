@@ -29,6 +29,8 @@ public:
 
     void closeWindow();
 
+    bool checkRestartGame = false;
+
 private:
     bool checkCloseWindow = false;
     bool checkRestartWindow = false;
@@ -37,7 +39,8 @@ private:
     void showMenu();
     void showCheckCloseWindow();
     void showCheckRestartWindow();
-
+    void showCheckRestartGame();
+    
 };
 
 #endif
