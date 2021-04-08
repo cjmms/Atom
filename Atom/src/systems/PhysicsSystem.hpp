@@ -49,9 +49,6 @@ public:
 		const ShapeComponent& shape2, TransformComponent& transform2, PhysicsBodyComponent& body2
 	);
 
-	//Temp
-	bool toMove = false;
-
 	//For Platform Movement
 	EntityID platform1Id;
 	EntityID platform2Id;

@@ -62,7 +62,6 @@ void SkillSystem::onEvent(Event& e)
 		}
 
 		auto& skillComponent = ae.getComponent<SkillBoosterComponent>(skillEntity);
-		auto sys = ae.mSystemManager->getSystem<PhysicsSystem>();
 
 		switch (skillComponent.skillType)
 		{
@@ -90,9 +89,6 @@ void SkillSystem::onEvent(Event& e)
 			shootComponent.shootInterval *= 0.8;
 			break;
 		}
-		case Trigger:
-			sys->toMove = true;
-			break;
 		default:
 			ATOM_ERROR("Skill : Missing new skill");
 			break;
