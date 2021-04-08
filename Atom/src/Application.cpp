@@ -11,16 +11,14 @@
 #include <clocale>
 
 #include "core/AtomEngine.hpp"
-
 #include "systems/ParticleEffect/ParticleEffect.hpp"
 
 // THE ENGINE
 AtomEngine ae;
 
 
-
-
 #ifdef _WIN64
+#ifdef DEBUG
 #include "Windows.h"
 FILE _iob[] = {
     *stdin,
@@ -32,10 +30,12 @@ extern "C" FILE * __cdecl __iob_func(void) {
 }
 #pragma comment(lib, "legacy_stdio_definitions.lib")
 #endif
+#endif
 
 //allocating console
 void console() {
 #ifdef _WIN64
+#ifdef DEBUG
     if (AllocConsole())
     {
         FILE* file;
@@ -47,11 +47,13 @@ void console() {
         SetConsoleTitle(L"[ATOM]");
     }
 #endif
+#endif
 }
 
 // max 80 limit
 void setConsoleTitle(const char* title) {
 #ifdef _WIN64
+#ifdef DEBUG
     std::setlocale(LC_ALL, "en_US.utf8");
     std::wcout.imbue(std::locale("en_US.utf8"));
     wchar_t wstr[80];
@@ -59,6 +61,7 @@ void setConsoleTitle(const char* title) {
     size_t wsize;
     mbstowcs_s(&wsize, wstr, strlen(title) + 1, title, strlen(title));
     SetConsoleTitle(wstr);
+#endif
 #endif
 }
 
@@ -68,7 +71,9 @@ void fpsCounter() {
     char title[MAX_TITLE_LEN];
     snprintf(title, MAX_TITLE_LEN, "[ATOM] FPS: %f", ae.getFPS());
 #ifdef _WIN64
+    #ifdef DEBUG
     setConsoleTitle(title);
+    #endif
 #else
     ATOM_TRACE("[ATOM] FPS: {}", ae.getFPS());
 #endif
@@ -107,8 +112,10 @@ void glfwpoll() {
 }
 
 void start() {
+#ifdef DEBUG
     console();                              // setup the console 
     Log::init();                            // setup logging
+#endif
 
     ae.init();                              // initialize engine
     ae.setMaxFPS(30);                       // set the fps
@@ -136,8 +143,11 @@ void shutdown() {
 }
 
 
+#ifdef DEBUG
 int main(int argc, char** argv){
-    
+#else
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
+#endif
     // Setup memory leak dump 
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
@@ -152,3 +162,21 @@ int main(int argc, char** argv){
     shutdown();
     return 0;
 }
+
+//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
+//
+//    // Setup memory leak dump 
+//    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+//
+//    start();
+//
+//    while (ae.mIsRunning) {
+//        glfwpoll();
+//        ae.update();
+//        fpsCounter();
+//    }
+//
+//    shutdown();
+//    return 0;
+//}
+

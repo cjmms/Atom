@@ -73,6 +73,13 @@ public:
 	inline FMOD::Sound* loadSound(string audioloc, 
 		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE,
 		FMOD_CREATESOUNDEXINFO* _exinfo = NULL) {
+
+#ifdef DEBUG
+		ATOM_INFO("{}",system("cd"));
+		ATOM_INFO("AUDIO LOADED : {}", audioloc);
+#endif
+
+
 		if (mSoundPool.count(audioloc) > 0) {
 			return mSoundPool[audioloc];
 		}
