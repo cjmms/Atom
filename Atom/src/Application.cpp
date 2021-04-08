@@ -43,8 +43,12 @@ void console() {
         freopen_s(&file, "CONOUT$", "wt", stdout);
         freopen_s(&file, "CONOUT$", "wt", stderr);
         freopen_s(&file, "CONOUT$", "wt", stdin);
-
-        SetConsoleTitle(L"[ATOM]");
+        wchar_t wstr[80];
+        // +1 to account for \0 termination
+        size_t wsize;
+        string title = APPNAME;
+        mbstowcs_s(&wsize, wstr, strlen(title.c_str()) + 1, title.c_str(), strlen(title.c_str()));
+        SetConsoleTitle(wstr);
     }
 #endif
 #endif
@@ -69,13 +73,13 @@ void setConsoleTitle(const char* title) {
 // performance data
 void fpsCounter() {
     char title[MAX_TITLE_LEN];
-    snprintf(title, MAX_TITLE_LEN, "[ATOM] FPS: %f", ae.getFPS());
+    snprintf(title, MAX_TITLE_LEN, "FPS: %f", ae.getFPS());
 #ifdef _WIN64
     #ifdef DEBUG
     setConsoleTitle(title);
     #endif
 #else
-    ATOM_TRACE("[ATOM] FPS: {}", ae.getFPS());
+    ATOM_TRACE("{} FPS: {}", APPNAME, ae.getFPS());
 #endif
 }
 
@@ -118,7 +122,7 @@ void start() {
 #endif
 
     ae.init();                              // initialize engine
-    ae.setMaxFPS(30);                       // set the fps
+    ae.setMaxFPS(60);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
 
     ae.loadSound(musicTrack);

@@ -16,7 +16,7 @@
 #define EPSILON 0.00001
 
 // DEFINES
-#define APPNAME "[ATOM]"
+#define APPNAME "[Space Jump]"
 #define MAX_TITLE_LEN 80
 #define FPS 60
 #define SCREEN_WIDTH 800
