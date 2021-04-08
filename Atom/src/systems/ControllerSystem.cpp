@@ -74,7 +74,9 @@ void ControllerSystem::update()
 
 	}	
 
-	assert(activeEntity != -1);
+	if (activeEntity == -1) {
+		return;
+	}
 
 	auto& body1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
@@ -329,8 +331,8 @@ void ControllerSystem::update()
 				//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
 				//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
 				
-				int width, height;
-				ae.mGraphicsManager->getWindowSize(width, height);
+				int width = ae.mGraphicsManager->GetWindowWidth();
+				int height = ae.mGraphicsManager->GetWindowHeight();;
 				
 				//old way of getting direction when camera is fixed
 				//float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;

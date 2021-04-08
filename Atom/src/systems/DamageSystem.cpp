@@ -93,7 +93,7 @@ void DamageSystem::onEvent(Event& e)
 	if (ae.hasComponent<CharacteristicComponent>(target))
 	{
 		auto& character = ae.getComponent<CharacteristicComponent>(target);
-		if (character.inGodMode)
+		if (character.inGodMode || character.inSuperGodMode)
 		{
 			//handle destroy in another loop
 			if (ae.hasComponent<BulletComponent>(damageSource))

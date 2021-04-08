@@ -20,5 +20,6 @@
 #include "components/SelfDestroyComponent.hpp"
 #include "components/LevelTriggerComponent.hpp"
 #include "components/FadeComponent.hpp"
+#include "components/PushUpComponent.hpp"
 
 #endif 
