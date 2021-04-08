@@ -89,10 +89,28 @@ void DamageSystem::onEvent(Event& e)
 	else
 		return;
 
+	//God Mode Check
+	if (ae.hasComponent<CharacteristicComponent>(target))
+	{
+		auto& character = ae.getComponent<CharacteristicComponent>(target);
+		if (character.inGodMode || character.inSuperGodMode)
+		{
+			//handle destroy in another loop
+			if (ae.hasComponent<BulletComponent>(damageSource))
+			{
+				ae.EnqueueDestroyEntity(damageSource);
+				//damage.destroy = true;
+			}
+			return;
+		}
+	}
+
 	if (ae.hasComponent<HealthComponent>(target))
 	{
 		auto& health = ae.getComponent<HealthComponent>(target);
 		health.health -= damage.damage;
+		if (health.health <= 0)
+			health.health = 0;
 	}
 
 	//handle destroy in another loop

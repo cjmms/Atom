@@ -86,7 +86,18 @@ void LevelManager::update()
 		enterNextLevel = true;
 	}
 
-	if (enterPreviousLevel)
+	if (restartGame)
+	{
+		unload();
+		level = 2;
+		if (level < 2)
+			level = 2;
+		load(level);
+		level_alpha = 0.0f;
+		fade_in_level = true;
+		restartGame = false;
+	}
+	else if (enterPreviousLevel)
 	{
 		if (fade_out_timer > 0 && !screenByPass()) {
 			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
@@ -96,8 +107,8 @@ void LevelManager::update()
 		else {
 			unload();
 			level--;
-			if (level < 0)
-				level = 0;
+			if (level < 2)
+				level = 2;
 			load(level);
 			level_alpha = 0.0f;
 			fade_in_level = true;
@@ -123,12 +134,13 @@ void LevelManager::update()
 	}
 	else if (restartLevel)
 	{
-		if (fade_out_timer > 0) {
-			level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
-			fade_out_timer -= ae.dt;
-			//std::cout << "level alpha : " << level_alpha << std::endl;
-		}
-		else {
+		//if (fade_out_timer > 0) {
+		//	level_alpha = lerp10(level_alpha_end, level_alpha, ae.dt, 0.0f, fade_out_timer);
+		//	fade_out_timer -= ae.dt;
+		//	//std::cout << "level alpha : " << level_alpha << std::endl;
+		//}
+		//else 
+		{
 			unload();
 			load(level);
 			level_alpha = 0.0f;
@@ -224,12 +236,13 @@ void LevelManager::onEvent(Event& e)
 
 		if (ae.hasComponent<LevelTriggerComponent>(trigger))
 		{
-			EntityID& characterEntered = ae.getComponent<LevelTriggerComponent>(trigger).characterEntered;
-			//if both distinct char entered 
-			if (characterEntered != -1 && characterEntered != player)
-				enterNextLevel = true;
-			else
-				characterEntered = player;
+			enterNextLevel = true;
+			//EntityID& characterEntered = ae.getComponent<LevelTriggerComponent>(trigger).characterEntered;
+			////if both distinct char entered 
+			//if (characterEntered != -1 && characterEntered != player)
+			//	enterNextLevel = true;
+			//else
+			//	characterEntered = player;
 		}
 	}
 }
@@ -251,6 +264,12 @@ void LevelManager::load(int level) {
 
 	levelStartTime = ae.getUptime();
 
+	if (level == 15)
+	{
+		//UI: restart game
+		ae.mIsPaused = true;
+		ae.mUIManager->checkRestartGame = true;
+	}
 }
 
 void LevelManager::startGame()
@@ -409,7 +428,7 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
-	if (level > 1) {
+	if (level > 1 && level < 10) {
 		string charloc = "Atom/res/levels/characters.json";
 		std::ifstream inmap(charloc);
 		ordered_json characterJson;

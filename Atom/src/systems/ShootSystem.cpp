@@ -98,7 +98,7 @@ void ShootSystem::update()
 					ae.addComponent(bullet, ShapeComponent{ShapeType::AABB});
 
 					auto body = PhysicsBodyComponent(0.01f, false, true, false);
-					float speed = 1.5;	//todo store bullet speed
+					float speed = 1.0;	//todo store bullet speed
 					body.velocityX = cos(shootDirection) * speed;
 					body.velocityY = sin(shootDirection) * speed;
 					body.isTrigger = true;
@@ -119,7 +119,7 @@ void ShootSystem::update()
 
 					ae.addComponent(bullet, DamageComponent{50, tag});
 
-					ae.addComponent(bullet, SelfDestroyComponent(1.5));
+					ae.addComponent(bullet, SelfDestroyComponent(5));
 					
 					playBulletSound();
 

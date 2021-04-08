@@ -54,6 +54,8 @@ void UIManager::update()
 
     // check if the player wants to restart the menu
     if (checkRestartWindow) showCheckRestartWindow();
+    
+    if (checkRestartGame) showCheckRestartGame();
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -77,6 +79,7 @@ void UIManager::showMenu()
     if (ImGui::Button("Resume Game"))
     {
         checkRestartWindow = false;  // disable other window
+        checkRestartGame = false;
         checkCloseWindow = false;    // disable other window
         ae.mIsPaused = false;
     }
@@ -94,12 +97,21 @@ void UIManager::showMenu()
     if (ImGui::Button("Restart Current Level"))
     {
         checkCloseWindow = false;   // disable other window
+        checkRestartGame = false;
         checkRestartWindow = true;
+    }
+
+    if (ImGui::Button("Restart Game"))
+    {
+        checkCloseWindow = false;   // disable other window
+        checkRestartWindow = false;
+        checkRestartGame = true;
     }
 
     if (ImGui::Button("Quit Game"))
     {
         checkRestartWindow = false; // disable other window
+        checkRestartGame = false;
         checkCloseWindow = true;
     }
 
@@ -132,6 +144,21 @@ void UIManager::showCheckRestartWindow()
         ae.mIsPaused = false;   // close the menu
     }
     if (ImGui::Button("No")) checkRestartWindow = false;
+
+    ImGui::End();
+}
+
+void UIManager::showCheckRestartGame()
+{
+    ImGui::Begin("Restart Game", &checkRestartGame, ImGuiWindowFlags_NoCollapse);
+    ImGui::Text("Do you want to restart the game?");
+    if (ImGui::Button("Yes"))
+    {
+        ae.mLevelManager->restartWholeGame();
+        checkRestartGame = false;
+        ae.mIsPaused = false;   // close the menu
+    }
+    if (ImGui::Button("No")) checkRestartGame = false;
 
     ImGui::End();
 }

@@ -18,10 +18,14 @@ public:
 
 	void save();
 
+	inline void restartWholeGame() { restartGame = true; }
+
 	inline void restartCurrentLevel() { restartLevel = true; }
 
 	float lerp10(float a, float b, float t, float lo, float hi);
 	float lerp01(float a, float b, float t, float lo, float hi);
+
+	inline int GetCurrentLevelNumber() { return level; }
 
 private:
 	void load(int level);
@@ -32,6 +36,7 @@ private:
 
 
 private:
+	bool restartGame = false;
 	bool restartLevel = false;
 	bool enterNextLevel = false;
 	bool enterPreviousLevel = false;

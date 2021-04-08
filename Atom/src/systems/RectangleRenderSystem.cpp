@@ -59,12 +59,12 @@ void RectangleRenderSystem::init() {
 	glEnableVertexAttribArray(1);
 
 
-	// number of particles, size of particles
-	ParticleConfig pCon(30, 160, glm::vec2(0.1f, 2.0f));
+	// number of particles, size of particles, time
+	ParticleConfig pCon(30, 0.3, glm::vec2(0.1f, 2.0f));
 	// spawn center, spawn area size, spawn area shape
-	SpawnConfig sCon(glm::vec2(500.0f), 100.0f, AREA_MODE::SQUARE);
+	SpawnConfig sCon(glm::vec2(-0.8f, -0.8), 0.1f, AREA_MODE::SQUARE);
 	// move direction, speed, move pattern
-	MoveConfig mCon(glm::vec2(0.0, 1.0), 2.7f, DIR_MODE::CIRCULAR);
+	MoveConfig mCon(glm::vec2(0.0, 1.0), 0.01f, DIR_MODE::CIRCULAR);
 	particleEffect = new ParticleEffect(sCon, mCon, pCon);
 
 	particleEffect->Init();
@@ -86,7 +86,8 @@ void RectangleRenderSystem::update() {
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
-	particleEffect->Draw();
+	if (ae.mLevelManager->GetCurrentLevelNumber() < 2)
+		particleEffect->Draw();
 
 	// draw all entities
 	drawEntities(DebugMode);

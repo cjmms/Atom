@@ -91,7 +91,9 @@ void HealthRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, b
 	ColorRecShader->SetVec3("color", color);
 
 	ColorRecShader->SetVec2("cameraPos", ae.mCameraManager->getPosition());
+
 	ColorRecShader->SetMat4("projection", ae.mCameraManager->GetProjectionMatrix());
+
 	ColorRecShader->Bind();
 	glBindVertexArray(RecVAO);
 
