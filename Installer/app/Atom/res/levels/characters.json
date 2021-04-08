@@ -46,19 +46,23 @@
         "DOWN": "ATOM_SCANCODE_DOWN",
         "LEFT": "ATOM_SCANCODE_LEFT",
         "RIGHT": "ATOM_SCANCODE_RIGHT",
-        "SWAP_POSITION": "ATOM_SCANCODE_Z",
-        "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+        "SWAP_POSITION": "ATOM_SCANCODE_E",
+        "SWAP_CHARACTER": "ATOM_SCANCODE_Q",
+        "GOD_MODE": "ATOM_SCANCODE_G",
+        "SUPER_GOD_MODE": "ATOM_SCANCODE_H",
+        "NEXT_LEVEL": "ATOM_SCANCODE_NEXT_LEVEL",
+        "PREV_LEVEL": "ATOM_SCANCODE_PREV_LEVEL",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": true
       },
       "ShootComponent": {
-        "shootInterval": 0.03,
+        "shootInterval": 0.2,
         "bulletPerShoot": 1
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 100,
+        "totalHealth": 100
       },
       "CharacteristicComponent": {
         "isBig": false
@@ -110,19 +114,23 @@
         "DOWN": "ATOM_SCANCODE_DOWN",
         "LEFT": "ATOM_SCANCODE_LEFT",
         "RIGHT": "ATOM_SCANCODE_RIGHT",
-        "SWAP_POSITION": "ATOM_SCANCODE_Z",
-        "SWAP_CHARACTER": "ATOM_SCANCODE_X",
+        "SWAP_POSITION": "ATOM_SCANCODE_E",
+        "SWAP_CHARACTER": "ATOM_SCANCODE_Q",
+        "GOD_MODE": "ATOM_SCANCODE_G",
+        "SUPER_GOD_MODE": "ATOM_SCANCODE_H",
+        "NEXT_LEVEL": "ATOM_SCANCODE_NEXT_LEVEL",
+        "PREV_LEVEL": "ATOM_SCANCODE_PREV_LEVEL",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": false
       },
       "ShootComponent": {
-        "shootInterval": 0.3,
-        "bulletPerShoot": 1
+        "shootInterval": 0.8,
+        "bulletPerShoot": 3
       },
       "HealthComponent": {
-        "health": 5000,
-        "totalHealth": 5000
+        "health": 1000,
+        "totalHealth": 1000
       },
       "CharacteristicComponent": {
         "isBig": true

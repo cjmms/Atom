@@ -138,7 +138,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/Wall.jpg"
+      "texturePath": "Atom/res/art/Wall.jpg"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
@@ -354,7 +354,7 @@
       "totalHealth": 200
     },
     "AutoMovementComponent": {
-      "velocityX": 0.3,
+      "velocityX": 0.0,
       "velocityY": 0,
       "tripTime": 4.0
     }

@@ -40,7 +40,9 @@ WizardStyle=modern
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
+Name: "uninstallicon"; Description: "Start menu shortcut for unistaller"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
 Source: "app\Atom.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -51,15 +53,19 @@ Source: "app\fsbank.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\libfsbvorbis64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\opus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "copyright\DigiPen_EULA.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\Atom\res\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "app\Atom\res\*"; DestDir: "{app}/Atom/res"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "redist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
+Name: "{group}\Uninstall-{#MyAppName}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
 [Run]
 Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable";
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
-
