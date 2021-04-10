@@ -253,13 +253,14 @@ void LevelManager::load(int level) {
 	fade_out_timer = 3.0f;
 	fade_in_timer = 0.5f;
 
-	levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.json");
+	//levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.levelJson");
+	levelstring = string("Atom/res/levels/") + levelPaths[level];
 	std::ifstream in(levelstring);
 	ordered_json json;
 	in >> json;
 	in.close();
 	this->level = level;
-	//std::string mapName = json["Map"];
+	//std::string mapName = levelJson["Map"];
 	this->load(levelstring);
 
 	levelStartTime = ae.getUptime();
@@ -274,6 +275,7 @@ void LevelManager::load(int level) {
 
 void LevelManager::startGame()
 {
+	loadDefaultFile();
 	load(0);
 	level_alpha = 0.0f;
 }
@@ -290,12 +292,17 @@ void LevelManager::loadPreviosLevel()
 
 // load level
 void LevelManager::load(string filepath) {
+	string defaultFile = string("Atom/res/levels/") + "Level_Default.json";
+	std::ifstream in2(defaultFile);
+	ordered_json defaultJson;
+	in2 >> defaultJson;
+
 	std::ifstream in(filepath);
-	ordered_json json;
-	in >> json;
+	ordered_json levelJson;
+	in >> levelJson;
 	// tilemap
 	if (!filepath.empty()) {
-		std::string maploc = json["Map"];
+		std::string maploc = levelJson["Map"];
 		int rows = -1, cols = -1, wallid = -1;
 		float tilesize_x = 0.0f;
 		float tilesize_y = 0.0f;
@@ -326,9 +333,22 @@ void LevelManager::load(string filepath) {
 			for (int j = 0; j < cols; ++j) {
 				string gridID = mapJson["grid"][i][j];
 				EntityID entityID;
-				if (!json[gridID].is_null())
+
+				bool emptyObject = true;
+
+				if (levelJson[gridID].is_null() && defaultJson[gridID].is_null())
+					emptyObject = true;
+				else
+					emptyObject = false;
+
+				if (!emptyObject)
 				{
-					ordered_json objectJson = json[gridID];
+					ordered_json objectJson;
+					if (!levelJson[gridID].is_null())
+						objectJson = levelJson[gridID];
+					else
+						objectJson = defaultJson[gridID];
+
 					ae.deserializeEntity(objectJson, entityID);
 
 					auto& t = ae.getComponent<TransformComponent>(entityID);
@@ -355,7 +375,7 @@ void LevelManager::load(string filepath) {
 
 				//for merging of phys body
 				//if not null and is wall
-				if (!json[gridID].is_null() && ae.hasComponent<TagComponent>(entityID) && ae.getComponent<TagComponent>(entityID).tag == "wall")
+				if (!emptyObject && ae.hasComponent<TagComponent>(entityID) && ae.getComponent<TagComponent>(entityID).tag == "wall")
 				{
 					if (mergeStartIndex == -1)
 					{
@@ -366,7 +386,7 @@ void LevelManager::load(string filepath) {
 					wallWidth = t.scale.x;
 				}
 				//if has gap or end of row->merge
-				if (mergeStartIndex != -1 && (j == cols - 1 || json[gridID].is_null()))
+				if (mergeStartIndex != -1 && (j == cols - 1 || emptyObject))
 				{
 					if (j == cols - 1)
 					{
@@ -424,6 +444,7 @@ void LevelManager::load(string filepath) {
 	loadCharacters();
 
 	in.close();
+	in2.close();
 }
 
 void LevelManager::loadCharacters()
@@ -469,4 +490,17 @@ void LevelManager::save() {
 		j["Entities"].push_back(json_ent);
 	}
 	out << std::setw(4) << j;
+}
+
+void LevelManager::loadDefaultFile(){
+	levelPaths = std::vector<string>();
+	
+	string filepath = "Atom/res/levels/Level_Default.json";
+
+	std::ifstream in(filepath);
+	ordered_json j;
+	in >> j;
+	levelPaths = j["levels"].get<std::vector<string>>();
+
+	in.close();
 }

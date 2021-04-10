@@ -1,5 +1,5 @@
 {
-  "Map": "Atom/res/levels/Level6_Map.json",
+  "Map": "Atom/res/levels/LevelED2_Map.json",
 
   "Logo": {
     "EntityID": 0,
@@ -18,8 +18,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 4,
-        "y": 2,
+        "x": 12,
+        "y": 6,
         "z": 1.0
       }
     },
@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/team_logo.png"
+      "texturePath": "Atom/res/art/team_memeber_logo.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
