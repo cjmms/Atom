@@ -33,7 +33,7 @@ private:
 	void load(int level);
 	void load(string filepath);
 
-	void loadCharacters();
+	void loadCharacters(string charloc);
 	bool screenByPass();
 
 

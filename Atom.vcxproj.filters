@@ -3020,6 +3020,24 @@
       <Filter>res\shaders</Filter>
     </None>
     <None Include="Atom\res\levels\Level_Default.json" />
+    <None Include="Atom\res\levels\LevelA1_Map.json" />
+    <None Include="Atom\res\levels\LevelA1_Settings.json" />
+    <None Include="Atom\res\levels\LevelA2_Settings.json" />
+    <None Include="Atom\res\levels\LevelA2_Map.json" />
+    <None Include="Atom\res\levels\LevelA3_Map.json" />
+    <None Include="Atom\res\levels\LevelA3_Settings.json" />
+    <None Include="Atom\res\levels\LevelA4_Settings.json" />
+    <None Include="Atom\res\levels\LevelA4_Map.json" />
+    <None Include="Atom\res\levels\LevelA5_Settings.json" />
+    <None Include="Atom\res\levels\LevelA5_Map.json" />
+    <None Include="Atom\res\levels\LevelA6_Map.json" />
+    <None Include="Atom\res\levels\LevelA6_Settings.json" />
+    <None Include="Atom\res\levels\LevelA7_Settings.json" />
+    <None Include="Atom\res\levels\LevelA7_Map.json" />
+    <None Include="Atom\res\levels\LevelA8_Map.json" />
+    <None Include="Atom\res\levels\LevelA8_Settings.json" />
+    <None Include="Atom\res\levels\LevelA9_Settings.json" />
+    <None Include="Atom\res\levels\LevelA9_Map.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">

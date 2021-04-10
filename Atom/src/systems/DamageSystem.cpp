@@ -99,7 +99,6 @@ void DamageSystem::onEvent(Event& e)
 			if (ae.hasComponent<BulletComponent>(damageSource))
 			{
 				ae.EnqueueDestroyEntity(damageSource);
-				//damage.destroy = true;
 			}
 			return;
 		}
@@ -117,7 +116,13 @@ void DamageSystem::onEvent(Event& e)
 	if (ae.hasComponent<BulletComponent>(damageSource))
 	{
 		ae.EnqueueDestroyEntity(damageSource);
-		//damage.destroy = true;
 	}
-
+	else if (ae.hasComponent<TagComponent>(damageSource))
+	{
+		if (ae.getComponent<TagComponent>(damageSource).tag == "trap")
+		{
+			if(ae.hasComponent<HealthComponent>(target))
+				ae.EnqueueDestroyEntity(damageSource);
+		}
+	}
 }

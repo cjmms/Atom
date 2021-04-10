@@ -440,6 +440,7 @@ public:
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
+		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -470,6 +471,7 @@ public:
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
+		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
 	}
 
 	inline float random() {

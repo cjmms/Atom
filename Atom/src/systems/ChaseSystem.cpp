@@ -26,18 +26,40 @@ void ChaseSystem::update()
 			auto& targetPlayers = ae.mSystemManager->getSystem<ControllerSystem>()->mEntities;
 			if (targetPlayers.size() == 0)
 				return;
-			EntityID target = *targetPlayers.begin();
-			auto& targetTransform = ae.getComponent<TransformComponent>(target);
+
+			EntityID target;
+			float shortestDist = 1.5;
+			glm::vec3 targetDirection(0, 0, 0);
+			for (auto itr = targetPlayers.begin(); itr != targetPlayers.end(); ++itr)
+			{
+				//auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
+				auto& targetTransform = ae.getComponent<TransformComponent>(*itr);
+				glm::vec3 direction = targetTransform.position - sourceTransform.position;
+
+				float dist = glm::length(direction);
+
+				if (dist < 1.5 && ae.getComponent<HealthComponent>(*itr).health > 0)
+				{
+					if (dist < shortestDist)
+					{
+						shortestDist = dist;
+						target = *itr;
+						targetDirection = direction;
+					}
+				}
+			}
+			//EntityID target = *targetPlayers.begin();
+			//auto& targetTransform = ae.getComponent<TransformComponent>(target);
+			//
+			//glm::vec3 direction = targetTransform.position - sourceTransform.position;
+			//
+			//if (glm::length(direction) > 3.0)
+			//	continue;
 			
-			glm::vec3 direction = targetTransform.position - sourceTransform.position;
-			
-			if (glm::length(direction) > 3.0)
-				continue;
-			
-			glm::vec3 normDirection = glm::normalize(direction);
+			glm::vec3 normDirection = glm::normalize(targetDirection);
 			auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
 			body.velocityX = normDirection.x * chasePlayer.speed;
-			body.velocityY = normDirection.y * chasePlayer.speed;
+			//body.velocityY = normDirection.y * chasePlayer.speed;
 
 		}
 	}

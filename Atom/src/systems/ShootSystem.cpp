@@ -43,28 +43,44 @@ void ShootSystem::update()
 				auto& targetPlayers = ae.mSystemManager->getSystem<ControllerSystem>()->mEntities;
 				if (targetPlayers.size() == 0)
 					return;
-				EntityID target = *targetPlayers.begin();
-				//auto& targetTransform = ae.getComponent<TransformComponent>(target);
-
 
 				auto& autoShoot = ae.getComponent<AutoShootComponent>(entity);
-				shoot.isShooting = true;
 				auto& sourceTransform = ae.getComponent<TransformComponent>(entity);
 
-				//auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
-				auto& targetTransform = ae.getComponent<TransformComponent>(target);
-				glm::vec3 direction = targetTransform.position - sourceTransform.position;
-
-				if (glm::length(direction) > 3.0)
+				EntityID target;
+				float shortestDist = 1.5;
+				glm::vec3 targetDirection;
+				//auto& targetTransform = ae.getComponent<TransformComponent>(target);
+				
+				shoot.isShooting = false;
+				//loop through player characters and find nearest one
+				for (auto itr = targetPlayers.begin(); itr != targetPlayers.end(); ++itr)
 				{
-					shoot.isShooting = false;
-					continue;
+					//auto& targetTransform = ae.getComponent<TransformComponent>(autoShoot.target);
+					auto& targetTransform = ae.getComponent<TransformComponent>(*itr);
+					glm::vec3 direction = targetTransform.position - sourceTransform.position;
+
+					float dist = glm::length(direction);
+
+					if (dist < 1.5 && ae.getComponent<HealthComponent>(*itr).health > 0)
+					{
+						shoot.isShooting = true;
+						if (dist < shortestDist)
+						{
+							shortestDist = dist;
+							target = *itr;
+							targetDirection = direction;
+						}
+					}
+
 				}
 
-
-				glm::vec3 normDirection = glm::normalize(direction);
-				shoot.direction = atan2(normDirection.y, normDirection.x);
-
+				if (shoot.isShooting)
+				{
+					glm::vec3 normDirection = glm::normalize(targetDirection);
+					shoot.direction = atan2(normDirection.y, normDirection.x);
+				}
+				
 			}
 
 			if(shoot.timer > 0)	//cooling down
@@ -81,8 +97,8 @@ void ShootSystem::update()
 					//		+   (idx from up/down * angle * odd->down, even->up)
 					shootDirection += (i + 1) / 2 * PI / 12 * (i % 2 == 1 ? -1 : 1);
 
-					float offsetX = fabs(transform.scale.x) * 1.2;	//may need to store in shoot component
-					float offsetY = fabs(transform.scale.y) * 1.2;	//may need to store in shoot component
+					float offsetX = fabs(transform.scale.x) * 0.5;	//may need to store in shoot component
+					float offsetY = fabs(transform.scale.y) * 0.5;	//may need to store in shoot component
 					float bulletX = transform.position.x + cos(shootDirection) * offsetX;
 					float bulletY = transform.position.y + sin(shootDirection) * offsetY;
 					EntityID bullet = ae.createEntity();
@@ -117,7 +133,7 @@ void ShootSystem::update()
 						 tag = ae.getComponent<TagComponent>(entity).tag;
 					}
 
-					ae.addComponent(bullet, DamageComponent{50, tag});
+					ae.addComponent(bullet, DamageComponent{30, tag});
 
 					ae.addComponent(bullet, SelfDestroyComponent(5));
 					

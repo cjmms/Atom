@@ -89,6 +89,20 @@ void SkillSystem::onEvent(Event& e)
 			shootComponent.shootInterval *= 0.8;
 			break;
 		}
+		case FullHealth:
+		{
+			auto& healthComponent = ae.getComponent<HealthComponent>(playerEntity);
+			healthComponent.died = false;
+			healthComponent.health = healthComponent.totalHealth;
+			break;
+		}
+		case DoubleHealth:
+		{
+			auto& healthComponent = ae.getComponent<HealthComponent>(playerEntity);
+			healthComponent.health = healthComponent.health * 2;
+			healthComponent.totalHealth = healthComponent.totalHealth * 2;
+			break;
+		}
 		default:
 			ATOM_ERROR("Skill : Missing new skill");
 			break;

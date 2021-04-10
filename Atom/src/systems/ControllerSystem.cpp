@@ -80,12 +80,13 @@ void ControllerSystem::update()
 
 	auto& body1 = ae.getComponent<PhysicsBodyComponent>(activeEntity);
 	auto& character1 = ae.getComponent<CharacteristicComponent>(activeEntity);
-	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
-	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
 	auto& controller = ae.getComponent<ControllerComponent>(activeEntity);
-	auto& controller2 = ae.getComponent<ControllerComponent>(inactiveEntity);
 	auto& transformComponent = ae.getComponent<TransformComponent>(activeEntity);
 	auto& health1 = ae.getComponent<HealthComponent>(activeEntity);
+	
+	auto& body2 = ae.getComponent<PhysicsBodyComponent>(inactiveEntity);
+	auto& character2 = ae.getComponent<CharacteristicComponent>(inactiveEntity);
+	auto& controller2 = ae.getComponent<ControllerComponent>(inactiveEntity);
 	auto& health2 = ae.getComponent<HealthComponent>(inactiveEntity);
 
 	//restart game
@@ -119,6 +120,67 @@ void ControllerSystem::update()
 		ae.mCameraManager->setPosition(glm::vec2{ x,y });
 		playerPosition = glm::vec2{ x, y };
 	}
+
+
+
+	{//Mouse
+		{
+			auto& shoot = ae.getComponent<ShootComponent>(activeEntity);
+			if (ae.mInputManager->isKeyPressed(VK_LBUTTON))
+			{
+				//direction
+				std::pair<double, double> curPosition = ae.mInputManager->getCursorPos();
+				//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
+				//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
+
+				int width = ae.mGraphicsManager->GetWindowWidth();
+				int height = ae.mGraphicsManager->GetWindowHeight();;
+
+				//old way of getting direction when camera is fixed
+				//float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
+				//float y = (1 - body.prevPositionY) / 2 * height - curPosition.second;
+
+				//assume main char is always at center
+				float x = curPosition.first - width / 2;
+				float y = height / 2 - curPosition.second;
+				//ATOM_INFO("Width: {}, Height: {}", width, height);
+
+				shoot.direction = atan2(y, x);
+
+				//ATOM_INFO("direction: {}", body.direction);
+
+				shoot.isShooting = true;
+				//playBulletSound();
+			}
+			else
+			{
+				shoot.isShooting = false;
+			}
+		}
+
+		if (ae.mInputManager->isKeyPressed(VK_RBUTTON))
+		{
+			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
+			//ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
+
+			glm::vec2 cameraPos = ae.mCameraManager->getPosition();
+
+			cameraPos.x -= dPosition.first / 200;
+			cameraPos.y += dPosition.second / 200;
+
+			//ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
+			ae.mCameraManager->setPosition(cameraPos);
+
+			//ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
+			shouldFollow = false;
+		}
+		else
+		{
+			shouldFollow = true;
+		}
+	}
+
+
 
 	{//Triggered
 
@@ -237,7 +299,7 @@ void ControllerSystem::update()
 		//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		//}
 
-		if (ae.mInputManager->isKeyTriggered(controller.SWAP_CHARACTER))
+		if (ae.mInputManager->isKeyTriggered(controller.SWAP_CHARACTER) && !health2.died)
 		{
 			ATOM_INFO("SWAP_CHARACTER : {}", activeEntity);
 
@@ -246,9 +308,12 @@ void ControllerSystem::update()
 
 			controller.isActive = FALSE;
 			controllerInactive.isActive = TRUE;
+
+			ae.getComponent<ShootComponent>(activeEntity).isShooting = false;
+			ae.getComponent<ShootComponent>(inactiveEntity).isShooting = false;
 		}
 
-		if (ae.mInputManager->isKeyTriggered(controller.SWAP_POSITION))
+		if (ae.mInputManager->isKeyTriggered(controller.SWAP_POSITION) && !health2.died)
 		{
 			ATOM_INFO("SWAP_POSITION : {}", activeEntity);
 
@@ -283,6 +348,8 @@ void ControllerSystem::update()
 			controller.isActive = FALSE;
 			controllerInactive.isActive = TRUE;
 
+			ae.getComponent<ShootComponent>(activeEntity).isShooting = false;
+			ae.getComponent<ShootComponent>(inactiveEntity).isShooting = false;
 		}
 	}
 
@@ -299,18 +366,18 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				if(body1.grounded)
+				//if(body1.grounded)
 					body1.velocityX = -1;
-				else if(body1.velocityX > -1)
-					body1.totalForceX = -0.1f;
+				//else if(body1.velocityX > -1)
+				//	body1.totalForceX = -0.1f;
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				if (body1.grounded)
+				//if (body1.grounded)
 					body1.velocityX = 1;
-				else if (body1.velocityX < 1)
-					body1.totalForceX = 0.1f;
+				//else if (body1.velocityX < 1)
+				//	body1.totalForceX = 0.1f;
 				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
@@ -338,65 +405,6 @@ void ControllerSystem::update()
 
 	}
 
-
-
-
-	{//Mouse
-		{
-			auto& shoot = ae.getComponent<ShootComponent>(activeEntity);
-			if (ae.mInputManager->isKeyPressed(VK_LBUTTON))
-			{
-				//direction
-				std::pair<double, double> curPosition = ae.mInputManager->getCursorPos();
-				//ATOM_INFO("Cursor Xposition : {}, Yposition : {}", curPosition.first, curPosition.second);
-				//ATOM_INFO("Body Xposition : {}, Yposition : {}", (body.prevPositionX + 1) / 2 * width, (1 - body.prevPositionY) / 2 * height);
-				
-				int width = ae.mGraphicsManager->GetWindowWidth();
-				int height = ae.mGraphicsManager->GetWindowHeight();;
-				
-				//old way of getting direction when camera is fixed
-				//float x = curPosition.first - (body.prevPositionX + 1) / 2 * width;
-				//float y = (1 - body.prevPositionY) / 2 * height - curPosition.second;
-				
-				//assume main char is always at center
-				float x = curPosition.first - width / 2;
-				float y = height / 2 - curPosition.second;
-				//ATOM_INFO("Width: {}, Height: {}", width, height);
-
-				shoot.direction = atan2(y, x);
-
-				//ATOM_INFO("direction: {}", body.direction);
-
-				shoot.isShooting = true;
-				//playBulletSound();
-			}
-			else
-			{
-				shoot.isShooting = false;
-			}
-		}
-
-		if (ae.mInputManager->isKeyPressed(VK_RBUTTON))
-		{
-			std::pair<double, double> dPosition = ae.mInputManager->getCursorPosChange();
-			//ATOM_INFO("Left Mouse Button is pressed, Change in Xposition : {}, Change in Yposition : {}",dPosition.first, dPosition.second);
-
-			glm::vec2 cameraPos = ae.mCameraManager->getPosition();
-
-			cameraPos.x -= dPosition.first / 200;
-			cameraPos.y += dPosition.second / 200;
-
-			//ae.mSystemManager->getSystem<RectangleRenderSystem>()->setCameraPos(cameraPos);
-			ae.mCameraManager->setPosition(cameraPos);
-
-			//ATOM_INFO("Camera Position x : {} , y : {}", cameraPos.x, cameraPos.y);
-			shouldFollow = false;
-		}
-		else
-		{
-			shouldFollow = true;
-		}
-	}
 
 
 
