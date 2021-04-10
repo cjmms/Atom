@@ -146,6 +146,17 @@ void shutdown() {
     Log::shutdown();
 }
 
+void printScore() {
+    char displayString[MAX_TITLE_LEN];
+    //fps = ae.getFPS();
+    if (ae.mIsDebugMode) {
+        //ImGui::SliderFloat("FPS : ", &fps, FLT_MIN, FLT_MAX);
+        snprintf(displayString, MAX_TITLE_LEN, "SCORE : %d", 10);
+        ae.mUIManager->drawText(5, 5, "LEVEL : 1");
+        ae.mUIManager->drawText(5, 15, displayString);
+    }
+}
+
 
 #ifdef DEBUG
 int main(int argc, char** argv){
@@ -156,6 +167,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     start();
+    ae.mUIManager->addUIPainter(printScore);
 
     while (ae.mIsRunning) {
         glfwpoll();      

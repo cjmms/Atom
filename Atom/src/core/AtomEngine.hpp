@@ -85,6 +85,7 @@ public:
 
 		mIsRunning = true;
 		mIsPaused = false;
+		mIsDebugMode = false;
 
 		// TODO : move all this registration and init code into level manager 
 
@@ -526,6 +527,7 @@ public:
 	double dt;
 	bool mIsRunning;
 	bool mIsPaused;
+	bool mIsDebugMode;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;

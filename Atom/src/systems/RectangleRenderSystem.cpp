@@ -79,6 +79,7 @@ void RectangleRenderSystem::update() {
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
 		DebugMode = !DebugMode;
+		ae.mIsDebugMode = DebugMode;
 	}
 
 	// draw Background 
