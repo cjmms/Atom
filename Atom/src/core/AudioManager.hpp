@@ -13,6 +13,25 @@
 #include "core/Event.hpp"
 #include "utils/Log.hpp"
 
+static string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
+static string sfxTrack = "Atom/res/audio/optimus_speech.ogg";
+static string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
+static string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
+static string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
+static ChannelID musicChannelID = -1;
+static ChannelID sfxChannelID = -1;
+static ChannelID dialogChannelID = -1;
+static float musicVolumedB = 0.2f;
+static float sfxVolumedB = 0.3f;
+static float dialogVolumedB = 0.0f;
+static float listenerXOffset = 0.0f;
+static float listenerYOffset = 0.0f;
+static float listenerOffset[] = { 0.0f,0.0f };
+static FMOD_VECTOR listener_position{ 0.0f,0.0f,0.0f };
+static FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
+static FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
+static float listener_step = 0.1f;
+
 inline int FMOD_ERROR(FMOD_RESULT res) {
 	if (res != FMOD_OK) {
 		ATOM_ERROR("FMOD : {}", FMOD_ErrorString(res));
