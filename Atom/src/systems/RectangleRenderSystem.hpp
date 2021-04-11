@@ -12,7 +12,7 @@
 #include "core/Event.hpp"
 #include "core/System.hpp"
 
-#include "systems/ParticleEffect/ParticleEffect.hpp"
+//#include "systems/ParticleEffect/ParticleEffect.hpp"
 
 class RectangleRenderSystem : public System {
 public:
@@ -34,7 +34,7 @@ public:
 	void drawKeyFrame(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, bool wireframe =false) const;
 	void drawAnimation(glm::vec2 pos, glm::vec2 scale, std::string name, std::string type, int n, float &timer, bool wireframe=false) const;
 
-
+	bool DebugMode;
 
 private:
 	std::unique_ptr<Shader> ColorRecShader;
@@ -46,6 +46,6 @@ private:
 	float VampireTimer;
 	float laternTimer;
 
-	ParticleEffect* particleEffect;
+	//ParticleEffect* particleEffect;
 };
 

@@ -21,5 +21,6 @@
 #include "components/LevelTriggerComponent.hpp"
 #include "components/FadeComponent.hpp"
 #include "components/PushUpComponent.hpp"
+#include "components/ParticleComponent.hpp"
 
 #endif 

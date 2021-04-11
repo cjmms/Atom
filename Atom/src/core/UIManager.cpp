@@ -41,7 +41,7 @@ void UIManager::drawText(int x, int y, const char* string){
     p.y = float(y);
     ImGui::Begin("OVERLAY", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoScrollbar);
     ImGui::SetCursorPos(p);
-    ImGui::TextColored(ImColor(255, 255, 255, 255), "%s", string);
+    ImGui::Text("%s", string);
     ImGui::End();
 }
 
