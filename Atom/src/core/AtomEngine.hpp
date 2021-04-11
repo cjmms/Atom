@@ -37,7 +37,6 @@
 #include "systems/HealthRenderSystem.hpp"
 #include "systems/HealthSystem.hpp"
 #include "systems/ChaseSystem.hpp"
-#include "systems/RenderTextSystem.hpp"
 #include "systems/SkillSystem.hpp"
 #include "systems/AutoMovementSystem.hpp"
 #include "systems/SelfDestroySystem.hpp"
@@ -123,7 +122,6 @@ public:
 		registerSystem<PhysicsSystem>();
 		registerSystem<RectangleRenderSystem>();
 		registerSystem<HealthRenderSystem>();
-		registerSystem<RenderTextSystem>();
 		registerSystem<SelfDestroySystem>();
 		registerSystem<ParticleSystem>();
 

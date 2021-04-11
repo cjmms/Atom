@@ -2028,9 +2028,6 @@
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp">
-      <Filter>src\systems</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp">
       <Filter>src\systems</Filter>
     </ClInclude>
@@ -2156,9 +2153,6 @@
       <Filter>src\systems</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp">
-      <Filter>src\systems</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp">
       <Filter>src\systems</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp">

@@ -714,7 +714,6 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PushUpSystem.hpp" />
     <ClInclude Include="Atom\src\systems\RectangleRenderSystem.hpp" />
-    <ClInclude Include="Atom\src\systems\RenderTextSystem.hpp" />
     <ClInclude Include="Atom\src\systems\SelfDestroySystem.hpp" />
     <ClInclude Include="Atom\src\systems\ShootSystem.hpp" />
     <ClInclude Include="Atom\src\systems\SkillSystem.hpp" />
@@ -761,7 +760,6 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PushUpSystem.cpp" />
     <ClCompile Include="Atom\src\systems\RectangleRenderSystem.cpp" />
-    <ClCompile Include="Atom\src\systems\RenderTextSystem.cpp" />
     <ClCompile Include="Atom\src\systems\SelfDestroySystem.cpp" />
     <ClCompile Include="Atom\src\systems\ShootSystem.cpp" />
     <ClCompile Include="Atom\src\systems\SkillSystem.cpp" />
