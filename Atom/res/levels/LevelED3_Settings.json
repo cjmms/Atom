@@ -1,5 +1,5 @@
 {
-  "Map": "Atom/res/levels/Level9_Map.json",
+  "Map": "Atom/res/levels/LevelED3_Map.json",
 
   "Logo": {
     "EntityID": 0,
@@ -18,8 +18,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 12,
-        "y": 9,
+        "x": 8,
+        "y": 8,
         "z": 1.0
       }
     },
@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/created_at_digipen.png"
+      "texturePath": "Atom/res/art/faculty.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"

@@ -77,6 +77,7 @@ using SoundID = unsigned int;
 enum ChannelGroupTypes {
 	C_SFX,
 	C_MUSIC,
+	C_DIALOGUE,
 	C_TOTAL
 };
 

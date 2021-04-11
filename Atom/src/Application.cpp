@@ -96,8 +96,10 @@ string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 
-float musicVolumedB = 0.0f;
-float sfxVolumedB = 0.1f;
+float musicVolumedB = 0.2f;
+float sfxVolumedB = 0.3f;
+float dialogVolumedB = 0.0f;
+
 float listenerXOffset = 0.0f;
 float listenerYOffset = 0.0f;
 float listenerOffset[] = { 0.0f,0.0f };
@@ -122,7 +124,7 @@ void start() {
 #endif
 
     ae.init();                              // initialize engine
-    ae.setMaxFPS(60);                       // set the fps
+    ae.setMaxFPS(120);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
 
     ae.loadSound(musicTrack);
@@ -133,8 +135,8 @@ void start() {
 
     ae.mLevelManager->startGame();
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB);
+    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_DIALOGUE, 0.0f);
 
 }
 
@@ -178,21 +180,3 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     shutdown();
     return 0;
 }
-
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
-//
-//    // Setup memory leak dump 
-//    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-//
-//    start();
-//
-//    while (ae.mIsRunning) {
-//        glfwpoll();
-//        ae.update();
-//        fpsCounter();
-//    }
-//
-//    shutdown();
-//    return 0;
-//}
-

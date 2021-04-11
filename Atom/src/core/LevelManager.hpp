@@ -18,6 +18,8 @@ public:
 
 	void save();
 
+	void loadDefaultFile();
+
 	inline void restartWholeGame() { restartGame = true; }
 
 	inline void restartCurrentLevel() { restartLevel = true; }
@@ -42,6 +44,7 @@ private:
 	bool enterPreviousLevel = false;
 	
 	int level = 0;
+	std::vector<string> levelPaths;
 
 	//from map json, -1: no timer, >0: enter next level after the time
 	double levelTime;	

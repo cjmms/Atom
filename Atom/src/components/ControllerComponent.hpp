@@ -4,21 +4,21 @@
 #include "GLFW/glfw3.h"
 #include "utils/Serde.hpp"
 #include "core/Types.hpp"
-#include "utils/AtomScancode.hpp"
+#include "utils/AtomKeycode.hpp"
 
 
 class ControllerComponent {
 public:
-    AtomScancode UP;
-    AtomScancode DOWN;
-    AtomScancode LEFT;
-    AtomScancode RIGHT;
-    AtomScancode SWAP_POSITION;
-    AtomScancode SWAP_CHARACTER;
-    AtomScancode GOD_MODE;
-    AtomScancode SUPER_GOD_MODE;
-    AtomScancode NEXT_LEVEL;
-    AtomScancode PREV_LEVEL;
+    AtomKeycode UP;
+    AtomKeycode DOWN;
+    AtomKeycode LEFT;
+    AtomKeycode RIGHT;
+    AtomKeycode SWAP_POSITION;
+    AtomKeycode SWAP_CHARACTER;
+    AtomKeycode GOD_MODE;
+    AtomKeycode SUPER_GOD_MODE;
+    AtomKeycode NEXT_LEVEL;
+    AtomKeycode PREV_LEVEL;
     int ROTLEFT = GLFW_KEY_C;
     int ROTRIGHT = GLFW_KEY_V;
 

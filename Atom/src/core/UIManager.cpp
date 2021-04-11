@@ -9,6 +9,7 @@ extern AtomEngine ae;
 
 extern float musicVolumedB;
 extern float sfxVolumedB;
+extern float dialogVolumedB;
 extern float listenerOffset[];
 
 
@@ -101,7 +102,9 @@ void UIManager::showMenu(){
 
     // Audio UI setup
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat("SPEECH VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+    ImGui::SliderFloat("SFX VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+    ImGui::SliderFloat("SPEECH VOLUME", &dialogVolumedB, 0.0f, 1.0f);
+
     ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
     ae.setVolume(musicChannelID, musicVolumedB);
