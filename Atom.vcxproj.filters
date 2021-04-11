@@ -3038,6 +3038,10 @@
     <None Include="Atom\res\levels\LevelA8_Settings.json" />
     <None Include="Atom\res\levels\LevelA9_Settings.json" />
     <None Include="Atom\res\levels\LevelA9_Map.json" />
+    <None Include="Atom\res\levels\LevelA10_Map.json" />
+    <None Include="Atom\res\levels\LevelA10_Settings.json" />
+    <None Include="Atom\res\levels\LevelA11_Settings.json" />
+    <None Include="Atom\res\levels\LevelA11_Map.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">
