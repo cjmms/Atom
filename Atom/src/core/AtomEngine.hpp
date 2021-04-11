@@ -41,6 +41,7 @@
 #include "systems/SkillSystem.hpp"
 #include "systems/AutoMovementSystem.hpp"
 #include "systems/SelfDestroySystem.hpp"
+#include "systems/ParticleSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -108,6 +109,7 @@ public:
 		registerComponent<SelfDestroyComponent>();
 		registerComponent<LevelTriggerComponent>();
 		registerComponent<FadeComponent>();
+		registerComponent<ParticleComponent>();
 
 		// register all systems
 		registerSystem<TransformSystem>();
@@ -123,6 +125,7 @@ public:
 		registerSystem<HealthRenderSystem>();
 		registerSystem<RenderTextSystem>();
 		registerSystem<SelfDestroySystem>();
+		registerSystem<ParticleSystem>();
 
 
 		// set archetypes
@@ -187,6 +190,11 @@ public:
 			Archetype typeSelfDestroy;
 			typeSelfDestroy.set(getComponentType<SelfDestroyComponent>());
 			setSystemArchetype<SelfDestroySystem>(typeSelfDestroy);
+
+			Archetype typeParticle;
+			typeParticle.set(getComponentType<TransformComponent>());
+			typeParticle.set(getComponentType<ParticleComponent>());
+			setSystemArchetype<ParticleSystem>(typeParticle);
 
 		}
 		// reinit systems because archetypes changed 
@@ -441,6 +449,7 @@ public:
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
+		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -471,6 +480,7 @@ public:
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
+		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 	}
 
 	inline float random() {

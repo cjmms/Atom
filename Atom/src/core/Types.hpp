@@ -47,6 +47,26 @@ enum SkillType
 };
 
 
+// PARTICLES
+enum ParticleEffectType {
+	PE_CIRCLE,
+	PE_LINEAR
+};
+
+struct CircleParticleEffect {
+public:
+	int numParticles;
+	float scale;
+	glm::vec2 time;
+};
+
+
+struct LinearParticleEffect {
+public:
+
+};
+
+
 // PHYSICS
 enum ShapeType {
 	AABB,

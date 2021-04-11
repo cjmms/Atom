@@ -66,6 +66,9 @@
       },
       "CharacteristicComponent": {
         "isBig": false
+      },
+      "ParticleComponent": {
+
       }
     },
     {
