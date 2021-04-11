@@ -83,31 +83,23 @@ void fpsCounter() {
 #endif
 }
 
-
-
-
-string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
-string sfxTrack = "Atom/res/audio/optimus_speech.ogg";
-
-string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
-string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
-string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
-
-ChannelID musicChannelID = -1;
-ChannelID sfxChannelID = -1;
-
-float musicVolumedB = 0.2f;
-float sfxVolumedB = 0.3f;
-float dialogVolumedB = 0.0f;
-
-float listenerXOffset = 0.0f;
-float listenerYOffset = 0.0f;
-float listenerOffset[] = { 0.0f,0.0f };
-
-FMOD_VECTOR listener_position{ 0.0f,0.0f,0.0f };
-FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
-FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
-float listener_step = 0.1f;
+extern string musicTrack;
+extern string sfxTrack;
+extern string sfxJump;
+extern string sfxLand;
+extern string sfxBullet;
+extern ChannelID musicChannelID;
+extern ChannelID sfxChannelID;
+extern float musicVolumedB;
+extern float sfxVolumedB;
+extern float dialogVolumedB;
+extern float listenerXOffset;
+extern float listenerYOffset;
+extern float listenerOffset[];
+extern FMOD_VECTOR listener_position;
+extern FMOD_VECTOR listener_fwd;
+extern FMOD_VECTOR listener_up;
+extern float listener_step;
 
 
 void glfwpoll() {

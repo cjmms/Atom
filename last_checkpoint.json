@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 3,
+            "EntityID": 0,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -24,9 +24,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
                 },
                 "wireframe": false,
                 "texturePath": "Atom/res/art/black.png"
@@ -47,7 +47,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 4,
+            "EntityID": 1,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -57,7 +57,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 8.632730018039251e-39,
+                    "y": 1.3683627656088659e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -89,14 +89,14 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 5,
+            "EntityID": 2,
             "TagComponent": {
-                "tag": "logo2"
+                "tag": "logo"
             },
             "TransformComponent": {
                 "position": {
                     "x": -0.0625,
-                    "y": 0.0625,
+                    "y": -0.0625,
                     "z": 0.0
                 },
                 "rotation": {
@@ -105,8 +105,8 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 2.0,
-                    "y": 0.5,
+                    "x": 1.5,
+                    "y": 0.375,
                     "z": 0.0
                 }
             },
@@ -117,7 +117,7 @@
                     "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/art/game_logo.png"
+                "texturePath": "Atom/res/art/digipen_logo.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
