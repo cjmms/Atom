@@ -37,7 +37,7 @@ private:
 	bool screenByPass();
 
 
-private:
+public:
 	bool restartGame = false;
 	bool restartLevel = false;
 	bool enterNextLevel = false;
@@ -51,7 +51,6 @@ private:
 	double levelStartTime;
 
 
-public:
 	float level_alpha = 1.0f;
 	float level_alpha_end = 0.0f;
 	float fade_out_timer = 0.0f;

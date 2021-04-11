@@ -70,9 +70,11 @@ void setConsoleTitle(const char* title) {
 }
 
 
+
+
+char title[MAX_TITLE_LEN];
 // performance data
 void fpsCounter() {
-    char title[MAX_TITLE_LEN];
     snprintf(title, MAX_TITLE_LEN, "FPS: %f", ae.getFPS());
 #ifdef _WIN64
     #ifdef DEBUG
@@ -139,15 +141,15 @@ void shutdown() {
     ae.shutdown();
     Log::shutdown();
 }
+int totaltime = 0;
 
 void printScore() {
-    char displayString[MAX_TITLE_LEN];
-    //fps = ae.getFPS();
     if (ae.mIsDebugMode) {
-        //ImGui::SliderFloat("FPS : ", &fps, FLT_MIN, FLT_MAX);
-        snprintf(displayString, MAX_TITLE_LEN, "SCORE : %d", 10);
-        ae.mUIManager->drawText(5, 5, "LEVEL : 1");
-        ae.mUIManager->drawText(5, 15, displayString);
+        ae.mUIManager->drawText(5, 5, title);
+    }
+    if (ae.mLevelManager->level > 1) {
+        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level)).c_str());
+        ae.mUIManager->drawText(5, 25, (string("TIME ELAPSED : ") + std::to_string(ae.getUptime() - ae.mLevelManager->levelStartTime) + string("s")).c_str());
     }
 }
 
