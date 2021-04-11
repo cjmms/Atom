@@ -10,14 +10,14 @@
 
 extern AtomEngine ae;
 
-extern ChannelID sfxChannelID;
-
 extern string sfxJump;
 extern string sfxLand;
 extern string sfxBullet;
 
+extern float sfxVolumedB;
+
 void playBulletSound() {
-	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
+	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, sfxVolumedB);
 }
 
 void ShootSystem::init()

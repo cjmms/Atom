@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 766,
+            "EntityID": 3,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -24,9 +24,9 @@
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
                 },
                 "wireframe": false,
                 "texturePath": "Atom/res/art/black.png"
@@ -47,7 +47,7 @@
             "LevelTriggerComponent": null
         },
         {
-            "EntityID": 767,
+            "EntityID": 4,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -56,9 +56,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 1.401298464324817e-45,
-                    "z": 2.802596928649634e-45
+                    "x": 4.591074158667398e-41,
+                    "y": 8.632730018039251e-39,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 12.5,
@@ -77,6 +77,52 @@
                 "frictionless": false,
                 "gravity": 0.0
             },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null
+        },
+        {
+            "EntityID": 5,
+            "TagComponent": {
+                "tag": "logo2"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.0625,
+                    "y": 0.0625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 2.0,
+                    "y": 0.5,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/art/game_logo.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,

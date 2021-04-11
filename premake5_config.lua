@@ -102,6 +102,15 @@ project "Atom"
 			-- multiprocessor compile switch enable 
 			"/MP"
 		}
+
+		filter "configurations:Debug"
+			linkoptions {
+				"/SUBSYSTEM:CONSOLE"
+			}
+		filter "configurations:Release"
+			linkoptions {
+				"/SUBSYSTEM:WINDOWS"
+			}
 	end
 
 	filter "configurations:Debug"

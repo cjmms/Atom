@@ -22,7 +22,7 @@ void RectangleRenderSystem::init() {
 	DebugMode = false;
 
 	// Background image
-	//setBackground("Atom/res/art/level_01_background.png");
+	setBackground("Atom/res/art/level_01_background.png");
 	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
@@ -77,8 +77,9 @@ void RectangleRenderSystem::update() {
 
 	
 
-	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
+	if (ae.mInputManager->isKeyTriggered(ATOM_KEYCODE_T)) {
 		DebugMode = !DebugMode;
+		ae.mIsDebugMode = DebugMode;
 	}
 
 	// draw Background 
