@@ -58,7 +58,10 @@
       },
       "ShootComponent": {
         "shootInterval": 0.2,
-        "bulletPerShoot": 1
+        "bulletPerShoot": 1,
+        "bulletTexturePath": "Atom/res/art/CharacterBullet.png",
+        "bulletSpeed": 1.0,
+        "bulletScale": 0.03
       },
       "HealthComponent": {
         "health": 100,
@@ -126,7 +129,10 @@
       },
       "ShootComponent": {
         "shootInterval": 0.8,
-        "bulletPerShoot": 3
+        "bulletPerShoot": 3,
+        "bulletTexturePath": "Atom/res/art/CharacterBullet2.png",
+        "bulletSpeed": 1.0,
+        "bulletScale": 0.06
       },
       "HealthComponent": {
         "health": 1000,
