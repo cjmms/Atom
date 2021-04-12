@@ -13,7 +13,6 @@
 #include "components/DamageComponent.hpp"
 #include "components/AutoShootComponent.hpp"
 #include "components/ChasePlayerComponent.hpp"
-#include "components/RenderTextComponent.hpp"
 #include "components/SkillBoosterComponent.hpp"
 #include "components/BulletComponent.hpp"
 #include "components/AutoMovementComponent.hpp"
@@ -22,5 +21,6 @@
 #include "components/FadeComponent.hpp"
 #include "components/PushUpComponent.hpp"
 #include "components/ParticleComponent.hpp"
+#include "components/AnimationComponent.hpp"
 
 #endif 

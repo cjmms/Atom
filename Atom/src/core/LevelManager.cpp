@@ -19,7 +19,7 @@ void LevelManager::init()
 
 float LevelManager::lerp10(float a, float b, float t, float lo, float hi) {
 	if (lo == hi) {
-		return a;
+		return b;
 	}
 	t = (t - lo) / (hi - lo);
 	float res = b * (1 - t) + a * (t);

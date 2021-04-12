@@ -1,7 +1,71 @@
 {
     "Entities": [
         {
-            "EntityID": 95,
+            "EntityID": 181,
+            "TagComponent": {
+                "tag": "enemy"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": 6.375,
+                    "y": -1.15625,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 0.1875,
+                    "y": 0.1875,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "z": 0.5
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/art/PlatformEnemy.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": {
+                "mass": 2.0,
+                "staticBody": false,
+                "isTrigger": false,
+                "frictionless": false,
+                "gravity": 1.0
+            },
+            "ControllerComponent": null,
+            "ShootComponent": {
+                "shootInterval": 1.0,
+                "bulletPerShoot": 1
+            },
+            "HealthComponent": {
+                "health": 200,
+                "totalHealth": 200
+            },
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "AutoMovementComponent": {
+                "velocityX": 0.0,
+                "velocityY": 0.0,
+                "tripTime": 4.0
+            },
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null,
+            "ParticleComponent": null,
+            "AnimationComponent": null
+        },
+        {
+            "EntityID": 182,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -49,10 +113,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 96,
+            "EntityID": 183,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -96,10 +161,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 97,
+            "EntityID": 184,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -143,10 +209,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 98,
+            "EntityID": 185,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -190,10 +257,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 99,
+            "EntityID": 186,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -237,10 +305,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 100,
+            "EntityID": 187,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -284,10 +353,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 101,
+            "EntityID": 188,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -297,7 +367,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -327,10 +397,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 102,
+            "EntityID": 189,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -376,7 +447,7 @@
                 "bulletPerShoot": 1
             },
             "HealthComponent": {
-                "health": 150,
+                "health": 200,
                 "totalHealth": 200
             },
             "AutoShootComponent": null,
@@ -390,10 +461,11 @@
             },
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 103,
+            "EntityID": 190,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -437,10 +509,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 104,
+            "EntityID": 191,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -484,10 +557,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 105,
+            "EntityID": 192,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -531,10 +605,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 106,
+            "EntityID": 193,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -578,10 +653,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 107,
+            "EntityID": 194,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -625,10 +701,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 108,
+            "EntityID": 195,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -638,7 +715,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -668,10 +745,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 109,
+            "EntityID": 196,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -715,10 +793,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 110,
+            "EntityID": 197,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -762,10 +841,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 111,
+            "EntityID": 198,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -809,10 +889,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 112,
+            "EntityID": 199,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -856,10 +937,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 113,
+            "EntityID": 200,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -903,10 +985,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 114,
+            "EntityID": 201,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -916,7 +999,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -946,10 +1029,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 115,
+            "EntityID": 202,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -993,10 +1077,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 116,
+            "EntityID": 203,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1040,10 +1125,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 117,
+            "EntityID": 204,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1087,10 +1173,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 118,
+            "EntityID": 205,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1134,10 +1221,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 119,
+            "EntityID": 206,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1181,10 +1269,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 120,
+            "EntityID": 207,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1228,10 +1317,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 121,
+            "EntityID": 208,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1241,7 +1331,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -1271,10 +1361,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 122,
+            "EntityID": 209,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1318,10 +1409,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 123,
+            "EntityID": 210,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1365,10 +1457,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 124,
+            "EntityID": 211,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1378,7 +1471,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -1408,14 +1501,15 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 125,
+            "EntityID": 212,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 3.375,
+                    "x": 4.4750494956970215,
                     "y": -1.875,
                     "z": 0.0
                 },
@@ -1463,10 +1557,11 @@
             },
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 126,
+            "EntityID": 213,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1510,10 +1605,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 127,
+            "EntityID": 214,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1557,10 +1653,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 128,
+            "EntityID": 215,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1604,10 +1701,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 129,
+            "EntityID": 216,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1651,10 +1749,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 130,
+            "EntityID": 217,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1698,10 +1797,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 131,
+            "EntityID": 218,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1711,7 +1811,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -1741,10 +1841,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 132,
+            "EntityID": 219,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1788,10 +1889,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 133,
+            "EntityID": 220,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1801,7 +1903,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -1831,10 +1933,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 134,
+            "EntityID": 221,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -1894,10 +1997,11 @@
             },
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 135,
+            "EntityID": 222,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -1957,10 +2061,11 @@
             },
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 136,
+            "EntityID": 223,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2004,10 +2109,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 137,
+            "EntityID": 224,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2017,7 +2123,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -2047,10 +2153,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 138,
+            "EntityID": 225,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2094,10 +2201,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 139,
+            "EntityID": 226,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2141,10 +2249,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 140,
+            "EntityID": 227,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2154,7 +2263,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -2184,10 +2293,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 141,
+            "EntityID": 228,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2231,10 +2341,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 142,
+            "EntityID": 229,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2278,10 +2389,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 143,
+            "EntityID": 230,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2325,10 +2437,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 144,
+            "EntityID": 231,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2372,10 +2485,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 145,
+            "EntityID": 232,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2385,7 +2499,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -2415,10 +2529,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 146,
+            "EntityID": 233,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2462,10 +2577,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 147,
+            "EntityID": 234,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2509,10 +2625,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 148,
+            "EntityID": 235,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2556,10 +2673,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 149,
+            "EntityID": 236,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2603,10 +2721,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 150,
+            "EntityID": 237,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2650,10 +2769,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 151,
+            "EntityID": 238,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2697,10 +2817,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 152,
+            "EntityID": 239,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2744,10 +2865,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 153,
+            "EntityID": 240,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2757,7 +2879,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -2787,10 +2909,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 154,
+            "EntityID": 241,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2834,10 +2957,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 155,
+            "EntityID": 242,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2881,10 +3005,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 156,
+            "EntityID": 243,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2928,10 +3053,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 157,
+            "EntityID": 244,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2975,10 +3101,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 158,
+            "EntityID": 245,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3022,10 +3149,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 159,
+            "EntityID": 246,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3069,10 +3197,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 160,
+            "EntityID": 247,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3116,10 +3245,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 161,
+            "EntityID": 248,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3129,7 +3259,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 4.3714817209975277e-38,
+                    "y": 1.3775394488621898e-39,
                     "z": 0.0
                 },
                 "scale": {
@@ -3159,16 +3289,17 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 162,
+            "EntityID": 249,
             "TagComponent": {
                 "tag": "player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 7.189511299133301,
+                    "x": -0.5,
                     "y": -1.2000000476837158,
                     "z": 1.0
                 },
@@ -3200,7 +3331,7 @@
                 "staticBody": false,
                 "isTrigger": false,
                 "frictionless": false,
-                "gravity": 0.0
+                "gravity": 9.8100004196167
             },
             "ControllerComponent": {
                 "UP": "ATOM_KEYCODE_W",
@@ -3234,10 +3365,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 163,
+            "EntityID": 250,
             "TagComponent": {
                 "tag": "player"
             },
@@ -3309,10 +3441,11 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 164,
+            "EntityID": 251,
             "TagComponent": {
                 "tag": "DeadZone"
             },
@@ -3362,15 +3495,16 @@
             "AutoMovementComponent": null,
             "SelfDestroyComponent": null,
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 215,
+            "EntityID": 257,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.23024320602417,
-                    "y": -1.6424921751022339,
+                    "x": 0.8159272074699402,
+                    "y": -1.729835033416748,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3415,68 +3549,16 @@
                 "timeLimit": 5.0
             },
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         },
         {
-            "EntityID": 222,
+            "EntityID": 258,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 8.378710746765137,
-                    "y": -1.2733213901519775,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 223,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 4.281698703765869,
-                    "y": 0.8114599585533142,
+                    "x": 1.0483556985855103,
+                    "y": -1.9896612167358398,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3521,484 +3603,8 @@
                 "timeLimit": 5.0
             },
             "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 224,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.37969970703125,
-                    "y": -1.0446466207504272,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 225,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.380690574645996,
-                    "y": -0.8492846488952637,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 226,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.38167953491211,
-                    "y": -0.8289445638656616,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 227,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.382669448852539,
-                    "y": -0.8086044788360596,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 228,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.383661270141602,
-                    "y": -0.9549323320388794,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 229,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 7.472904682159424,
-                    "y": -0.1023375540971756,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 230,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.384651184082031,
-                    "y": -1.1429364681243896,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 231,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.385642051696777,
-                    "y": -1.3312245607376099,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
-        },
-        {
-            "EntityID": 232,
-            "TagComponent": null,
-            "TransformComponent": {
-                "position": {
-                    "x": 8.386632919311523,
-                    "y": -1.3272496461868286,
-                    "z": 0.0
-                },
-                "rotation": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
-                },
-                "scale": {
-                    "x": 0.009999999776482582,
-                    "y": 0.009999999776482582,
-                    "z": 1.0
-                }
-            },
-            "RectangleComponent": {
-                "color": {
-                    "x": 1.0,
-                    "y": 1.0,
-                    "z": 1.0
-                },
-                "wireframe": false,
-                "texturePath": ""
-            },
-            "ShapeComponent": {
-                "shapeType": "AABB"
-            },
-            "PhysicsBodyComponent": {
-                "mass": 0.009999999776482582,
-                "staticBody": false,
-                "isTrigger": true,
-                "frictionless": true,
-                "gravity": 0.0
-            },
-            "ControllerComponent": null,
-            "ShootComponent": null,
-            "HealthComponent": null,
-            "AutoShootComponent": null,
-            "ChasePlayerComponent": null,
-            "CharacteristicComponent": null,
-            "SkillBoosterComponent": null,
-            "AutoMovementComponent": null,
-            "SelfDestroyComponent": {
-                "timeLimit": 5.0
-            },
-            "LevelTriggerComponent": null,
-            "ParticleComponent": null
+            "ParticleComponent": null,
+            "AnimationComponent": null
         }
     ]
 }

@@ -1,24 +1,7 @@
 {
-  "mapname": "Level_Default.json",
-  "tilesize_x": 50,
-  "tilesize_y": 50,
-  "levels": [
-    "LevelOP1_Settings.json",
-    "LevelOP2_Settings.json",
-    "LevelMenu_Settings.json",
-    "Level2_Settings.json",
-    "Level3_Settings.json",
-    "Level4_Settings.json",
-    "Level5_Settings.json",
-    "LevelED1_Settings.json",
-    "LevelED2_Settings.json",
-    "LevelED3_Settings.json",
-    "LevelED4_Settings.json",
-    "LevelED5_Settings.json",
-    "LevelED6_Settings.json"
-  ],
-  
-    "1": {
+  "Map": "Atom/res/levels/Level2_Map.json",
+  "characters": "Atom/res/levels/characters.json",
+  "1": {
     "EntityID": 0,
     "TagComponent": {
       "tag": "wall"

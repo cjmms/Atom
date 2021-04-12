@@ -153,6 +153,13 @@ void printScore() {
     }
 }
 
+void showGameMenu() {
+    // now we are in menu
+    if (ae.mLevelManager->level == 2) {
+        ImGui::Button
+    }
+}
+
 
 #ifdef DEBUG
 int main(int argc, char** argv){

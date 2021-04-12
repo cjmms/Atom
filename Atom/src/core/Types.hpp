@@ -88,6 +88,18 @@ public:
 	std::vector<std::vector<Gridnode>> cells;
 };
 
+// ANIMATION AND STATES
+enum PlayerStates {
+	PS_IDLE,
+	PS_RUN,
+	PS_JUMP,
+	PS_ATTACK,
+	PS_DEFEND,
+	PS_DEAD,
+	PS_TOTAL
+};
+
+
 // AUDIO
 using ChannelMap = std::map<unsigned int, FMOD::Channel*>;
 using SoundMap = std::map<string, FMOD::Sound*>;
@@ -171,6 +183,9 @@ enum EventID {
 		P_TRIGGER_ENTITYID2,
 	//E_SELF_DESTROY,
 	//	P_SELF_DESTROY_ENTITYID,
+	// ANIMATION EVENTS
+	E_ANIMATION,
+		P_ANIMATION_STATE,
 	EP_TOTAL
 
 };
