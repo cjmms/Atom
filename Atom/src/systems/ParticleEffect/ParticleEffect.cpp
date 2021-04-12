@@ -60,7 +60,7 @@ void ParticleEffect::Init()
 
 
 
-void ParticleEffect::Draw()
+void ParticleEffect::Draw(glm::vec2& position)
 {
 	time_point<steady_clock> now = steady_clock::now();
 	float time = duration_cast<duration<float>>(now - lastFrameTime).count();
@@ -68,7 +68,7 @@ void ParticleEffect::Draw()
 	//std::cout << "total time: " << duration_cast<duration<float>>(now - start).count() << std::endl;
 	ComputeShader.SetFloat("time", time);
 	ComputeShader.SetFloat("seed", rand() % 100 + 1); // random seed from 1 to 100
-	ComputeShader.SetVec2("spawnCenter", spawnCenter);
+	ComputeShader.SetVec2("spawnCenter", position);
 
 	// Invoke Compute Shader and wait for all memory access to SSBO to safely finish
 	ComputeShader.Bind();

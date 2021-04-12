@@ -19,10 +19,19 @@ public:
 	// a = low_out, b = hi_out, t(0) = b, t(1) = a, 
 	float lerp10(float a, float b, float t, float lo, float hi) {
 		if (lo == hi) {
-			return a;
+			return b;
 		}
 		t = (t - lo) / (hi - lo);
 		float res = b * (1 - t) + a * (t);
+		return res;
+	}
+	// a = low_out, b = hi_out, t(0) = a, t(1) = b, 
+	float lerp01(float a, float b, float t, float lo, float hi) {
+		if (lo == hi) {
+			return a;
+		}
+		t = (t - lo) / (hi - lo);
+		float res = a * (1 - t) + b * (t);
 		return res;
 	}
 };

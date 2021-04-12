@@ -67,14 +67,13 @@ void HealthRenderSystem::drawEntities()
 
 		auto& h = ae.getComponent<HealthComponent>(entity);
 		auto& t = ae.getComponent<TransformComponent>(entity);
-		float alpha = ae.mLevelManager->level_alpha;
 
 		glm::vec2 position = glm::vec2(t.position.x + h.offsetX,t.position.y + h.offsetY + t.scale.y/2.0f);
 		glm::vec2 size = glm::vec2(h.width * h.health / h.totalHealth, h.height);
 
-		draw(position, glm::vec2{h.width, h.height}, whiteColor,alpha);
+		draw(position, glm::vec2{h.width, h.height}, whiteColor, false, ae.mLevelManager->level_alpha);
 		float offsetX = (h.width - size.x) / 2.0;
-		draw(glm::vec2{position.x-offsetX,position.y}, size, redColor,alpha);
+		draw(glm::vec2{position.x-offsetX,position.y}, size, redColor, false, ae.mLevelManager->level_alpha);
 
 	}
 }
@@ -83,7 +82,7 @@ void HealthRenderSystem::draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, b
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-	ColorRecShader->SetInt("wireframe", false);
+	ColorRecShader->SetInt("wireframe", wireframe);
 
 	ColorRecShader->SetFloat("alpha", alpha);
 	ColorRecShader->SetVec2("pos", pos);
