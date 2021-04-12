@@ -394,6 +394,18 @@ void LevelManager::loadCharacters(string charloc)
 	}
 }
 
+bool LevelManager::fadeIn()
+{
+	if (fade_in_timer > 0.0f) {
+		level_alpha = lerp01(level_alpha, 1.0f, ae.dt, 0.0f, fade_in_timer);
+		fade_in_timer -= ae.dt;
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
 // unload level
 void LevelManager::unload() {
 	std::vector<EntityID> toEject;
