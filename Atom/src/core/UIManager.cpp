@@ -26,7 +26,7 @@ void UIManager::init(GLFWwindow* window) {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
-    //ImGui::StyleColorsDark();
+    ImGui::StyleColorsDark();
 }
 
 
@@ -93,7 +93,15 @@ void UIManager::removeUIPainter(const std::function<void()>& uiPainter){
 
 void UIManager::showMenu(){
     //render your GUI
-    ImGui::Begin("MENU", 0, ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("MENU", 0, 
+        ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoTitleBar |
+        //ImGuiWindowFlags_NoInputs | 
+        //ImGuiWindowFlags_NoScrollbar |
+        //ImGuiWindowFlags_AlwaysAutoResize
+        ImGuiWindowFlags_NoResize
+    );
 
     if (ImGui::Button("RESUME GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
     {
@@ -151,7 +159,15 @@ void UIManager::showMenu(){
 
 
 void UIManager::showCheckCloseWindow(){
-    ImGui::Begin("CLOSE WINDOW", &checkCloseWindow, ImGuiWindowFlags_NoCollapse);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+    ImGui::Begin("CLOSE WINDOW", &checkCloseWindow, 
+        ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoTitleBar |
+        //ImGuiWindowFlags_NoInputs | 
+        //ImGuiWindowFlags_NoScrollbar |
+        //ImGuiWindowFlags_AlwaysAutoResize
+        ImGuiWindowFlags_NoResize
+    );   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
     ImGui::Text("ARE YOU SURE YOU WANT TO QUIT THE GAME ?");
 
     if (ImGui::Button("YES")) ae.mIsRunning = false;

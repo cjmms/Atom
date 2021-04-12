@@ -16,18 +16,23 @@
 class ParticleComponent {
 public:
 	// number of particles, size of particles, time
-	ParticleConfig pCon = ParticleConfig(30, 0.3, glm::vec2(0.1f, 2.0f));
 	// spawn center, spawn area size, spawn area shape
-	SpawnConfig sCon = SpawnConfig(glm::vec2(-0.8f, -0.8), 0.1f, AREA_MODE::SQUARE);
 	// move direction, speed, move pattern
-	MoveConfig mCon = MoveConfig(glm::vec2(0.0, 1.0), 0.01f, DIR_MODE::CIRCULAR);
 
-	ParticleEffect pE = ParticleEffect(sCon, mCon, pCon);
-	ParticleComponent() {
-		//pE->Init();
+	ParticleConfig pCon;
+	SpawnConfig sCon;
+	MoveConfig mCon;
+	ParticleEffect* pE;
+
+	ParticleComponent() : pCon(ParticleConfig(50, 0.1f, glm::vec2(0.1f, 2.0f))), 
+		sCon(SpawnConfig(glm::vec2(0.0f,0.0f), 0.01f, AREA_MODE::CIRCLE)), 
+		mCon(MoveConfig(glm::vec2(0.0,0.0f), 0.001f, DIR_MODE::CIRCULAR)),
+		pE(new ParticleEffect(sCon,mCon,pCon))
+	{
+		pE->Init();
 	}
 	~ParticleComponent() {
-		//delete pE;
+
 	}
 };
 
