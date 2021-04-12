@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 181,
+            "EntityID": 6,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -65,7 +65,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 182,
+            "EntityID": 7,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -117,7 +117,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 183,
+            "EntityID": 8,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -165,7 +165,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 184,
+            "EntityID": 9,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -213,7 +213,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 185,
+            "EntityID": 10,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -261,7 +261,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 186,
+            "EntityID": 11,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -309,7 +309,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 187,
+            "EntityID": 12,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -357,7 +357,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 188,
+            "EntityID": 13,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -367,7 +367,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -401,7 +401,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 189,
+            "EntityID": 14,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -465,7 +465,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 190,
+            "EntityID": 15,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -513,7 +513,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 191,
+            "EntityID": 16,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -561,7 +561,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 192,
+            "EntityID": 17,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -609,7 +609,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 193,
+            "EntityID": 18,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -657,7 +657,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 194,
+            "EntityID": 19,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -705,7 +705,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 195,
+            "EntityID": 20,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -715,7 +715,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -749,7 +749,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 196,
+            "EntityID": 21,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -797,7 +797,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 197,
+            "EntityID": 22,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -845,7 +845,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 198,
+            "EntityID": 23,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -893,7 +893,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 199,
+            "EntityID": 24,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -941,7 +941,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 200,
+            "EntityID": 25,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -989,7 +989,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 201,
+            "EntityID": 26,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -999,7 +999,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -1033,7 +1033,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 202,
+            "EntityID": 27,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1081,7 +1081,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 203,
+            "EntityID": 28,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1129,7 +1129,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 204,
+            "EntityID": 29,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1177,7 +1177,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 205,
+            "EntityID": 30,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1225,7 +1225,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 206,
+            "EntityID": 31,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1273,7 +1273,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 207,
+            "EntityID": 32,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1321,7 +1321,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 208,
+            "EntityID": 33,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1331,7 +1331,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -1365,7 +1365,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 209,
+            "EntityID": 34,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1413,7 +1413,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 210,
+            "EntityID": 35,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1461,7 +1461,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 211,
+            "EntityID": 36,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1471,7 +1471,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -1505,11 +1505,11 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 212,
+            "EntityID": 37,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 4.4750494956970215,
+                    "x": 4.187524795532227,
                     "y": -1.875,
                     "z": 0.0
                 },
@@ -1561,7 +1561,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 213,
+            "EntityID": 38,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1609,7 +1609,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 214,
+            "EntityID": 39,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1657,7 +1657,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 215,
+            "EntityID": 40,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1705,7 +1705,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 216,
+            "EntityID": 41,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1753,7 +1753,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 217,
+            "EntityID": 42,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1801,7 +1801,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 218,
+            "EntityID": 43,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1811,7 +1811,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -1845,7 +1845,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 219,
+            "EntityID": 44,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1893,7 +1893,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 220,
+            "EntityID": 45,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1903,7 +1903,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -1937,7 +1937,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 221,
+            "EntityID": 46,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -2001,7 +2001,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 222,
+            "EntityID": 47,
             "TagComponent": {
                 "tag": "enemy"
             },
@@ -2065,7 +2065,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 223,
+            "EntityID": 48,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2113,7 +2113,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 224,
+            "EntityID": 49,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2123,7 +2123,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -2157,7 +2157,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 225,
+            "EntityID": 50,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2205,7 +2205,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 226,
+            "EntityID": 51,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2253,7 +2253,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 227,
+            "EntityID": 52,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2263,7 +2263,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -2297,7 +2297,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 228,
+            "EntityID": 53,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2345,7 +2345,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 229,
+            "EntityID": 54,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2393,7 +2393,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 230,
+            "EntityID": 55,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2441,7 +2441,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 231,
+            "EntityID": 56,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2489,7 +2489,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 232,
+            "EntityID": 57,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2499,7 +2499,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -2533,7 +2533,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 233,
+            "EntityID": 58,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2581,7 +2581,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 234,
+            "EntityID": 59,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2629,7 +2629,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 235,
+            "EntityID": 60,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2677,7 +2677,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 236,
+            "EntityID": 61,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2725,7 +2725,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 237,
+            "EntityID": 62,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2773,7 +2773,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 238,
+            "EntityID": 63,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2821,7 +2821,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 239,
+            "EntityID": 64,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2869,7 +2869,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 240,
+            "EntityID": 65,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2879,7 +2879,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -2913,7 +2913,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 241,
+            "EntityID": 66,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2961,7 +2961,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 242,
+            "EntityID": 67,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3009,7 +3009,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 243,
+            "EntityID": 68,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3057,7 +3057,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 244,
+            "EntityID": 69,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3105,7 +3105,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 245,
+            "EntityID": 70,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3153,7 +3153,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 246,
+            "EntityID": 71,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3201,7 +3201,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 247,
+            "EntityID": 72,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3249,7 +3249,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 248,
+            "EntityID": 73,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3259,7 +3259,7 @@
                 },
                 "rotation": {
                     "x": 4.591074158667398e-41,
-                    "y": 1.3775394488621898e-39,
+                    "y": 2.3234671998052356e-38,
                     "z": 0.0
                 },
                 "scale": {
@@ -3293,7 +3293,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 249,
+            "EntityID": 74,
             "TagComponent": {
                 "tag": "player"
             },
@@ -3369,7 +3369,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 250,
+            "EntityID": 75,
             "TagComponent": {
                 "tag": "player"
             },
@@ -3445,7 +3445,7 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 251,
+            "EntityID": 76,
             "TagComponent": {
                 "tag": "DeadZone"
             },
@@ -3499,12 +3499,12 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 257,
+            "EntityID": 80,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.8159272074699402,
-                    "y": -1.729835033416748,
+                    "x": 0.7540981769561768,
+                    "y": -1.704942226409912,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3553,12 +3553,12 @@
             "AnimationComponent": null
         },
         {
-            "EntityID": 258,
+            "EntityID": 81,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.0483556985855103,
-                    "y": -1.9896612167358398,
+                    "x": 1.0038164854049683,
+                    "y": -1.9669458866119385,
                     "z": 0.0
                 },
                 "rotation": {

@@ -249,9 +249,9 @@ void LevelManager::onEvent(Event& e)
 
 void LevelManager::load(int level) {
 
-	level_alpha = 1.0f;
+	//level_alpha = 1.0f;
 	fade_out_timer = 3.0f;
-	fade_in_timer = 0.5f;
+	fade_in_timer = 1.0f;
 
 	//levelstring = string("Atom/res/levels/Level") + std::to_string(level) + string("_Settings.levelJson");
 	levelstring = string("Atom/res/levels/") + levelPaths[level];

@@ -156,7 +156,7 @@ void printScore() {
 void showGameMenu() {
     // now we are in menu
     if (ae.mLevelManager->level == 2) {
-        ImGui::Button
+        //ImGui::Button
     }
 }
 
