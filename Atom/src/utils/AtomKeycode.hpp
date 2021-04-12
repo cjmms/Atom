@@ -1,3 +1,10 @@
+/*
+* @file		AtomKeycode.hpp
+* @author	Abhikalp Unakal
+* @brief	Class to define OS specific virtual keycodes
+* @date		2021-04-10
+*/
+
 #ifndef ATOMKEYCODE_HPP
 #define ATOMKEYCODE_HPP
 

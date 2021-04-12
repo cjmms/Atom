@@ -662,6 +662,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\tweakme.h" />
     <ClInclude Include="Atom\lib\spdlog\include\spdlog\version.h" />
     <ClInclude Include="Atom\lib\stb_image.h" />
+    <ClInclude Include="Atom\src\components\AnimationComponent.hpp" />
     <ClInclude Include="Atom\src\components\ParticleComponent.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />
     <ClInclude Include="Atom\src\components\AllComponents.hpp" />
@@ -678,7 +679,6 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\src\components\PhysicsBodyComponent.hpp" />
     <ClInclude Include="Atom\src\components\PushUpComponent.hpp" />
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp" />
-    <ClInclude Include="Atom\src\components\RenderTextComponent.hpp" />
     <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp" />
     <ClInclude Include="Atom\src\components\ShapeComponent.hpp" />
     <ClInclude Include="Atom\src\components\ShootComponent.hpp" />
@@ -703,6 +703,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\src\core\SystemManager.hpp" />
     <ClInclude Include="Atom\src\core\Types.hpp" />
     <ClInclude Include="Atom\src\core\UIManager.hpp" />
+    <ClInclude Include="Atom\src\systems\AnimationSystem.hpp" />
     <ClInclude Include="Atom\src\systems\AutoMovementSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ChaseSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ControllerSystem.hpp" />
@@ -741,7 +742,6 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClCompile Include="Atom\src\Pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Atom\src\components\RenderTextComponent.cpp" />
     <ClCompile Include="Atom\src\core\CameraManager.cpp" />
     <ClCompile Include="Atom\src\core\EntityManager.cpp" />
     <ClCompile Include="Atom\src\core\GraphicsManager.cpp" />
@@ -749,6 +749,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClCompile Include="Atom\src\core\LevelManager.cpp" />
     <ClCompile Include="Atom\src\core\Shader.cpp" />
     <ClCompile Include="Atom\src\core\UIManager.cpp" />
+    <ClCompile Include="Atom\src\systems\AnimationSystem.cpp" />
     <ClCompile Include="Atom\src\systems\AutoMovementSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ChaseSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ControllerSystem.cpp" />
@@ -1068,6 +1069,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\fonts\arialbi.ttf" />
     <None Include="Atom\res\fonts\ariali.ttf" />
     <None Include="Atom\res\fonts\ariblk.ttf" />
+    <None Include="Atom\res\levels\animations.json" />
     <None Include="Atom\res\levels\Level2_Map.json" />
     <None Include="Atom\res\levels\Level2_Settings.json" />
     <None Include="Atom\res\levels\Level3_Map.json" />
@@ -1088,6 +1090,8 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\levels\LevelED5_Settings.json" />
     <None Include="Atom\res\levels\LevelED6_Map.json" />
     <None Include="Atom\res\levels\LevelED6_Settings.json" />
+    <None Include="Atom\res\levels\LevelMenu_Map.json" />
+    <None Include="Atom\res\levels\LevelMenu_Settings.json" />
     <None Include="Atom\res\levels\LevelOP1_Map.json" />
     <None Include="Atom\res\levels\LevelOP1_Settings.json" />
     <None Include="Atom\res\levels\LevelOP2_Map.json" />

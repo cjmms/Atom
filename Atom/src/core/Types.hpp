@@ -22,6 +22,9 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 #define FMODMAXCHANNELS 512
+#define FADE_OUT_TIME 1.0f
+#define FADE_IN_TIME 1.0f
+#define COUNT_INTROS 3
 
 // USING
 using string = std::string;
@@ -87,6 +90,18 @@ public:
 	int tilesize;
 	std::vector<std::vector<Gridnode>> cells;
 };
+
+// ANIMATION AND STATES
+enum PlayerStates {
+	PS_IDLE,
+	PS_RUN,
+	PS_JUMP,
+	PS_ATTACK,
+	PS_DEFEND,
+	PS_DEAD,
+	PS_TOTAL
+};
+
 
 // AUDIO
 using ChannelMap = std::map<unsigned int, FMOD::Channel*>;
@@ -171,6 +186,9 @@ enum EventID {
 		P_TRIGGER_ENTITYID2,
 	//E_SELF_DESTROY,
 	//	P_SELF_DESTROY_ENTITYID,
+	// ANIMATION EVENTS
+	E_ANIMATION,
+		P_ANIMATION_STATE,
 	EP_TOTAL
 
 };

@@ -6,12 +6,14 @@
 
 extern AtomEngine ae;
 
-
+extern ChannelID musicChannelID;
+extern ChannelID sfxChannelID;
+extern ChannelID dialogueChannelID;
 extern float musicVolumedB;
 extern float sfxVolumedB;
-extern float dialogVolumedB;
+extern float dialogueVolumedB;
 extern float listenerOffset[];
-
+extern bool menu_start;
 
 
 void UIManager::init(GLFWwindow* window) {
@@ -24,7 +26,7 @@ void UIManager::init(GLFWwindow* window) {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
     // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
+    //ImGui::StyleColorsDark();
 }
 
 
@@ -78,11 +80,12 @@ void UIManager::closeWindow(){
     checkCloseWindow = true;
 }
 
-void UIManager::addUIPainter(std::function<void()> const& uiPainter){
+void UIManager::addUIPainter(const std::function<void()>& uiPainter){
+
     mUIPainters.insert(uiPainter);
 }
 
-void UIManager::removeUIPainter(std::function<void()> const& uiPainter){
+void UIManager::removeUIPainter(const std::function<void()>& uiPainter){
     mUIPainters.erase(uiPainter);
 }
 
@@ -92,7 +95,7 @@ void UIManager::showMenu(){
     //render your GUI
     ImGui::Begin("MENU", 0, ImGuiWindowFlags_NoCollapse);
 
-    if (ImGui::Button("RESUME GAME"))
+    if (ImGui::Button("RESUME GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
     {
         checkRestartWindow = false;  // disable other window
         checkRestartGame = false;
@@ -103,34 +106,42 @@ void UIManager::showMenu(){
     // Audio UI setup
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
     ImGui::SliderFloat("SFX VOLUME", &sfxVolumedB, 0.0f, 1.0f);
-    ImGui::SliderFloat("SPEECH VOLUME", &dialogVolumedB, 0.0f, 1.0f);
+    ImGui::SliderFloat("SPEECH VOLUME", &dialogueVolumedB, 0.0f, 1.0f);
 
     ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
     ae.setVolume(musicChannelID, musicVolumedB);
     ae.setVolume(sfxChannelID, sfxVolumedB);
+    ae.setVolume(dialogueChannelID, dialogueVolumedB);
     ae.listener3DSetXOffset(listenerOffset[0]);
     ae.listener3DSetYOffset(listenerOffset[1]);
 
-    if (ImGui::Button("RESTART CURRENT LEVEL"))
+    if (ImGui::Button("RESTART CURRENT LEVEL",ImVec2(ImGui::GetWindowWidth(),40)))
     {
         checkCloseWindow = false;   // disable other window
         checkRestartGame = false;
         checkRestartWindow = true;
     }
 
-    if (ImGui::Button("RESTART GAME"))
+    if (ImGui::Button("RESTART GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
     {
         checkCloseWindow = false;   // disable other window
         checkRestartWindow = false;
         checkRestartGame = true;
     }
 
-    if (ImGui::Button("QUIT GAME"))
+    if (ImGui::Button("QUIT GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
     {
         checkRestartWindow = false; // disable other window
         checkRestartGame = false;
         checkCloseWindow = true;
+    }
+
+    if (ImGui::Button("EXIT TO MAIN MENU", ImVec2(ImGui::GetWindowWidth(), 40))) {
+
+        ae.mLevelManager->loadLevel(COUNT_INTROS - 1);
+        menu_start = true;
+        ae.mIsPaused = false;
     }
 
     ImGui::End();

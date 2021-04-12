@@ -1923,9 +1923,6 @@
     <ClInclude Include="Atom\src\components\RectangleComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
-    <ClInclude Include="Atom\src\components\RenderTextComponent.hpp">
-      <Filter>src\components</Filter>
-    </ClInclude>
     <ClInclude Include="Atom\src\components\SelfDestroyComponent.hpp">
       <Filter>src\components</Filter>
     </ClInclude>
@@ -2060,6 +2057,8 @@
     </ClInclude>
     <ClInclude Include="Atom\src\components\ParticleComponent.hpp" />
     <ClInclude Include="Atom\src\systems\ParticleSystem.hpp" />
+    <ClInclude Include="Atom\src\components\AnimationComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\AnimationSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2100,9 +2099,6 @@
     </ClCompile>
     <ClCompile Include="Atom\src\Pch.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Atom\src\components\RenderTextComponent.cpp">
-      <Filter>src\components</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\core\CameraManager.cpp">
       <Filter>src\core</Filter>
@@ -2177,6 +2173,7 @@
       <Filter>src\utils</Filter>
     </ClCompile>
     <ClCompile Include="Atom\src\systems\ParticleSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\AnimationSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">
@@ -3169,6 +3166,9 @@
     <None Include="Atom\res\shaders\renderText.shader">
       <Filter>res\shaders</Filter>
     </None>
+    <None Include="Atom\res\levels\animations.json" />
+    <None Include="Atom\res\levels\LevelMenu_Settings.json" />
+    <None Include="Atom\res\levels\LevelMenu_Map.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">

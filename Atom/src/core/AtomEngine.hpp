@@ -41,6 +41,7 @@
 #include "systems/AutoMovementSystem.hpp"
 #include "systems/SelfDestroySystem.hpp"
 #include "systems/ParticleSystem.hpp"
+#include "systems/AnimationSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -51,12 +52,11 @@ extern float listener_step;
 
 extern ChannelID musicChannelID;
 extern ChannelID sfxChannelID;
+extern ChannelID dialogueChannelID;
 
 class AtomEngine {
 public:
 	inline void init() {
-
-
 
 		mChrononManager = std::make_unique<ChrononManager>();
 		mEventManager = std::make_unique<EventManager>();
@@ -109,6 +109,7 @@ public:
 		registerComponent<LevelTriggerComponent>();
 		registerComponent<FadeComponent>();
 		registerComponent<ParticleComponent>();
+		registerComponent<AnimationComponent>();
 
 		// register all systems
 		registerSystem<TransformSystem>();
@@ -124,6 +125,7 @@ public:
 		registerSystem<HealthRenderSystem>();
 		registerSystem<SelfDestroySystem>();
 		registerSystem<ParticleSystem>();
+		registerSystem<AnimationSystem>();
 
 
 		// set archetypes
@@ -194,6 +196,11 @@ public:
 			typeParticle.set(getComponentType<ParticleComponent>());
 			setSystemArchetype<ParticleSystem>(typeParticle);
 
+			Archetype typeAnimation;
+			typeAnimation.set(getComponentType<TransformComponent>());
+			typeAnimation.set(getComponentType<AnimationComponent>());
+			setSystemArchetype<AnimationSystem>(typeAnimation);
+
 		}
 		// reinit systems because archetypes changed 
 		initSystem();
@@ -207,7 +214,7 @@ public:
 		mInputManager->update();
 
 		// process
-		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
 			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
 		}
@@ -215,10 +222,12 @@ public:
 		if (mIsPaused) {
 			mAudioManager->pause(musicChannelID, true);
 			mAudioManager->pause(sfxChannelID, true);
+			mAudioManager->pause(dialogueChannelID, true);
 		}
 		else {
 			mAudioManager->pause(musicChannelID, false);
 			mAudioManager->pause(sfxChannelID, false);
+			mAudioManager->pause(dialogueChannelID, false);
 			mSystemManager->update();
 			mEventManager->update();
 			mEntityManager->update();
@@ -448,6 +457,7 @@ public:
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
 		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -479,6 +489,7 @@ public:
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
 		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 	}
 
 	inline float random() {
@@ -488,32 +499,32 @@ public:
 		return (float)dis(gen);
 	}
 
-	//inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
-	//	EntityID tile = createEntity();
-	//	RectangleComponent rc;
+	inline void createTile(glm::vec3 pos, glm::vec3 color, glm::vec3 scale) {
+		EntityID tile = createEntity();
+		RectangleComponent rc;
 
-	//	addComponent<TagComponent>(tile, TagComponent{
-	//		"tile"
-	//		});
-	//	addComponent<RectangleComponent>(tile, RectangleComponent{
-	//		color,
-	//		false,
-	//		""
-	//		});
-	//	addComponent<TransformComponent>(tile, TransformComponent{
-	//		pos,
-	//		glm::vec3{0.0f,0.0f,0.0f},
-	//		scale,
-	//		glm::mat4(1)
-	//		});
-	//	addComponent<ShapeComponent>(tile, ShapeComponent{
-	//		ShapeType::AABB
-	//		});
-	//	addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
-	//		1.0f,
-	//		true
-	//	});
-	//}
+		addComponent<TagComponent>(tile, TagComponent{
+			"tile"
+			});
+		addComponent<RectangleComponent>(tile, RectangleComponent{
+			color,
+			false,
+			""
+			});
+		addComponent<TransformComponent>(tile, TransformComponent{
+			pos,
+			glm::vec3{0.0f,0.0f,0.0f},
+			scale,
+			glm::mat4(1)
+			});
+		addComponent<ShapeComponent>(tile, ShapeComponent{
+			ShapeType::AABB
+			});
+		addComponent<PhysicsBodyComponent>(tile, PhysicsBodyComponent{
+			1.0f,
+			true
+		});
+	}
 
 	// shutdown
 	void shutdown() {

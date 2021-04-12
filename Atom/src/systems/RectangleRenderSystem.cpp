@@ -15,10 +15,6 @@ extern AtomEngine ae;
 void RectangleRenderSystem::init() {
 	DebugMode = false;
 
-	// Background image
-	setBackground("Atom/res/art/level_01_background.png");
-	//setBackground("Atom/res/Art/FixedPlatform2.png");
-
 	worriorTimer = glfwGetTime();
 	VampireTimer = glfwGetTime();
 	laternTimer = glfwGetTime();
@@ -69,7 +65,9 @@ void RectangleRenderSystem::init() {
 
 void RectangleRenderSystem::update() {
 
-	
+	if (ae.mLevelManager->level > COUNT_INTROS) {
+		setBackground("Atom/res/Level_01_background.png");
+	}
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_KEYCODE_T)) {
 		DebugMode = !DebugMode;

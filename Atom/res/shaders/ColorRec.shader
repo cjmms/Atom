@@ -42,4 +42,6 @@ void main()
 {
 	FragColor = vec4(color, alpha);
 	if (wireframe == 1) FragColor = vec4(1.0, 0.0, 0.0, alpha);
+
+	FragColor *= alpha;
 }
