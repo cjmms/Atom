@@ -178,7 +178,16 @@ void UIManager::showCheckCloseWindow(){
 
 
 void UIManager::showCheckRestartWindow(){
-    ImGui::Begin("RESTART", &checkRestartWindow, ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("RESTART", &checkRestartWindow, 
+        ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoTitleBar |
+        //ImGuiWindowFlags_NoInputs | 
+        //ImGuiWindowFlags_NoScrollbar |
+        //ImGuiWindowFlags_AlwaysAutoResize
+        ImGuiWindowFlags_NoResize
+
+        );
     ImGui::Text("ARE YOU SURE YOU WANT TO RESTART THE LEVEL ? CURRENT PROGRESS WILL BE LOST.");
     if (ImGui::Button("YES"))
     {
@@ -192,7 +201,15 @@ void UIManager::showCheckRestartWindow(){
 }
 
 void UIManager::showCheckRestartGame(){
-    ImGui::Begin("RESTART GAME", &checkRestartGame, ImGuiWindowFlags_NoCollapse);
+    ImGui::Begin("RESTART GAME", &checkRestartGame, 
+        ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoTitleBar |
+        //ImGuiWindowFlags_NoInputs | 
+        //ImGuiWindowFlags_NoScrollbar |
+        //ImGuiWindowFlags_AlwaysAutoResize
+        ImGuiWindowFlags_NoResize
+    );
     ImGui::Text("DO YOU WANT TO RESTART THE GAME?");
     if (ImGui::Button("YES"))
     {
