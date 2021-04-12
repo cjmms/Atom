@@ -449,7 +449,7 @@ void LevelManager::load(string filepath) {
 
 void LevelManager::loadCharacters()
 {
-	if (level > 1 && level < 6) {
+	if (level > 2 && level < 6) {
 		string charloc = "Atom/res/levels/characters.json";
 		std::ifstream inmap(charloc);
 		ordered_json characterJson;

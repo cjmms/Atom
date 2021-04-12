@@ -3168,6 +3168,7 @@
     </None>
     <None Include="Atom\res\levels\animations.json" />
     <None Include="Atom\res\levels\LevelMenu_Settings.json" />
+    <None Include="Atom\res\levels\LevelMenu_Map.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">

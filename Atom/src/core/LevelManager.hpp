@@ -29,15 +29,12 @@ public:
 
 	inline int GetCurrentLevelNumber() { return level; }
 
-private:
 	void load(int level);
 	void load(string filepath);
 
 	void loadCharacters();
 	bool screenByPass();
 
-
-public:
 	bool restartGame = false;
 	bool restartLevel = false;
 	bool enterNextLevel = false;

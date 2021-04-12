@@ -153,10 +153,31 @@ void printScore() {
     }
 }
 
+bool menu_start = true;
+bool menu_ingame = false;
+
 void showGameMenu() {
     // now we are in menu
     if (ae.mLevelManager->level == 2) {
-        //ImGui::Button
+        ImGui::Begin("MENUBUTTONS", NULL, 
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoBackground | 
+            ImGuiWindowFlags_NoTitleBar | 
+            //ImGuiWindowFlags_NoInputs | 
+            ImGuiWindowFlags_AlwaysAutoResize | 
+            ImGuiWindowFlags_NoScrollbar |
+            ImGuiWindowFlags_NoResize
+        );
+        if (menu_start && !menu_ingame) {
+            if (ImGui::Button("PLAY")) {
+                menu_start = false;
+                menu_ingame = true;
+                ae.mLevelManager->level = 3;
+                ae.mLevelManager->load(ae.mLevelManager->level);
+            }
+        }
+
+        ImGui::End();
     }
 }
 
@@ -171,6 +192,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
 
     start();
     ae.mUIManager->addUIPainter(printScore);
+    ae.mUIManager->addUIPainter(showGameMenu);
 
     while (ae.mIsRunning) {
         glfwpoll();      

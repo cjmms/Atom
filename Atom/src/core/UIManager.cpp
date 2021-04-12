@@ -78,11 +78,12 @@ void UIManager::closeWindow(){
     checkCloseWindow = true;
 }
 
-void UIManager::addUIPainter(std::function<void()> const& uiPainter){
+void UIManager::addUIPainter(const std::function<void()>& uiPainter){
+
     mUIPainters.insert(uiPainter);
 }
 
-void UIManager::removeUIPainter(std::function<void()> const& uiPainter){
+void UIManager::removeUIPainter(const std::function<void()>& uiPainter){
     mUIPainters.erase(uiPainter);
 }
 
