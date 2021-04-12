@@ -15,13 +15,12 @@
 
 extern AtomEngine ae;
 
-extern ChannelID sfxChannelID;
-
 extern string sfxJump;
 extern string sfxLand;
+extern float sfxVolumedB;
 
 void playLandSound(Event& e) {
-	ae.play(sfxLand, ChannelGroupTypes::C_SFX, 0.8f);
+	ae.play(sfxLand, ChannelGroupTypes::C_SFX, 3.0f + sfxVolumedB);
 }
 
 
@@ -60,6 +59,9 @@ void PhysicsSystem::update()
 
 		//update physics bodies (f, a, v, p)
 		updatePhysicsBody(body1, transform1, frameTime);
+		if (ae.hasComponent<AutoMovementComponent>(entity1)) {
+			transform1.scale.x = fabs(transform1.scale.x);
+		}
 
 		//collision checking loop
 		for (auto& itr2 = mEntities.begin(); itr2 != mEntities.end(); itr2++) {

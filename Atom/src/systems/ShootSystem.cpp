@@ -10,14 +10,14 @@
 
 extern AtomEngine ae;
 
-extern ChannelID sfxChannelID;
-
 extern string sfxJump;
 extern string sfxLand;
 extern string sfxBullet;
 
+extern float sfxVolumedB;
+
 void playBulletSound() {
-	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
+	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, sfxVolumedB);
 }
 
 void ShootSystem::init()
@@ -104,7 +104,7 @@ void ShootSystem::update()
 					EntityID bullet = ae.createEntity();
 
 					ae.addComponent(bullet, BulletComponent());
-
+					ae.addComponent(bullet, ParticleComponent());
 					//todo ser/deser of bullet obj
 					ae.addComponent(bullet, RectangleComponent{
 						glm::vec3{1.0f,1.0f,1.0f},

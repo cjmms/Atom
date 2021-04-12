@@ -9,21 +9,11 @@
 //Temp
 #include "ControllerSystem.hpp"
 
-
-
-
 // this is needed in all systems as the engine is in the Application.cpp translation unit 
 extern AtomEngine ae;
-bool DebugMode;
-
-
 
 void RectangleRenderSystem::init() {
 	DebugMode = false;
-
-	// Background image
-	//setBackground("Atom/res/art/level_01_background.png");
-	//setBackground("Atom/res/Art/FixedPlatform2.png");
 
 	worriorTimer = glfwGetTime();
 	VampireTimer = glfwGetTime();
@@ -59,26 +49,29 @@ void RectangleRenderSystem::init() {
 	glEnableVertexAttribArray(1);
 
 
-	// number of particles, size of particles, time
-	ParticleConfig pCon(30, 0.3, glm::vec2(0.1f, 2.0f));
-	// spawn center, spawn area size, spawn area shape
-	SpawnConfig sCon(glm::vec2(-0.8f, -0.8), 0.1f, AREA_MODE::SQUARE);
-	// move direction, speed, move pattern
-	MoveConfig mCon(glm::vec2(0.0, 1.0), 0.01f, DIR_MODE::CIRCULAR);
-	particleEffect = new ParticleEffect(sCon, mCon, pCon);
+	//// number of particles, size of particles, time
+	//ParticleConfig pCon(30, 0.3, glm::vec2(0.1f, 2.0f));
+	//// spawn center, spawn area size, spawn area shape
+	//SpawnConfig sCon(glm::vec2(-0.8f, -0.8), 0.1f, AREA_MODE::SQUARE);
+	//// move direction, speed, move pattern
+	//MoveConfig mCon(glm::vec2(0.0, 1.0), 0.01f, DIR_MODE::CIRCULAR);
+	//particleEffect = new ParticleEffect(sCon, mCon, pCon);
 
-	particleEffect->Init();
-	particleEffect->Print();
+	//particleEffect->Init();
+	//particleEffect->Print();
 
 }
 
 
 void RectangleRenderSystem::update() {
 
-	
+	if (ae.mLevelManager->level > COUNT_INTROS) {
+		setBackground("Atom/res/Level_01_background.png");
+	}
 
-	if (ae.mInputManager->isKeyTriggered(ATOM_SCANCODE_T)) {
+	if (ae.mInputManager->isKeyTriggered(ATOM_KEYCODE_T)) {
 		DebugMode = !DebugMode;
+		ae.mIsDebugMode = DebugMode;
 	}
 
 	// draw Background 
@@ -86,7 +79,6 @@ void RectangleRenderSystem::update() {
 	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
 	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
 
-	//temp remove
 	//if (ae.mLevelManager->GetCurrentLevelNumber() < 2)
 	//	particleEffect->Draw();
 
@@ -208,7 +200,7 @@ void RectangleRenderSystem::drawEntities(bool debugMode)
 					if (!c.isBig) {
 						if (ae.hasComponent<TransformComponent>(entity)) {
 							auto& t = ae.getComponent<TransformComponent>(entity);
-							particleEffect->position = t.position;
+							//particleEffect->position = t.position;
 						}
 					}
 				}

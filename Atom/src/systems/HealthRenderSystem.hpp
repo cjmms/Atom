@@ -22,7 +22,7 @@ public:
 
 	// other methods in the system
 	// pos is the top left vertex of the rectangle
-	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe, float alpha=1.0f) const;
+	void draw(glm::vec2 pos, glm::vec2 scale, glm::vec3 color, bool wireframe, float alpha) const;
 
 	void drawEntities();
 

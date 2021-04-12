@@ -104,6 +104,7 @@ public:
 		FMOD::ChannelGroup* channelgroup = NULL;
 		channelgroup = cgtype == ChannelGroupTypes::C_SFX ? mSFXChannelGroup : NULL;
 		channelgroup = cgtype == ChannelGroupTypes::C_MUSIC ? mMusicChannelGroup : NULL;
+		channelgroup = cgtype == ChannelGroupTypes::C_DIALOGUE ? mDialogueChannelGroup : NULL;
 		if (mSoundPool.count(audioloc) > 0) {
 			FMOD_ERROR(mCoreSystem->playSound(mSoundPool[audioloc], channelgroup, true, &currentChannel));
 		}
@@ -183,6 +184,7 @@ public:
 	FMOD::ChannelGroup* mMasterChannelGroup = NULL;
 	FMOD::ChannelGroup* mSFXChannelGroup = NULL;
 	FMOD::ChannelGroup* mMusicChannelGroup = NULL;
+	FMOD::ChannelGroup* mDialogueChannelGroup = NULL;
 
 	ChannelID mChannelID = 0;
 	SoundID mSoundID = 0;

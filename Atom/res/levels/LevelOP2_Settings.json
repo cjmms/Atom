@@ -54,8 +54,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 16,
-        "y": 4,
+        "x": 12,
+        "y": 3,
         "z": 1.0
       }
     },
@@ -66,7 +66,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/game_logo.png"
+      "texturePath": "Atom/res/art/game_logo_1.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"

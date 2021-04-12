@@ -83,7 +83,7 @@ public:
 	ParticleEffect(SpawnConfig spawnConfig, MoveConfig moveConfig, ParticleConfig paConfig);
 
 	void Init();
-	void Draw();
+	void Draw(glm::vec2& position);
 	void Destory();
 	void Print();
 

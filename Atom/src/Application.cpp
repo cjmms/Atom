@@ -70,9 +70,11 @@ void setConsoleTitle(const char* title) {
 }
 
 
+
+
+char title[MAX_TITLE_LEN];
 // performance data
 void fpsCounter() {
-    char title[MAX_TITLE_LEN];
     snprintf(title, MAX_TITLE_LEN, "FPS: %f", ae.getFPS());
 #ifdef _WIN64
     #ifdef DEBUG
@@ -83,25 +85,20 @@ void fpsCounter() {
 #endif
 }
 
-
-
-
 string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
-string sfxTrack = "Atom/res/audio/optimus_speech.ogg";
-
+string dialogueTrack = "Atom/res/audio/optimus_speech.ogg";
 string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
 string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
 string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
-
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
-
-float musicVolumedB = 0.0f;
-float sfxVolumedB = 0.1f;
+ChannelID dialogueChannelID = -1;
+float musicVolumedB = 0.1f;
+float sfxVolumedB = 0.04f;
+float dialogueVolumedB = 0.0f;
 float listenerXOffset = 0.0f;
 float listenerYOffset = 0.0f;
 float listenerOffset[] = { 0.0f,0.0f };
-
 FMOD_VECTOR listener_position{ 0.0f,0.0f,0.0f };
 FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
 FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
@@ -122,19 +119,20 @@ void start() {
 #endif
 
     ae.init();                              // initialize engine
-    ae.setMaxFPS(60);                       // set the fps
+    ae.setMaxFPS(120);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
 
     ae.loadSound(musicTrack);
-    ae.loadSound(sfxTrack);
+    ae.loadSound(dialogueTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
 
     ae.mLevelManager->startGame();
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, 0.0f);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_SFX, 0.0f);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB);
+    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB);
+    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB);
 
 }
 
@@ -144,6 +142,57 @@ void shutdown() {
     ae.mLevelManager->unload();
     ae.shutdown();
     Log::shutdown();
+}
+int totaltime = 0;
+
+void printScore() {
+    if (ae.mIsDebugMode) {
+        ae.mUIManager->drawText(5, 5, title);
+    }
+    if (ae.mLevelManager->level > 2) {
+        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level-2)).c_str());
+        ae.mUIManager->drawText(5, 25, (string("TIME ELAPSED : ") + std::to_string(ae.getUptime() - ae.mLevelManager->levelStartTime) + string("s")).c_str());
+    }
+}
+
+bool menu_start = true;
+bool menu_ingame = false;
+char buttontext[40] = "PLAY";
+bool menu_inprogress = false;
+
+void showGameMenu() {
+     // now we are in menu
+    if (ae.mLevelManager->level == COUNT_INTROS-1) {
+        ImGui::Begin("SPACE JUMP", NULL, 
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoBackground | 
+            ImGuiWindowFlags_NoTitleBar | 
+            //ImGuiWindowFlags_NoInputs | 
+            //ImGuiWindowFlags_NoScrollbar |
+            //ImGuiWindowFlags_AlwaysAutoResize
+            ImGuiWindowFlags_NoResize
+        );
+        ImGui::GetStyle().WindowTitleAlign = ImVec2(0.5, 0.5);
+        ImVec2 p;
+        p.x = ImGui::GetWindowWidth() / 2;
+        int button_width = ImGui::GetWindowWidth();
+        int button_height = 40;
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+
+        if ((menu_start && !menu_ingame) || menu_inprogress) {
+            if (menu_inprogress) {
+                sprintf(buttontext, "Loading %c", "|/-\\"[(int)(ImGui::GetTime() / 0.05f) & 3]);
+            }
+            else {
+                sprintf(buttontext, "PLAY");
+            }
+            if (ImGui::Button(buttontext,ImVec2(button_width,button_height))) {
+                menu_inprogress = true;
+                ae.mLevelManager->loadNextLevel();
+            }
+        }
+        ImGui::End();
+    }
 }
 
 
@@ -156,6 +205,8 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     start();
+    ae.mUIManager->addUIPainter(printScore);
+    ae.mUIManager->addUIPainter(showGameMenu);
 
     while (ae.mIsRunning) {
         glfwpoll();      
@@ -166,21 +217,3 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     shutdown();
     return 0;
 }
-
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
-//
-//    // Setup memory leak dump 
-//    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-//
-//    start();
-//
-//    while (ae.mIsRunning) {
-//        glfwpoll();
-//        ae.update();
-//        fpsCounter();
-//    }
-//
-//    shutdown();
-//    return 0;
-//}
-
