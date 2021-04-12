@@ -214,7 +214,7 @@ void PhysicsSystem::updatePhysicsBody(
 	if(!body.frictionless)
 	{
 		//advance phy: friction
-		float frictionCoefficient = 0.3;
+		float frictionCoefficient = 0.5;
 		float frictionSpeed = frictionCoefficient * frameTime * gravityAcc;
 		//reduce speed by friction until speed becomes zero
 		int sign = signbit(body.velocityX) ? -1 : 1;

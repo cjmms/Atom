@@ -6,10 +6,16 @@
     "LevelOP1_Settings.json",
     "LevelOP2_Settings.json",
     "LevelMenu_Settings.json",
-    "Level2_Settings.json",
-    "Level3_Settings.json",
-    "Level4_Settings.json",
-    "Level5_Settings.json",
+    "LevelA1_Settings.json",
+    "LevelA2_Settings.json",
+    "LevelA3_Settings.json",
+    "LevelA4_Settings.json",
+    "LevelA5_Settings.json",
+    "LevelA6_Settings.json",
+    "LevelA7_Settings.json",
+    "LevelA8_Settings.json",
+    "LevelA10_Settings.json",
+    "LevelA11_Settings.json",
     "LevelED1_Settings.json",
     "LevelED2_Settings.json",
     "LevelED3_Settings.json",
@@ -17,8 +23,8 @@
     "LevelED5_Settings.json",
     "LevelED6_Settings.json"
   ],
-  
-    "1": {
+
+  "1": {
     "EntityID": 0,
     "TagComponent": {
       "tag": "wall"
@@ -50,7 +56,7 @@
       "texturePath": "Atom/res/art/FixedPlatform1.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     }
   },
   "2": {
@@ -85,11 +91,14 @@
       "texturePath": "Atom/res/art/FixedPlatform1.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     }
   },
   "L": {
     "EntityID": 0,
+    "TagComponent": {
+      "tag": "level trigger"
+    },
     "TransformComponent": {
       "position": {
         "x": 0,
@@ -131,6 +140,9 @@
   },
   "P": {
     "EntityID": 0,
+    "TagComponent": {
+      "tag": "moving platform"
+    },
     "TransformComponent": {
       "position": {
         "x": 1.0,
@@ -158,7 +170,7 @@
       "texturePath": "Atom/res/art/Wall.jpg"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 1.0,
@@ -173,6 +185,52 @@
       "tripTime": 4.0
     }
   },
+  "T": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "trap"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.70,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/trap.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": false,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": false
+    },
+    "DamageComponent": {
+      "damage": 200
+    }
+  },
+
 
   "Q": {
     "EntityID": 0,
@@ -203,7 +261,7 @@
       "texturePath": "Atom/res/Wall.jpg"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 1.0,
@@ -248,7 +306,7 @@
       "texturePath": "Atom/res/Wall.jpg"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 1.0,
@@ -296,7 +354,7 @@
       "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 2.0,
@@ -307,7 +365,7 @@
     },
     "ShootComponent": {
       "shootInterval": 3,
-      "bulletPerShoot": 5
+      "bulletPerShoot": 1
     },
     "AutoShootComponent": {
     },
@@ -351,18 +409,18 @@
       "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 2.0,
       "staticBody": false,
       "isTrigger": false,
       "frictionless": false,
-      "gravity": true
+      "gravity": false
     },
     "ShootComponent": {
-      "shootInterval": 1,
-      "bulletPerShoot": 1
+      "shootInterval": 3,
+      "bulletPerShoot": 3
     },
     "AutoShootComponent": {
     },
@@ -409,7 +467,7 @@
       "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 2.0,
@@ -467,7 +525,7 @@
       "texturePath": "Atom/res/art/PlatformEnemy.png"
     },
     "ShapeComponent": {
-      "shapeType": "AABB"
+      "shapeType": 0
     },
     "PhysicsBodyComponent": {
       "mass": 2.0,
@@ -492,6 +550,64 @@
       "tripTime": 3.0
     }
   },
+  "E5": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "enemy"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.75,
+        "y": 0.75,
+        "z": 0.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 2.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": true
+    },
+    "ShootComponent": {
+      "shootInterval": 1,
+      "bulletPerShoot": 1
+    },
+    "AutoShootComponent": {
+    },
+    "HealthComponent": {
+      "health": 200,
+      "totalHealth": 200
+    },
+    "AutoMovementComponent": {
+      "velocityX": -0.2,
+      "velocityY": 0,
+      "tripTime": 2.0
+    }
+  },
+
 
   "DJ": {
     "EntityID": 0,
@@ -510,8 +626,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
-        "y": 0.3,
+        "x": 0.6,
+        "y": 0.6,
         "z": 1.0
       }
     },
@@ -522,7 +638,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/jump.png"
+      "texturePath": "Atom/res/art/jump.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -556,8 +672,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
-        "y": 0.3,
+        "x": 0.6,
+        "y": 0.6,
         "z": 1.0
       }
     },
@@ -568,7 +684,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/wall_jump.png"
+      "texturePath": "Atom/res/art/wall_jump.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -602,8 +718,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
-        "y": 0.3,
+        "x": 0.6,
+        "y": 0.6,
         "z": 1.0
       }
     },
@@ -614,7 +730,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/bullet_count.png"
+      "texturePath": "Atom/res/art/bullet_count.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -648,8 +764,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 0.3,
-        "y": 0.3,
+        "x": 0.6,
+        "y": 0.6,
         "z": 1.0
       }
     },
@@ -660,7 +776,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/bullet_speed.png"
+      "texturePath": "Atom/res/art/bullet_speed.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -675,6 +791,96 @@
     "ControllerComponent": null,
     "SkillBoosterComponent": {
       "skillType": "BulletSpeed"
+    }
+  },
+  "FH": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "Skill"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/full_health.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": true
+    },
+    "SkillBoosterComponent": {
+      "skillType": "FullHealth"
+    }
+  },
+  "DH": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "Skill"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/double_health.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": true
+    },
+    "SkillBoosterComponent": {
+      "skillType": "DoubleHealth"
     }
   }
 

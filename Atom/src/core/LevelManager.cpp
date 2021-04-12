@@ -111,7 +111,9 @@ void LevelManager::onEvent(Event& e)
 		if (ae.hasComponent<TagComponent>(deadzone) 
 			&& ae.getComponent<TagComponent>(deadzone).tag == "DeadZone")
 		{
-			restartCurrentLevel();
+			auto& health = ae.getComponent<HealthComponent>(player);
+			health.died = true;
+			health.health = 0;
 		}
 
 	}
@@ -369,26 +371,25 @@ void LevelManager::load(string filepath) {
 
 	}
 
-	loadCharacters();
+	if(!levelJson["characters"].is_null())
+		loadCharacters(levelJson["characters"]);
 
 	in.close();
 	in2.close();
 }
 
-void LevelManager::loadCharacters()
+void LevelManager::loadCharacters(string charloc)
 {
-	if (level > 2 && level < 6) {
-		string charloc = "Atom/res/levels/characters.json";
-		std::ifstream inmap(charloc);
-		ordered_json characterJson;
-		inmap >> characterJson;
+	//string charloc = "Atom/res/levels/characters.json";
+	std::ifstream inmap(charloc);
+	ordered_json characterJson;
+	inmap >> characterJson;
 
-		// entities
-		if (!characterJson["Entities"].is_null()) {
-			for (auto& entityjson : characterJson["Entities"]) {
-				EntityID entid;
-				ae.deserializeEntity(entityjson, entid);
-			}
+	// entities
+	if (!characterJson["Entities"].is_null()) {
+		for (auto& entityjson : characterJson["Entities"]) {
+			EntityID entid;
+			ae.deserializeEntity(entityjson, entid);
 		}
 	}
 }

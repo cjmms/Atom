@@ -1098,6 +1098,29 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\levels\LevelOP2_Settings.json" />
     <None Include="Atom\res\levels\Level_Default.json" />
     <None Include="Atom\res\levels\characters.json" />
+    <None Include="Atom\res\levels\LevelA10_Map.json" />
+    <None Include="Atom\res\levels\LevelA10_Settings.json" />
+    <None Include="Atom\res\levels\LevelA11_Map.json" />
+    <None Include="Atom\res\levels\LevelA11_Settings.json" />
+    <None Include="Atom\res\levels\LevelA1_Map.json" />
+    <None Include="Atom\res\levels\LevelA1_Settings.json" />
+    <None Include="Atom\res\levels\LevelA2_Map.json" />
+    <None Include="Atom\res\levels\LevelA2_Settings.json" />
+    <None Include="Atom\res\levels\LevelA3_Map.json" />
+    <None Include="Atom\res\levels\LevelA3_Settings.json" />
+    <None Include="Atom\res\levels\LevelA4_Map.json" />
+    <None Include="Atom\res\levels\LevelA4_Settings.json" />
+    <None Include="Atom\res\levels\LevelA5_Map.json" />
+    <None Include="Atom\res\levels\LevelA5_Settings.json" />
+    <None Include="Atom\res\levels\LevelA6_Map.json" />
+    <None Include="Atom\res\levels\LevelA6_Settings.json" />
+    <None Include="Atom\res\levels\LevelA7_Map.json" />
+    <None Include="Atom\res\levels\LevelA7_Settings.json" />
+    <None Include="Atom\res\levels\LevelA8_Map.json" />
+    <None Include="Atom\res\levels\LevelA8_Settings.json" />
+    <None Include="Atom\res\levels\LevelA9_Map.json" />
+    <None Include="Atom\res\levels\LevelA9_Settings.json" />
+    <None Include="Atom\res\levels\Level_Default.json" />
     <None Include="Atom\res\shaders\ColorRec.shader" />
     <None Include="Atom\res\shaders\ParticleEffect.shader" />
     <None Include="Atom\res\shaders\RenderParticle.shader" />
@@ -1238,4 +1261,9 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Atom_4res_4levels_4LevelA9_3Settings_1json__JsonSchema="https://beaujs.com/schema.json" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
