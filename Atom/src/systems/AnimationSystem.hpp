@@ -12,7 +12,7 @@ public:
 	void update() override;
 	void onEvent(Event& e) override;
 
-	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha) const;
+	void draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha, glm::vec2 uv) const;
 
 	//PlayerStates mPrevState = PlayerStates::PS_IDLE;
 	//PlayerStates mCurrState = PlayerStates::PS_IDLE;

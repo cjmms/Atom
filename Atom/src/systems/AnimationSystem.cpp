@@ -49,7 +49,7 @@ void AnimationSystem::update(){
 	//mPrevState = mCurrState;
 }
 
-void AnimationSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha) const
+void AnimationSystem::draw(glm::vec2 pos, glm::vec2 scale, string texturePath, bool wireframe, float alpha, glm::vec2 uv) const
 {
 //	if (wireframe) {
 //		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

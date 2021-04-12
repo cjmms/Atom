@@ -85,23 +85,24 @@ void fpsCounter() {
 #endif
 }
 
-extern string musicTrack;
-extern string sfxTrack;
-extern string sfxJump;
-extern string sfxLand;
-extern string sfxBullet;
-extern ChannelID musicChannelID;
-extern ChannelID sfxChannelID;
-extern float musicVolumedB;
-extern float sfxVolumedB;
-extern float dialogVolumedB;
-extern float listenerXOffset;
-extern float listenerYOffset;
-extern float listenerOffset[];
-extern FMOD_VECTOR listener_position;
-extern FMOD_VECTOR listener_fwd;
-extern FMOD_VECTOR listener_up;
-extern float listener_step;
+string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
+string dialogueTrack = "Atom/res/audio/optimus_speech.ogg";
+string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
+string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
+string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
+ChannelID musicChannelID = -1;
+ChannelID sfxChannelID = -1;
+ChannelID dialogueChannelID = -1;
+float musicVolumedB = 0.1f;
+float sfxVolumedB = 0.04f;
+float dialogueVolumedB = 0.0f;
+float listenerXOffset = 0.0f;
+float listenerYOffset = 0.0f;
+float listenerOffset[] = { 0.0f,0.0f };
+FMOD_VECTOR listener_position{ 0.0f,0.0f,0.0f };
+FMOD_VECTOR listener_fwd{ 0.0f,0.0f,1.0f };
+FMOD_VECTOR listener_up{ 0.0f,1.0f,0.0f };
+float listener_step = 0.1f;
 
 
 void glfwpoll() {
@@ -122,7 +123,7 @@ void start() {
     ae.printGraphicsInfo();                 // print OpenGL info
 
     ae.loadSound(musicTrack);
-    ae.loadSound(sfxTrack);
+    ae.loadSound(dialogueTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
     ae.loadSound(sfxBullet);
@@ -130,7 +131,8 @@ void start() {
     ae.mLevelManager->startGame();
 
     musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB);
-    sfxChannelID = ae.play(sfxTrack, ChannelGroupTypes::C_DIALOGUE, 0.0f);
+    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB);
+    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB);
 
 }
 
@@ -147,36 +149,48 @@ void printScore() {
     if (ae.mIsDebugMode) {
         ae.mUIManager->drawText(5, 5, title);
     }
-    if (ae.mLevelManager->level > 1) {
-        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level)).c_str());
+    if (ae.mLevelManager->level > 2) {
+        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level-2)).c_str());
         ae.mUIManager->drawText(5, 25, (string("TIME ELAPSED : ") + std::to_string(ae.getUptime() - ae.mLevelManager->levelStartTime) + string("s")).c_str());
     }
 }
 
 bool menu_start = true;
 bool menu_ingame = false;
+char buttontext[40] = "PLAY";
+bool menu_inprogress = false;
 
 void showGameMenu() {
-    // now we are in menu
-    if (ae.mLevelManager->level == 2) {
-        ImGui::Begin("MENUBUTTONS", NULL, 
+     // now we are in menu
+    if (ae.mLevelManager->level == COUNT_INTROS-1) {
+        ImGui::Begin("SPACE JUMP", NULL, 
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoBackground | 
             ImGuiWindowFlags_NoTitleBar | 
             //ImGuiWindowFlags_NoInputs | 
-            ImGuiWindowFlags_AlwaysAutoResize | 
-            ImGuiWindowFlags_NoScrollbar |
+            //ImGuiWindowFlags_NoScrollbar |
+            //ImGuiWindowFlags_AlwaysAutoResize
             ImGuiWindowFlags_NoResize
         );
-        if (menu_start && !menu_ingame) {
-            if (ImGui::Button("PLAY")) {
-                menu_start = false;
-                menu_ingame = true;
-                ae.mLevelManager->level = 3;
-                ae.mLevelManager->load(ae.mLevelManager->level);
+        ImGui::GetStyle().WindowTitleAlign = ImVec2(0.5, 0.5);
+        ImVec2 p;
+        p.x = ImGui::GetWindowWidth() / 2;
+        int button_width = ImGui::GetWindowWidth();
+        int button_height = 40;
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+
+        if ((menu_start && !menu_ingame) || menu_inprogress) {
+            if (menu_inprogress) {
+                sprintf(buttontext, "Loading %c", "|/-\\"[(int)(ImGui::GetTime() / 0.05f) & 3]);
+            }
+            else {
+                sprintf(buttontext, "PLAY");
+            }
+            if (ImGui::Button(buttontext,ImVec2(button_width,button_height))) {
+                menu_inprogress = true;
+                ae.mLevelManager->loadNextLevel();
             }
         }
-
         ImGui::End();
     }
 }

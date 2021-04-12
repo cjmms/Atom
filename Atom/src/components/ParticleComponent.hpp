@@ -24,7 +24,10 @@ public:
 
 	ParticleEffect pE = ParticleEffect(sCon, mCon, pCon);
 	ParticleComponent() {
-		pE.Init();
+		//pE->Init();
+	}
+	~ParticleComponent() {
+		//delete pE;
 	}
 };
 

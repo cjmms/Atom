@@ -52,6 +52,7 @@ extern float listener_step;
 
 extern ChannelID musicChannelID;
 extern ChannelID sfxChannelID;
+extern ChannelID dialogueChannelID;
 
 class AtomEngine {
 public:
@@ -213,7 +214,7 @@ public:
 		mInputManager->update();
 
 		// process
-		if (mInputManager->isKeyTriggered(VK_ESCAPE)) {
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
 			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
 		}
@@ -221,10 +222,12 @@ public:
 		if (mIsPaused) {
 			mAudioManager->pause(musicChannelID, true);
 			mAudioManager->pause(sfxChannelID, true);
+			mAudioManager->pause(dialogueChannelID, true);
 		}
 		else {
 			mAudioManager->pause(musicChannelID, false);
 			mAudioManager->pause(sfxChannelID, false);
+			mAudioManager->pause(dialogueChannelID, false);
 			mSystemManager->update();
 			mEventManager->update();
 			mEntityManager->update();
