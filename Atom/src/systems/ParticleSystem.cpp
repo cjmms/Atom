@@ -19,7 +19,7 @@ void ParticleSystem::update() {
 		if (ae.hasComponent<TransformComponent>(entity) && ae.hasComponent<ParticleComponent>(entity)) {
 			auto& t = ae.getComponent<TransformComponent>(entity);
 			auto p = ae.getComponent<ParticleComponent>(entity);
-			p.sCon.areaCenter = glm::vec2{ t.position.x,t.position.y };
+			p.sCon.areaCenter = glm::vec2{ t.position.x - 0.1,t.position.y - 0.1 };
 			p.pE->Draw(p.sCon.areaCenter);
 		}
 	}
