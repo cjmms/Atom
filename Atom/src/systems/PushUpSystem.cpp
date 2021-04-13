@@ -16,13 +16,19 @@ void PushUpSystem::init()
 
 void PushUpSystem::update()
 {
-	for (auto entity : ae.mSystemManager->getSystem<ControllerSystem>()->mEntities)
+	if (ae.mSystemManager->getSystem<ControllerSystem>()->mEntities.size() == 0)
+		BigChar = -1;
+	else
 	{
-		if (ae.hasComponent<ControllerComponent>(entity) && ae.getComponent<CharacteristicComponent>(entity).isBig)
+		for (auto entity : ae.mSystemManager->getSystem<ControllerSystem>()->mEntities)
 		{
-			BigChar = entity;
+			if (ae.hasComponent<ControllerComponent>(entity) && ae.getComponent<CharacteristicComponent>(entity).isBig)
+			{
+				BigChar = entity;
+			}
 		}
 	}
+	
 
 	std::vector<EntityID> PushUpPlatforms;
 	for (auto& entity : mEntities)
@@ -33,10 +39,10 @@ void PushUpSystem::update()
 		}
 	}
 
-	PhysicsBodyComponent body;
+	PhysicsBodyComponent* body;
 	
 	if(BigChar != -1)
-		body = ae.getComponent<PhysicsBodyComponent>(BigChar);
+		body = &ae.getComponent<PhysicsBodyComponent>(BigChar);
 
 	if (PushUpPlatforms.size() != 0)
 	{
@@ -45,10 +51,10 @@ void PushUpSystem::update()
 			auto pushUp = ae.getComponent<PushUpComponent>(platform);
 			auto pushUpBody = ae.getComponent<PhysicsBodyComponent>(platform);
 
-			if (body.prevPositionX >= (pushUpBody.prevPositionX - pushUp.Scale * SCALE) && body.prevPositionX <= (pushUpBody.prevPositionX + pushUp.Scale * SCALE) && body.prevPositionY > pushUpBody.prevPositionY)
+			if (body->prevPositionX >= (pushUpBody.prevPositionX - pushUp.Scale * SCALE) && body->prevPositionX <= (pushUpBody.prevPositionX + pushUp.Scale * SCALE) && body->prevPositionY > pushUpBody.prevPositionY)
 			{
-				body.totalForceX = pushUp.ForceX / ((body.prevPositionY - pushUpBody.prevPositionY) * (body.prevPositionY - pushUpBody.prevPositionY) * 100 * 100);
-				body.totalForceY = pushUp.ForceY / ((body.prevPositionY - pushUpBody.prevPositionY) * (body.prevPositionY - pushUpBody.prevPositionY) * 100 * 100);
+				body->totalForceX = pushUp.ForceX / ((body->prevPositionY - pushUpBody.prevPositionY) * (body->prevPositionY - pushUpBody.prevPositionY) * 100 * 100);
+				body->totalForceY = pushUp.ForceY / ((body->prevPositionY - pushUpBody.prevPositionY) * (body->prevPositionY - pushUpBody.prevPositionY) * 100 * 100);
 			}
 		}
 	}

@@ -8,8 +8,8 @@ class MoveToComponent {
 public:
 	float velocityX = -0.3f;
 	float velocityY = -0.3f;
-	int GridX = 0;	//Number of grids to move
-	int GridY = 0;	//Number of grids to move
+	float GridX = 0.0f;	//Number of grids to move
+	float GridY = 0.0f;	//Number of grids to move
 
 	string tag;
 
