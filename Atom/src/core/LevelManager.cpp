@@ -363,6 +363,7 @@ void LevelManager::load(string filepath) {
 
 	in.close();
 	in2.close();
+
 }
 
 void LevelManager::loadCharacters(string charloc)
@@ -379,6 +380,8 @@ void LevelManager::loadCharacters(string charloc)
 			ae.deserializeEntity(entityjson, entid);
 		}
 	}
+
+	inmap.close();
 }
 
 bool LevelManager::fadeIn()

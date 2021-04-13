@@ -38,7 +38,7 @@ enum DIR_MODE
 
 struct ParticleConfig
 {
-	ParticleConfig(float numOfParticles, float scale, glm::vec2 time)
+	ParticleConfig(float numOfParticles = 50, float scale = 0.1f, glm::vec2 time = glm::vec2{0.1f,2.0f})
 		: numOfParticles(numOfParticles), scale(scale), time(time) {}
 
 	float numOfParticles;
@@ -49,7 +49,7 @@ struct ParticleConfig
 
 struct SpawnConfig
 {
-	SpawnConfig(glm::vec2 center, float length, AREA_MODE mode)
+	SpawnConfig(glm::vec2 center = glm::vec2{0.0f,0.0f}, float length = 0.01f, AREA_MODE mode=AREA_MODE::CIRCLE)
 		:areaCenter(center), length(length), mode(mode) {}
 
 	glm::vec2 areaCenter;
@@ -60,7 +60,7 @@ struct SpawnConfig
 
 struct MoveConfig
 {
-	MoveConfig(glm::vec2 dir, float magnitude, DIR_MODE mode)
+	MoveConfig(glm::vec2 dir = glm::vec2{0.0f,0.0f}, float magnitude=0.001f, DIR_MODE mode=DIR_MODE::CIRCULAR)
 		:direction(glm::normalize(dir)), magnitude(magnitude), mode(mode) {}
 
 	// add an offset prevent vec2(0.0, 0.0)
