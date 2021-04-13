@@ -50,8 +50,13 @@ void GraphicsManager::init() {
 	glfwWindowHint(GLFW_DECORATED, true);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
+	monitor = glfwGetPrimaryMonitor();
+	mode = glfwGetVideoMode(monitor);
+
 	// Create a windowed mode window and its OpenGL context
-	mWindow = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
+	mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
+
+
 	if (!mWindow) {
 		glfwTerminate();
 		ATOM_ERROR("Graphics : Failed to create window");

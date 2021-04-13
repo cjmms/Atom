@@ -205,6 +205,10 @@ void showGameMenu() {
                 menu_inprogress = true;
                 ae.mLevelManager->load(14);
             }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("EXIT", ImVec2(button_width, button_height))) {
+                ae.mIsRunning = false;
+            }
         }
         ImGui::End();
     }
