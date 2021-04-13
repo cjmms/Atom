@@ -25,6 +25,7 @@
 #define FADE_OUT_TIME 1.0f
 #define FADE_IN_TIME 1.0f
 #define COUNT_INTROS 3
+#define TOTAL_LEVELS 19
 
 // USING
 using string = std::string;

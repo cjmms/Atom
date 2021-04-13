@@ -52,10 +52,9 @@ void LevelManager::update()
 	if (do_fade_in) {
 		if (fadeIn() || screenByPass()) {
 			level = next_level;
+			level_alpha = 1.0f;
 			do_fade_in = false;
 			menu_inprogress = false;
-			//menu_start = false;
-			//menu_ingame = true;
 		}
 	}
 
@@ -68,10 +67,6 @@ void LevelManager::update()
 			do_fade_in = true;
 		}
 	}
-
-
-
-
 }
 
 bool LevelManager::screenByPass()
@@ -168,14 +163,10 @@ void LevelManager::load(int level) {
 
 	levelStartTime = ae.getUptime();
 
-
-
-
-	if (level == 15)
+	// if last level go back to main menu
+	if (level == TOTAL_LEVELS-1)
 	{
-		//UI: restart game
-		ae.mIsPaused = true;
-		ae.mUIManager->checkRestartGame = true;
+		loadLevel(COUNT_INTROS-1);
 	}
 }
 
@@ -189,16 +180,12 @@ void LevelManager::startGame()
 
 void LevelManager::loadNextLevel()
 {
-	next_level = level + 1;
-	do_fade_out = true;
-	do_fade_in = false;
+	loadLevel(level + 1);
 }
 
 void LevelManager::loadPreviosLevel()
 {
-	next_level = level - 1;
-	do_fade_out = true;
-	do_fade_in = false;
+	loadLevel(level - 1);
 }
 
 void LevelManager::loadLevel(int l)
@@ -252,8 +239,8 @@ void LevelManager::load(string filepath) {
 		//todo cache map details into <unordered map> for optimzation here
 
 		// size normalized to [0,800]
-		tilesize_x = (float)mapJson["tilesize_x"] * 2 / SCREEN_WIDTH;
-		tilesize_y = (float)mapJson["tilesize_y"] * 2 / SCREEN_HEIGHT;
+		tilesize_x = (float)mapJson["tilesize_x"] * 2 / ae.mGraphicsManager->GetWindowWidth();
+		tilesize_y = (float)mapJson["tilesize_y"] * 2 / ae.mGraphicsManager->GetWindowWidth();
 
 		//merge along row
 		int mergeStartIndex = -1;
