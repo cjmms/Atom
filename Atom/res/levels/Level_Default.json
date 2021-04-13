@@ -322,6 +322,39 @@
     }
   },
 
+  "H": {
+    "EntityID": 0,
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/right_arrow.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    }
+  },
+
   "E1": {
     "EntityID": 0,
     "TagComponent": {

@@ -18,9 +18,9 @@ void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
-	glfwSetWindowSize(window, (int)width, (int)height);
-	glViewport(0, 0, width, height);
-	ae.mGraphicsManager->SetWindowSize(width, height);
+	//glfwSetWindowSize(window, (int)width, (int)height);
+	//glViewport(0, 0, width, height);
+	ae.mGraphicsManager->resize(width, height);
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -48,7 +48,7 @@ void GraphicsManager::init() {
 
 	// window hints
 	glfwWindowHint(GLFW_DECORATED, true);
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
 	monitor = glfwGetPrimaryMonitor();
 	mode = glfwGetVideoMode(monitor);
@@ -99,8 +99,18 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 {
 	width = w;
 	height = h;
+
+	int side = width > height ? height : width;
+
 	glfwSetWindowSize(mWindow, (int)width, (int)height);
-	glViewport(0, 0, width, height);
+
+	float ratio = (float)width / (float)height;
+
+	if (ratio > 1.0f)
+		glViewport((width - side) / 2, 0, side, side);
+
+	if (ratio < 1.0f)
+		glViewport(0, (height - side) / 2, side, side);
 }
 
 
