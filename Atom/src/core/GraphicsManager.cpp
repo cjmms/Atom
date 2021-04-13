@@ -13,13 +13,11 @@ extern AtomEngine ae;
 // callback function for window resizing, hidden from any other files
 void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	glViewport(0, 0, width, height);
+	ae.mGraphicsManager->resize(width, height);
 }
 
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
-	//glfwSetWindowSize(window, (int)width, (int)height);
-	//glViewport(0, 0, width, height);
 	ae.mGraphicsManager->resize(width, height);
 }
 
@@ -39,13 +37,6 @@ void GraphicsManager::init() {
 		ATOM_ERROR("Graphics : Failed to initialize glfw");
 	}
 
-	//auto monitor = glfwGetPrimaryMonitor();
-	//const GLFWvidmode* mode = glfwGetVideoMode(monitor);
-
-	//width = mode->width;
-	//height = mode->height;
-
-
 	// window hints
 	glfwWindowHint(GLFW_DECORATED, true);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
@@ -55,7 +46,7 @@ void GraphicsManager::init() {
 
 	// Create a windowed mode window and its OpenGL context
 	mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
-
+	
 
 	if (!mWindow) {
 		glfwTerminate();
@@ -69,10 +60,6 @@ void GraphicsManager::init() {
 		ATOM_ERROR("Graphics : GLEW init error");
 	}
 
-
-
-
-	//ATOM_ERROR("mode : {},{}", mode->width, mode->height);
 
 	// when window size changes, object scales properly
 	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
@@ -107,10 +94,10 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 	float ratio = (float)width / (float)height;
 
 	if (ratio > 1.0f)
-		glViewport((width - side) / 2, 0, side, side);
+		glViewport(fabsf((width - side) / 2), 0, side, side);
 
 	if (ratio < 1.0f)
-		glViewport(0, (height - side) / 2, side, side);
+		glViewport(0, fabsf((height - side) / 2), side, side);
 }
 
 

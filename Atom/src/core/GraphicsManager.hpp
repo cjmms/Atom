@@ -38,7 +38,8 @@ public:
 	inline void FullScreenMode()
 	{
 		glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
-		resize(mode->width, mode->height);
+		//resize(mode->width, mode->height);
+		glViewport(0, 0, mode->width, mode->height);
 	}
 	inline void WindowMode()
 	{
