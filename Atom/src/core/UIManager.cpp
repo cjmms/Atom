@@ -97,13 +97,18 @@ void UIManager::showMenu(){
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
         ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoMove |
         //ImGuiWindowFlags_NoInputs | 
         //ImGuiWindowFlags_NoScrollbar |
         //ImGuiWindowFlags_AlwaysAutoResize
         ImGuiWindowFlags_NoResize
     );
-
-    if (ImGui::Button("RESUME GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
+    ImVec2 p;
+    p.x = ImGui::GetWindowWidth() / 2;
+    int button_width = ImGui::GetWindowWidth();
+    int button_height = 40;
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("RESUME GAME", ImVec2(button_width, button_height)))
     {
         checkRestartWindow = false;  // disable other window
         checkRestartGame = false;
@@ -112,10 +117,13 @@ void UIManager::showMenu(){
     }
 
     // Audio UI setup
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat("SFX VOLUME", &sfxVolumedB, 0.0f, 1.0f);
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat("SPEECH VOLUME", &dialogueVolumedB, 0.0f, 1.0f);
-
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
     ae.setVolume(musicChannelID, musicVolumedB);
@@ -124,40 +132,44 @@ void UIManager::showMenu(){
     ae.listener3DSetXOffset(listenerOffset[0]);
     ae.listener3DSetYOffset(listenerOffset[1]);
 
-    if (ImGui::Button("RESTART CURRENT LEVEL",ImVec2(ImGui::GetWindowWidth(),40)))
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("RESTART CURRENT LEVEL",ImVec2(button_width, button_height)))
     {
         checkCloseWindow = false;   // disable other window
         checkRestartGame = false;
         checkRestartWindow = true;
     }
 
-    if (ImGui::Button("RESTART GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("RESTART GAME", ImVec2(button_width, button_height)))
     {
         checkCloseWindow = false;   // disable other window
         checkRestartWindow = false;
         checkRestartGame = true;
     }
 
-    if (ImGui::Button("QUIT GAME", ImVec2(ImGui::GetWindowWidth(), 40)))
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("QUIT GAME", ImVec2(button_width, button_height)))
     {
         checkRestartWindow = false; // disable other window
         checkRestartGame = false;
         checkCloseWindow = true;
     }
 
-    if (ImGui::Button("EXIT TO MAIN MENU", ImVec2(ImGui::GetWindowWidth(), 40))) {
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("EXIT TO MAIN MENU", ImVec2(button_width, button_height))) {
 
         ae.mLevelManager->loadLevel(COUNT_INTROS - 1);
         menu_start = true;
         ae.mIsPaused = false;
     }
-
-    if (ImGui::Button("Full Screen Mode", ImVec2(ImGui::GetWindowWidth(), 40))) {
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("FULLSCREEN MODE", ImVec2(button_width, button_height))) {
 
         ae.mGraphicsManager->FullScreenMode();
     }
-
-    if (ImGui::Button("Window Mode", ImVec2(ImGui::GetWindowWidth(), 40))) {
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("WINDOWED MODE", ImVec2(button_width, button_height))) {
 
         ae.mGraphicsManager->WindowMode();
     }
@@ -175,15 +187,21 @@ void UIManager::showCheckCloseWindow(){
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
         ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoMove |
         //ImGuiWindowFlags_NoInputs | 
         //ImGuiWindowFlags_NoScrollbar |
         //ImGuiWindowFlags_AlwaysAutoResize
         ImGuiWindowFlags_NoResize
     );   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+    ImVec2 p;
+    p.x = ImGui::GetWindowWidth() / 2;
+    int button_width = ImGui::GetWindowWidth();
+    int button_height = 40;
     ImGui::Text("ARE YOU SURE YOU WANT TO QUIT THE GAME ?");
-
-    if (ImGui::Button("YES")) ae.mIsRunning = false;
-    if (ImGui::Button("NO")) checkCloseWindow = false;
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("YES", ImVec2(button_width, button_height))) ae.mIsRunning = false;
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("NO", ImVec2(button_width, button_height))) checkCloseWindow = false;
     ImGui::End();
 }
 
@@ -194,20 +212,27 @@ void UIManager::showCheckRestartWindow(){
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
         ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoMove |
         //ImGuiWindowFlags_NoInputs | 
         //ImGuiWindowFlags_NoScrollbar |
         //ImGuiWindowFlags_AlwaysAutoResize
         ImGuiWindowFlags_NoResize
 
         );
+    ImVec2 p;
+    p.x = ImGui::GetWindowWidth() / 2;
+    int button_width = ImGui::GetWindowWidth();
+    int button_height = 40;
     ImGui::Text("ARE YOU SURE YOU WANT TO RESTART THE LEVEL ? CURRENT PROGRESS WILL BE LOST.");
-    if (ImGui::Button("YES"))
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("YES", ImVec2(button_width, button_height)))
     {
         ae.mLevelManager->restartCurrentLevel();
         checkRestartWindow = false;
         ae.mIsPaused = false;   // close the menu
     }
-    if (ImGui::Button("NO")) checkRestartWindow = false;
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("NO", ImVec2(button_width, button_height))) checkRestartWindow = false;
 
     ImGui::End();
 }
@@ -217,19 +242,26 @@ void UIManager::showCheckRestartGame(){
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
         ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoMove |
         //ImGuiWindowFlags_NoInputs | 
         //ImGuiWindowFlags_NoScrollbar |
         //ImGuiWindowFlags_AlwaysAutoResize
         ImGuiWindowFlags_NoResize
     );
+    ImVec2 p;
+    p.x = ImGui::GetWindowWidth() / 2;
+    int button_width = ImGui::GetWindowWidth();
+    int button_height = 40;
     ImGui::Text("DO YOU WANT TO RESTART THE GAME?");
-    if (ImGui::Button("YES"))
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("YES", ImVec2(button_width, button_height)))
     {
         ae.mLevelManager->restartWholeGame();
         checkRestartGame = false;
         ae.mIsPaused = false;   // close the menu
     }
-    if (ImGui::Button("NO")) checkRestartGame = false;
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("NO", ImVec2(button_width, button_height))) checkRestartGame = false;
 
     ImGui::End();
 }

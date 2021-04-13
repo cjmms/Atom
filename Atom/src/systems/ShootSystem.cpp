@@ -137,13 +137,14 @@ void ShootSystem::update()
 
 					ae.addComponent(bullet, SelfDestroyComponent(5));
 					
-					playBulletSound();
+
 
 					////to send to Entity Manager for handling destroy event
 					//Event e(EventID::E_SELF_DESTROY);
 					//e.setParam<EntityID>(EventID::P_SELF_DESTROY_ENTITYID, bullet);
 					//ae.mEventManager->sendTimedEvent(e, 3000);
 				}
+				playBulletSound();
 
 			}
 			else

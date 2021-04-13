@@ -286,9 +286,13 @@ public:
 
 	// AudioManager
 	inline FMOD::Sound* loadSound(string audioloc,
+		bool isLoop = false,
 		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE | FMOD_3D_INVERSEROLLOFF,
 		FMOD_CREATESOUNDEXINFO* _exinfo = NULL
 	) {
+		if (isLoop) {
+			_mode |= FMOD_LOOP_NORMAL;
+		}
 		return mAudioManager->loadSound(audioloc, _mode, _exinfo);
 	}
 
@@ -296,8 +300,8 @@ public:
 		return mAudioManager->unloadSound(audioloc);
 	}
 
-	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f) {
-		return mAudioManager->play(audioloc, cgtype, volumedB);
+	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f, int loopcount=0) {
+		return mAudioManager->play(audioloc, cgtype, volumedB,loopcount);
 	}
 	
 	inline float getVolumedB(ChannelID channelid) {

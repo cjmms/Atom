@@ -98,7 +98,7 @@ public:
 		}
 	}	
 	
-	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB=0.0f) {
+	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB=0.0f, int loopcount=0) {
 		ChannelID currentChannelID = mChannelID++;
 		FMOD::Channel* currentChannel = NULL;
 		FMOD::ChannelGroup* channelgroup = NULL;
@@ -111,6 +111,7 @@ public:
 		if (currentChannel != NULL) {
 			FMOD_ERROR(currentChannel->setVolume(volumedB));
 			FMOD_ERROR(currentChannel->setPaused(false));
+			FMOD_ERROR(mSoundPool[audioloc]->setLoopCount(loopcount));
 			mChannelPool[currentChannelID] = currentChannel;
 		}
 		return currentChannelID;

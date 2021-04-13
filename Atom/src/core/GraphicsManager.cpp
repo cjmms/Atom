@@ -39,8 +39,16 @@ void GraphicsManager::init() {
 		ATOM_ERROR("Graphics : Failed to initialize glfw");
 	}
 
+	//auto monitor = glfwGetPrimaryMonitor();
+	//const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+
+	//width = mode->width;
+	//height = mode->height;
+
+
 	// window hints
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+	glfwWindowHint(GLFW_DECORATED, true);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 	monitor = glfwGetPrimaryMonitor();
 	mode = glfwGetVideoMode(monitor);
@@ -60,6 +68,11 @@ void GraphicsManager::init() {
 	if (glewInit() != GLEW_OK) {
 		ATOM_ERROR("Graphics : GLEW init error");
 	}
+
+
+
+
+	//ATOM_ERROR("mode : {},{}", mode->width, mode->height);
 
 	// when window size changes, object scales properly
 	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
