@@ -37,22 +37,32 @@ public:
 
 	inline void FullScreenMode()
 	{
-		glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
-		resize(mode->width, mode->height);
+		if (!mFullscreen) {
+			monitor = glfwGetPrimaryMonitor();
+			mode = glfwGetVideoMode(monitor);
+			glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+			resize(mode->width, mode->height);
+			mFullscreen = true;
+		}
 	}
 	inline void WindowMode()
 	{
-		// whenever exit full screenmode, set it to fixed size, fixed position
-		// position: 100, 100
-		// size: 800, 800
-		glfwSetWindowMonitor(mWindow, nullptr, 100, 100, 800, 800, 120);
-		resize(width, height);
+		if (mFullscreen) {
+			// whenever exit full screenmode, set it to fixed size, fixed position
+			// position: 100, 100
+			// size: 800, 800
+			glfwSetWindowMonitor(mWindow, nullptr, 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, FPS);
+			resize(width, height);
+			mFullscreen = false;
+		}
 	}
 
 private:
 	GLFWwindow* mWindow = NULL;
 	GLFWmonitor* monitor;
 	const GLFWvidmode* mode;
+
+	bool mFullscreen = true;
 
 	string title;
 	unsigned int width;
