@@ -21,7 +21,6 @@ void windowResizeCallback(GLFWwindow* window, int width, int height)
 	glfwSetWindowSize(window, (int)width, (int)height);
 	glViewport(0, 0, width, height);
 	ae.mGraphicsManager->SetWindowSize(width, height);
-	ae.mIsPaused = true;
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -55,11 +54,8 @@ void GraphicsManager::init() {
 	mode = glfwGetVideoMode(monitor);
 
 	// Create a windowed mode window and its OpenGL context
-	// mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
-	
-	mWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
 
-	
 
 	if (!mWindow) {
 		glfwTerminate();

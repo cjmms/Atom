@@ -22,23 +22,17 @@ public:
 	ParticleConfig pCon;
 	SpawnConfig sCon;
 	MoveConfig mCon;
-	ParticleEffect pE;
+	ParticleEffect* pE;
 
 	ParticleComponent() : pCon(ParticleConfig(50, 0.1f, glm::vec2(0.1f, 2.0f))), 
 		sCon(SpawnConfig(glm::vec2(0.0f,0.0f), 0.01f, AREA_MODE::CIRCLE)), 
 		mCon(MoveConfig(glm::vec2(0.0,0.0f), 0.001f, DIR_MODE::CIRCULAR)),
-		pE(ParticleEffect(sCon,mCon,pCon))
+		pE(new ParticleEffect(sCon,mCon,pCon))
 	{
-		pE.Init();
+		pE->Init();
 	}
-	ParticleComponent(const ParticleComponent& other) : pCon(other.pCon),
-		sCon(other.sCon),
-		mCon(other.mCon),
-		pE(other.pE) {
-
-	}
-
 	~ParticleComponent() {
+
 	}
 };
 

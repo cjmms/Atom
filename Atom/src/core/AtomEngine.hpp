@@ -54,17 +54,6 @@ extern ChannelID musicChannelID;
 extern ChannelID sfxChannelID;
 extern ChannelID dialogueChannelID;
 
-extern float musicVolumedB;
-extern float sfxVolumedB;
-extern float dialogueVolumedB;
-
-extern string musicTrack;
-extern string musicTrack2;
-extern string dialogueTrack;
-extern string sfxJump;
-extern string sfxLand;
-extern string sfxBullet;
-
 class AtomEngine {
 public:
 	inline void init() {
@@ -228,15 +217,6 @@ public:
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
 			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
-		}
-
-		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_P)) {
-			mAudioManager->stop(musicChannelID);
-			musicChannelID = play(musicTrack2, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
-		}
-		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_O)) {
-			mAudioManager->stop(musicChannelID);
-			musicChannelID = play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
 		}
 
 		if (mIsPaused) {

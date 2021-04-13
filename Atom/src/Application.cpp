@@ -86,7 +86,6 @@ void fpsCounter() {
 }
 
 string musicTrack = "Atom/res/audio/suspense_loop.wav";
-string musicTrack2 = "Atom/res/audio/wariyo_mortals.ogg";
 string dialogueTrack = "Atom/res/audio/optimus_speech.ogg";
 string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
 string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
@@ -124,7 +123,6 @@ void start() {
     ae.printGraphicsInfo();                 // print OpenGL info
 
     ae.loadSound(musicTrack,true);
-    ae.loadSound(musicTrack2,true);
     ae.loadSound(dialogueTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
