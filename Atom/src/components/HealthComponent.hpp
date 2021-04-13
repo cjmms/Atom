@@ -21,6 +21,11 @@ public:
 	//for rendering
 	float offsetX = 0.0f, offsetY = 0.02f;
 	float width = 0.1f, height = 0.01f;
+	
+	//for disappearance logic
+	float timeToDisappear = 3.0f;	//disappear after being unchanged for 1.0s
+	float fadeOutTime = 3.0f;
+	float currentTime = 999.0;
 
 public:
 	HealthComponent() {

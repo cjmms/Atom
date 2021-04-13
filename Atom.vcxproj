@@ -710,6 +710,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\src\systems\DamageSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\IndicatorSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
     <ClInclude Include="Atom\src\systems\ParticleSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
@@ -756,6 +757,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClCompile Include="Atom\src\systems\DamageSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\IndicatorSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />

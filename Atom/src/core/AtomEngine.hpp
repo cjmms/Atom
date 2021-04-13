@@ -42,6 +42,7 @@
 #include "systems/SelfDestroySystem.hpp"
 #include "systems/ParticleSystem.hpp"
 #include "systems/AnimationSystem.hpp"
+#include "systems/IndicatorSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -110,8 +111,10 @@ public:
 		registerComponent<FadeComponent>();
 		registerComponent<ParticleComponent>();
 		registerComponent<AnimationComponent>();
+		registerComponent<IndicatorComponent>();
 
 		// register all systems
+		//!order of systems matter
 		registerSystem<TransformSystem>();
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
@@ -121,6 +124,7 @@ public:
 		registerSystem<AutoMovementSystem>();
 		registerSystem<SkillSystem>();
 		registerSystem<PhysicsSystem>();
+		registerSystem<IndicatorSystem>();
 		registerSystem<RectangleRenderSystem>();
 		registerSystem<HealthRenderSystem>();
 		registerSystem<SelfDestroySystem>();
@@ -200,6 +204,10 @@ public:
 			typeAnimation.set(getComponentType<TransformComponent>());
 			typeAnimation.set(getComponentType<AnimationComponent>());
 			setSystemArchetype<AnimationSystem>(typeAnimation);
+
+			Archetype typeIndicator;
+			typeIndicator.set(getComponentType<IndicatorComponent>());
+			setSystemArchetype<IndicatorSystem>(typeIndicator);
 
 		}
 		// reinit systems because archetypes changed 
@@ -460,6 +468,7 @@ public:
 		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		serializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -493,6 +502,7 @@ public:
 		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		deserializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 
 	inline float random() {
