@@ -18,8 +18,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 12,
-        "y": 6,
+        "x": 14.0,
+        "y": 12.0,
         "z": 1.0
       }
     },
@@ -30,7 +30,7 @@
         "z": 1.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/team_memeber_logo.png"
+      "texturePath": "Atom/res/art/atom_production_800x800.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"

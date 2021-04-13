@@ -90,19 +90,19 @@
         "z": 0.0
       },
       "scale": {
-        "x": 100.0,
-        "y": 100.0,
+        "x": 50.0,
+        "y": 50.0,
         "z": 1.0
       }
     },
     "RectangleComponent": {
       "color": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/black.png"
+      "texturePath": "Atom/res/art/starfield_800x800.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"

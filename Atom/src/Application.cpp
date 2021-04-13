@@ -85,7 +85,7 @@ void fpsCounter() {
 #endif
 }
 
-string musicTrack = "Atom/res/audio/wariyo_mortals.ogg";
+string musicTrack = "Atom/res/audio/suspense_loop.wav";
 string dialogueTrack = "Atom/res/audio/optimus_speech.ogg";
 string sfxJump = "Atom/res/audio/EllenFootstepJump.ogg";
 string sfxLand = "Atom/res/audio/EllenFootstepLand.ogg";
@@ -122,7 +122,7 @@ void start() {
     ae.setMaxFPS(120);                       // set the fps
     ae.printGraphicsInfo();                 // print OpenGL info
 
-    ae.loadSound(musicTrack);
+    ae.loadSound(musicTrack,true);
     ae.loadSound(dialogueTrack);
     ae.loadSound(sfxJump);
     ae.loadSound(sfxLand);
@@ -130,9 +130,9 @@ void start() {
 
     ae.mLevelManager->startGame();
 
-    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB);
-    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB);
-    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB);
+    musicChannelID = ae.play(musicTrack, ChannelGroupTypes::C_MUSIC, musicVolumedB,-1);
+    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB,0);
+    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB,0);
 
 }
 
@@ -149,7 +149,7 @@ void printScore() {
     if (ae.mIsDebugMode) {
         ae.mUIManager->drawText(5, 5, title);
     }
-    if (ae.mLevelManager->level > 2) {
+    if (ae.mLevelManager->level > 2 && ae.mLevelManager->level < 14) {
         ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level-2)).c_str());
         ae.mUIManager->drawText(5, 25, (string("TIME ELAPSED : ") + std::to_string(ae.getUptime() - ae.mLevelManager->levelStartTime) + string("s")).c_str());
     }
@@ -167,17 +167,18 @@ void showGameMenu() {
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoBackground | 
             ImGuiWindowFlags_NoTitleBar | 
+            ImGuiWindowFlags_NoMove | 
             //ImGuiWindowFlags_NoInputs | 
             //ImGuiWindowFlags_NoScrollbar |
             //ImGuiWindowFlags_AlwaysAutoResize
             ImGuiWindowFlags_NoResize
         );
-        ImGui::GetStyle().WindowTitleAlign = ImVec2(0.5, 0.5);
+        //ImGui::GetStyle().WindowTitleAlign = ImVec2(0.5, 0.5);
         ImVec2 p;
         p.x = ImGui::GetWindowWidth() / 2;
         int button_width = ImGui::GetWindowWidth();
         int button_height = 40;
-        ImGui::SetCursorPosX(p.x - (button_width / 2));
+
 
         if ((menu_start && !menu_ingame) || menu_inprogress) {
             if (menu_inprogress) {
@@ -186,9 +187,27 @@ void showGameMenu() {
             else {
                 sprintf(buttontext, "PLAY");
             }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button(buttontext,ImVec2(button_width,button_height))) {
                 menu_inprogress = true;
                 ae.mLevelManager->loadNextLevel();
+            }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("CONTROLS", ImVec2(button_width, button_height))) {
+
+            }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
+
+            }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("CREDITS",ImVec2(button_width,button_height))) {
+                menu_inprogress = true;
+                ae.mLevelManager->load(14);
+            }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("EXIT", ImVec2(button_width, button_height))) {
+                ae.mIsRunning = false;
             }
         }
         ImGui::End();
@@ -207,6 +226,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     start();
     ae.mUIManager->addUIPainter(printScore);
     ae.mUIManager->addUIPainter(showGameMenu);
+
 
     while (ae.mIsRunning) {
         glfwpoll();      

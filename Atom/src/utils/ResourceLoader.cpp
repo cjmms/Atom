@@ -9,7 +9,7 @@
 void loadResource(unsigned int& id, string filename) {
 
     // enable gamma correction
-    bool gamma = true;
+    bool gamma = false;
     stbi_set_flip_vertically_on_load(true);
     glGenTextures(1, &id);
 
