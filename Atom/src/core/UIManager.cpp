@@ -152,6 +152,18 @@ void UIManager::showMenu(){
         ae.mIsPaused = false;
     }
 
+    if (ImGui::Button("Full Screen Mode", ImVec2(ImGui::GetWindowWidth(), 40))) {
+
+        ae.mGraphicsManager->FullScreenMode();
+    }
+
+    if (ImGui::Button("Window Mode", ImVec2(ImGui::GetWindowWidth(), 40))) {
+
+        ae.mGraphicsManager->WindowMode();
+    }
+
+
+
     ImGui::End();
 }
 

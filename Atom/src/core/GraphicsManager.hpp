@@ -35,8 +35,24 @@ public:
 	inline unsigned int GetWindowWidth() const { return width; }
 	inline unsigned int GetWindowHeight() const { return height; }
 
+	inline void FullScreenMode()
+	{
+		glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		resize(mode->width, mode->height);
+	}
+	inline void WindowMode()
+	{
+		// whenever exit full screenmode, set it to fixed size, fixed position
+		// position: 100, 100
+		// size: 800, 800
+		glfwSetWindowMonitor(mWindow, nullptr, 100, 100, 800, 800, 120);
+		resize(width, height);
+	}
+
 private:
 	GLFWwindow* mWindow = NULL;
+	GLFWmonitor* monitor;
+	const GLFWvidmode* mode;
 
 	string title;
 	unsigned int width;
