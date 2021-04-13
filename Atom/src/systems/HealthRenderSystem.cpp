@@ -74,7 +74,10 @@ void HealthRenderSystem::drawEntities()
 			//no need to render
 			continue;
 		}
-		h.currentTime += dt;
+
+		//keep showing health == 0 if player died
+		if(h.health != 0)
+			h.currentTime += dt;
 
 		float alpha = 1.0;
 		if (h.currentTime > h.timeToDisappear)

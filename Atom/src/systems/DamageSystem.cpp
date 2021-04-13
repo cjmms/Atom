@@ -107,10 +107,22 @@ void DamageSystem::onEvent(Event& e)
 	if (ae.hasComponent<HealthComponent>(target))
 	{
 		auto& health = ae.getComponent<HealthComponent>(target);
-		health.health -= damage.damage;
-		health.currentTime = 0;
-		if (health.health <= 0)
-			health.health = 0;
+
+		if (health.health > 0)
+		{
+			health.health -= damage.damage;
+			health.currentTime = 0;
+			if (health.health <= 0)
+			{
+				//send die event
+				Event e(EventID::E_ENTITY_DIE);
+				e.setParam<EntityID>(EventID::P_ENTITY_DIE, target);
+				ae.sendEvent(e);
+
+				health.health = 0;
+
+			}
+		}
 	}
 
 	//handle destroy in another loop
