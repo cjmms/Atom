@@ -42,6 +42,9 @@
 #include "systems/SelfDestroySystem.hpp"
 #include "systems/ParticleSystem.hpp"
 #include "systems/AnimationSystem.hpp"
+#include "systems/PushUpSystem.hpp"
+#include "systems/MoveToSystem.hpp"
+
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -110,6 +113,8 @@ public:
 		registerComponent<FadeComponent>();
 		registerComponent<ParticleComponent>();
 		registerComponent<AnimationComponent>();
+		registerComponent<PushUpComponent>();
+		registerComponent<MoveToComponent>();
 
 		// register all systems
 		registerSystem<TransformSystem>();
@@ -126,6 +131,8 @@ public:
 		registerSystem<SelfDestroySystem>();
 		registerSystem<ParticleSystem>();
 		registerSystem<AnimationSystem>();
+		registerSystem<PushUpSystem>();
+		registerSystem<MoveToSystem>();
 
 
 		// set archetypes
@@ -200,6 +207,17 @@ public:
 			typeAnimation.set(getComponentType<TransformComponent>());
 			typeAnimation.set(getComponentType<AnimationComponent>());
 			setSystemArchetype<AnimationSystem>(typeAnimation);
+
+			Archetype typePushUp;
+			typePushUp.set(getComponentType<TransformComponent>());
+			typePushUp.set(getComponentType<PhysicsBodyComponent>());
+			typePushUp.set(getComponentType<PushUpComponent>());
+			setSystemArchetype<PushUpSystem>(typePushUp);
+
+			Archetype typeMoveTo;
+			typeMoveTo.set(getComponentType<MoveToComponent>());
+			typeMoveTo.set(getComponentType<TagComponent>());
+			setSystemArchetype<MoveToSystem>(typeMoveTo);
 
 		}
 		// reinit systems because archetypes changed 
@@ -464,6 +482,8 @@ public:
 		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
+		serializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -497,6 +517,8 @@ public:
 		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
+		deserializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 	}
 
 	inline float random() {
