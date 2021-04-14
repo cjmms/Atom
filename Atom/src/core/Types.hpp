@@ -18,7 +18,7 @@
 // DEFINES
 #define APPNAME "[Space Jump]"
 #define MAX_TITLE_LEN 80
-#define FPS 60
+#define FPS 120
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 #define FMODMAXCHANNELS 512

@@ -61,6 +61,8 @@ private:
 	GLFWmonitor* monitor;
 	const GLFWvidmode* mode;
 
+	bool mFullscreen = true;
+
 	string title;
 	unsigned int width;
 	unsigned int height;

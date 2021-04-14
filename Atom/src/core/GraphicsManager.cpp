@@ -19,6 +19,7 @@ void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
 	ae.mGraphicsManager->resize(width, height);
+	ae.mIsPaused = true;
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -28,6 +29,9 @@ void windowCloseCallback(GLFWwindow* window)
 }
 
 void GraphicsManager::init() {
+
+	mFullscreen = true;
+
 	title = APPNAME;
 	width = SCREEN_WIDTH;
 	height = SCREEN_HEIGHT;
