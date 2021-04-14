@@ -149,8 +149,8 @@ void printScore() {
     if (ae.mIsDebugMode) {
         ae.mUIManager->drawText(5, 5, title);
     }
-    if (ae.mLevelManager->level > 2 && ae.mLevelManager->level < 14) {
-        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level-2)).c_str());
+    if (ae.mLevelManager->level > COUNT_INTROS - 1 && ae.mLevelManager->level < ED_LEVELS + 1) {
+        ae.mUIManager->drawText(5, 15, (string("LEVEL : ") + std::to_string(ae.mLevelManager->level - COUNT_INTROS + 1)).c_str());
         ae.mUIManager->drawText(5, 25, (string("TIME ELAPSED : ") + std::to_string(ae.getUptime() - ae.mLevelManager->levelStartTime) + string("s")).c_str());
     }
 }

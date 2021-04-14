@@ -44,7 +44,7 @@ float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
 void LevelManager::update()
 {
 	//logic to move to next level automatically
-	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || (level < 2 && screenByPass()))
+	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || (level < COUNT_INTROS - 1 && screenByPass()))
 	{
 		loadNextLevel();
 	}
@@ -57,7 +57,6 @@ void LevelManager::update()
 			menu_inprogress = false;
 		}
 	}
-
 	else if (do_fade_out) {
 		if (fadeOut() || screenByPass()) {
 			unload();
@@ -67,6 +66,7 @@ void LevelManager::update()
 			do_fade_in = true;
 		}
 	}
+	
 }
 
 bool LevelManager::screenByPass()

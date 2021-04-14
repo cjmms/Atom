@@ -49,8 +49,9 @@ void GraphicsManager::init() {
 	mode = glfwGetVideoMode(monitor);
 
 	// Create a windowed mode window and its OpenGL context
-	mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
-	
+	//mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
+	mWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+
 
 	if (!mWindow) {
 		glfwTerminate();

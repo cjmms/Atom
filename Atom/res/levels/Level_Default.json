@@ -5,6 +5,9 @@
   "levels": [
     "LevelOP1_Settings.json",
     "LevelOP2_Settings.json",
+    "LevelOP3_Settings.json",
+    "LevelOP4_Settings.json",
+    "LevelOP5_Settings.json",
     "LevelMenu_Settings.json",
     "LevelA1_Settings.json",
     "LevelA2_Settings.json",
