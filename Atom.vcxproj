@@ -1105,6 +1105,8 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\levels\LevelOP3_Settings.json" />
     <None Include="Atom\res\levels\LevelOP4_Map.json" />
     <None Include="Atom\res\levels\LevelOP4_Settings.json" />
+    <None Include="Atom\res\levels\LevelOP5_Map.json" />
+    <None Include="Atom\res\levels\LevelOP5_Settings.json" />
     <None Include="Atom\res\levels\Level_Default.json" />
     <None Include="Atom\res\levels\characters.json" />
     <None Include="Atom\res\levels\LevelA10_Map.json" />

@@ -3202,6 +3202,9 @@
     <None Include="Atom\res\levels\LevelOP3_Map.json" />
     <None Include="Atom\res\levels\LevelOP3_Settings.json" />
     <None Include="Atom\res\levels\LevelOP4_Map.json" />
+    <None Include="Atom\res\levels\Level_Default.json" />
+    <None Include="Atom\res\levels\LevelOP5_Map.json" />
+    <None Include="Atom\res\levels\LevelOP5_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">
