@@ -162,7 +162,7 @@ bool menu_inprogress = false;
 
 void showGameMenu() {
      // now we are in menu
-    if (ae.mLevelManager->level == COUNT_INTROS-1) {
+    if (ae.mLevelManager->level == COUNT_INTROS-2) {
         ImGui::Begin("SPACE JUMP", NULL, 
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoBackground | 
@@ -190,11 +190,11 @@ void showGameMenu() {
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button(buttontext,ImVec2(button_width,button_height))) {
                 menu_inprogress = true;
-                ae.mLevelManager->loadNextLevel();
+                ae.mLevelManager->loadLevel(COUNT_INTROS);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CONTROLS", ImVec2(button_width, button_height))) {
-
+                ae.mLevelManager->loadLevel(COUNT_INTROS-1);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
