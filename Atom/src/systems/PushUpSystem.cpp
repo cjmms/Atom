@@ -11,11 +11,11 @@ extern AtomEngine ae;
 
 void PushUpSystem::init()
 {
-	BigChar = -1;
 }
 
 void PushUpSystem::update()
 {
+	BigChar = -1;
 	for (auto entity : ae.mSystemManager->getSystem<ControllerSystem>()->mEntities)
 	{
 		if (ae.hasComponent<ControllerComponent>(entity) && ae.getComponent<CharacteristicComponent>(entity).isBig)
