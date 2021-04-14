@@ -194,7 +194,7 @@ void showGameMenu() {
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CONTROLS", ImVec2(button_width, button_height))) {
-            
+
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
