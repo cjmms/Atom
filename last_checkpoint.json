@@ -3852,12 +3852,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 93,
+            "EntityID": 134,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.6436207294464111,
-                    "y": 2.7137248516082764,
+                    "x": 3.242640733718872,
+                    "y": 0.018528228625655174,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3911,12 +3911,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 94,
+            "EntityID": 135,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.8715770840644836,
-                    "y": 2.3539438247680664,
+                    "x": 2.975132703781128,
+                    "y": -0.4043608009815216,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3970,12 +3970,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 95,
+            "EntityID": 138,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -2.3672332763671875,
-                    "y": 1.7258491516113281,
+                    "x": 2.086972236633301,
+                    "y": -0.6522420644760132,
                     "z": 0.0
                 },
                 "rotation": {
@@ -3984,7 +3984,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": -0.029999999329447746,
+                    "x": 0.029999999329447746,
                     "y": 0.029999999329447746,
                     "z": 1.0
                 }
@@ -4029,12 +4029,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 96,
+            "EntityID": 139,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -3.0236241817474365,
-                    "y": 0.6472501158714294,
+                    "x": 1.6198822259902954,
+                    "y": -0.15331219136714935,
                     "z": 0.0
                 },
                 "rotation": {
@@ -4043,7 +4043,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": -0.029999999329447746,
+                    "x": 0.029999999329447746,
                     "y": 0.029999999329447746,
                     "z": 1.0
                 }
@@ -4088,12 +4088,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 97,
+            "EntityID": 140,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": -1.6831603050231934,
-                    "y": 1.3282928466796875,
+                    "x": 1.2245784997940063,
+                    "y": 0.11967992037534714,
                     "z": 0.0
                 },
                 "rotation": {
@@ -4102,7 +4102,7 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": -0.029999999329447746,
+                    "x": 0.029999999329447746,
                     "y": 0.029999999329447746,
                     "z": 1.0
                 }
@@ -4147,12 +4147,12 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 98,
+            "EntityID": 142,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 1.1086068153381348,
-                    "y": 0.6182697415351868,
+                    "x": 0.9413252472877502,
+                    "y": -0.8497930765151978,
                     "z": 0.0
                 },
                 "rotation": {

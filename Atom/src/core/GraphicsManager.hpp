@@ -30,34 +30,26 @@ public:
 
 	inline GLFWwindow* getWindow() { return mWindow; }
 
-	void SetWindowSize(int &width, int &height);
+	//void SetWindowSize(int &width, int &height);
 
 	inline unsigned int GetWindowWidth() const 
 	{ 
-		return width; 
+		return LevelWidth; 
 	}
 	inline unsigned int GetWindowHeight() const 
 	{ 
-		return height; 
+		return LevelHeight; 
 	}
 
 	inline void FullScreenMode()
 	{
-		//glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
 		glfwSetWindowPos(mWindow, 0, 0);
-
 		resize(mode->width, mode->height);
 	}
 	inline void WindowMode()
 	{
-		// whenever exit full screenmode, set it to fixed size, fixed position
-		// position: 100, 100
-		// size: 800, 800
-		//glfwSetWindowMonitor(mWindow, nullptr, 0, 0, 800, 800, 120);
-		//glfwSetWindowSize(mWindow, 800, 800);
 		glfwSetWindowPos(mWindow, 100, 100);
-
-		resize(900, 800);
+		resize(SCREEN_WIDTH + 1, SCREEN_HEIGHT);
 	}
 
 private:
@@ -68,7 +60,12 @@ private:
 	bool mFullscreen = true;
 
 	string title;
-	unsigned int width;
-	unsigned int height;
+
+
+	unsigned int WindowWidth;
+	unsigned int WindowHeight;
+
+	unsigned int LevelWidth;
+	unsigned int LevelHeight;
 };
 
