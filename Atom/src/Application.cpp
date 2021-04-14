@@ -227,6 +227,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     ae.mUIManager->addUIPainter(printScore);
     ae.mUIManager->addUIPainter(showGameMenu);
 
+
     while (ae.mIsRunning) {
         glfwpoll();      
         ae.update();

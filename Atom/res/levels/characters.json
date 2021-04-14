@@ -58,7 +58,10 @@
       },
       "ShootComponent": {
         "shootInterval": 0.2,
-        "bulletPerShoot": 1
+        "bulletPerShoot": 1,
+        "bulletTexturePath": "Atom/res/art/CharacterBullet.png",
+        "bulletSpeed": 1.0,
+        "bulletScale": 0.03
       },
       "HealthComponent": {
         "health": 100,
@@ -126,7 +129,10 @@
       },
       "ShootComponent": {
         "shootInterval": 0.8,
-        "bulletPerShoot": 3
+        "bulletPerShoot": 3,
+        "bulletTexturePath": "Atom/res/art/CharacterBullet2.png",
+        "bulletSpeed": 1.0,
+        "bulletScale": 0.06
       },
       "HealthComponent": {
         "health": 1000,
@@ -177,6 +183,45 @@
         "frictionless": false,
         "gravity": 9.81
       }
+    },
+
+    {
+      "EntityID": 0,
+      "TagComponent": {
+        "tag": "Indicator"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.03,
+          "y": 0.03,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.0
+        },
+        "wireframe": false,
+        "texturePath": "Atom/res/art/indicator.png"
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "IndicatorComponent": {
+      }
     }
+
   ]
 }

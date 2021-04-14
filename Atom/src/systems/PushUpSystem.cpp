@@ -11,11 +11,11 @@ extern AtomEngine ae;
 
 void PushUpSystem::init()
 {
-	
 }
 
 void PushUpSystem::update()
 {
+	BigChar = -1;
 	for (auto entity : ae.mSystemManager->getSystem<ControllerSystem>()->mEntities)
 	{
 		if (ae.hasComponent<ControllerComponent>(entity) && ae.getComponent<CharacteristicComponent>(entity).isBig)
@@ -33,7 +33,10 @@ void PushUpSystem::update()
 		}
 	}
 
-	auto& body = ae.getComponent<PhysicsBodyComponent>(BigChar);
+	PhysicsBodyComponent body;
+	
+	if(BigChar != -1)
+		body = ae.getComponent<PhysicsBodyComponent>(BigChar);
 
 	if (PushUpPlatforms.size() != 0)
 	{
