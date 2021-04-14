@@ -239,8 +239,8 @@ void LevelManager::load(string filepath) {
 		//todo cache map details into <unordered map> for optimzation here
 
 		// size normalized to [0,800]
-		tilesize_x = (float)mapJson["tilesize_x"] * 2 / ae.mGraphicsManager->GetWindowWidth();
-		tilesize_y = (float)mapJson["tilesize_y"] * 2 / ae.mGraphicsManager->GetWindowWidth();
+		tilesize_x = (float)mapJson["tilesize_x"] * 2 / ae.mGraphicsManager->GetLevelWidth();
+		tilesize_y = (float)mapJson["tilesize_y"] * 2 / ae.mGraphicsManager->GetLevelWidth();
 
 		//merge along row
 		int mergeStartIndex = -1;

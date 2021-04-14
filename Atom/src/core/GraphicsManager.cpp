@@ -33,8 +33,6 @@ void GraphicsManager::init() {
 	mFullscreen = true;
 
 	title = APPNAME;
-	WindowWidth = SCREEN_WIDTH;
-	WindowHeight = SCREEN_HEIGHT;
 
 	LevelHeight = SCREEN_HEIGHT;
 	LevelWidth = SCREEN_WIDTH;
@@ -50,6 +48,10 @@ void GraphicsManager::init() {
 
 	monitor = glfwGetPrimaryMonitor();
 	mode = glfwGetVideoMode(monitor);
+
+	WindowWidth = mode->width;
+	WindowHeight = mode->height;
+
 
 	// Create a windowed mode window and its OpenGL context
 	//mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);

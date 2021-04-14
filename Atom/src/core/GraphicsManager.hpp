@@ -30,16 +30,19 @@ public:
 
 	inline GLFWwindow* getWindow() { return mWindow; }
 
-	//void SetWindowSize(int &width, int &height);
 
 	inline unsigned int GetWindowWidth() const 
 	{ 
-		return LevelWidth; 
+		return WindowWidth; 
 	}
 	inline unsigned int GetWindowHeight() const 
 	{ 
-		return LevelHeight; 
+		return WindowHeight; 
 	}
+
+	inline unsigned int GetLevelWidth() const { return LevelWidth; }
+	inline unsigned int GetLevelHeight() const { return LevelHeight; }
+
 
 	inline void FullScreenMode()
 	{
