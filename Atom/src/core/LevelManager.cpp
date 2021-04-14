@@ -61,6 +61,7 @@ void LevelManager::update()
 		if (fadeOut() || screenByPass()) {
 			unload();
 			load(next_level);
+			ae.mCameraManager->setPosition(glm::vec2(0, 0));
 			level_alpha = 0.0f;
 			do_fade_out = false;
 			do_fade_in = true;
@@ -107,6 +108,13 @@ void LevelManager::onEvent(Event& e)
 			&& ae.getComponent<TagComponent>(deadzone).tag == "DeadZone")
 		{
 			auto& health = ae.getComponent<HealthComponent>(player);
+			if (!health.died)
+			{
+				//send die event
+				Event e(EventID::E_ENTITY_DIE);
+				e.setParam<EntityID>(EventID::P_ENTITY_DIE, player);
+				ae.sendEvent(e);
+			}
 			health.died = true;
 			health.health = 0;
 		}
