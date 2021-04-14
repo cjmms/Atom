@@ -43,17 +43,21 @@ public:
 
 	inline void FullScreenMode()
 	{
-		glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
-		//resize(mode->width, mode->height);
-		glViewport(0, 0, mode->width, mode->height);
+		//glfwSetWindowMonitor(mWindow, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+		glfwSetWindowPos(mWindow, 0, 0);
+
+		resize(mode->width, mode->height);
 	}
 	inline void WindowMode()
 	{
 		// whenever exit full screenmode, set it to fixed size, fixed position
 		// position: 100, 100
 		// size: 800, 800
-		glfwSetWindowMonitor(mWindow, nullptr, 100, 100, 800, 800, 120);
-		resize(width, height);
+		//glfwSetWindowMonitor(mWindow, nullptr, 0, 0, 800, 800, 120);
+		//glfwSetWindowSize(mWindow, 800, 800);
+		glfwSetWindowPos(mWindow, 100, 100);
+
+		resize(900, 800);
 	}
 
 private:

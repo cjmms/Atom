@@ -52,6 +52,7 @@
         "SUPER_GOD_MODE": "ATOM_KEYCODE_H",
         "NEXT_LEVEL": "ATOM_KEYCODE_1",
         "PREV_LEVEL": "ATOM_KEYCODE_2",
+        "ED_LEVEL": "ATOM_KEYCODE_3",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": true
@@ -123,6 +124,7 @@
         "SUPER_GOD_MODE": "ATOM_KEYCODE_H",
         "NEXT_LEVEL": "ATOM_KEYCODE_1",
         "PREV_LEVEL": "ATOM_KEYCODE_2",
+        "ED_LEVEL": "ATOM_KEYCODE_3",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": false
