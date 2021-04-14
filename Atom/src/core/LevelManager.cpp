@@ -60,7 +60,9 @@ void LevelManager::update()
 
 	else if (do_fade_out) {
 		if (fadeOut() || screenByPass()) {
+			ae.mSystemManager->getSystem<MoveToSystem>()->tags.clear();
 			unload();
+			
 			load(next_level);
 			level_alpha = 0.0f;
 			do_fade_out = false;
