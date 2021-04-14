@@ -190,11 +190,11 @@ void showGameMenu() {
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button(buttontext,ImVec2(button_width,button_height))) {
                 menu_inprogress = true;
-                ae.mLevelManager->loadNextLevel();
+                ae.mLevelManager->loadLevel(15);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CONTROLS", ImVec2(button_width, button_height))) {
-
+            
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
@@ -203,7 +203,7 @@ void showGameMenu() {
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CREDITS",ImVec2(button_width,button_height))) {
                 menu_inprogress = true;
-                ae.mLevelManager->load(14);
+                ae.mLevelManager->load(ED_LEVELS+1);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("EXIT", ImVec2(button_width, button_height))) {

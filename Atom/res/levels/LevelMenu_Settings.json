@@ -90,8 +90,8 @@
         "z": 0.0
       },
       "scale": {
-        "x": 50.0,
-        "y": 50.0,
+        "x": 1.0,
+        "y": 1.0,
         "z": 1.0
       }
     },
@@ -102,7 +102,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/starfield_800x800.png"
+      "texturePath": "Atom/res/art/atom_splash.png"
     },
     "ShapeComponent": {
       "shapeType": "AABB"
