@@ -11,7 +11,7 @@ extern AtomEngine ae;
 
 void PushUpSystem::init()
 {
-	
+	BigChar = -1;
 }
 
 void PushUpSystem::update()
@@ -33,7 +33,10 @@ void PushUpSystem::update()
 		}
 	}
 
-	auto& body = ae.getComponent<PhysicsBodyComponent>(BigChar);
+	PhysicsBodyComponent body;
+	
+	if(BigChar != -1)
+		body = ae.getComponent<PhysicsBodyComponent>(BigChar);
 
 	if (PushUpPlatforms.size() != 0)
 	{

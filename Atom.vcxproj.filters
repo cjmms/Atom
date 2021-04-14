@@ -2059,6 +2059,8 @@
     <ClInclude Include="Atom\src\systems\ParticleSystem.hpp" />
     <ClInclude Include="Atom\src\components\AnimationComponent.hpp" />
     <ClInclude Include="Atom\src\systems\AnimationSystem.hpp" />
+    <ClInclude Include="Atom\src\components\MoveToComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\MoveToSystem.hpp" />
     <ClInclude Include="Atom\src\systems\IndicatorSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -2175,6 +2177,7 @@
     </ClCompile>
     <ClCompile Include="Atom\src\systems\ParticleSystem.cpp" />
     <ClCompile Include="Atom\src\systems\AnimationSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\MoveToSystem.cpp" />
     <ClCompile Include="Atom\src\systems\IndicatorSystem.cpp" />
   </ItemGroup>
   <ItemGroup>

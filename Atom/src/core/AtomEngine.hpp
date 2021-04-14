@@ -42,6 +42,8 @@
 #include "systems/SelfDestroySystem.hpp"
 #include "systems/ParticleSystem.hpp"
 #include "systems/AnimationSystem.hpp"
+#include "systems/PushUpSystem.hpp"
+#include "systems/MoveToSystem.hpp"
 #include "systems/IndicatorSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
@@ -111,6 +113,8 @@ public:
 		registerComponent<FadeComponent>();
 		registerComponent<ParticleComponent>();
 		registerComponent<AnimationComponent>();
+		registerComponent<PushUpComponent>();
+		registerComponent<MoveToComponent>();
 		registerComponent<IndicatorComponent>();
 
 		// register all systems
@@ -130,6 +134,8 @@ public:
 		registerSystem<SelfDestroySystem>();
 		registerSystem<ParticleSystem>();
 		registerSystem<AnimationSystem>();
+		registerSystem<PushUpSystem>();
+		registerSystem<MoveToSystem>();
 
 
 		// set archetypes
@@ -204,6 +210,17 @@ public:
 			typeAnimation.set(getComponentType<TransformComponent>());
 			typeAnimation.set(getComponentType<AnimationComponent>());
 			setSystemArchetype<AnimationSystem>(typeAnimation);
+
+			Archetype typePushUp;
+			typePushUp.set(getComponentType<TransformComponent>());
+			typePushUp.set(getComponentType<PhysicsBodyComponent>());
+			typePushUp.set(getComponentType<PushUpComponent>());
+			setSystemArchetype<PushUpSystem>(typePushUp);
+
+			Archetype typeMoveTo;
+			typeMoveTo.set(getComponentType<MoveToComponent>());
+			typeMoveTo.set(getComponentType<TagComponent>());
+			setSystemArchetype<MoveToSystem>(typeMoveTo);
 
 			Archetype typeIndicator;
 			typeIndicator.set(getComponentType<IndicatorComponent>());
@@ -294,9 +311,13 @@ public:
 
 	// AudioManager
 	inline FMOD::Sound* loadSound(string audioloc,
+		bool isLoop = false,
 		FMOD_MODE _mode = FMOD_DEFAULT | FMOD_3D | FMOD_LOOP_OFF | FMOD_CREATECOMPRESSEDSAMPLE | FMOD_3D_INVERSEROLLOFF,
 		FMOD_CREATESOUNDEXINFO* _exinfo = NULL
 	) {
+		if (isLoop) {
+			_mode |= FMOD_LOOP_NORMAL;
+		}
 		return mAudioManager->loadSound(audioloc, _mode, _exinfo);
 	}
 
@@ -304,8 +325,8 @@ public:
 		return mAudioManager->unloadSound(audioloc);
 	}
 
-	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f) {
-		return mAudioManager->play(audioloc, cgtype, volumedB);
+	inline ChannelID play(string audioloc, ChannelGroupTypes cgtype, float volumedB = 0.0f, int loopcount=0) {
+		return mAudioManager->play(audioloc, cgtype, volumedB,loopcount);
 	}
 	
 	inline float getVolumedB(ChannelID channelid) {
@@ -468,6 +489,8 @@ public:
 		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
+		serializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 		serializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 	// Read
@@ -502,6 +525,8 @@ public:
 		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
+		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
+		deserializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 		deserializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 
