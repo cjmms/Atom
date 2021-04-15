@@ -8,6 +8,10 @@ extern bool menu_start;
 extern bool menu_ingame;
 extern bool menu_inprogress;
 
+extern string musicTrackGame;
+extern string musicTrackIntro;
+extern ChannelID musicChannelID;
+extern float musicVolumedB;
 
 
 LevelManager::LevelManager()
@@ -55,6 +59,14 @@ void LevelManager::update()
 			level_alpha = 1.0f;
 			do_fade_in = false;
 			menu_inprogress = false;
+			if (level >= COUNT_INTROS) {
+				ae.mAudioManager->stop(musicChannelID);
+				musicChannelID = ae.play(musicTrackGame, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
+			}
+			if (level > 0 && level < COUNT_INTROS) {
+				ae.mAudioManager->stop(musicChannelID);
+				musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
+			}
 		}
 	}
 	else if (do_fade_out) {

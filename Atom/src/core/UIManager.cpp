@@ -122,8 +122,8 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat("SFX VOLUME", &sfxVolumedB, 0.0f, 1.0f);
     ImGui::SetCursorPosX(p.x - (button_width / 2));
-    ImGui::SliderFloat("SPEECH VOLUME", &dialogueVolumedB, 0.0f, 1.0f);
-    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    //ImGui::SliderFloat("SPEECH VOLUME", &dialogueVolumedB, 0.0f, 1.0f);
+    //ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat2("LISTENER", listenerOffset, -10.0, 10.0);
 
     ae.setVolume(musicChannelID, musicVolumedB);
