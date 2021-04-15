@@ -98,36 +98,23 @@ void GraphicsManager::onEvent(Event& e) {}
 
 void GraphicsManager::resize(unsigned int w, unsigned int h)
 {
-	//WindowWidth = w;
-	//WindowHeight = h;
-	//
-	//int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
-	//
-	////LevelWidth = side;
-	////LevelHeight = side;
-	//
-	//glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
-	//
-	//float ratio = (float)WindowWidth / (float)WindowHeight;
-	//
-	//if (ratio > 1.0f)
-	//	glViewport(fabsf((WindowWidth - LevelWidth) / 2), 0, LevelWidth, LevelHeight);
-	//
-	//if (ratio < 1.0f)
-	//	glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
+	WindowWidth = w;
+	WindowHeight = h;
 
-	if (mFullscreen)
-	{
-		glfwSetWindowPos(mWindow, 0, 0);
-		glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
-		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
-	}
-	else
-	{
-		glViewport(0, 0, LevelWidth, LevelHeight);
-		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
-		glfwSetWindowPos(mWindow, 100, 100);
-	}
+	int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
+
+	//LevelWidth = side;
+	//LevelHeight = side;
+
+	glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
+
+	float ratio = (float)WindowWidth / (float)WindowHeight;
+
+	if (ratio > 1.0f)
+		glViewport(fabsf((WindowWidth - LevelWidth) / 2), 0, LevelWidth, LevelHeight);
+
+	if (ratio < 1.0f)
+		glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
 }
 
 
