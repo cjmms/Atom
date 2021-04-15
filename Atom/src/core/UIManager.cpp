@@ -165,13 +165,19 @@ void UIManager::showMenu(){
     }
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("FULLSCREEN MODE", ImVec2(button_width, button_height))) {
-
+        if (ae.mLevelManager->level == COUNT_INTROS - 1) {
+            ae.mLevelManager->restartCurrentLevel();
+        }
         ae.mGraphicsManager->FullScreenMode();
     }
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("WINDOWED MODE", ImVec2(button_width, button_height))) {
 
+        if (ae.mLevelManager->level == COUNT_INTROS - 1) {
+            ae.mLevelManager->restartCurrentLevel();
+        }
         ae.mGraphicsManager->WindowMode();
+
     }
 
 

@@ -71,11 +71,11 @@ public:
 
 		if (mFullscreen) {
 
-			LevelWidth = 800;
-			LevelHeight = 800;
+			LevelWidth = SCREEN_WIDTH;
+			LevelHeight = SCREEN_HEIGHT;
 
-			WindowWidth = 800;
-			WindowHeight = 800;
+			WindowWidth = SCREEN_WIDTH;
+			WindowHeight = SCREEN_HEIGHT;
 
 
 
