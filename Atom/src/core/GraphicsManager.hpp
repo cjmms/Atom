@@ -49,12 +49,28 @@ public:
 		glfwSetWindowPos(mWindow, 0, 0);
 		glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+		mFullscreen = true;
+
+
+		ATOM_INFO("fullscreen");
+		ATOM_INFO(mode->height);
+		ATOM_INFO(mode->height);
+		ATOM_INFO("end fullscreen");
 	}
 	inline void WindowMode()
 	{
+		minimized = false;
+
 		glViewport(0, 0, LevelWidth, LevelHeight);
 		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glfwSetWindowPos(mWindow, 100, 100);
+		mFullscreen = false;
+
+
+		ATOM_INFO("window");
+		ATOM_INFO(mode->height);
+		ATOM_INFO(mode->height);
+		ATOM_INFO("end window");
 	}
 
 private:
@@ -63,6 +79,7 @@ private:
 	const GLFWvidmode* mode;
 
 	bool mFullscreen = true;
+	bool minimized = false;
 
 	string title;
 

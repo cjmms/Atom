@@ -98,23 +98,76 @@ void GraphicsManager::onEvent(Event& e) {}
 
 void GraphicsManager::resize(unsigned int w, unsigned int h)
 {
-	WindowWidth = w;
-	WindowHeight = h;
+	//if (resizing)
+	//{
+	ATOM_INFO("resize:");
+	ATOM_INFO(w);
+	ATOM_INFO(h);
+	ATOM_INFO("end resize:");
 
-	int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
+	if (w == 0 || h == 0)
+	{
+		ATOM_INFO("minimized");
+		minimized = true;
+		return;
+	}
 
-	//LevelWidth = side;
-	//LevelHeight = side;
+	if (minimized)
+	{
+		if (mFullscreen)
+		{
+			ATOM_INFO("minimized FullScreenMode");
+			FullScreenMode();
+		}
+		else
+		{
+			ATOM_INFO("minimized WindowMode");
+			WindowMode();
+			minimized = false;
+		}
+		return;
+	}
 
-	glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
+		WindowWidth = w;
+		WindowHeight = h;
 
-	float ratio = (float)WindowWidth / (float)WindowHeight;
+		int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
 
-	if (ratio > 1.0f)
-		glViewport(fabsf((WindowWidth - LevelWidth) / 2), 0, LevelWidth, LevelHeight);
+		//LevelWidth = side;
+		//LevelHeight = side;
 
-	if (ratio < 1.0f)
-		glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
+		glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
+
+		float ratio = (float)WindowWidth / (float)WindowHeight;
+
+		if (ratio > 1.0f)
+			glViewport(fabsf((WindowWidth - LevelWidth) / 2), 0, LevelWidth, LevelHeight);
+
+		if (ratio < 1.0f)
+			glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
+
+	//	resizing = false;
+	//}
+	//else
+	//{
+	//	if (mFullscreen)
+	//	{
+	//		//glfwSetWindowPos(mWindow, 0, 0);
+	//		//glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
+	//		//glViewport(0, 0, LevelWidth, LevelHeight);
+	//		//glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+	//		//mFullscreen = true;
+	//		//resizing = true;
+	//	}
+	//	else
+	//	{
+	//		//glViewport(0, 0, LevelWidth, LevelHeight);
+	//		//glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
+	//		//glfwSetWindowPos(mWindow, 100, 100);
+	//		//mFullscreen = false;
+	//		//resizing = true;
+	//	}
+	//}
 }
 
 

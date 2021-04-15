@@ -59,7 +59,7 @@ public:
 	}
 	void update() {
 		for (auto& system : mOrderedSystems) {
-			ATOM_INFO(system.first);
+			//ATOM_INFO(system.first);
 			system.second->update();
 		}
 	}
