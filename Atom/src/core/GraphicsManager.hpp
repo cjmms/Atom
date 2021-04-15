@@ -33,7 +33,7 @@ public:
 
 	inline unsigned int GetWindowWidth() const 
 	{ 
-		return WindowWidth; 
+		return WindowWidth;
 	}
 	inline unsigned int GetWindowHeight() const 
 	{ 
@@ -47,12 +47,14 @@ public:
 	inline void FullScreenMode()
 	{
 		glfwSetWindowPos(mWindow, 0, 0);
-		resize(mode->width, mode->height);
+		glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
+		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
 	}
 	inline void WindowMode()
 	{
+		glViewport(0, 0, LevelWidth, LevelHeight);
+		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glfwSetWindowPos(mWindow, 100, 100);
-		resize(SCREEN_WIDTH + 1, SCREEN_HEIGHT);
 	}
 
 private:

@@ -44,7 +44,7 @@ void GraphicsManager::init() {
 
 	// window hints
 	glfwWindowHint(GLFW_DECORATED, true);
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+	glfwWindowHint(GLFW_RESIZABLE, false);
 
 	monitor = glfwGetPrimaryMonitor();
 	mode = glfwGetVideoMode(monitor);
@@ -54,8 +54,9 @@ void GraphicsManager::init() {
 
 
 	// Create a windowed mode window and its OpenGL context
-	//mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
-	mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), nullptr, nullptr);
+	//mWindow = glfwCreateWindow(800, 800, title.c_str(), nullptr, nullptr);
+	mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
+	//mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), nullptr, nullptr);
 
 
 	if (!mWindow) {
@@ -77,6 +78,7 @@ void GraphicsManager::init() {
 	glfwSetWindowCloseCallback(mWindow, windowCloseCallback);
 
 	glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+	//glViewport(fabsf((800 - 800) / 2), 0, 800, 800);
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -101,8 +103,8 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 
 	int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
 
-	LevelWidth = side;
-	LevelHeight = side;
+	//LevelWidth = side;
+	//LevelHeight = side;
 
 	glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
 
