@@ -46,12 +46,14 @@ public:
 
 	inline void FullScreenMode()
 	{
+		mFullscreen = true;
 		glfwSetWindowPos(mWindow, 0, 0);
 		glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
 	}
 	inline void WindowMode()
 	{
+		mFullscreen = false;
 		glViewport(0, 0, LevelWidth, LevelHeight);
 		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glfwSetWindowPos(mWindow, 100, 100);
