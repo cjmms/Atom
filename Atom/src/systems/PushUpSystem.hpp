@@ -12,4 +12,6 @@ public:
 	void onEvent(Event& e) override;
 
 	EntityID BigChar = -1;
+	float scale = 0.125f;
+
 };

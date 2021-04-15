@@ -11,10 +11,13 @@ extern AtomEngine ae;
 
 void PushUpSystem::init()
 {
+	scale = 0.125f;
 }
 
 void PushUpSystem::update()
 {
+	scale = 50.0f / ae.mGraphicsManager->GetLevelWidth();
+
 	if (ae.mSystemManager->getSystem<ControllerSystem>()->mEntities.size() == 0)
 		BigChar = -1;
 	else
@@ -50,7 +53,7 @@ void PushUpSystem::update()
 			auto pushUp = ae.getComponent<PushUpComponent>(platform);
 			auto pushUpBody = ae.getComponent<PhysicsBodyComponent>(platform);
 
-			if (body->prevPositionX >= (pushUpBody.prevPositionX - pushUp.Scale * SCALE) && body->prevPositionX <= (pushUpBody.prevPositionX + pushUp.Scale * SCALE) && body->prevPositionY > pushUpBody.prevPositionY)
+			if (body->prevPositionX >= (pushUpBody.prevPositionX - pushUp.Scale * scale) && body->prevPositionX <= (pushUpBody.prevPositionX + pushUp.Scale * scale) && body->prevPositionY > pushUpBody.prevPositionY)
 			{
 				body->totalForceX = pushUp.ForceX / ((body->prevPositionY - pushUpBody.prevPositionY) * (body->prevPositionY - pushUpBody.prevPositionY) * 100 * 100);
 				body->totalForceY = pushUp.ForceY / ((body->prevPositionY - pushUpBody.prevPositionY) * (body->prevPositionY - pushUpBody.prevPositionY) * 100 * 100);

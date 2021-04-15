@@ -13,10 +13,14 @@ extern AtomEngine ae;
 void MoveToSystem::init()
 {
 	ae.addEventListener(EventID::E_TRIGGER, [this](Event& e) {this->onEvent(e); });
+
+	conversion_factor = 8.0f;
 }
 
 void MoveToSystem::update()
 {
+	conversion_factor = ae.mGraphicsManager->GetLevelWidth() / 100.0f;
+
 	for (auto& entity : mEntities)
 	{
 		if (ae.hasComponent<MoveToComponent>(entity))
@@ -38,7 +42,7 @@ void MoveToSystem::update()
 					if (moveTo.GridX >= 0)
 					{
 						body.velocityX = moveTo.velocityX;
-						moveTo.GridX = moveTo.GridX - (abs(moveTo.velocityX) * ae.dt * CONVERSION_FACTOR);
+						moveTo.GridX = moveTo.GridX - (abs(moveTo.velocityX) * ae.dt * conversion_factor);
 					}
 					else
 					{
@@ -49,7 +53,7 @@ void MoveToSystem::update()
 					if (moveTo.GridY >= 0)
 					{
 						body.velocityY = moveTo.velocityY;
-						moveTo.GridY = moveTo.GridY - (abs(moveTo.velocityY) * ae.dt * CONVERSION_FACTOR);
+						moveTo.GridY = moveTo.GridY - (abs(moveTo.velocityY) * ae.dt * conversion_factor);
 					}
 					else
 					{
