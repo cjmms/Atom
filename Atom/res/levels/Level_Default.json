@@ -188,6 +188,158 @@
       "tripTime": 4.0
     }
   },
+
+  "Z": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "PushUp platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 7.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": ""
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "PushUpComponent": {
+      "ForceX": 0.0,
+      "ForceY": 100.0,
+      "PositionX": 0.0,
+      "PositionY": 0.0,
+      "Scale": 7.0
+    }
+  },
+
+
+  "Y": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "MoveTo platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/MovingPlatform.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 10000.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "MoveToComponent": {
+      "velocityX": 0.0,
+      "velocityY": -1.0,
+      "GridX": 0.0,
+      "GridY": 6.0,
+      "tag": "trigger"
+    }
+  },
+
+
+  "X": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "trigger"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/jump.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": true
+    },
+    "ControllerComponent": null,
+    "SkillBoosterComponent": {
+      "skillType": "Trigger"
+    }
+  },
+
+
+
   "T": {
     "EntityID": 0,
     "TagComponent": {

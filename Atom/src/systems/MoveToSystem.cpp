@@ -5,6 +5,8 @@
 #include "utils/Log.hpp"
 #include "components/AllComponents.hpp"
 
+#define CONVERSION_FACTOR 8.0f
+
 extern AtomEngine ae;
 
 
@@ -20,21 +22,23 @@ void MoveToSystem::update()
 		if (ae.hasComponent<MoveToComponent>(entity))
 		{
 			auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-			auto& tag = ae.getComponent<TagComponent>(entity);
+			//auto& tag = ae.getComponent<TagComponent>(entity);
 			auto& moveTo = ae.getComponent<MoveToComponent>(entity);
 
+			body.velocityX = 0;
+			body.velocityY = 0;
 			
 			//Check if associated trigger is triggered
 			for (auto str : tags)
 			{
 				//if tags match
-				if (str == tag.tag)
+				if (str == moveTo.tag)
 				{
 					//Moving in X axis
-					if (moveTo.GridX != 0)
+					if (moveTo.GridX >= 0)
 					{
 						body.velocityX = moveTo.velocityX;
-						moveTo.GridX -= (moveTo.velocityX * ae.dt);
+						moveTo.GridX = moveTo.GridX - (abs(moveTo.velocityX) * ae.dt * CONVERSION_FACTOR);
 					}
 					else
 					{
@@ -42,20 +46,27 @@ void MoveToSystem::update()
 					}
 
 					//Moving in Y axis
-					if (moveTo.GridY != 0)
+					if (moveTo.GridY >= 0)
 					{
 						body.velocityY = moveTo.velocityY;
-						moveTo.GridY -= (moveTo.velocityY * ae.dt);
+						moveTo.GridY = moveTo.GridY - (abs(moveTo.velocityY) * ae.dt * CONVERSION_FACTOR);
 					}
 					else
 					{
 						body.velocityY = 0;
 					}
 				}
+				else
+				{
+					body.velocityX = 0;
+					body.velocityY = 0;
+				}
 			}
 		}
 
 	}
+
+	
 }
 
 void MoveToSystem::onEvent(Event& e)
