@@ -3198,6 +3198,8 @@
     <None Include="Atom\res\levels\LevelA9_Settings.json" />
     <None Include="Atom\res\levels\Level_Default.json" />
     <None Include="Atom\res\levels\Level_Default.json" />
+    <None Include="Atom\res\levels\LevelB1_Map.json" />
+    <None Include="Atom\res\levels\LevelB1_Settings.json" />
     <None Include="Atom\res\levels\LevelOP4_Settings.json" />
     <None Include="Atom\res\levels\LevelOP3_Map.json" />
     <None Include="Atom\res\levels\LevelOP3_Settings.json" />

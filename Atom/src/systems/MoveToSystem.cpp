@@ -5,36 +5,44 @@
 #include "utils/Log.hpp"
 #include "components/AllComponents.hpp"
 
+#define CONVERSION_FACTOR 8.0f
+
 extern AtomEngine ae;
 
 
 void MoveToSystem::init()
 {
 	ae.addEventListener(EventID::E_TRIGGER, [this](Event& e) {this->onEvent(e); });
+
+	conversion_factor = 8.0f;
 }
 
 void MoveToSystem::update()
 {
+	conversion_factor = ae.mGraphicsManager->GetLevelWidth() / 100.0f;
+
 	for (auto& entity : mEntities)
 	{
 		if (ae.hasComponent<MoveToComponent>(entity))
 		{
 			auto& body = ae.getComponent<PhysicsBodyComponent>(entity);
-			auto& tag = ae.getComponent<TagComponent>(entity);
+			//auto& tag = ae.getComponent<TagComponent>(entity);
 			auto& moveTo = ae.getComponent<MoveToComponent>(entity);
 
+			body.velocityX = 0;
+			body.velocityY = 0;
 			
 			//Check if associated trigger is triggered
 			for (auto str : tags)
 			{
 				//if tags match
-				if (str == tag.tag)
+				if (str == moveTo.tag)
 				{
 					//Moving in X axis
-					if (moveTo.GridX != 0)
+					if (moveTo.GridX >= 0)
 					{
 						body.velocityX = moveTo.velocityX;
-						moveTo.GridX -= (moveTo.velocityX * ae.dt);
+						moveTo.GridX = moveTo.GridX - (abs(moveTo.velocityX) * ae.dt * conversion_factor);
 					}
 					else
 					{
@@ -42,20 +50,27 @@ void MoveToSystem::update()
 					}
 
 					//Moving in Y axis
-					if (moveTo.GridY != 0)
+					if (moveTo.GridY >= 0)
 					{
 						body.velocityY = moveTo.velocityY;
-						moveTo.GridY -= (moveTo.velocityY * ae.dt);
+						moveTo.GridY = moveTo.GridY - (abs(moveTo.velocityY) * ae.dt * conversion_factor);
 					}
 					else
 					{
 						body.velocityY = 0;
 					}
 				}
+				else
+				{
+					body.velocityX = 0;
+					body.velocityY = 0;
+				}
 			}
 		}
 
 	}
+
+	
 }
 
 void MoveToSystem::onEvent(Event& e)

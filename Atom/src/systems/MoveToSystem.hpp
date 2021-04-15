@@ -12,4 +12,5 @@ public:
 	void onEvent(Event& e) override;
 
 	std::vector<string> tags;
+	float conversion_factor = 8.0f;
 };

@@ -71,7 +71,9 @@ void LevelManager::update()
 	}
 	else if (do_fade_out) {
 		if (fadeOut() || screenByPass()) {
+			ae.mSystemManager->getSystem<MoveToSystem>()->tags.clear();
 			unload();
+			
 			load(next_level);
 			ae.mCameraManager->setPosition(glm::vec2(0, 0));
 			level_alpha = 0.0f;
