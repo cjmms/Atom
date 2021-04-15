@@ -8,6 +8,10 @@ extern bool menu_start;
 extern bool menu_ingame;
 extern bool menu_inprogress;
 
+extern string musicTrackGame;
+extern string musicTrackIntro;
+extern ChannelID musicChannelID;
+extern float musicVolumedB;
 
 
 LevelManager::LevelManager()
@@ -44,7 +48,7 @@ float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
 void LevelManager::update()
 {
 	//logic to move to next level automatically
-	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || (level < 2 && screenByPass()))
+	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || (level < COUNT_INTROS - 1 && screenByPass()))
 	{
 		loadNextLevel();
 	}
@@ -55,20 +59,29 @@ void LevelManager::update()
 			level_alpha = 1.0f;
 			do_fade_in = false;
 			menu_inprogress = false;
+			if (level >= COUNT_INTROS) {
+				ae.mAudioManager->stop(musicChannelID);
+				musicChannelID = ae.play(musicTrackGame, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
+			}
+			if (level > 0 && level < COUNT_INTROS) {
+				ae.mAudioManager->stop(musicChannelID);
+				musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
+			}
 		}
 	}
-
 	else if (do_fade_out) {
 		if (fadeOut() || screenByPass()) {
 			ae.mSystemManager->getSystem<MoveToSystem>()->tags.clear();
 			unload();
 			
 			load(next_level);
+			ae.mCameraManager->setPosition(glm::vec2(0, 0));
 			level_alpha = 0.0f;
 			do_fade_out = false;
 			do_fade_in = true;
 		}
 	}
+	
 }
 
 bool LevelManager::screenByPass()
@@ -109,6 +122,13 @@ void LevelManager::onEvent(Event& e)
 			&& ae.getComponent<TagComponent>(deadzone).tag == "DeadZone")
 		{
 			auto& health = ae.getComponent<HealthComponent>(player);
+			if (!health.died)
+			{
+				//send die event
+				Event e(EventID::E_ENTITY_DIE);
+				e.setParam<EntityID>(EventID::P_ENTITY_DIE, player);
+				ae.sendEvent(e);
+			}
 			health.died = true;
 			health.health = 0;
 		}
@@ -241,8 +261,8 @@ void LevelManager::load(string filepath) {
 		//todo cache map details into <unordered map> for optimzation here
 
 		// size normalized to [0,800]
-		tilesize_x = (float)mapJson["tilesize_x"] * 2 / ae.mGraphicsManager->GetWindowWidth();
-		tilesize_y = (float)mapJson["tilesize_y"] * 2 / ae.mGraphicsManager->GetWindowWidth();
+		tilesize_x = (float)mapJson["tilesize_x"] * 2 / ae.mGraphicsManager->GetLevelWidth();
+		tilesize_y = (float)mapJson["tilesize_y"] * 2 / ae.mGraphicsManager->GetLevelWidth();
 
 		//merge along row
 		int mergeStartIndex = -1;

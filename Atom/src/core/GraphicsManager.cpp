@@ -19,6 +19,7 @@ void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
 	ae.mGraphicsManager->resize(width, height);
+	ae.mIsPaused = true;
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -28,9 +29,13 @@ void windowCloseCallback(GLFWwindow* window)
 }
 
 void GraphicsManager::init() {
+
+	mFullscreen = true;
+
 	title = APPNAME;
-	width = SCREEN_WIDTH;
-	height = SCREEN_HEIGHT;
+
+	LevelHeight = SCREEN_HEIGHT;
+	LevelWidth = SCREEN_WIDTH;
 
 	// Initialize the library 
 	if (!glfwInit()) {
@@ -39,15 +44,20 @@ void GraphicsManager::init() {
 
 	// window hints
 	glfwWindowHint(GLFW_DECORATED, true);
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+	glfwWindowHint(GLFW_RESIZABLE, false);
 
 	monitor = glfwGetPrimaryMonitor();
 	mode = glfwGetVideoMode(monitor);
 
+	WindowWidth = mode->width;
+	WindowHeight = mode->height;
+
+
 	// Create a windowed mode window and its OpenGL context
-	//mWindow = glfwCreateWindow(width, height, title.c_str(), monitor, nullptr);
-	mWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
-	
+	//mWindow = glfwCreateWindow(800, 800, title.c_str(), nullptr, nullptr);
+	mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
+	//mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), nullptr, nullptr);
+
 
 	if (!mWindow) {
 		glfwTerminate();
@@ -67,6 +77,9 @@ void GraphicsManager::init() {
 	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
 	glfwSetWindowCloseCallback(mWindow, windowCloseCallback);
 
+	glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+	//glViewport(fabsf((800 - 800) / 2), 0, 800, 800);
+
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glBlendEquation(GL_FUNC_ADD);
@@ -85,20 +98,23 @@ void GraphicsManager::onEvent(Event& e) {}
 
 void GraphicsManager::resize(unsigned int w, unsigned int h)
 {
-	width = w;
-	height = h;
+	WindowWidth = w;
+	WindowHeight = h;
 
-	int side = width > height ? height : width;
+	int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
 
-	glfwSetWindowSize(mWindow, (int)width, (int)height);
+	//LevelWidth = side;
+	//LevelHeight = side;
 
-	float ratio = (float)width / (float)height;
+	glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
+
+	float ratio = (float)WindowWidth / (float)WindowHeight;
 
 	if (ratio > 1.0f)
-		glViewport(fabsf((width - side) / 2), 0, side, side);
+		glViewport(fabsf((WindowWidth - LevelWidth) / 2), 0, LevelWidth, LevelHeight);
 
 	if (ratio < 1.0f)
-		glViewport(0, fabsf((height - side) / 2), side, side);
+		glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
 }
 
 
@@ -106,14 +122,9 @@ void GraphicsManager::printInfo() const
 {
 	ATOM_INFO("Graphics: OpenGL version: {}", glGetString(GL_VERSION));
 	ATOM_INFO("Graphics: OpenGL renderer: {}", glGetString(GL_RENDERER));
-	ATOM_INFO("Graphics: Width: {}", width);
-	ATOM_INFO("Graphics: Height: {}", height);
+	ATOM_INFO("Graphics: Window Width: {}", WindowWidth);
+	ATOM_INFO("Graphics: Window Height: {}", WindowHeight);
 	ATOM_INFO("Graphics: Title: {}", title);
 }
 
-void GraphicsManager::SetWindowSize(int& width, int& height)
-{
-	this->width = width;
-	this->height = height;
-}
 

@@ -18,14 +18,15 @@
 // DEFINES
 #define APPNAME "[Space Jump]"
 #define MAX_TITLE_LEN 80
-#define FPS 60
+#define FPS 120
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 #define FMODMAXCHANNELS 512
 #define FADE_OUT_TIME 1.0f
 #define FADE_IN_TIME 1.0f
-#define COUNT_INTROS 3
+#define COUNT_INTROS 6
 #define TOTAL_LEVELS 19
+#define ED_LEVELS 16
 
 // USING
 using string = std::string;
@@ -192,6 +193,8 @@ enum EventID {
 	// ANIMATION EVENTS
 	E_ANIMATION,
 		P_ANIMATION_STATE,
+	E_ENTITY_DIE,
+		P_ENTITY_DIE,
 	EP_TOTAL
 
 };

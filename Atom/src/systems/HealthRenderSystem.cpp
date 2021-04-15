@@ -59,6 +59,7 @@ void HealthRenderSystem::drawEntities()
 	glm::vec3 redColor = glm::vec3(1.0f, 0.0f, 0.0f);
 	glm::vec3 whiteColor = glm::vec3(1.0f, 1.0f, 1.0f);
 
+	float dt =  ae.dt;
 	for (auto& entity : mEntities) {
 		if (!ae.hasComponent<HealthComponent>(entity))
 			return;
@@ -68,12 +69,29 @@ void HealthRenderSystem::drawEntities()
 		auto& h = ae.getComponent<HealthComponent>(entity);
 		auto& t = ae.getComponent<TransformComponent>(entity);
 
+		if (h.currentTime > h.timeToDisappear + h.fadeOutTime)
+		{
+			//no need to render
+			continue;
+		}
+
+		//keep showing health == 0 if player died
+		if(h.health != 0)
+			h.currentTime += dt;
+
+		float alpha = 1.0;
+		if (h.currentTime > h.timeToDisappear)
+		{
+			//render with fade out
+			alpha = (h.fadeOutTime - (h.currentTime - h.timeToDisappear)) / h.fadeOutTime;
+		}
+
 		glm::vec2 position = glm::vec2(t.position.x + h.offsetX,t.position.y + h.offsetY + t.scale.y/2.0f);
 		glm::vec2 size = glm::vec2(h.width * h.health / h.totalHealth, h.height);
 
-		draw(position, glm::vec2{h.width, h.height}, whiteColor, false, ae.mLevelManager->level_alpha);
+		draw(position, glm::vec2{h.width, h.height}, whiteColor, false, alpha * ae.mLevelManager->level_alpha);
 		float offsetX = (h.width - size.x) / 2.0;
-		draw(glm::vec2{position.x-offsetX,position.y}, size, redColor, false, ae.mLevelManager->level_alpha);
+		draw(glm::vec2{position.x-offsetX,position.y}, size, redColor, false, alpha * ae.mLevelManager->level_alpha);
 
 	}
 }

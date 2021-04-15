@@ -23,5 +23,6 @@
 #include "components/ParticleComponent.hpp"
 #include "components/AnimationComponent.hpp"
 #include "components/MoveToComponent.hpp"
+#include "components/IndicatorComponent.hpp"
 
 #endif 

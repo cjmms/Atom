@@ -712,6 +712,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\src\systems\HealthRenderSystem.hpp" />
     <ClInclude Include="Atom\src\systems\HealthSystem.hpp" />
     <ClInclude Include="Atom\src\systems\MoveToSystem.hpp" />
+    <ClInclude Include="Atom\src\systems\IndicatorSystem.hpp" />
     <ClInclude Include="Atom\src\systems\ParticleEffect\ParticleEffect.hpp" />
     <ClInclude Include="Atom\src\systems\ParticleSystem.hpp" />
     <ClInclude Include="Atom\src\systems\PhysicsSystem.hpp" />
@@ -759,6 +760,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClCompile Include="Atom\src\systems\HealthRenderSystem.cpp" />
     <ClCompile Include="Atom\src\systems\HealthSystem.cpp" />
     <ClCompile Include="Atom\src\systems\MoveToSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\IndicatorSystem.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleEffect\ParticleEffect.cpp" />
     <ClCompile Include="Atom\src\systems\ParticleSystem.cpp" />
     <ClCompile Include="Atom\src\systems\PhysicsSystem.cpp" />
@@ -1101,6 +1103,12 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\levels\LevelOP1_Settings.json" />
     <None Include="Atom\res\levels\LevelOP2_Map.json" />
     <None Include="Atom\res\levels\LevelOP2_Settings.json" />
+    <None Include="Atom\res\levels\LevelOP3_Map.json" />
+    <None Include="Atom\res\levels\LevelOP3_Settings.json" />
+    <None Include="Atom\res\levels\LevelOP4_Map.json" />
+    <None Include="Atom\res\levels\LevelOP4_Settings.json" />
+    <None Include="Atom\res\levels\LevelOP5_Map.json" />
+    <None Include="Atom\res\levels\LevelOP5_Settings.json" />
     <None Include="Atom\res\levels\Level_Default.json" />
     <None Include="Atom\res\levels\characters.json" />
     <None Include="Atom\res\levels\LevelA10_Map.json" />

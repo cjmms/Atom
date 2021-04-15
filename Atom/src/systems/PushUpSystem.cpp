@@ -11,7 +11,6 @@ extern AtomEngine ae;
 
 void PushUpSystem::init()
 {
-	BigChar = -1;
 }
 
 void PushUpSystem::update()

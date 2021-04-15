@@ -108,13 +108,14 @@ void ShootSystem::update()
 					//todo ser/deser of bullet obj
 					ae.addComponent(bullet, RectangleComponent{
 						glm::vec3{1.0f,1.0f,1.0f},
-						false
+						false,
+						shoot.bulletTexturePath
 						});
 
 					ae.addComponent(bullet, ShapeComponent{ShapeType::AABB});
 
 					auto body = PhysicsBodyComponent(0.01f, false, true, false);
-					float speed = 1.0;	//todo store bullet speed
+					float speed = shoot.bulletSpeed;
 					body.velocityX = cos(shootDirection) * speed;
 					body.velocityY = sin(shootDirection) * speed;
 					body.isTrigger = true;
@@ -123,7 +124,7 @@ void ShootSystem::update()
 					ae.addComponent(bullet, TransformComponent{
 						glm::vec3{bulletX,bulletY, 0.0f}, // position
 						glm::vec3{0.0f,0.0f,0.0f}, // rotation
-						glm::vec3{0.01f,0.01f,1.0f},  // scale 
+						glm::vec3{shoot.bulletScale,shoot.bulletScale,1.0f},  // scale 
 						glm::mat4(1.0f)
 						});
 

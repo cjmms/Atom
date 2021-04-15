@@ -44,7 +44,7 @@
 #include "systems/AnimationSystem.hpp"
 #include "systems/PushUpSystem.hpp"
 #include "systems/MoveToSystem.hpp"
-
+#include "systems/IndicatorSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -115,8 +115,10 @@ public:
 		registerComponent<AnimationComponent>();
 		registerComponent<PushUpComponent>();
 		registerComponent<MoveToComponent>();
+		registerComponent<IndicatorComponent>();
 
 		// register all systems
+		//!order of systems matter
 		registerSystem<TransformSystem>();
 		registerSystem<ControllerSystem>();
 		registerSystem<ShootSystem>();
@@ -126,6 +128,7 @@ public:
 		registerSystem<AutoMovementSystem>();
 		registerSystem<SkillSystem>();
 		registerSystem<PhysicsSystem>();
+		registerSystem<IndicatorSystem>();
 		registerSystem<RectangleRenderSystem>();
 		registerSystem<HealthRenderSystem>();
 		registerSystem<SelfDestroySystem>();
@@ -219,6 +222,10 @@ public:
 			typeMoveTo.set(getComponentType<TagComponent>());
 			setSystemArchetype<MoveToSystem>(typeMoveTo);
 
+			Archetype typeIndicator;
+			typeIndicator.set(getComponentType<IndicatorComponent>());
+			setSystemArchetype<IndicatorSystem>(typeIndicator);
+
 		}
 		// reinit systems because archetypes changed 
 		initSystem();
@@ -234,7 +241,6 @@ public:
 		// process
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
-			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
 		}
 
 		if (mIsPaused) {
@@ -484,6 +490,7 @@ public:
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
 		serializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
+		serializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -519,6 +526,7 @@ public:
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
 		deserializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
+		deserializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
 	}
 
 	inline float random() {

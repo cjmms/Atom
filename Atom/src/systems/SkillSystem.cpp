@@ -94,6 +94,7 @@ void SkillSystem::onEvent(Event& e)
 			auto& healthComponent = ae.getComponent<HealthComponent>(playerEntity);
 			healthComponent.died = false;
 			healthComponent.health = healthComponent.totalHealth;
+			healthComponent.currentTime = 0;
 			break;
 		}
 		case DoubleHealth:
@@ -101,6 +102,7 @@ void SkillSystem::onEvent(Event& e)
 			auto& healthComponent = ae.getComponent<HealthComponent>(playerEntity);
 			healthComponent.health = healthComponent.health * 2;
 			healthComponent.totalHealth = healthComponent.totalHealth * 2;
+			healthComponent.currentTime = 0;
 			break;
 		}
 		default:

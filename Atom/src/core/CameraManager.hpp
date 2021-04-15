@@ -16,8 +16,8 @@ class CameraManager
 {
 public:
 	void init();
-	void update() {};
-	void onEvent(Event &e) {};
+	void update();
+	void onEvent(Event &e);
 	void reset() {};
 
 	glm::vec2 getPosition();
@@ -27,5 +27,9 @@ public:
 	glm::mat4 GetProjectionMatrix();
 
 	Camera camera;
+
+	float maxShakeTime = 0.8f;
+	float shakeTime = 0.0f;
+	float shakeness = 0.05f;
 };
 

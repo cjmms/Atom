@@ -5,6 +5,9 @@
   "levels": [
     "LevelOP1_Settings.json",
     "LevelOP2_Settings.json",
+    "LevelOP3_Settings.json",
+    "LevelOP4_Settings.json",
+    "LevelOP5_Settings.json",
     "LevelMenu_Settings.json",
     "LevelA1_Settings.json",
     "LevelA2_Settings.json",
@@ -13,9 +16,9 @@
     "LevelA5_Settings.json",
     "LevelA6_Settings.json",
     "LevelA7_Settings.json",
-    "LevelA8_Settings.json",
     "LevelA10_Settings.json",
     "LevelA11_Settings.json",
+    "LevelA8_Settings.json",
     "LevelED1_Settings.json",
     "LevelED2_Settings.json",
     "LevelED3_Settings.json",
@@ -550,7 +553,10 @@
     },
     "ShootComponent": {
       "shootInterval": 3,
-      "bulletPerShoot": 1
+      "bulletPerShoot": 1,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
     },
     "AutoShootComponent": {
     },
@@ -605,7 +611,10 @@
     },
     "ShootComponent": {
       "shootInterval": 3,
-      "bulletPerShoot": 3
+      "bulletPerShoot": 3,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
     },
     "AutoShootComponent": {
     },
@@ -663,7 +672,10 @@
     },
     "ShootComponent": {
       "shootInterval": 1,
-      "bulletPerShoot": 1
+      "bulletPerShoot": 1,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
     },
     "AutoShootComponent": {
     },
@@ -721,7 +733,10 @@
     },
     "ShootComponent": {
       "shootInterval": 1,
-      "bulletPerShoot": 1
+      "bulletPerShoot": 1,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
     },
     "AutoShootComponent": {
     },
@@ -778,7 +793,10 @@
     },
     "ShootComponent": {
       "shootInterval": 1,
-      "bulletPerShoot": 1
+      "bulletPerShoot": 1,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
     },
     "AutoShootComponent": {
     },

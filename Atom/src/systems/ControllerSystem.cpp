@@ -216,7 +216,11 @@ void ControllerSystem::update()
 		}
 		if (ae.mInputManager->isKeyTriggered(controller.PREV_LEVEL))
 		{
-			ATOM_ERROR("Prompt for Prev Level");
+			ae.mLevelManager->loadPreviosLevel();
+		}
+		if (ae.mInputManager->isKeyTriggered(controller.ED_LEVEL))
+		{
+			ae.mLevelManager->loadLevel(ED_LEVELS);
 		}
 
 
