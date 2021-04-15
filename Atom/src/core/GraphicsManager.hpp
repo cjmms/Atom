@@ -58,6 +58,7 @@ public:
 	}
 	inline void WindowMode()
 	{
+		mFullscreen = false;
 		glViewport(0, 0, LevelWidth, LevelHeight);
 		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
 		glfwSetWindowPos(mWindow, 100, 100);
