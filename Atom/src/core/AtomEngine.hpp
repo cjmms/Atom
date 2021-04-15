@@ -241,7 +241,6 @@ public:
 		// process
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
-			//mUIManager->mIsPaused = !mUIManager->mIsPaused;
 		}
 
 		if (mIsPaused) {

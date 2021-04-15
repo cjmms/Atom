@@ -9,7 +9,12 @@
 #include "components/AllComponents.hpp"
 
 extern AtomEngine ae;
+extern string sfxDeath;
+extern float sfxVolumedB;
 
+void playDeathSound() {
+	ae.play(sfxDeath, ChannelGroupTypes::C_SFX, 0.3f + sfxVolumedB);
+}
 
 void CameraManager::init()
 {
@@ -32,6 +37,7 @@ void CameraManager::onEvent(Event& e)
 	if (ae.hasComponent<ControllerComponent>(entity))
 	{
 		shakeTime = maxShakeTime;
+		playDeathSound();
 	}
 
 }
