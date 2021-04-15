@@ -13,13 +13,12 @@ extern AtomEngine ae;
 // callback function for window resizing, hidden from any other files
 void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	//ae.mGraphicsManager->resize(width, height);
+
 }
 
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
-	//ae.mGraphicsManager->resize(width, height);
-	//ae.mIsPaused = true;
+	ae.mIsPaused = true;
 }
 
 void windowCloseCallback(GLFWwindow* window)
@@ -28,9 +27,21 @@ void windowCloseCallback(GLFWwindow* window)
 	ae.mUIManager->closeWindow();
 }
 
+void windowFocusCallback(GLFWwindow* window, int focused)
+{
+	if (focused)
+	{
+		ae.mIsPaused = false;
+	}
+	else
+	{
+		ae.mIsPaused = true;
+	}
+}
+
 void GraphicsManager::init() {
 
-	mFullscreen = true;
+	mFullscreen = false;
 
 	title = APPNAME;
 
@@ -54,9 +65,12 @@ void GraphicsManager::init() {
 
 
 	// Create a windowed mode window and its OpenGL context
-	//mWindow = glfwCreateWindow(800, 800, title.c_str(), nullptr, nullptr);
-	mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
-	//mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), nullptr, nullptr);
+	if (mFullscreen) {
+		mWindow = glfwCreateWindow(mode->width, mode->height, title.c_str(), monitor, nullptr);
+	}
+	else {
+		mWindow = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, title.c_str(), nullptr, nullptr);
+	}
 
 
 	if (!mWindow) {
@@ -76,9 +90,11 @@ void GraphicsManager::init() {
 	glfwSetFramebufferSizeCallback(mWindow, framebufferSizeCallback);
 	glfwSetWindowSizeCallback(mWindow, windowResizeCallback);
 	glfwSetWindowCloseCallback(mWindow, windowCloseCallback);
+	glfwSetWindowFocusCallback(mWindow, windowFocusCallback);
 
-	glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
-	//glViewport(fabsf((800 - 800) / 2), 0, 800, 800);
+	if (mFullscreen) {
+		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+	}
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -88,8 +104,7 @@ void GraphicsManager::init() {
 
 void GraphicsManager::update()
 {
-
-
+	
 }
 
 
@@ -98,12 +113,6 @@ void GraphicsManager::onEvent(Event& e) {}
 
 void GraphicsManager::resize(unsigned int w, unsigned int h)
 {
-	//if (resizing)
-	//{
-	ATOM_INFO("resize:");
-	ATOM_INFO(w);
-	ATOM_INFO(h);
-	ATOM_INFO("end resize:");
 
 	if (w == 0 || h == 0)
 	{
@@ -133,9 +142,6 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 
 		int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
 
-		//LevelWidth = side;
-		//LevelHeight = side;
-
 		glfwSetWindowSize(mWindow, (int)WindowWidth, (int)WindowHeight);
 
 		float ratio = (float)WindowWidth / (float)WindowHeight;
@@ -146,28 +152,7 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 		if (ratio < 1.0f)
 			glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
 
-	//	resizing = false;
-	//}
-	//else
-	//{
-	//	if (mFullscreen)
-	//	{
-	//		//glfwSetWindowPos(mWindow, 0, 0);
-	//		//glfwSetWindowMonitor(mWindow, monitor, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
-	//		//glViewport(0, 0, LevelWidth, LevelHeight);
-	//		//glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
-	//		//mFullscreen = true;
-	//		//resizing = true;
-	//	}
-	//	else
-	//	{
-	//		//glViewport(0, 0, LevelWidth, LevelHeight);
-	//		//glfwSetWindowMonitor(mWindow, nullptr, 0, 0, LevelWidth, LevelHeight, mode->refreshRate);
-	//		//glfwSetWindowPos(mWindow, 100, 100);
-	//		//mFullscreen = false;
-	//		//resizing = true;
-	//	}
-	//}
+
 }
 
 
