@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 17,
+            "EntityID": 584,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -50,7 +50,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 18,
+            "EntityID": 585,
             "TagComponent": {
                 "tag": "level trigger"
             },
@@ -107,7 +107,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 19,
+            "EntityID": 586,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -158,7 +158,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 20,
+            "EntityID": 587,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -209,7 +209,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 21,
+            "EntityID": 588,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -260,7 +260,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 22,
+            "EntityID": 589,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -311,7 +311,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 23,
+            "EntityID": 590,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -362,7 +362,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 24,
+            "EntityID": 591,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -413,7 +413,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 25,
+            "EntityID": 592,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -464,7 +464,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 26,
+            "EntityID": 593,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -515,7 +515,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 27,
+            "EntityID": 594,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -524,9 +524,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 1.0,
@@ -562,7 +562,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 28,
+            "EntityID": 595,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -613,7 +613,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 29,
+            "EntityID": 596,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -664,7 +664,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 30,
+            "EntityID": 597,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -715,7 +715,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 31,
+            "EntityID": 598,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -766,7 +766,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 32,
+            "EntityID": 599,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -775,9 +775,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.5,
@@ -813,7 +813,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 33,
+            "EntityID": 600,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -864,7 +864,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 34,
+            "EntityID": 601,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -915,7 +915,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 35,
+            "EntityID": 602,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -966,7 +966,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 36,
+            "EntityID": 603,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1017,7 +1017,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 37,
+            "EntityID": 604,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1068,7 +1068,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 38,
+            "EntityID": 605,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1077,9 +1077,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.625,
@@ -1115,7 +1115,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 39,
+            "EntityID": 606,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1166,7 +1166,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 40,
+            "EntityID": 607,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1217,7 +1217,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 41,
+            "EntityID": 608,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1226,9 +1226,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.25,
@@ -1264,7 +1264,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 42,
+            "EntityID": 609,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1315,7 +1315,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 43,
+            "EntityID": 610,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1366,7 +1366,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 44,
+            "EntityID": 611,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1417,7 +1417,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 45,
+            "EntityID": 612,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1468,7 +1468,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 46,
+            "EntityID": 613,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1519,7 +1519,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 47,
+            "EntityID": 614,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1570,7 +1570,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 48,
+            "EntityID": 615,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1621,7 +1621,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 49,
+            "EntityID": 616,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1672,7 +1672,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 50,
+            "EntityID": 617,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1681,9 +1681,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 1.0,
@@ -1719,7 +1719,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 51,
+            "EntityID": 618,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1770,7 +1770,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 52,
+            "EntityID": 619,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1821,7 +1821,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 53,
+            "EntityID": 620,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1872,7 +1872,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 54,
+            "EntityID": 621,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -1923,7 +1923,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 55,
+            "EntityID": 622,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -1932,9 +1932,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.5,
@@ -1970,7 +1970,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 56,
+            "EntityID": 623,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2021,7 +2021,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 57,
+            "EntityID": 624,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2072,7 +2072,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 58,
+            "EntityID": 625,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2123,7 +2123,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 59,
+            "EntityID": 626,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2174,7 +2174,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 60,
+            "EntityID": 627,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2225,7 +2225,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 61,
+            "EntityID": 628,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2234,9 +2234,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.625,
@@ -2272,7 +2272,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 62,
+            "EntityID": 629,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2323,7 +2323,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 63,
+            "EntityID": 630,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2374,7 +2374,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 64,
+            "EntityID": 631,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2383,9 +2383,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.25,
@@ -2421,7 +2421,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 65,
+            "EntityID": 632,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2472,7 +2472,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 66,
+            "EntityID": 633,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2523,7 +2523,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 67,
+            "EntityID": 634,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2574,7 +2574,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 68,
+            "EntityID": 635,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2625,7 +2625,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 69,
+            "EntityID": 636,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2676,7 +2676,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 70,
+            "EntityID": 637,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2727,7 +2727,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 71,
+            "EntityID": 638,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2778,7 +2778,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 72,
+            "EntityID": 639,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2829,7 +2829,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 73,
+            "EntityID": 640,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -2838,9 +2838,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 1.0,
@@ -2876,7 +2876,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 74,
+            "EntityID": 641,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2927,7 +2927,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 75,
+            "EntityID": 642,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -2978,7 +2978,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 76,
+            "EntityID": 643,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3029,7 +3029,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 77,
+            "EntityID": 644,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3080,7 +3080,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 78,
+            "EntityID": 645,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3089,9 +3089,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.5,
@@ -3127,7 +3127,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 79,
+            "EntityID": 646,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3178,7 +3178,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 80,
+            "EntityID": 647,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3229,7 +3229,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 81,
+            "EntityID": 648,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3280,7 +3280,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 82,
+            "EntityID": 649,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3331,7 +3331,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 83,
+            "EntityID": 650,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3382,7 +3382,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 84,
+            "EntityID": 651,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3391,9 +3391,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.625,
@@ -3429,7 +3429,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 85,
+            "EntityID": 652,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3480,7 +3480,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 86,
+            "EntityID": 653,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -3531,7 +3531,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 87,
+            "EntityID": 654,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -3540,9 +3540,9 @@
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 0.0,
-                    "y": 5.885453550164232e-44,
-                    "z": 2.802596928649634e-45
+                    "x": 4.590793898974533e-41,
+                    "y": 4.484155085839415e-44,
+                    "z": 0.0
                 },
                 "scale": {
                     "x": 0.25,
@@ -3578,13 +3578,13 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 88,
+            "EntityID": 655,
             "TagComponent": {
                 "tag": "player"
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": -0.4920102059841156,
                     "y": -1.5750000476837158,
                     "z": 1.0
                 },
@@ -3661,7 +3661,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 89,
+            "EntityID": 656,
             "TagComponent": {
                 "tag": "player"
             },
@@ -3744,7 +3744,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 90,
+            "EntityID": 657,
             "TagComponent": {
                 "tag": "DeadZone"
             },
@@ -3801,13 +3801,13 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 91,
+            "EntityID": 658,
             "TagComponent": {
                 "tag": "Indicator"
             },
             "TransformComponent": {
                 "position": {
-                    "x": -0.5,
+                    "x": -0.4920102059841156,
                     "y": -1.475000023841858,
                     "z": 1.100000023841858
                 },

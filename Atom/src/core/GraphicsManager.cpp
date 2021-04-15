@@ -13,13 +13,13 @@ extern AtomEngine ae;
 // callback function for window resizing, hidden from any other files
 void framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	ae.mGraphicsManager->resize(width, height);
+	//ae.mGraphicsManager->resize(width, height);
 }
 
 void windowResizeCallback(GLFWwindow* window, int width, int height)
 {
-	ae.mGraphicsManager->resize(width, height);
-	ae.mIsPaused = true;
+	//ae.mGraphicsManager->resize(width, height);
+	//ae.mIsPaused = true;
 }
 
 void windowCloseCallback(GLFWwindow* window)

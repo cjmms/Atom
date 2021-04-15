@@ -46,18 +46,19 @@ public:
 
 	inline void FullScreenMode()
 	{
-		LevelWidth = mode->height;
-		LevelHeight = mode->height;
+		if (!mFullscreen) {
+			LevelWidth = mode->height;
+			LevelHeight = mode->height;
 
-		WindowWidth = mode->width;
-		WindowHeight = mode->height;
+			WindowWidth = mode->width;
+			WindowHeight = mode->height;
 
 
-		glfwSetWindowPos(mWindow, 0, 0);
-		glfwSetWindowMonitor(mWindow, monitor, 0, 0, WindowWidth, WindowHeight, mode->refreshRate);
-		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
-		//mFullscreen = true;
-
+			glfwSetWindowPos(mWindow, 0, 0);
+			glfwSetWindowMonitor(mWindow, monitor, 0, 0, WindowWidth, WindowHeight, mode->refreshRate);
+			glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+			mFullscreen = true;
+		}
 
 		ATOM_INFO("fullscreen");
 		ATOM_INFO(mode->height);
@@ -68,20 +69,22 @@ public:
 	{
 		//minimized = false;
 
-		LevelWidth = 800;
-		LevelHeight = 800;
+		if (mFullscreen) {
 
-		WindowWidth = 800;
-		WindowHeight = 800;
+			LevelWidth = 800;
+			LevelHeight = 800;
 
-
-
-		glViewport(0, 0, LevelWidth, LevelHeight);
-		glfwSetWindowMonitor(mWindow, nullptr, 0, 0, WindowWidth, WindowHeight, mode->refreshRate);
-		glfwSetWindowPos(mWindow, 100, 100);
-		//mFullscreen = false;
+			WindowWidth = 800;
+			WindowHeight = 800;
 
 
+
+			glViewport(0, 0, LevelWidth, LevelHeight);
+			glfwSetWindowMonitor(mWindow, nullptr, 0, 0, WindowWidth, WindowHeight, mode->refreshRate);
+			glfwSetWindowPos(mWindow, 100, 100);
+			mFullscreen = false;
+
+		}
 		ATOM_INFO("window");
 		ATOM_INFO(mode->height);
 		ATOM_INFO(mode->height);
