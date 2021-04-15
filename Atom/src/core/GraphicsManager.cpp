@@ -112,6 +112,9 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 		return;
 	}
 
+	WindowWidth = w;
+	WindowHeight = h;
+
 	if (minimized)
 	{
 		if (mFullscreen)
@@ -127,9 +130,6 @@ void GraphicsManager::resize(unsigned int w, unsigned int h)
 		}
 		return;
 	}
-
-		WindowWidth = w;
-		WindowHeight = h;
 
 		int side = WindowWidth > WindowHeight ? WindowHeight : WindowWidth;
 
