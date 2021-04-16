@@ -1,5 +1,0 @@
-Welcome to the Space Jump Setup
-
-This will install Space Jump version 1.0 on your computer.
-It is recommended that you close all other applications before continuing.
-Click Next to continue, or Cancel to exit setup.
