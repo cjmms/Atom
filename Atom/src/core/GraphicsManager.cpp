@@ -41,7 +41,9 @@ void windowFocusCallback(GLFWwindow* window, int focused)
 
 void GraphicsManager::init() {
 
-	mFullscreen = true;
+#ifdef DEBUG
+	mFullscreen = false;
+#endif // DEBUG
 
 	title = APPNAME;
 

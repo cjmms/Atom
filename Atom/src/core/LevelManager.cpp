@@ -59,11 +59,11 @@ void LevelManager::update()
 			level_alpha = 1.0f;
 			do_fade_in = false;
 			menu_inprogress = false;
-			if (level >= COUNT_INTROS) {
+			if (level >= COUNT_INTROS && level < ED_LEVELS) {
 				ae.mAudioManager->stop(musicChannelID);
 				musicChannelID = ae.play(musicTrackGame, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
 			}
-			if (level > 0 && level < COUNT_INTROS) {
+			if (level == COUNT_INTROS-1 || level == 0) {
 				ae.mAudioManager->stop(musicChannelID);
 				musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB, -1);
 			}
@@ -188,7 +188,7 @@ void LevelManager::load(int level) {
 	// if last level go back to main menu
 	if (level == TOTAL_LEVELS-1)
 	{
-		loadLevel(COUNT_INTROS-2);
+		loadLevel(COUNT_INTROS-1);
 	}
 }
 
