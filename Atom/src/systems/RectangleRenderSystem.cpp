@@ -65,34 +65,63 @@ void RectangleRenderSystem::init() {
 
 void RectangleRenderSystem::update() {
 
-	if (ae.mLevelManager->level > COUNT_INTROS) {
-		setBackground("Atom/res/Level_01_background.png");
-	}
 
 	if (ae.mInputManager->isKeyTriggered(ATOM_KEYCODE_T)) {
 		DebugMode = !DebugMode;
 		ae.mIsDebugMode = DebugMode;
 	}
+	if (ae.mLevelManager->level == 0) {
+		setBackground("Atom/res/art/digipen_logo.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress,false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 1) {
+		setBackground("Atom/res/art/game_logo.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 2) {
+		setBackground("Atom/res/art/intro_small.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 3) {
+		setBackground("Atom/res/art/intro_big.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 4) {
+		setBackground("Atom/res/art/intro_controls.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 5) {
+		setBackground("Atom/res/art/atom_game_splash.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 18) {
+		setBackground("Atom/res/art/team_logo.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 19) {
+		setBackground("Atom/res/art/atom_members.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 20) {
+		setBackground("Atom/res/art/faculty.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 21) {
+		setBackground("Atom/res/art/createddigipen.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 22) {
+		setBackground("Atom/res/art/fmod_logo.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
+	else if (ae.mLevelManager->level == 23) {
+		setBackground("Atom/res/art/atom_game_splash.png");
+		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
+	}
 
-	// draw Background 
-	// Temp - moving background
-	glm::vec2 backgroundPos = ae.mSystemManager->getSystem<ControllerSystem>()->playerPosition;
-	draw(backgroundPos, glm::vec2(5.0f), BackgroundAddress);
-
-	//if (ae.mLevelManager->GetCurrentLevelNumber() < 2)
-	//	particleEffect->Draw();
 
 	// draw all entities
 	drawEntities(DebugMode);
-
-	// animation demo
-	//drawAnimation(glm::vec2(0.8, 0.8), glm::vec2(0.4f), "knightSlice", "png", 3, worriorTimer, DebugMode);
-
-	//drawAnimation(glm::vec2(0.8, -0.8), glm::vec2(0.4f), "Vampire", "png", 4, VampireTimer, DebugMode);
-
-	//drawAnimation(glm::vec2(-0.8, -0.8), glm::vec2(0.4f), "latern", "png", 4, laternTimer, DebugMode);
-
-
 }
 
 

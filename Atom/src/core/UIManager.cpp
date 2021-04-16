@@ -44,6 +44,7 @@ void UIManager::drawText(int x, int y, const char* string){
     ImVec2 p;
     p.x = float(x);
     p.y = float(y);
+    ImGui::SetNextWindowPos(ImVec2(10,10));
     ImGui::Begin("OVERLAY", NULL, ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoScrollbar);
     ImGui::SetCursorPos(p);
     ImGui::Text("%s", string);
@@ -95,6 +96,7 @@ void UIManager::removeUIPainter(const std::function<void()>& uiPainter){
 
 
 void UIManager::showMenu(){
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 175, ImGui::GetIO().DisplaySize.y / 2 - 215));
     //render your GUI
     ImGui::Begin("MENU", 0, 
         ImGuiWindowFlags_NoCollapse |
@@ -199,6 +201,7 @@ void UIManager::showMenu(){
 
 
 void UIManager::showCheckCloseWindow(){
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 175, 30));
     ImGui::Begin("CLOSE WINDOW", &checkCloseWindow, 
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
@@ -224,6 +227,7 @@ void UIManager::showCheckCloseWindow(){
 
 
 void UIManager::showCheckRestartWindow(){
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 271, 30));
     ImGui::Begin("RESTART", &checkRestartWindow, 
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
@@ -254,6 +258,7 @@ void UIManager::showCheckRestartWindow(){
 }
 
 void UIManager::showCheckRestartGame(){
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 120, 30));
     ImGui::Begin("RESTART GAME", &checkRestartGame, 
         ImGuiWindowFlags_NoCollapse |
         ImGuiWindowFlags_NoBackground |
