@@ -93,8 +93,16 @@ void GraphicsManager::init() {
 	glfwSetWindowFocusCallback(mWindow, windowFocusCallback);
 
 	if (mFullscreen) {
-		glViewport(fabsf((mode->width - mode->height) / 2), 0, mode->height, mode->height);
+		mFullscreen = !mFullscreen;
+		FullScreenMode();
 	}
+	else {
+		mFullscreen = !mFullscreen;
+		WindowMode();
+	}
+	//else {
+	//	glViewport(0, fabsf((WindowHeight - LevelHeight) / 2), LevelWidth, LevelHeight);
+	//}
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

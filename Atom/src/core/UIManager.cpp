@@ -6,6 +6,7 @@
 
 extern AtomEngine ae;
 
+extern string sfxClick;
 extern ChannelID musicChannelID;
 extern ChannelID sfxChannelID;
 extern ChannelID dialogueChannelID;
@@ -14,7 +15,9 @@ extern float sfxVolumedB;
 extern float dialogueVolumedB;
 extern float listenerOffset[];
 extern bool menu_start;
-
+void playMenuClick() {
+    ae.play(sfxClick, ChannelGroupTypes::C_SFX, 0.2f + sfxVolumedB);
+}
 
 void UIManager::init(GLFWwindow* window) {
     const char* glsl_version = "#version 430";
@@ -110,6 +113,7 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("RESUME GAME", ImVec2(button_width, button_height)))
     {
+        playMenuClick();
         checkRestartWindow = false;  // disable other window
         checkRestartGame = false;
         checkCloseWindow = false;    // disable other window
@@ -135,6 +139,7 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("RESTART CURRENT LEVEL",ImVec2(button_width, button_height)))
     {
+        playMenuClick();
         checkCloseWindow = false;   // disable other window
         checkRestartGame = false;
         checkRestartWindow = true;
@@ -143,6 +148,7 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("RESTART GAME", ImVec2(button_width, button_height)))
     {
+        playMenuClick();
         checkCloseWindow = false;   // disable other window
         checkRestartWindow = false;
         checkRestartGame = true;
@@ -151,6 +157,7 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("QUIT GAME", ImVec2(button_width, button_height)))
     {
+        playMenuClick();
         checkRestartWindow = false; // disable other window
         checkRestartGame = false;
         checkCloseWindow = true;
@@ -159,12 +166,14 @@ void UIManager::showMenu(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("EXIT TO MAIN MENU", ImVec2(button_width, button_height))) {
 
+        playMenuClick();
         ae.mLevelManager->loadLevel(COUNT_INTROS - 1);
         menu_start = true;
         ae.mIsPaused = false;
     }
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("FULLSCREEN MODE", ImVec2(button_width, button_height))) {
+        playMenuClick();
         if (ae.mLevelManager->level == COUNT_INTROS - 1) {
             ae.mLevelManager->restartCurrentLevel();
         }
@@ -172,6 +181,7 @@ void UIManager::showMenu(){
     }
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("WINDOWED MODE", ImVec2(button_width, button_height))) {
+        playMenuClick();
 
         if (ae.mLevelManager->level == COUNT_INTROS - 1) {
             ae.mLevelManager->restartCurrentLevel();

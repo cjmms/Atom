@@ -166,10 +166,11 @@ bool menu_ingame = false;
 char buttontext[40] = "PLAY";
 bool menu_inprogress = false;
 
+//namespace menu {
 void playMenuclick() {
     ae.play(sfxClick, ChannelGroupTypes::C_SFX, 0.2f + sfxVolumedB);
 }
-
+//}
 
 void showGameMenu() {
      // now we are in menu
@@ -208,10 +209,6 @@ void showGameMenu() {
             if (ImGui::Button("CONTROLS", ImVec2(button_width, button_height))) {
                 playMenuclick();
             }
-            //ImGui::SetCursorPosX(p.x - (button_width / 2));
-            //if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
-            //    playMenuclick();
-            //}
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CREDITS",ImVec2(button_width,button_height))) {
                 playMenuclick();
