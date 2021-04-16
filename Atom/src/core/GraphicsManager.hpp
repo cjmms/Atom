@@ -47,8 +47,8 @@ public:
 	inline void FullScreenMode()
 	{
 		if (!mFullscreen) {
-			LevelWidth = mode->height;
-			LevelHeight = mode->height;
+			LevelWidth = SCREEN_WIDTH;
+			LevelHeight = SCREEN_HEIGHT;
 
 			WindowWidth = mode->width;
 			WindowHeight = mode->height;
