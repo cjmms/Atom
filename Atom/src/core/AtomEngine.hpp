@@ -45,6 +45,7 @@
 #include "systems/PushUpSystem.hpp"
 #include "systems/MoveToSystem.hpp"
 #include "systems/IndicatorSystem.hpp"
+#include "systems/BossSystem.hpp"
 
 // ------------------------------------ATOM ENGINE---------------------------------------------
 
@@ -116,6 +117,7 @@ public:
 		registerComponent<PushUpComponent>();
 		registerComponent<MoveToComponent>();
 		registerComponent<IndicatorComponent>();
+		registerComponent<BossComponent>();
 
 		// register all systems
 		//!order of systems matter
@@ -136,6 +138,7 @@ public:
 		registerSystem<AnimationSystem>();
 		registerSystem<PushUpSystem>();
 		registerSystem<MoveToSystem>();
+		registerSystem<BossSystem>();
 
 
 		// set archetypes
@@ -225,6 +228,10 @@ public:
 			Archetype typeIndicator;
 			typeIndicator.set(getComponentType<IndicatorComponent>());
 			setSystemArchetype<IndicatorSystem>(typeIndicator);
+
+			Archetype typeBoss;
+			typeBoss.set(getComponentType<BossComponent>());
+			setSystemArchetype<BossSystem>(typeBoss);
 
 		}
 		// reinit systems because archetypes changed 
@@ -491,6 +498,7 @@ public:
 		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
 		serializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 		serializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
+		serializeComponent<BossComponent>(j["BossComponent"], entity);
 	}
 	// Read
 	template <typename T>
@@ -527,6 +535,7 @@ public:
 		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
 		deserializeComponent<MoveToComponent>(j["MoveToComponent"], entity);
 		deserializeComponent<IndicatorComponent>(j["IndicatorComponent"], entity);
+		deserializeComponent<BossComponent>(j["BossComponent"], entity);
 	}
 
 	inline float random() {

@@ -2062,6 +2062,8 @@
     <ClInclude Include="Atom\src\components\MoveToComponent.hpp" />
     <ClInclude Include="Atom\src\systems\MoveToSystem.hpp" />
     <ClInclude Include="Atom\src\systems\IndicatorSystem.hpp" />
+    <ClInclude Include="Atom\src\components\BossComponent.hpp" />
+    <ClInclude Include="Atom\src\systems\BossSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Atom\lib\glm\glm\detail\glm.cpp">
@@ -2179,6 +2181,7 @@
     <ClCompile Include="Atom\src\systems\AnimationSystem.cpp" />
     <ClCompile Include="Atom\src\systems\MoveToSystem.cpp" />
     <ClCompile Include="Atom\src\systems\IndicatorSystem.cpp" />
+    <ClCompile Include="Atom\src\systems\BossSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Atom\builds\windows\bin-int\Debug-windows-x86_64\Atom\AABBCollision.obj">
