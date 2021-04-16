@@ -37,6 +37,8 @@ public:
 	void remove(EntityID entity) {
 		assert(mEntityToIndexMap.find(entity) != mEntityToIndexMap.end() && "Removing non-existent component.");
 
+
+
 		// Copy element at end into end where element got deleted to keep density
 		size_t indexOfRemovedEntityID = mEntityToIndexMap[entity];
 		size_t indexOfLastElement = mCount - 1;
@@ -49,7 +51,7 @@ public:
 
 		mEntityToIndexMap.erase(entity);
 		mIndexToEntityMap.erase(indexOfLastElement);
-
+		//mComponentContainer.pop_back();
 		--mCount;
 
 	}

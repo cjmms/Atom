@@ -91,7 +91,6 @@ public:
 		ATOM_INFO("end window");
 	}
 
-private:
 	GLFWwindow* mWindow = NULL;
 	GLFWmonitor* monitor;
 	const GLFWvidmode* mode;

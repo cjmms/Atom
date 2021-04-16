@@ -20,9 +20,8 @@ extern string sfxLand;
 extern float sfxVolumedB;
 
 void playLandSound(Event& e) {
-	ae.play(sfxLand, ChannelGroupTypes::C_SFX, 3.0f + sfxVolumedB);
+	ae.play(sfxLand, ChannelGroupTypes::C_SFX,0.5f + sfxVolumedB);
 }
-
 
 
 void PhysicsSystem::init()

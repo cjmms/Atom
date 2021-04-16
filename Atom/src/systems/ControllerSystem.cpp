@@ -39,9 +39,9 @@ glm::vec2 target_position;
 glm::vec2 current_position;
 
 
-void playJumpSound(Event& e) {
-
-}
+extern string sfxJump;
+extern string sfxLand;
+extern float sfxVolumedB;
 
 void ControllerSystem::init()
 {
@@ -239,12 +239,12 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyTriggered(controller.UP) && !character1.inSuperGodMode)
 			{
-				// AUDIO EVENT
-				//Event e(EventID::E_AUDIO_PLAY);
-				//e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
-				//e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
-				//e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
-				//ae.sendEvent(e);
+				/// AUDIO EVENT
+				Event e(EventID::E_AUDIO_PLAY);
+				e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+				e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+				e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+				ae.sendEvent(e);
 
 				//Jump
 				if (body1.grounded)

@@ -1064,8 +1064,8 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\lib\spdlog\LICENSE" />
     <None Include="Atom\lib\spdlog\VERSION" />
     <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst" />
-    <None Include="Atom\res\audio\EllenFootstepJump.ogg" />
-    <None Include="Atom\res\audio\EllenFootstepLand.ogg" />
+    <None Include="Atom\res\audio\jump.ogg" />
+    <None Include="Atom\res\audio\land.ogg" />
     <None Include="Atom\res\audio\bullet-retro-gun-shot.mp3" />
     <None Include="Atom\res\audio\optimus_speech.ogg" />
     <None Include="Atom\res\audio\wariyo_mortals.ogg" />
