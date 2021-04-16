@@ -136,9 +136,9 @@ void start() {
 
     ae.mLevelManager->startGame();
 
-    musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB,-1);
-    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB,0);
-    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB,0);
+    //musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB,-1);
+    //sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB,0);
+    //dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB,0);
 
 }
 
