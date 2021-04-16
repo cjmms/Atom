@@ -94,28 +94,28 @@ void RectangleRenderSystem::update() {
 		setBackground("Atom/res/art/atom_game_splash.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 18) {
+	else if (ae.mLevelManager->level == 19) {
 		setBackground("Atom/res/art/team_logo.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 19) {
+	else if (ae.mLevelManager->level == 20) {
 		setBackground("Atom/res/art/atom_members.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 20) {
+	else if (ae.mLevelManager->level == 21) {
 		setBackground("Atom/res/art/faculty.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 21) {
+	else if (ae.mLevelManager->level == 22) {
 		setBackground("Atom/res/art/createddigipen.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 22) {
+	else if (ae.mLevelManager->level == 23) {
 		setBackground("Atom/res/art/fmod_logo.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
-	else if (ae.mLevelManager->level == 23) {
-		setBackground("Atom/res/art/atom_game_splash.png");
+	else if (ae.mLevelManager->level == 24) {
+		setBackground("Atom/res/art/digipen_logo.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
 

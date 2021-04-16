@@ -1,0 +1,9 @@
+{
+  "mapname": "LevelOP5_Map.json",
+  "time": 10.0,
+  "tilesize_x": 50,
+  "tilesize_y": 50,
+  "grid": [
+    ["0"]
+  ]
+}

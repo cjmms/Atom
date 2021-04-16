@@ -3,9 +3,9 @@
 
 #define MyAppName "Space Jump"
 #define MyAppVersion "1.0"
-#define MyAppPublisher "Atom, Inc."
-#define MyAppURL "https://abhikalpunakal.com"
-#define MyAppExeName "Atom.exe"
+#define MyAppPublisher "DigiPen Institute of Technology"
+#define MyAppURL "http://www.digipen.edu/"
+#define MyAppExeName "Space Jump.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -13,12 +13,11 @@
 AppId={{E7266615-9098-484A-9D6E-B1C8F91EF174}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\Atom
+DefaultDirName={autopf}\DigiPen\{#MyAppName}
 DisableProgramGroupPage=yes
 LicenseFile=copyright\DigiPen_EULA.txt
 InfoBeforeFile=copyright\Welcome.txt
@@ -26,8 +25,8 @@ InfoAfterFile=copyright\Done.txt
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
 OutputDir=package
-OutputBaseFilename=space_jump_setup
-SetupIconFile=logos\icon.ico
+OutputBaseFilename={#MyAppName}_Setup
+; SetupIconFile=logos\icon.ico
 RestartIfNeededByRun=no
 ArchitecturesAllowed=x64
 WizardSmallImageFile=logos\banner.bmp
@@ -35,6 +34,8 @@ WizardImageFile=logos\digipen_atom_game_panel.bmp
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+; Path to the icon for the installer (TCR check requires custom icon)
+SetupIconFile=logos\icon.ico
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -45,9 +46,10 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Name: "uninstallicon"; Description: "Start menu shortcut for unistaller"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "app\Atom.exe"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "app\Atom.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "logos\panel_image*.bmp"; Flags: dontcopy
+Source: "app\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fmod.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "app\imgui.ini"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fmodstudio.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fsbank.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\libfsbvorbis64.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -59,13 +61,53 @@ Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createa
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
-Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
-Name: "{group}\Uninstall-{#MyAppName}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}.exe; WorkingDir: {app}; IconFilename: "logos\icon.ico"
+Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
+Name: {commondesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon; WorkingDir: {app}; IconFilename: "logos\icon.ico"
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
 [Run]
 Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable";
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
+
+
+[UninstallDelete]
+
+[Code]
+
+//Scale the image based on DPI of monitor screen.
+function GetScalingFactor: Integer;
+begin
+  if WizardForm.Font.PixelsPerInch >= 192 then Result := 200
+    else
+  if WizardForm.Font.PixelsPerInch >= 144 then Result := 150
+    else
+  if WizardForm.Font.PixelsPerInch >= 120 then Result := 125
+    else Result := 100;
+end;
+
+//Set image of the far left side panel.
+procedure LoadEmbededScaledBitmap(Image: TBitmapImage; NameBase: string);
+
+var Name: String;
+var FileName: String;
+
+begin
+  Name := Format('%s_%d.bmp', [NameBase, GetScalingFactor]);
+  ExtractTemporaryFile(Name);
+  FileName := ExpandConstant('{tmp}\' + Name);
+  Image.Bitmap.LoadFromFile(FileName);
+  DeleteFile(FileName);
+end;
+
+//Set images based on resolution.
+procedure InitializeWizard;
+
+begin
+  { If using larger scaling, load the correct size of images }
+  if GetScalingFactor > 100 then 
+  begin
+    LoadEmbededScaledBitmap(WizardForm.WizardBitmapImage, 'panel_image');
+  end;
+
+end;

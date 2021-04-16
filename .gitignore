@@ -46,3 +46,4 @@
 *.vcxproj.filters
 *.vcxproj.user
 **/.vs/
+Installer/app/Atom.pdb

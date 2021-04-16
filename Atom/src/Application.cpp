@@ -92,7 +92,7 @@ string sfxDeath = "Atom/res/audio/death.wav";
 string dialogueTrack = "Atom/res/audio/optimus_speech.ogg";
 string sfxJump = "Atom/res/audio/jump.ogg";
 string sfxLand = "Atom/res/audio/land.ogg";
-string sfxBullet = "Atom/res/audio/bullet-retro-gun-shot.mp3";
+string sfxBullet = "Atom/res/audio/bulletshot.mp3";
 ChannelID musicChannelID = -1;
 ChannelID sfxChannelID = -1;
 ChannelID dialogueChannelID = -1;
@@ -136,9 +136,9 @@ void start() {
 
     ae.mLevelManager->startGame();
 
-    musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB,-1);
-    sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB,0);
-    dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB,0);
+    //musicChannelID = ae.play(musicTrackIntro, ChannelGroupTypes::C_MUSIC, musicVolumedB,-1);
+    //sfxChannelID = ae.play(sfxJump, ChannelGroupTypes::C_MUSIC, sfxVolumedB,0);
+    //dialogueChannelID = ae.play(dialogueTrack, ChannelGroupTypes::C_DIALOGUE, dialogueVolumedB,0);
 
 }
 
