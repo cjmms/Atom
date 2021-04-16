@@ -1,7 +1,7 @@
 {
     "Entities": [
         {
-            "EntityID": 184,
+            "EntityID": 15,
             "TagComponent": {
                 "tag": "wall"
             },
@@ -52,7 +52,7 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 185,
+            "EntityID": 16,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
@@ -62,7 +62,7 @@
                 },
                 "rotation": {
                     "x": 4.590793898974533e-41,
-                    "y": 5.603174586212176e-39,
+                    "y": 3.581725881306554e-39,
                     "z": 0.0
                 },
                 "scale": {
