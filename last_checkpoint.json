@@ -1,14 +1,14 @@
 {
     "Entities": [
         {
-            "EntityID": 15,
+            "EntityID": 1583,
             "TagComponent": {
                 "tag": "wall"
             },
             "TransformComponent": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
+                    "x": -0.02343752235174179,
+                    "y": 0.1536458432674408,
                     "z": 0.0
                 },
                 "rotation": {
@@ -17,19 +17,19 @@
                     "z": 0.0
                 },
                 "scale": {
-                    "x": 2.0,
-                    "y": 2.0,
+                    "x": 13.020833015441895,
+                    "y": 13.020833015441895,
                     "z": 0.0
                 }
             },
             "RectangleComponent": {
                 "color": {
-                    "x": 0.0,
-                    "y": 0.0,
-                    "z": 0.0
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
                 },
                 "wireframe": false,
-                "texturePath": "Atom/res/art/atom_game_splash.png"
+                "texturePath": "Atom/res/art/black.png"
             },
             "ShapeComponent": {
                 "shapeType": "AABB"
@@ -52,22 +52,22 @@
             "IndicatorComponent": null
         },
         {
-            "EntityID": 16,
+            "EntityID": 1584,
             "TagComponent": null,
             "TransformComponent": {
                 "position": {
-                    "x": 0.0,
-                    "y": 0.0,
+                    "x": -0.02343752235174179,
+                    "y": 0.1536458432674408,
                     "z": 0.0
                 },
                 "rotation": {
-                    "x": 4.590793898974533e-41,
-                    "y": 3.581725881306554e-39,
-                    "z": 0.0
+                    "x": 0.0,
+                    "y": -2.1420186284068563e-23,
+                    "z": 6.389920997321166e-43
                 },
                 "scale": {
-                    "x": 2.0,
-                    "y": 2.0,
+                    "x": 13.020833015441895,
+                    "y": 13.020833015441895,
                     "z": 0.0
                 }
             },
@@ -82,6 +82,57 @@
                 "frictionless": false,
                 "gravity": 0.0
             },
+            "ControllerComponent": null,
+            "ShootComponent": null,
+            "HealthComponent": null,
+            "AutoShootComponent": null,
+            "ChasePlayerComponent": null,
+            "CharacteristicComponent": null,
+            "SkillBoosterComponent": null,
+            "AutoMovementComponent": null,
+            "SelfDestroyComponent": null,
+            "LevelTriggerComponent": null,
+            "ParticleComponent": null,
+            "DamageComponent": null,
+            "PushUpComponent": null,
+            "MoveToComponent": null,
+            "IndicatorComponent": null
+        },
+        {
+            "EntityID": 1585,
+            "TagComponent": {
+                "tag": "logo"
+            },
+            "TransformComponent": {
+                "position": {
+                    "x": -0.02343752235174179,
+                    "y": -0.10677079111337662,
+                    "z": 0.0
+                },
+                "rotation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                },
+                "scale": {
+                    "x": 1.8229166269302368,
+                    "y": 1.5625,
+                    "z": 0.0
+                }
+            },
+            "RectangleComponent": {
+                "color": {
+                    "x": 1.0,
+                    "y": 1.0,
+                    "z": 1.0
+                },
+                "wireframe": false,
+                "texturePath": "Atom/res/art/atom_production_800x800.png"
+            },
+            "ShapeComponent": {
+                "shapeType": "AABB"
+            },
+            "PhysicsBodyComponent": null,
             "ControllerComponent": null,
             "ShootComponent": null,
             "HealthComponent": null,

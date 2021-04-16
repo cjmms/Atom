@@ -25,7 +25,8 @@
 #define FADE_OUT_TIME 1.0f
 #define FADE_IN_TIME 1.0f
 #define COUNT_INTROS 6
-#define TOTAL_LEVELS 19
+//19 - 21 added 2 - kishore
+#define TOTAL_LEVELS 21
 #define ED_LEVELS 16
 
 // USING

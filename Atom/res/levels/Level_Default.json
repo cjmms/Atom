@@ -19,6 +19,8 @@
     "LevelA10_Settings.json",
     "LevelA11_Settings.json",
     "LevelA8_Settings.json",
+    "LevelB1_Settings.json",
+    "LevelB2_Settings.json",
     "LevelED1_Settings.json",
     "LevelED2_Settings.json",
     "LevelED3_Settings.json",
@@ -189,7 +191,7 @@
     }
   },
 
-  "Z": {
+  "Z1": {
     "EntityID": 0,
     "TagComponent": {
       "tag": "PushUp platform"
@@ -213,9 +215,9 @@
     },
     "RectangleComponent": {
       "color": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
+        "x": 0.1,
+        "y": 0.1,
+        "z": 0.1
       },
       "wireframe": false,
       "texturePath": ""
@@ -239,8 +241,110 @@
     }
   },
 
+  "Z2": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "PushUp platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.1,
+        "y": 0.1,
+        "z": 0.1
+      },
+      "wireframe": false,
+      "texturePath": ""
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "PushUpComponent": {
+      "ForceX": 0.0,
+      "ForceY": 60.0,
+      "PositionX": 0.0,
+      "PositionY": 0.0,
+      "Scale": 7.0
+    }
+  },
 
-  "Y": {
+
+  "Z3": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "PushUp platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.1,
+        "y": 0.1,
+        "z": 0.1
+      },
+      "wireframe": false,
+      "texturePath": ""
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "PushUpComponent": {
+      "ForceX": 0.0,
+      "ForceY": 140.0,
+      "PositionX": 0.0,
+      "PositionY": 0.0,
+      "Scale": 7.0
+    }
+  },
+
+
+
+  "Y1": {
     "EntityID": 0,
     "TagComponent": {
       "tag": "MoveTo platform"
@@ -286,15 +390,166 @@
       "velocityY": -1.0,
       "GridX": 0.0,
       "GridY": 6.0,
-      "tag": "trigger"
+      "tag": "trigger1"
     }
   },
 
 
-  "X": {
+  "Y2": {
     "EntityID": 0,
     "TagComponent": {
-      "tag": "trigger"
+      "tag": "MoveTo platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/MovingPlatform.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 10000.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "MoveToComponent": {
+      "velocityX": 0.0,
+      "velocityY": 1.0,
+      "GridX": 0.0,
+      "GridY": 4.0,
+      "tag": "trigger2"
+    }
+  },
+
+  "Y3": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "MoveTo platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/MovingPlatform.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 10000.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "MoveToComponent": {
+      "velocityX": 0.0,
+      "velocityY": -1.0,
+      "GridX": 0.0,
+      "GridY": 8.0,
+      "tag": "trigger3"
+    }
+  },
+
+  "Y4": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "MoveTo platform"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/MovingPlatform.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 10000.0,
+      "staticBody": false,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "MoveToComponent": {
+      "velocityX": 0.0,
+      "velocityY": -1.25,
+      "GridX": 0.0,
+      "GridY": 10.0,
+      "tag": "trigger3"
+    }
+  },
+
+
+  "X1": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "trigger1"
     },
     "TransformComponent": {
       "position": {
@@ -320,7 +575,7 @@
         "z": 0.0
       },
       "wireframe": false,
-      "texturePath": "Atom/res/art/jump.png"
+      "texturePath": "Atom/res/art/trigger.png"
     },
     "ShapeComponent": {
       "shapeType": 0
@@ -338,6 +593,100 @@
     }
   },
 
+
+  "X2": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "trigger2"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/trigger.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": true
+    },
+    "ControllerComponent": null,
+    "SkillBoosterComponent": {
+      "skillType": "Trigger"
+    }
+  },
+
+  "X3": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "trigger3"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 0.6,
+        "y": 0.6,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/trigger.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 1.0,
+      "staticBody": true,
+      "isTrigger": true,
+      "frictionless": false,
+      "gravity": true
+    },
+    "ControllerComponent": null,
+    "SkillBoosterComponent": {
+      "skillType": "Trigger"
+    }
+  },
 
 
   "T": {
@@ -509,6 +858,74 @@
       "shapeType": 0
     }
   },
+
+
+  "I1": {
+    "EntityID": 0,
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 7.0,
+        "y": 4.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/Stream_Line.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    }
+  },
+
+  "I2": {
+    "EntityID": 0,
+    "TransformComponent": {
+      "position": {
+        "x": 1.0,
+        "y": -1.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 3.0,
+        "y": 5.0,
+        "z": 1.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/Stream_Line.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    }
+  },
+
 
   "E1": {
     "EntityID": 0,
