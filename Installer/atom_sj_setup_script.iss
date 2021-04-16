@@ -46,7 +46,6 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Name: "uninstallicon"; Description: "Start menu shortcut for unistaller"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
-Source: "logos\panel_image*.bmp"; Flags: dontcopy
 Source: "app\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fmod.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\imgui.ini"; DestDir: "{app}"; Flags: ignoreversion
@@ -61,10 +60,12 @@ Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createa
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}.exe; WorkingDir: {app}; IconFilename: "logos\icon.ico"
-Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
-Name: {commondesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon; WorkingDir: {app}; IconFilename: "logos\icon.ico"
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFileName: "logos\icon.ico"
+Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"; IconFileName: "logos\icon.ico"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
+Name: "{group}\Uninstall-{#MyAppName}"; Filename: "{uninstallexe}"; Tasks: uninstallicon; IconFileName: "logos\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFileName: "logos\icon.ico"
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon; IconFileName: "logos\icon.ico"
 
 [Run]
 Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable";
