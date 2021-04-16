@@ -21,6 +21,7 @@
     "LevelA8_Settings.json",
     "LevelB1_Settings.json",
     "LevelB2_Settings.json",
+    "LevelC1_Settings.json",
     "LevelED1_Settings.json",
     "LevelED2_Settings.json",
     "LevelED3_Settings.json",
@@ -923,6 +924,63 @@
     },
     "ShapeComponent": {
       "shapeType": 0
+    }
+  },
+
+
+  "BOSS": {
+    "EntityID": 0,
+    "TagComponent": {
+      "tag": "enemy"
+    },
+    "TransformComponent": {
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "scale": {
+        "x": 8.00,
+        "y": 4.00,
+        "z": 0.0
+      }
+    },
+    "RectangleComponent": {
+      "color": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "wireframe": false,
+      "texturePath": "Atom/res/art/PlatformEnemy.png"
+    },
+    "ShapeComponent": {
+      "shapeType": 0
+    },
+    "PhysicsBodyComponent": {
+      "mass": 2.0,
+      "staticBody": true,
+      "isTrigger": false,
+      "frictionless": false,
+      "gravity": false
+    },
+    "ShootComponent": {
+      "shootInterval": 2,
+      "bulletPerShoot": 36,
+      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
+      "bulletSpeed": 0.5,
+      "bulletScale": 0.02
+    },
+    "AutoShootComponent": {
+    },
+    "HealthComponent": {
+      "health": 4000,
+      "totalHealth": 4000
     }
   },
 

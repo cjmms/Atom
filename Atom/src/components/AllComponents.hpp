@@ -24,5 +24,6 @@
 #include "components/AnimationComponent.hpp"
 #include "components/MoveToComponent.hpp"
 #include "components/IndicatorComponent.hpp"
+#include "components/BossComponent.hpp"
 
 #endif 
