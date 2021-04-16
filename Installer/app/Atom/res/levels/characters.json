@@ -42,16 +42,17 @@
         "gravity": 9.81
       },
       "ControllerComponent": {
-        "UP": "ATOM_SCANCODE_UP",
-        "DOWN": "ATOM_SCANCODE_DOWN",
-        "LEFT": "ATOM_SCANCODE_LEFT",
-        "RIGHT": "ATOM_SCANCODE_RIGHT",
-        "SWAP_POSITION": "ATOM_SCANCODE_E",
-        "SWAP_CHARACTER": "ATOM_SCANCODE_Q",
-        "GOD_MODE": "ATOM_SCANCODE_G",
-        "SUPER_GOD_MODE": "ATOM_SCANCODE_H",
-        "NEXT_LEVEL": "ATOM_SCANCODE_NEXT_LEVEL",
-        "PREV_LEVEL": "ATOM_SCANCODE_PREV_LEVEL",
+        "UP": "ATOM_KEYCODE_W",
+        "DOWN": "ATOM_KEYCODE_S",
+        "LEFT": "ATOM_KEYCODE_A",
+        "RIGHT": "ATOM_KEYCODE_D",
+        "SWAP_POSITION": "ATOM_KEYCODE_E",
+        "SWAP_CHARACTER": "ATOM_KEYCODE_Q",
+        "GOD_MODE": "ATOM_KEYCODE_G",
+        "SUPER_GOD_MODE": "ATOM_KEYCODE_H",
+        "NEXT_LEVEL": "ATOM_KEYCODE_1",
+        "PREV_LEVEL": "ATOM_KEYCODE_2",
+        "ED_LEVEL": "ATOM_KEYCODE_3",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": true
@@ -59,7 +60,7 @@
       "ShootComponent": {
         "shootInterval": 0.2,
         "bulletPerShoot": 1,
-        "bulletTexturePath": "Atom/res/art/PlayerBullet.png",
+        "bulletTexturePath": "Atom/res/art/CharacterBullet.png",
         "bulletSpeed": 1.0,
         "bulletScale": 0.03
       },
@@ -113,16 +114,17 @@
         "gravity": 3.0
       },
       "ControllerComponent": {
-        "UP": "ATOM_SCANCODE_UP",
-        "DOWN": "ATOM_SCANCODE_DOWN",
-        "LEFT": "ATOM_SCANCODE_LEFT",
-        "RIGHT": "ATOM_SCANCODE_RIGHT",
-        "SWAP_POSITION": "ATOM_SCANCODE_E",
-        "SWAP_CHARACTER": "ATOM_SCANCODE_Q",
-        "GOD_MODE": "ATOM_SCANCODE_G",
-        "SUPER_GOD_MODE": "ATOM_SCANCODE_H",
-        "NEXT_LEVEL": "ATOM_SCANCODE_NEXT_LEVEL",
-        "PREV_LEVEL": "ATOM_SCANCODE_PREV_LEVEL",
+        "UP": "ATOM_KEYCODE_W",
+        "DOWN": "ATOM_KEYCODE_S",
+        "LEFT": "ATOM_KEYCODE_A",
+        "RIGHT": "ATOM_KEYCODE_D",
+        "SWAP_POSITION": "ATOM_KEYCODE_E",
+        "SWAP_CHARACTER": "ATOM_KEYCODE_Q",
+        "GOD_MODE": "ATOM_KEYCODE_G",
+        "SUPER_GOD_MODE": "ATOM_KEYCODE_H",
+        "NEXT_LEVEL": "ATOM_KEYCODE_1",
+        "PREV_LEVEL": "ATOM_KEYCODE_2",
+        "ED_LEVEL": "ATOM_KEYCODE_3",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": false
@@ -130,9 +132,9 @@
       "ShootComponent": {
         "shootInterval": 0.8,
         "bulletPerShoot": 3,
-        "bulletTexturePath": "Atom/res/art/PlayerBullet2.png",
-        "bulletSpeed": 0.7,
-        "bulletScale": 0.05
+        "bulletTexturePath": "Atom/res/art/CharacterBullet2.png",
+        "bulletSpeed": 1.0,
+        "bulletScale": 0.06
       },
       "HealthComponent": {
         "health": 1000,
@@ -183,6 +185,45 @@
         "frictionless": false,
         "gravity": 9.81
       }
+    },
+
+    {
+      "EntityID": 0,
+      "TagComponent": {
+        "tag": "Indicator"
+      },
+      "TransformComponent": {
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0.0
+        },
+        "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 0.03,
+          "y": 0.03,
+          "z": 1.0
+        }
+      },
+      "RectangleComponent": {
+        "color": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 0.0
+        },
+        "wireframe": false,
+        "texturePath": "Atom/res/art/indicator.png"
+      },
+      "ShapeComponent": {
+        "shapeType": 0
+      },
+      "IndicatorComponent": {
+      }
     }
+
   ]
 }

@@ -318,10 +318,7 @@
     },
     "ShootComponent": {
       "shootInterval": 3,
-      "bulletPerShoot": 5,
-      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
-      "bulletSpeed": 0.5,
-      "bulletScale": 0.02
+      "bulletPerShoot": 5
     },
     "AutoShootComponent": {
     },
@@ -375,10 +372,7 @@
     },
     "ShootComponent": {
       "shootInterval": 1,
-      "bulletPerShoot": 1,
-      "bulletTexturePath": "Atom/res/art/EnemyBullet.png",
-      "bulletSpeed": 0.5,
-      "bulletScale": 0.02
+      "bulletPerShoot": 1
     },
     "AutoShootComponent": {
     },

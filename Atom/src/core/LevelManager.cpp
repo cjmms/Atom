@@ -188,7 +188,7 @@ void LevelManager::load(int level) {
 	// if last level go back to main menu
 	if (level == TOTAL_LEVELS-1)
 	{
-		loadLevel(COUNT_INTROS-1);
+		loadLevel(1);
 	}
 }
 

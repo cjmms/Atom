@@ -1,0 +1,8 @@
+{
+  "mapname": "LevelMenu_Map.json",
+  "tilesize_x": 800.0,
+  "tilesize_y": 800.0,
+  "grid": [
+    ["0"]
+  ]
+}
