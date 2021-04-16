@@ -41,7 +41,7 @@ SetupIconFile=logos\icon.ico
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
 Name: "uninstallicon"; Description: "Start menu shortcut for unistaller"; GroupDescription: "{cm:AdditionalIcons}";
 
@@ -60,12 +60,12 @@ Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createa
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFileName: "logos\icon.ico"
-Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"; IconFileName: "logos\icon.ico"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFileName: "{app}\icon.ico"
+Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"; IconFileName: "{app}\icon.ico"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"; Tasks: uninstallicon
-Name: "{group}\Uninstall-{#MyAppName}"; Filename: "{uninstallexe}"; Tasks: uninstallicon; IconFileName: "logos\icon.ico"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFileName: "logos\icon.ico"
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon; IconFileName: "logos\icon.ico"
+Name: "{group}\Uninstall-{#MyAppName}"; Filename: "{uninstallexe}"; Tasks: uninstallicon; IconFileName: "{app}\icon.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFileName: "{app}\icon.ico"
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon; IconFileName: "{app}\icon.ico"
 
 [Run]
 Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable";
@@ -73,42 +73,3 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 
 
 [UninstallDelete]
-
-[Code]
-
-//Scale the image based on DPI of monitor screen.
-function GetScalingFactor: Integer;
-begin
-  if WizardForm.Font.PixelsPerInch >= 192 then Result := 200
-    else
-  if WizardForm.Font.PixelsPerInch >= 144 then Result := 150
-    else
-  if WizardForm.Font.PixelsPerInch >= 120 then Result := 125
-    else Result := 100;
-end;
-
-//Set image of the far left side panel.
-procedure LoadEmbededScaledBitmap(Image: TBitmapImage; NameBase: string);
-
-var Name: String;
-var FileName: String;
-
-begin
-  Name := Format('%s_%d.bmp', [NameBase, GetScalingFactor]);
-  ExtractTemporaryFile(Name);
-  FileName := ExpandConstant('{tmp}\' + Name);
-  Image.Bitmap.LoadFromFile(FileName);
-  DeleteFile(FileName);
-end;
-
-//Set images based on resolution.
-procedure InitializeWizard;
-
-begin
-  { If using larger scaling, load the correct size of images }
-  if GetScalingFactor > 100 then 
-  begin
-    LoadEmbededScaledBitmap(WizardForm.WizardBitmapImage, 'panel_image');
-  end;
-
-end;
