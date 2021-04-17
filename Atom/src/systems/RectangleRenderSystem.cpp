@@ -103,7 +103,7 @@ void RectangleRenderSystem::update() {
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
 	else if (ae.mLevelManager->level == 21) {
-		setBackground("Atom/res/art/faculty.png");
+		setBackground("Atom/res/art/faculty2.png");
 		draw(glm::vec2{ 0.0f,0.0f }, glm::vec2{ 1.0f,1.0f }, BackgroundAddress, false, ae.mLevelManager->level_alpha);
 	}
 	else if (ae.mLevelManager->level == 22) {
