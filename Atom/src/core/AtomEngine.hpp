@@ -250,6 +250,15 @@ public:
 			mIsPaused = !mIsPaused;
 		}
 
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_F11)) {
+			if (mGraphicsManager->mFullscreen) {
+				mGraphicsManager->WindowMode();
+			}
+			else {
+				mGraphicsManager->FullScreenMode();
+			}
+		}
+
 		if (mIsPaused) {
 			mAudioManager->pause(musicChannelID, true);
 			mAudioManager->pause(sfxChannelID, true);
