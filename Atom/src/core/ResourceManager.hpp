@@ -1,4 +1,8 @@
 /*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
 * @file		ResourceManager.hpp
 * @author	Abhikalp Unakal
 * @brief	ResourceManager - class to load resources from system - platform dependent code

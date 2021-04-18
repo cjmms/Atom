@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		ControllerSystem.hpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Contains logic for character reaction to controls and any other logic regarding for Player Character
+* @date		date 2021-02-03
+*/
+
 #pragma once
 
 #include "Pch.hpp"

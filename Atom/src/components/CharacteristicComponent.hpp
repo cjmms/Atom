@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		CharactersticComponent.hpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Component to determine additional characterstic to an entity
+* @date		2021-03-14
+*/
+
 #pragma once
 #include "Pch.hpp"
 #include "utils/Serde.hpp"

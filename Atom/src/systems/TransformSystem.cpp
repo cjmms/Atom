@@ -1,7 +1,11 @@
 /*
-* @file		TransformSystem.hpp
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		TransformSystem.cpp
 * @author	Abhikalp Unakal
-* @brief	Class Transform Updates
+* @brief	System to update model transform matrix
 * @date		2021-01-27
 */
 

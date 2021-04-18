@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		TransformComponent.hpp
+* @author	Abhikalp Unakal
+* @brief	Defines the graphics transformation of an entity
+* @date		2021-01-28
+*/
+
 #ifndef TRANSFORMCOMPONENT_HPP
 #define TRANSFORMCOMPONENT_HPP
 #include "Pch.hpp"

@@ -664,6 +664,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <ClInclude Include="Atom\lib\stb_image.h" />
     <ClInclude Include="Atom\src\components\AnimationComponent.hpp" />
     <ClInclude Include="Atom\src\components\BossComponent.hpp" />
+    <ClInclude Include="Atom\src\components\IndicatorComponent.hpp" />
     <ClInclude Include="Atom\src\components\MoveToComponent.hpp" />
     <ClInclude Include="Atom\src\components\ParticleComponent.hpp" />
     <ClInclude Include="Atom\src\Pch.hpp" />

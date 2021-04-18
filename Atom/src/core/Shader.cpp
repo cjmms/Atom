@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		Shader.cpp
+* @author	Xingyu Wang
+* @brief	Shader class
+* @date		2021-01-06
+*/
+
 #include "Pch.hpp"
 #include "Shader.hpp"
 #include <glm/gtc/matrix_transform.hpp>

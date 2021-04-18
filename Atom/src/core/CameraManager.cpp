@@ -1,3 +1,19 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		CameraManager.cpp
+* @author	Gerald Lee, Abhikalp Unakal
+* @brief	Controls camera movement and effects
+* @date		2021-03-14
+*/
+
+/*
+* Camera Manager Structure	-	Gerald Lee
+* Audio and effects			-	Abhikal Unakal
+*/
+
 #include "Pch.hpp"
 #include "CameraManager.hpp"
 

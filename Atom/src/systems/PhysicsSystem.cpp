@@ -1,9 +1,14 @@
 /*
-* @file		PhysicsBodyComponent.hpp
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		PhysicsSystem.cpp
 * @author	Gerald Lee
-* @brief	PhysicsBodyComponent
-* @date		2021-01-29
+* @brief	Physics Manager + collision
+* @date		2021-01-26
 */
+
 #include <Pch.hpp>
 #include "PhysicsSystem.hpp"
 

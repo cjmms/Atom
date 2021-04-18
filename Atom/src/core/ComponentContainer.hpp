@@ -1,4 +1,8 @@
 /*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
 * @file		ComponentManager.hpp
 * @author	Abhikalp Unakal
 * @brief	ComponentContainer - class to pack and store components in a component allocd pool with packing for efficiency

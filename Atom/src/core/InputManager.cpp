@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		InputManager.cpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Input Manager - various input logics + stores current and prev state of keyboar and mouse
+* @date		2021-02-03
+*/
+
 #include <Windows.h>
 #include <WinUser.h>
 #include <Pch.hpp>
