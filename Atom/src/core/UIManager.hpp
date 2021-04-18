@@ -31,8 +31,8 @@ public:
     void showCheckCloseWindow();
     void showCheckRestartWindow();
     void showCheckRestartGame();
+    void showCheckExitToMainMenuWindow();
 
-    bool checkRestartGame = false;
 
     struct comparator {
     public:
@@ -43,8 +43,10 @@ public:
         }
     };
 
+    bool checkRestartGame = false;
     bool checkCloseWindow = false;
     bool checkRestartWindow = false;
+    bool checkExitToMainMenu = false;
     std::set<std::function<void()>,comparator> mUIPainters;
     
 };

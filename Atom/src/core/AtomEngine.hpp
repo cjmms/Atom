@@ -90,6 +90,7 @@ public:
 		mIsRunning = true;
 		mIsPaused = false;
 		mIsDebugMode = false;
+		mIsMuted = false;
 
 		// TODO : move all this registration and init code into level manager 
 
@@ -248,6 +249,20 @@ public:
 		// process
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
 			mIsPaused = !mIsPaused;
+		}
+
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_F11)) {
+			if (mGraphicsManager->mFullscreen) {
+				mGraphicsManager->WindowMode();
+			}
+			else {
+				mGraphicsManager->FullScreenMode();
+			}
+		}
+
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_M)) {
+			mIsMuted = !mIsMuted;
+			mAudioManager->mMasterChannelGroup->setMute(mIsMuted);
 		}
 
 		if (mIsPaused) {
@@ -593,6 +608,7 @@ public:
 	bool mIsRunning;
 	bool mIsPaused;
 	bool mIsDebugMode;
+	bool mIsMuted;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;

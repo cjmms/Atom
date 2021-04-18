@@ -232,6 +232,11 @@ void showGameMenu() {
                 ae.mLevelManager->loadLevel(COUNT_INTROS - 2);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
+            if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
+                playMenuclick();
+                ae.mIsPaused = true;
+            }
+            ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CREDITS",ImVec2(button_width,button_height))) {
                 playMenuclick();
                 menu_inprogress = true;

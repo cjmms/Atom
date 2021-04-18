@@ -68,6 +68,8 @@ void UIManager::update(){
 
         if (checkRestartGame) showCheckRestartGame();
 
+        if (checkExitToMainMenu) showCheckExitToMainMenuWindow();
+
     }
     else {
         for (auto& painter : mUIPainters) {
@@ -119,10 +121,40 @@ void UIManager::showMenu(){
         checkRestartWindow = false;  // disable other window
         checkRestartGame = false;
         checkCloseWindow = false;    // disable other window
+        checkExitToMainMenu = false;
         ae.mIsPaused = false;
     }
 
     // Audio UI setup
+    if (ae.mIsMuted) {
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("UNMUTE AUDIO", ImVec2(button_width, button_height)))
+        {
+            playMenuClick();
+            ae.mIsMuted = false;
+            ae.mAudioManager->mMasterChannelGroup->setMute(ae.mIsMuted);
+            checkCloseWindow = false;   // disable other window
+            checkRestartGame = false;
+            checkExitToMainMenu = false;
+            checkRestartWindow = false;
+            ae.mIsPaused = false;
+        }
+    }
+    else {
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("MUTE AUDIO", ImVec2(button_width, button_height)))
+        {
+            playMenuClick();
+            ae.mIsMuted = true;
+            ae.mAudioManager->mMasterChannelGroup->setMute(ae.mIsMuted);
+            checkCloseWindow = false;   // disable other window
+            checkRestartGame = false;
+            checkExitToMainMenu = false;
+            checkRestartWindow = false;
+            ae.mIsPaused = false;
+        }
+    }
+
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     ImGui::SliderFloat("MUSIC VOLUME", &musicVolumedB, 0.0f, 1.0f);
     ImGui::SetCursorPosX(p.x - (button_width / 2));
@@ -138,30 +170,35 @@ void UIManager::showMenu(){
     ae.listener3DSetXOffset(listenerOffset[0]);
     ae.listener3DSetYOffset(listenerOffset[1]);
 
-    ImGui::SetCursorPosX(p.x - (button_width / 2));
-    if (ImGui::Button("RESTART CURRENT LEVEL",ImVec2(button_width, button_height)))
-    {
-        playMenuClick();
-        checkCloseWindow = false;   // disable other window
-        checkRestartGame = false;
-        checkRestartWindow = true;
+    if (ae.mLevelManager->level >= COUNT_INTROS) {
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("RESTART CURRENT LEVEL", ImVec2(button_width, button_height)))
+        {
+            playMenuClick();
+            checkCloseWindow = false;   // disable other window
+            checkRestartGame = false;
+            checkExitToMainMenu = false;
+            checkRestartWindow = true;
+        }
+
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("RESTART GAME", ImVec2(button_width, button_height)))
+        {
+            playMenuClick();
+            checkCloseWindow = false;   // disable other window
+            checkRestartWindow = false;
+            checkExitToMainMenu = false;
+            checkRestartGame = true;
+        }
     }
 
     ImGui::SetCursorPosX(p.x - (button_width / 2));
-    if (ImGui::Button("RESTART GAME", ImVec2(button_width, button_height)))
-    {
-        playMenuClick();
-        checkCloseWindow = false;   // disable other window
-        checkRestartWindow = false;
-        checkRestartGame = true;
-    }
-
-    ImGui::SetCursorPosX(p.x - (button_width / 2));
-    if (ImGui::Button("QUIT GAME", ImVec2(button_width, button_height)))
+    if (ImGui::Button("EXIT", ImVec2(button_width, button_height)))
     {
         playMenuClick();
         checkRestartWindow = false; // disable other window
         checkRestartGame = false;
+        checkExitToMainMenu = false;
         checkCloseWindow = true;
     }
 
@@ -169,31 +206,32 @@ void UIManager::showMenu(){
     if (ImGui::Button("EXIT TO MAIN MENU", ImVec2(button_width, button_height))) {
 
         playMenuClick();
-        ae.mLevelManager->loadLevel(COUNT_INTROS - 1);
-        menu_start = true;
-        ae.mIsPaused = false;
+        checkExitToMainMenu = true;
+        checkRestartWindow = false; // disable other window
+        checkRestartGame = false;
+        checkCloseWindow = false;
     }
-    ImGui::SetCursorPosX(p.x - (button_width / 2));
-    if (ImGui::Button("FULLSCREEN MODE", ImVec2(button_width, button_height))) {
-        playMenuClick();
-        if (ae.mLevelManager->level == COUNT_INTROS - 1) {
-            ae.mLevelManager->restartCurrentLevel();
+    if (!ae.mGraphicsManager->mFullscreen) {
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("FULLSCREEN MODE", ImVec2(button_width, button_height))) {
+            playMenuClick();
+            if (ae.mLevelManager->level == COUNT_INTROS - 1) {
+                ae.mLevelManager->restartCurrentLevel();
+            }
+            ae.mGraphicsManager->FullScreenMode();
         }
-        ae.mGraphicsManager->FullScreenMode();
     }
-    ImGui::SetCursorPosX(p.x - (button_width / 2));
-    if (ImGui::Button("WINDOWED MODE", ImVec2(button_width, button_height))) {
-        playMenuClick();
+    if (ae.mGraphicsManager->mFullscreen) {
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("WINDOWED MODE", ImVec2(button_width, button_height))) {
+            playMenuClick();
 
-        if (ae.mLevelManager->level == COUNT_INTROS - 1) {
-            ae.mLevelManager->restartCurrentLevel();
+            if (ae.mLevelManager->level == COUNT_INTROS - 1) {
+                ae.mLevelManager->restartCurrentLevel();
+            }
+            ae.mGraphicsManager->WindowMode();
         }
-        ae.mGraphicsManager->WindowMode();
-
     }
-
-
-
     ImGui::End();
 }
 
@@ -284,5 +322,36 @@ void UIManager::showCheckRestartGame(){
     ImGui::SetCursorPosX(p.x - (button_width / 2));
     if (ImGui::Button("NO", ImVec2(button_width, button_height))) checkRestartGame = false;
 
+    ImGui::End();
+}
+
+void UIManager::showCheckExitToMainMenuWindow(){
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 120, 30));
+    ImGui::Begin("EXIT TO MAIN MENU", &checkRestartGame,
+        ImGuiWindowFlags_NoCollapse |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoMove |
+        //ImGuiWindowFlags_NoInputs | 
+        //ImGuiWindowFlags_NoScrollbar |
+        //ImGuiWindowFlags_AlwaysAutoResize
+        ImGuiWindowFlags_NoResize
+    );
+    ImVec2 p;
+    p.x = ImGui::GetWindowWidth() / 2;
+    int button_width = ImGui::GetWindowWidth();
+    int button_height = 40;
+    ImGui::Text("ARE YOU SURE YOU WANT TO EXIT TO MAIN MENU ? ALL PROGRESS WILL BE LOST.");
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("YES", ImVec2(button_width, button_height))) {
+        ae.mLevelManager->loadLevel(COUNT_INTROS - 1);
+        menu_start = true;
+        checkExitToMainMenu = false;
+        ae.mIsPaused = false;
+    }
+    ImGui::SetCursorPosX(p.x - (button_width / 2));
+    if (ImGui::Button("NO", ImVec2(button_width, button_height))) {
+        checkExitToMainMenu = false;
+    }
     ImGui::End();
 }
