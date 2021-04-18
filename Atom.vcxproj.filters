@@ -3051,26 +3051,8 @@
     <None Include="Atom\lib\spdlog\include\spdlog\fmt\bundled\LICENSE.rst">
       <Filter>lib\spdlog\include\spdlog\fmt\bundled</Filter>
     </None>
-    <None Include="Atom\res\audio\optimus_speech.ogg">
-      <Filter>res\audio</Filter>
-    </None>
     <None Include="Atom\res\audio\wariyo_mortals.ogg">
       <Filter>res\audio</Filter>
-    </None>
-    <None Include="Atom\res\fonts\arial.ttf">
-      <Filter>res\fonts</Filter>
-    </None>
-    <None Include="Atom\res\fonts\arialbd.ttf">
-      <Filter>res\fonts</Filter>
-    </None>
-    <None Include="Atom\res\fonts\arialbi.ttf">
-      <Filter>res\fonts</Filter>
-    </None>
-    <None Include="Atom\res\fonts\ariali.ttf">
-      <Filter>res\fonts</Filter>
-    </None>
-    <None Include="Atom\res\fonts\ariblk.ttf">
-      <Filter>res\fonts</Filter>
     </None>
     <None Include="Atom\res\levels\Level2_Map.json">
       <Filter>res\levels</Filter>
@@ -3213,6 +3195,7 @@
     <None Include="Atom\res\audio\bulletshot.mp3">
       <Filter>res\audio</Filter>
     </None>
+    <None Include="Atom\res\levels\Level_Default.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Atom\builds\windows\bin\Debug-windows-x86_64\Atom\Atom\res\animation\Vampire0.png">
@@ -3584,12 +3567,6 @@
     <Image Include="Atom\res\art\level_01_background.png">
       <Filter>res\art</Filter>
     </Image>
-    <Image Include="Atom\res\art\orange.png">
-      <Filter>res\art</Filter>
-    </Image>
-    <Image Include="Atom\res\art\orange_transparent.png">
-      <Filter>res\art</Filter>
-    </Image>
     <Image Include="Atom\res\art\team_logo.png">
       <Filter>res\art</Filter>
     </Image>
@@ -3597,9 +3574,6 @@
       <Filter>res\art</Filter>
     </Image>
     <Image Include="Atom\res\art\wall_jump.png">
-      <Filter>res\art</Filter>
-    </Image>
-    <Image Include="Atom\res\art\yellow.png">
       <Filter>res\art</Filter>
     </Image>
   </ItemGroup>

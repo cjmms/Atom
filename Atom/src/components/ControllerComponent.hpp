@@ -20,6 +20,8 @@ public:
     AtomKeycode NEXT_LEVEL;
     AtomKeycode PREV_LEVEL;
     AtomKeycode ED_LEVEL;
+    AtomKeycode FINAL_LEVEL;
+    AtomKeycode IDIE;
     int ROTLEFT = GLFW_KEY_C;
     int ROTRIGHT = GLFW_KEY_V;
 
@@ -39,6 +41,8 @@ inline void to_json(ordered_json& j, const ControllerComponent& x) {
     to_json(j["NEXT_LEVEL"], x.NEXT_LEVEL);
     to_json(j["PREV_LEVEL"], x.PREV_LEVEL);
     to_json(j["ED_LEVEL"], x.ED_LEVEL);
+    to_json(j["FINAL_LEVEL"], x.FINAL_LEVEL);
+    to_json(j["IDIE"], x.IDIE);
     to_json(j["ROTLEFT"], x.ROTLEFT);
     to_json(j["ROTRIGHT"], x.ROTRIGHT);
     
@@ -57,6 +61,8 @@ inline void from_json(const ordered_json& j, ControllerComponent& x) {
     from_json(j["NEXT_LEVEL"], x.NEXT_LEVEL);
     from_json(j["PREV_LEVEL"], x.PREV_LEVEL);
     from_json(j["ED_LEVEL"], x.ED_LEVEL);
+    from_json(j["FINAL_LEVEL"], x.FINAL_LEVEL);
+    from_json(j["IDIE"], x.IDIE);
     from_json(j["ROTLEFT"], x.ROTLEFT);
     from_json(j["ROTRIGHT"], x.ROTRIGHT);
 

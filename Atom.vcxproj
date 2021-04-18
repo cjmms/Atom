@@ -1070,13 +1070,7 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <None Include="Atom\res\audio\jump.ogg" />
     <None Include="Atom\res\audio\land.ogg" />
     <None Include="Atom\res\audio\bulletshot.mp3" />
-    <None Include="Atom\res\audio\optimus_speech.ogg" />
     <None Include="Atom\res\audio\wariyo_mortals.ogg" />
-    <None Include="Atom\res\fonts\arial.ttf" />
-    <None Include="Atom\res\fonts\arialbd.ttf" />
-    <None Include="Atom\res\fonts\arialbi.ttf" />
-    <None Include="Atom\res\fonts\ariali.ttf" />
-    <None Include="Atom\res\fonts\ariblk.ttf" />
     <None Include="Atom\res\levels\animations.json" />
     <None Include="Atom\res\levels\Level2_Map.json" />
     <None Include="Atom\res\levels\Level2_Settings.json" />
@@ -1271,12 +1265,9 @@ IF EXIST "$(ProjectName)\res\shaders\**"\ (xcopy /Q /E /Y /I "$(ProjectName)\res
     <Image Include="Atom\res\art\img.jpg" />
     <Image Include="Atom\res\art\jump.png" />
     <Image Include="Atom\res\art\level_01_background.png" />
-    <Image Include="Atom\res\art\orange.png" />
-    <Image Include="Atom\res\art\orange_transparent.png" />
     <Image Include="Atom\res\art\team_logo.png" />
     <Image Include="Atom\res\art\team_memeber_logo.png" />
     <Image Include="Atom\res\art\wall_jump.png" />
-    <Image Include="Atom\res\art\yellow.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

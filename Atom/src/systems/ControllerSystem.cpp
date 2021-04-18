@@ -210,19 +210,30 @@ void ControllerSystem::update()
 			}
 			
 		}
+
 		if (ae.mInputManager->isKeyTriggered(controller.NEXT_LEVEL))
 		{
 			ae.mLevelManager->loadNextLevel();
 		}
-		if (ae.mInputManager->isKeyTriggered(controller.PREV_LEVEL))
+		else if (ae.mInputManager->isKeyTriggered(controller.PREV_LEVEL))
 		{
 			ae.mLevelManager->loadPreviosLevel();
 		}
-		if (ae.mInputManager->isKeyTriggered(controller.ED_LEVEL))
+		else if (ae.mInputManager->isKeyTriggered(controller.ED_LEVEL))
 		{
 			ae.mLevelManager->loadLevel(ED_LEVELS);
 		}
-
+		else if (ae.mInputManager->isKeyTriggered(controller.FINAL_LEVEL))
+		{
+			ae.mLevelManager->loadLevel(ED_LEVELS - 1);
+		}
+		if (ae.mInputManager->isKeyTriggered(controller.IDIE))
+		{
+			health1.health = 0;
+			health1.died = true;
+			health2.health = 0;
+			health2.died = true;
+		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.LEFT))
 		{
