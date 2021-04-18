@@ -115,7 +115,10 @@ void ShootSystem::update()
 					EntityID bullet = ae.createEntity();
 
 					ae.addComponent(bullet, BulletComponent());
-					ae.addComponent(bullet, ParticleComponent());
+
+					if(ae.hasComponent<ControllerComponent>(entity))
+						ae.addComponent(bullet, ParticleComponent());
+					
 					//todo ser/deser of bullet obj
 					ae.addComponent(bullet, RectangleComponent{
 						glm::vec3{1.0f,1.0f,1.0f},
