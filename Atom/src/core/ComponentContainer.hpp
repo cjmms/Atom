@@ -51,7 +51,7 @@ public:
 
 		mEntityToIndexMap.erase(entity);
 		mIndexToEntityMap.erase(indexOfLastElement);
-		//mComponentContainer.pop_back();
+		mComponentContainer.pop_back();
 		--mCount;
 
 	}

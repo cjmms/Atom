@@ -33,7 +33,7 @@ public:
 	void onEvent(Event& e);
 
 public:
-	std::deque<EntityID> mAvailableEntities{};
+	std::set<EntityID> mAvailableEntities{};
 	std::set<EntityID> mAllocdEntities{};
 	std::array<Archetype, MAX_ENTITIES> mArchetypes{};
 	uint32_t mLivingEntityCount{};

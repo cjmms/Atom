@@ -21,7 +21,7 @@ void ParticleSystem::update() {
 			auto& p = ae.getComponent<ParticleComponent>(entity);
 
 			p.sCon.areaCenter = glm::vec2{ t.position.x - 0.1,t.position.y - 0.1 };
-			p.pE->Draw(p.sCon.areaCenter);
+			p.pE.Draw(p.sCon.areaCenter);
 
 			//std::cout << "draw particle" << std::endl;
 		}

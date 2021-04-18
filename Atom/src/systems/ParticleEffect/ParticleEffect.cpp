@@ -55,7 +55,7 @@ void ParticleEffect::Init()
 	ComputeShader.SetFloat("time", time);
 
 	// render shader uniforms
-	RenderShader.SetInt("vertex_count", Particles.size());
+	RenderShader.SetInt("vertex_count", this->Particles.size());
 }
 
 
@@ -73,7 +73,7 @@ void ParticleEffect::Draw(glm::vec2& position)
 	// Invoke Compute Shader and wait for all memory access to SSBO to safely finish
 	ComputeShader.Bind();
 	glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, SSBO);
-	glDispatchCompute((Particles.size() / 128) + 1, 1, 1);	// group size: 128
+	glDispatchCompute((this->Particles.size() / 128) + 1, 1, 1);	// group size: 128
 	glMemoryBarrier(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT);
 	ComputeShader.UnBind();
 
@@ -83,7 +83,7 @@ void ParticleEffect::Draw(glm::vec2& position)
 	// Render the results
 	RenderShader.Bind();
 	glBindVertexArray(VAO);
-	glDrawArraysInstanced(GL_POINTS, 0, 1, Particles.size());
+	glDrawArraysInstanced(GL_POINTS, 0, 1, this->Particles.size());
 	glBindVertexArray(0);
 
 	lastFrameTime = now;

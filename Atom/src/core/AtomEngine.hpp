@@ -313,7 +313,9 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	inline void endFrame() {
+		//if (mChrononManager->getTotalFrames() % 2 == 0) {
 		glfwSwapBuffers(mGraphicsManager->getWindow());
+		//}
 		mChrononManager->endFrame();
 		dt = mChrononManager->updatedt();
 	}
@@ -507,7 +509,7 @@ public:
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
-		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		//serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
@@ -544,7 +546,7 @@ public:
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
-		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		//deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
