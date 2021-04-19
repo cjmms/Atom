@@ -91,6 +91,8 @@ public:
 		mIsPaused = false;
 		mIsDebugMode = false;
 		mIsMuted = false;
+		mIsControlsShowed = false;
+		mIsOptionsShowed = false;
 
 		// TODO : move all this registration and init code into level manager 
 
@@ -248,7 +250,12 @@ public:
 
 		// process
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
-			mIsPaused = !mIsPaused;
+			if (!mIsControlsShowed) {
+				mIsPaused = !mIsPaused;
+			}
+			else {
+				mIsControlsShowed = !mIsControlsShowed;
+			}
 		}
 
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_F11)) {
@@ -263,6 +270,15 @@ public:
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_M)) {
 			mIsMuted = !mIsMuted;
 			mAudioManager->mMasterChannelGroup->setMute(mIsMuted);
+		}
+
+		if(mInputManager->isKeyTriggered(ATOM_KEYCODE_C) && (mLevelManager->level >= COUNT_INTROS && mLevelManager->level < ED_LEVELS)) {
+			mIsControlsShowed = !mIsControlsShowed;
+		}
+
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_O)) {
+			mIsOptionsShowed = !mIsOptionsShowed;
+			mIsPaused = !mIsPaused;
 		}
 
 		if (mIsPaused) {
@@ -611,6 +627,8 @@ public:
 	bool mIsPaused;
 	bool mIsDebugMode;
 	bool mIsMuted;
+	bool mIsControlsShowed;
+	bool mIsOptionsShowed;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;
