@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		AABBCollision.cpp
+* @author	Gerald Lee
+* @brief	Collision Detection for Rectangular Components
+* @date		2021-02-08
+*/
+
 #include <Pch.hpp>
 #include "components/ShapeComponent.hpp"
 #include "components/TransformComponent.hpp"

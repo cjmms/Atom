@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		GraphicsManager.cpp
+* @author	Xingyu Wang
+* @brief	Graphics Manager - Contains logic for Rendering Entities
+* @date		date 2021-01-27
+*/
+
 #pragma once
 
 #include "Pch.hpp"

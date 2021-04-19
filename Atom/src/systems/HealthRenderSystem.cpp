@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		HealthRenderSystem.cpp
+* @author	Gerald Lee
+* @brief	System to render health bars
+* @date		2021-03-07
+*/
+
 #include "Pch.hpp"
 #include "HealthRenderSystem.hpp"
 #include "utils/Log.hpp"

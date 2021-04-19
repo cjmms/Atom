@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		ShootSystem.cpp
+* @author	Gerald Lee
+* @brief	Contains logic for the shoot action
+* @date		2021-03-06
+*/
+
 #include "Pch.hpp"
 #include "ShootSystem.hpp"
 #include "core/Types.hpp"
@@ -104,7 +115,10 @@ void ShootSystem::update()
 					EntityID bullet = ae.createEntity();
 
 					ae.addComponent(bullet, BulletComponent());
-					ae.addComponent(bullet, ParticleComponent());
+
+					if(ae.hasComponent<ControllerComponent>(entity))
+						ae.addComponent(bullet, ParticleComponent());
+					
 					//todo ser/deser of bullet obj
 					ae.addComponent(bullet, RectangleComponent{
 						glm::vec3{1.0f,1.0f,1.0f},

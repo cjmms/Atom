@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		MoveToSystem.hpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Contains Logic for Movement on trigger action
+* @date		2021-04-13
+*/
+
 #pragma once
 
 #include "Pch.hpp"

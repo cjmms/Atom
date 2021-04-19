@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		PushUpComponent.hpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	To Define an entity that can appy a force
+* @date		date YYYY-MM-DD
+*/
+
 #pragma once
 
 #include "Pch.hpp"

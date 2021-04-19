@@ -1,7 +1,11 @@
 /*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
 * @file		AutoShootComponent.hpp
 * @author	Gerald Lee
-* @brief	Enemy Auto shoot
+* @brief	Enemy Auto Shoot Mechanism
 * @date		2021-03-10
 */
 

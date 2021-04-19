@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		RectangleRenderSystem.cpp
+* @author	Xingyu Wang
+* @brief	System to render rectangles
+* @date		2021-01-27
+*/
+
 #include "Pch.hpp"
 #include "RectangleRenderSystem.hpp"
 #include "utils/Log.hpp"

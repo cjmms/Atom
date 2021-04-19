@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		AnimationSystem.cpp
+* @author	Abhikalp Unakal
+* @brief	Logic for Animation with respect to States of the Character
+* @date		2021-04-12
+*/
+
 #include "Pch.hpp"
 #include "systems/AnimationSystem.hpp"
 #include "core/AtomEngine.hpp"

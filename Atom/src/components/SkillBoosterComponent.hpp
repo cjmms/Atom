@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		SkillBoosterComponent.hpp
+* @author	Gerald Lee
+* @brief	SkillBooster Component
+* @date		date 2021-03-14
+*/
+
 #pragma once
 #include "Pch.hpp"
 #include "core/Types.hpp"

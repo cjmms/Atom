@@ -9,8 +9,6 @@
 * @date		2021-01-16
 */
 
-
-
 #include "Pch.hpp"
 #include "ResourceLoader.hpp"
 #define STB_IMAGE_IMPLEMENTATION

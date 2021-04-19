@@ -1,3 +1,18 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		AllComponents.hpp
+* @author	Team Atom
+* @brief	Combined Header for all components
+* @date		2021-01-27
+*/
+
+/*
+* Team members filled the document with the #include preprocessor directive for their respective components
+*/
+
 #ifndef ALLCOMPONENTS_HPP
 #define ALLCOMPONENTS_HPP
 

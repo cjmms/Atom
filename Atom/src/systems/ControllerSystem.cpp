@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		ControllerSystem.cpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Contains logic for character reaction to controls and any other logic regarding for Player Character
+* @date		date 2021-02-03
+*/
+
 #include "Pch.hpp"
 #include "ControllerSystem.hpp"
 #include "core/Types.hpp"
@@ -19,10 +30,6 @@ extern ChannelID sfxChannelID;
 extern string sfxJump;
 extern string sfxLand;
 extern string sfxBullet;
-
-//void playBulletSound() {
-//	ae.play(sfxBullet, ChannelGroupTypes::C_SFX, 0.01f);
-//}
 
 
 float lerp(float a, float b, float t, float lo, float hi) {
@@ -115,8 +122,6 @@ void ControllerSystem::update()
 
 		float x = lerp(ae.mCameraManager->getPosition().x, target_position.x, ae.dt, 0.0f, camera_fade_time);
 		float y = lerp(ae.mCameraManager->getPosition().y, target_position.y, ae.dt, 0.0f, camera_fade_time);
-		//float x = transformComponent.position.x;
-		//float y = transformComponent.position.y;
 		ae.mCameraManager->setPosition(glm::vec2{ x,y });
 		playerPosition = glm::vec2{ x, y };
 	}
@@ -248,71 +253,64 @@ void ControllerSystem::update()
 			//ATOM_INFO("VELOCITY : {}", body.velocityX);
 		}
 
-			if (ae.mInputManager->isKeyTriggered(controller.UP) && !character1.inSuperGodMode)
+		if (ae.mInputManager->isKeyTriggered(controller.UP) && !character1.inSuperGodMode)
+		{
+			/// AUDIO EVENT
+			Event e(EventID::E_AUDIO_PLAY);
+			e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
+			e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
+			e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
+			ae.sendEvent(e);
+
+			//Jump
+			if (body1.grounded)
 			{
-				/// AUDIO EVENT
-				Event e(EventID::E_AUDIO_PLAY);
-				e.setParam<string>(EventID::P_AUDIO_PLAY_AUDIOLOC,sfxJump);
-				e.setParam<ChannelGroupTypes>(EventID::P_AUDIO_PLAY_CHANNELGROUP,ChannelGroupTypes::C_SFX);
-				e.setParam<float>(EventID::P_AUDIO_PLAY_VOLUMEDB, 0.8f);
-				ae.sendEvent(e);
+				if(character1.isBig)
+					body1.totalForceY = 0.2f;
+				else
+					body1.totalForceY = 3.0f;
 
-				//Jump
-				if (body1.grounded)
+
+				if (character1.canDoubleJump.isEnabled)
 				{
-					if(character1.isBig)
-						body1.totalForceY = 0.2f;
-					else
-						body1.totalForceY = 3.0f;
-
-
-					if (character1.canDoubleJump.isEnabled)
-					{
-						character1.canDoubleJump.isActive = true;
-					}
+					character1.canDoubleJump.isActive = true;
 				}
+			}
 
-				//Wall Jump
-				else if (character1.canWallJump.isEnabled && character1.canWallJump.isActive)
+			//Wall Jump
+			else if (character1.canWallJump.isEnabled && character1.canWallJump.isActive)
+			{
+				//colliding with right side of a wall
+				if (ae.mInputManager->isKeyPressed(controller.LEFT))
 				{
-					//colliding with right side of a wall
-					if (ae.mInputManager->isKeyPressed(controller.LEFT))
-					{
-						body1.velocityX = 1;
-						character1.canWallJump.isActive = false;
-					}
-					else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
-					{
-						body1.velocityX = -1;
-						character1.canWallJump.isActive = false;
-					}
-					//Double Jump
-					else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
-					{
-						character1.canDoubleJump.isActive = false;
-					}
-					body1.velocityY = 0;
-					body1.totalForceY = 3;
+					body1.velocityX = 1;
+					character1.canWallJump.isActive = false;
 				}
-
+				else if (ae.mInputManager->isKeyPressed(controller.RIGHT))
+				{
+					body1.velocityX = -1;
+					character1.canWallJump.isActive = false;
+				}
 				//Double Jump
 				else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
 				{
-					body1.velocityY = 0;
-					body1.totalForceY = 3;
 					character1.canDoubleJump.isActive = false;
 				}
-
-
-				//ATOM_INFO("VELOCITY : {}", body.velocityX);
+				body1.velocityY = 0;
+				body1.totalForceY = 3;
 			}
 
-		//if (ae.mInputManager->isKeyTriggered(controller.UP))
-		//{
-		//	if(body.velocityY == 0)
-		//		body.velocityY = 3;
-		//	//ATOM_INFO("VELOCITY : {}", body.velocityX);
-		//}
+			//Double Jump
+			else if (character1.canDoubleJump.isEnabled && character1.canDoubleJump.isActive)
+			{
+				body1.velocityY = 0;
+				body1.totalForceY = 3;
+				character1.canDoubleJump.isActive = false;
+			}
+
+
+			//ATOM_INFO("VELOCITY : {}", body.velocityX);
+		}
 
 		if (ae.mInputManager->isKeyTriggered(controller.SWAP_CHARACTER) && !health2.died)
 		{
@@ -381,19 +379,12 @@ void ControllerSystem::update()
 
 			if (ae.mInputManager->isKeyPressed(controller.LEFT))
 			{
-				//if(body1.grounded)
 					body1.velocityX = -1;
-				//else if(body1.velocityX > -1)
-				//	body1.totalForceX = -0.1f;
 			}
 
 			if (ae.mInputManager->isKeyPressed(controller.RIGHT))
 			{
-				//if (body1.grounded)
 					body1.velocityX = 1;
-				//else if (body1.velocityX < 1)
-				//	body1.totalForceX = 0.1f;
-				//ae.mCameraManager->setPosition(glm::vec2(body.prevPositionX, body.prevPositionY));
 			}
 
 	}

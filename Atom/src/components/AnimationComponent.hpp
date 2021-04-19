@@ -1,7 +1,11 @@
 /*
-* @file		AnimatinoComponent.hpp
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		AnimationComponent.hpp
 * @author	Abhikalp Unakal
-* @brief	AnimationComponent
+* @brief	Animation Component
 * @date		2021-04-11
 */
 

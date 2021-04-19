@@ -1,5 +1,9 @@
 /*
-* @file		AudioManager.cpp
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		AudioManager.hpp
 * @author	Abhikalp Unakal
 * @brief	Audio Manager to deal with low level channels, samples and DSP's
 * @date		2021-02-10

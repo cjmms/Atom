@@ -8,6 +8,7 @@
 * @brief	main bootstrapper
 * @date		2021-01-12
 */
+
 #define _CRTDBG_MAP_ALLOC
 #include <Pch.hpp>
 #include <crtdbg.h>
@@ -148,7 +149,7 @@ void start() {
 
 void shutdown() {
     // save progress unload memory and shutdown
-    ae.mLevelManager->save();
+    //ae.mLevelManager->save();
     ae.mLevelManager->unload();
     ae.shutdown();
     Log::shutdown();

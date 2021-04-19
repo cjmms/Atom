@@ -1,7 +1,11 @@
 /*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
 * @file		EntityManager.hpp
 * @author	Abhikalp Unakal
-* @brief	EntityManager - class to deal with creation,destruction, setting Archetype, and hasComponent queries on a particular entity 
+* @brief	EntityManager - class to deal with creation,destruction, setting Archetype, and hasComponent queries on a particular entity
 * @date		2021-01-22
 */
 

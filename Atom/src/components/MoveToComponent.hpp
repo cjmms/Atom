@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+* 
+* @file		MoveToComponent.hpp
+* @author	Kishore Kandasamy Balakrishnan
+* @brief	Used to define the movement of an entity on trigger
+* @date		2021-04-13
+*/
+
 #pragma once
 
 #include "Pch.hpp"

@@ -1,3 +1,13 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		UIManager.cpp
+* @author	Abhikalp Unakal
+* @brief	UI Orchestrator
+* @date		2021-04-09
+*/
 
 #include <Pch.hpp>
 #include "UIManager.hpp"

@@ -1,3 +1,14 @@
+/*
+* Copyright (C) 2021 DigiPen Institute of Technology.
+* Reproduction or disclosure of this file or its contents without the
+* prior written consent of DigiPen Institute of Technology is prohibited.
+*
+* @file		ParticleEffect.hpp
+* @author	Xingyu Wang
+* @brief	Particle Initialisation & Rendering using Compute Shader
+* @date		2021-04-07
+*/
+
 #pragma once
 
 #include "core/Shader.hpp"
