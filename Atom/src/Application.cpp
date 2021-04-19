@@ -223,6 +223,7 @@ void showGameMenu() {
      // now we are in menu
     if (ae.mLevelManager->level == COUNT_INTROS-1) {
         ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 175, ImGui::GetIO().DisplaySize.y / 2 - 215));
+        ImGui::SetNextWindowSize(ImVec2(350, 430));
         ImGui::Begin("SPACE JUMP", NULL, 
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoBackground | 
