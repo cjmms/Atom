@@ -10,6 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+DisableWelcomePage=no
 AppId={{E7266615-9098-484A-9D6E-B1C8F91EF174}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
@@ -17,13 +18,15 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\DigiPen\{#MyAppName}
+DefaultDirName={pf}\DigiPen\{#MyAppName}
+; Start menu directory
+DefaultGroupName=DigiPen\{#MyAppName}
 DisableProgramGroupPage=yes
 LicenseFile=copyright\DigiPen_EULA.txt
 InfoBeforeFile=copyright\Welcome.txt
 InfoAfterFile=copyright\Done.txt
 ; Remove the following line to run in administrative install mode (install for all users.)
-PrivilegesRequired=lowest
+PrivilegesRequired=none
 OutputDir=package
 OutputBaseFilename={#MyAppName}_Setup
 ; SetupIconFile=logos\icon.ico
@@ -43,18 +46,17 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
-Name: "uninstallicon"; Description: "Start menu shortcut for unistaller"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "uninstallicon"; Description: "Start menu shortcut for uninstaller"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
 Source: "app\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fmod.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\imgui.ini"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fmodstudio.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\fsbank.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\libfsbvorbis64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "app\opus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "copyright\DigiPen_EULA.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\Atom\res\*"; DestDir: "{app}/Atom/res"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "app\Atom\res\*"; DestDir: "{app}\Atom\res\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "redist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

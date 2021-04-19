@@ -59,9 +59,14 @@ float LevelManager::lerp01(float a, float b, float t, float lo, float hi) {
 void LevelManager::update()
 {
 	//logic to move to next level automatically
-	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || (level < COUNT_INTROS - 1 && screenByPass()))
+	if ((levelTime != -1 && ae.getUptime() - levelStartTime > levelTime) || ((level < COUNT_INTROS - 1 || (level >= ED_LEVELS && level < TOTAL_LEVELS)) && screenByPass()))
 	{
-		loadNextLevel();
+		if (level != TOTAL_LEVELS - 1) {
+			loadNextLevel();
+		}
+		else {
+			loadLevel(COUNT_INTROS - 1);
+		}
 	}
 
 	if (do_fade_in) {
@@ -196,11 +201,11 @@ void LevelManager::load(int level) {
 
 	levelStartTime = ae.getUptime();
 
-	// if last level go back to main menu
-	if (level == TOTAL_LEVELS-1)
-	{
-		loadLevel(1);
-	}
+	//// if last level go back to main menu
+	//if (level == TOTAL_LEVELS-1)
+	//{
+	//	loadLevel(1);
+	//}
 }
 
 void LevelManager::startGame()

@@ -34,7 +34,7 @@ void SelfDestroySystem::update()
 		selfDestroy.timer -= frameTime;
 		if (selfDestroy.timer <= 0)
 		{
-			ae.EnqueueDestroyEntity(entity);
+			ae.destroyEntity(entity);
 		}
 	}
 	

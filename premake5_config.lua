@@ -90,7 +90,6 @@ project "Atom"
 				-- studio
 				'{COPY} "%{prj.name}\\lib\\fmod\\api\\studio\\lib\\x64\\fmodstudio.dll" "%{cfg.buildtarget.directory}"',
 			-- resources
-				'{COPY} "%{prj.name}\\res\\animation\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\animation"',
 				'{COPY} "%{prj.name}\\res\\art\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\art"',
 				'{COPY} "%{prj.name}\\res\\audio\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\audio"',
 				'{COPY} "%{prj.name}\\res\\fonts\\**" "%{cfg.buildtarget.directory}\\Atom\\res\\fonts"',

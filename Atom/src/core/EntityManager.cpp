@@ -24,16 +24,16 @@ EntityManager::EntityManager()
 	//ae.addEventListener(EventID::E_SELF_DESTROY, [this](Event& e) {this->onEvent(e); });
 	
 	for (EntityID entity = 0; entity < MAX_ENTITIES; ++entity) {
-		mAvailableEntities.push_back(entity);
+		mAvailableEntities.insert(entity);
 	}
 }
 
 EntityID EntityManager::createEntity()
 {
 	assert(mLivingEntityCount < MAX_ENTITIES && "Entity Limit Exceeded");
-	EntityID id = mAvailableEntities.front();
+	EntityID id = *mAvailableEntities.begin();
 	mAllocdEntities.insert(id);
-	mAvailableEntities.pop_front();
+	mAvailableEntities.erase(mAvailableEntities.begin());
 	++mLivingEntityCount;
 	if (mLivingEntityCount == UINT32_MAX && mAvailableEntities.size() > 0) {
 		mLivingEntityCount = 0;
@@ -47,7 +47,7 @@ void EntityManager::destroyEntity(EntityID entity)
 	assert(entity < MAX_ENTITIES && "EntityID out of range.");
 	assert(mLivingEntityCount > 0);
 	mArchetypes[entity].reset();
-	mAvailableEntities.push_back(entity);
+	mAvailableEntities.insert(entity);
 	mAllocdEntities.erase(entity);
 	--mLivingEntityCount;
 	ATOM_TRACE("[Entity ID: {}] Entity destroyed", entity);

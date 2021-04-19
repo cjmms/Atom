@@ -4,6 +4,7 @@
   "tilesize_y": 50,
   "levels": [
     "LevelOP1_Settings.json",
+    "LevelOP1_FMOD_Settings.json",
     "LevelOP2_Settings.json",
     "LevelOP3_Settings.json",
     "LevelOP4_Settings.json",

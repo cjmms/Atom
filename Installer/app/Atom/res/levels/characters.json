@@ -53,6 +53,8 @@
         "NEXT_LEVEL": "ATOM_KEYCODE_1",
         "PREV_LEVEL": "ATOM_KEYCODE_2",
         "ED_LEVEL": "ATOM_KEYCODE_3",
+        "FINAL_LEVEL": "ATOM_KEYCODE_4",
+        "IDIE": "ATOM_KEYCODE_5",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": true
@@ -125,6 +127,8 @@
         "NEXT_LEVEL": "ATOM_KEYCODE_1",
         "PREV_LEVEL": "ATOM_KEYCODE_2",
         "ED_LEVEL": "ATOM_KEYCODE_3",
+        "FINAL_LEVEL": "ATOM_KEYCODE_4",
+        "IDIE": "ATOM_KEYCODE_5",
         "ROTLEFT": 67,
         "ROTRIGHT": 86,
         "isActive": false

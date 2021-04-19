@@ -149,7 +149,7 @@ void start() {
 
 void shutdown() {
     // save progress unload memory and shutdown
-    ae.mLevelManager->save();
+    //ae.mLevelManager->save();
     ae.mLevelManager->unload();
     ae.shutdown();
     Log::shutdown();
@@ -166,10 +166,11 @@ void printScore() {
     }
 }
 
+bool menu_exit = false;
 bool menu_start = true;
 bool menu_ingame = false;
-char buttontext[40] = "PLAY";
 bool menu_inprogress = false;
+char buttontext[40] = "PLAY";
 
 void playMenuclick() {
     ae.play(sfxClick, ChannelGroupTypes::C_SFX, 0.2f + sfxVolumedB);
@@ -193,10 +194,37 @@ void initSpectrum(){
     }
 }
 
+void checkMainGameExit() {
+    if (ae.mLevelManager->level == COUNT_INTROS - 1 && menu_exit) {
+        ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 175, 30));
+        ImGui::Begin("CLOSE WINDOW", &menu_exit,
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoBackground |
+            ImGuiWindowFlags_NoTitleBar |
+            ImGuiWindowFlags_NoMove |
+            //ImGuiWindowFlags_NoInputs | 
+            //ImGuiWindowFlags_NoScrollbar |
+            //ImGuiWindowFlags_AlwaysAutoResize
+            ImGuiWindowFlags_NoResize
+        );   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+        ImVec2 p;
+        p.x = ImGui::GetWindowWidth() / 2;
+        int button_width = ImGui::GetWindowWidth();
+        int button_height = 40;
+        ImGui::Text("ARE YOU SURE YOU WANT TO QUIT THE GAME ?");
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("YES", ImVec2(button_width, button_height))) ae.mIsRunning = false;
+        ImGui::SetCursorPosX(p.x - (button_width / 2));
+        if (ImGui::Button("NO", ImVec2(button_width, button_height))) menu_exit = false;
+        ImGui::End();
+    }
+}
+
 void showGameMenu() {
      // now we are in menu
     if (ae.mLevelManager->level == COUNT_INTROS-1) {
         ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x / 2 - 175, ImGui::GetIO().DisplaySize.y / 2 - 215));
+        ImGui::SetNextWindowSize(ImVec2(350, 430));
         ImGui::Begin("SPACE JUMP", NULL, 
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoBackground | 
@@ -236,22 +264,27 @@ void showGameMenu() {
             if (ImGui::Button("OPTIONS", ImVec2(button_width, button_height))) {
                 playMenuclick();
                 ae.mIsPaused = true;
+                ae.mIsOptionsShowed = true;
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
             if (ImGui::Button("CREDITS",ImVec2(button_width,button_height))) {
                 playMenuclick();
+                ae.mIsPaused = false;
                 menu_inprogress = true;
                 ae.mLevelManager->loadLevel(ED_LEVELS);
             }
             ImGui::SetCursorPosX(p.x - (button_width / 2));
-            if (ImGui::Button("EXIT", ImVec2(button_width, button_height))) {
+            if (ImGui::Button("QUIT GAME", ImVec2(button_width, button_height))) {
                 playMenuclick();
-                ae.mIsRunning = false;
+                menu_exit = true;
+                //checkMainGameExit();
+                //ae.mIsRunning = false;
             }
         }
         ImGui::End();
     }
 }
+
 
 
 #ifdef DEBUG
@@ -265,6 +298,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd) {
     start();
     ae.mUIManager->addUIPainter(printScore);
     ae.mUIManager->addUIPainter(showGameMenu);
+    ae.mUIManager->addUIPainter(checkMainGameExit);
 
 
     while (ae.mIsRunning) {

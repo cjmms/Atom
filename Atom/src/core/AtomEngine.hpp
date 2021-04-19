@@ -95,6 +95,8 @@ public:
 		mIsPaused = false;
 		mIsDebugMode = false;
 		mIsMuted = false;
+		mIsControlsShowed = false;
+		mIsOptionsShowed = false;
 
 		// TODO : move all this registration and init code into level manager 
 
@@ -252,7 +254,12 @@ public:
 
 		// process
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_ESCAPE)) {
-			mIsPaused = !mIsPaused;
+			if (!mIsControlsShowed) {
+				mIsPaused = !mIsPaused;
+			}
+			else {
+				mIsControlsShowed = !mIsControlsShowed;
+			}
 		}
 
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_F11)) {
@@ -267,6 +274,15 @@ public:
 		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_M)) {
 			mIsMuted = !mIsMuted;
 			mAudioManager->mMasterChannelGroup->setMute(mIsMuted);
+		}
+
+		if(mInputManager->isKeyTriggered(ATOM_KEYCODE_C) && (mLevelManager->level >= COUNT_INTROS && mLevelManager->level < ED_LEVELS)) {
+			mIsControlsShowed = !mIsControlsShowed;
+		}
+
+		if (mInputManager->isKeyTriggered(ATOM_KEYCODE_O)) {
+			mIsOptionsShowed = !mIsOptionsShowed;
+			mIsPaused = !mIsPaused;
 		}
 
 		if (mIsPaused) {
@@ -317,7 +333,9 @@ public:
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 	inline void endFrame() {
+		//if (mChrononManager->getTotalFrames() % 2 == 0) {
 		glfwSwapBuffers(mGraphicsManager->getWindow());
+		//}
 		mChrononManager->endFrame();
 		dt = mChrononManager->updatedt();
 	}
@@ -511,7 +529,7 @@ public:
 		serializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		serializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		serializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
-		serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		//serializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//serializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		serializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		serializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
@@ -548,7 +566,7 @@ public:
 		deserializeComponent<AutoMovementComponent>(j["AutoMovementComponent"], entity);
 		deserializeComponent<SelfDestroyComponent>(j["SelfDestroyComponent"], entity);
 		deserializeComponent<LevelTriggerComponent>(j["LevelTriggerComponent"], entity);
-		deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
+		//deserializeComponent<ParticleComponent>(j["ParticleComponent"], entity);
 		//deserializeComponent<ParticleComponent>(j["AnimationComponent"], entity);
 		deserializeComponent<DamageComponent>(j["DamageComponent"], entity);
 		deserializeComponent<PushUpComponent>(j["PushUpComponent"], entity);
@@ -613,6 +631,8 @@ public:
 	bool mIsPaused;
 	bool mIsDebugMode;
 	bool mIsMuted;
+	bool mIsControlsShowed;
+	bool mIsOptionsShowed;
 
 	std::unique_ptr<ChrononManager> mChrononManager;
 	std::unique_ptr<EntityManager> mEntityManager;

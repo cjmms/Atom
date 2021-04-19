@@ -28,9 +28,9 @@
 #define FMODMAXCHANNELS 512
 #define FADE_OUT_TIME 1.0f
 #define FADE_IN_TIME 1.0f
-#define COUNT_INTROS 6
-#define TOTAL_LEVELS 25
-#define ED_LEVELS 19
+#define COUNT_INTROS 7
+#define TOTAL_LEVELS 26
+#define ED_LEVELS 20
 
 // USING
 using string = std::string;
