@@ -26,7 +26,7 @@ LicenseFile=copyright\DigiPen_EULA.txt
 InfoBeforeFile=copyright\Welcome.txt
 InfoAfterFile=copyright\Done.txt
 ; Remove the following line to run in administrative install mode (install for all users.)
-PrivilegesRequired=none
+; PrivilegesRequired=none
 OutputDir=package
 OutputBaseFilename={#MyAppName}_Setup
 ; SetupIconFile=logos\icon.ico
@@ -50,14 +50,9 @@ Name: "uninstallicon"; Description: "Start menu shortcut for uninstaller"; Group
 
 [Files]
 Source: "app\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\fmod.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\fmodstudio.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\fsbank.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\libfsbvorbis64.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\opus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "copyright\DigiPen_EULA.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "app\Atom\res\*"; DestDir: "{app}\Atom\res\"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "redist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "app\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "redist\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs deleteafterinstall
 Source: "logos\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
@@ -70,8 +65,9 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon; IconFileName: "{app}\icon.ico"
 
 [Run]
-Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable";
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent;
+Filename: "{app}\VC_redist.x64.exe"; Parameters: "/install /quiet /norestart"; StatusMsg: "Installing Microsoft vs2019 Redistributable"; 
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: runascurrentuser nowait postinstall skipifsilent;
+
 
 
 [UninstallDelete]
