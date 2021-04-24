@@ -1,0 +1,30 @@
+
+
+3b.   To license a font for any other options below simply add the font to your cart and complete the checkout process.
+
+    Desktop License: This type of license gives you the ability to install and use your system font to create and print documents. Create graphics and static images (jpeg, tiff, png) for use on web or mobile add.
+     
+    Web License: Are you looking to customize your website with a specific font? All you need to do is buy a web license. Most of the web licenses we offer are based on a Pay-Once model – you buy it, host it and that’s it. The only time you would have to re-up this if your site traffic exceeds the monthly number of pageviews your license is set for.
+
+    The only variation is with the following three foundries who use a pay-as-you-go model which require you to buy a certain quantity of pageviews, and once that quantity has been used up, you’ll have to come back to add more views.
+    - Monotype
+    - Linotype
+    - Ascender 
+     
+    Digital Ads License: Mobile App License: ePub License: Server Fonts License: Take control of your digital ad creative and enjoy the flexibility and freedom our digital ads license brings to your brand experience.
+    - Campaign based month to month pricing allows you to pay for only the number of impressions you need.
+    - Ability to use your fonts across authoring platforms o Full web font functionality
+     
+    Mobile App License: Curious how you can brand your mobile app? Buy a mobile license, use it on one app, distribute the app across multiple platforms (iOS and Android) and get unlimited number for app installations.
+    -Note: Some mobile app font licenses are valid for a year and will require them to be licensed each year the font is in use.
+     
+    ePub License: ePub license can be overwhelming and the simplest way to think about is that a license is needed when creating layouts for e-publications like the Kindle, iPads or other eReaders.
+    - The price of an ePub license will depend on the number of publications you intend to embed the font into: one issue of a magazine requires one license, just as one electronic book requires a one-time license purchase. So, when your book tops the best-sellers list, we won’t rain on your parade; the license is valid for an unlimited number of copies downloaded.
+    - Updated versions of publications that are free to previous customers do not need a new license; otherwise, each new version released counts as a separate publication. Regional or format variations of a work do not count as separate publications.
+    - If you just need a font to create a cover image, purchase a desktop license.
+    - An ePub license is valid for file formats such as PDF, EPUB 2.01, EPUB 3, and KF8.
+     
+    Server Fonts License: Do you need to install a font on a server to generate items such as PDF invoices, custom business cards, or other personalized products? A license allows your customers to utilize the fonts you have purchased in order to customize the products that you offer, but the fonts cannot be distributed or downloaded from the server.
+
+    This license is valid for one year and is renewed each year that the font remains installed. The price is based upon the number of production servers on which the font is installed. The font can be installed on any number of development servers. A font downloaded with this license cannot be used in SaaS, where the service is the product rather that the item that is created.
+
